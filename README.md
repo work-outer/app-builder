@@ -19,11 +19,11 @@ AppBuilder.registerComponent(Heading, {
 })
 ```
 
-## App Designer
+## Design app visually
 
 You can build your app by drag & drop.
 
-## App json
+### Generate my.app.json
 
 ```json
 {
@@ -37,8 +37,8 @@ You can build your app by drag & drop.
             "components": [
                 {
                     "type": "header",
-                    "props: {
-                        title: "Hello World"
+                    "props": {
+                        "title": "Hello World"
                      }
                 }
             ]
@@ -47,7 +47,15 @@ You can build your app by drag & drop.
 }
 ```
 
-## App Render
+## Render your visually created app
 
-Render you app by json
+```
+import { AppRender, AppBuilder } from '@steedos/app-builder'
   
+export default let MyPage = () => {
+  const [appJson, setPage] = useState(null)
+ 
+  return <AppRender content={appJson} />
+}
+
+```
