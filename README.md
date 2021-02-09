@@ -29,15 +29,17 @@ You can build your app by drag & drop.
 {
     "name": "Hello World",
     "type": "page",
-    "components": [
+    "body": [
         {
             "type": "section",
-            "label": "Section 1",
+            "data": {
+                 "label": "Section 1",
+            }
             "droppable": true,
             "components": [
                 {
                     "type": "header",
-                    "props": {
+                    "data": {
                         "title": "Hello World"
                      }
                 }
