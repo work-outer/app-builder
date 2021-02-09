@@ -14,7 +14,7 @@ const Heading = props => (
 )
  
 AppBuilder.registerComponent(Heading, { 
-  name: 'heading',
+  name: '@custom/heading',
   label: 'Heading',
   settings: [{ name: 'title', type: 'text' }]
 })
@@ -28,21 +28,15 @@ You can build your app by drag & drop.
 
 ```json
 {
-    "name": "Hello World",
-    "type": "page",
-    "body": [
+    "@type": "@app-builder/page",
+    "children": [
         {
-            "type": "section",
-            "data": {
-                 "label": "Section 1"
-            },
-            "droppable": true,
-            "body": [
+            "@type": "@app-builder/sections",
+            "label": "Section 1"
+            "children": [
                 {
-                    "type": "header",
-                    "data": {
-                        "title": "Hello World"
-                     }
+                    "@type": "@custom/heading",
+                    "title": "Hello World"
                 }
             ]
         },
