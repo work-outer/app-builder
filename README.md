@@ -5,18 +5,18 @@ Drag and drop app building using your react components
 ## Register your components
 
 ```
-import { AppBuilder } from '@steedos/app-builder'
+import { Builder } from '@steedos/builder'
  
 // Register our heading component for use in 
 // the visual editor
-const Heading = props => (
-  <h1 className={style}>{props.title}</h1>
+const Hello = props => (
+  <h1 className={style}>Hello {props.name}</h1>
 )
  
-AppBuilder.registerComponent(Heading, { 
-  name: '@custom/heading',
-  label: 'Heading',
-  settings: [{ name: 'title', type: 'text' }]
+Builder.registerComponent(Hello, { 
+  name: '@custom/hello',
+  label: 'Hello',
+  props: [{ prop: 'name', type: 'text' }]
 })
 ```
 
@@ -24,19 +24,19 @@ AppBuilder.registerComponent(Heading, {
 
 You can build your app by drag & drop.
 
-### Generate my.app.json
+### Generate my.page.json
 
 ```json
 {
-    "@type": "@app-builder/page",
+    "@type": "@steedos/component-page",
     "children": [
         {
-            "@type": "@app-builder/sections",
-            "label": "Section 1"
+            "@type": "@steedos/component-sections",
+            "title": "Section 1",
             "children": [
                 {
-                    "@type": "@custom/heading",
-                    "title": "Hello World"
+                    "@type": "@custom/hello",
+                    "name": "World"
                 }
             ]
         },
@@ -44,15 +44,15 @@ You can build your app by drag & drop.
 }
 ```
 
-## Render your visually created app
+## Render your visually created page
 
 ```
-import { AppRender, AppBuilder } from '@steedos/app-builder'
+import { Render, Builder } from '@steedos/builder'
   
 export default let MyPage = () => {
   const [appJson, setPage] = useState(null)
  
-  return <AppRender content={appJson} />
+  return <Render content={appJson} />
 }
 
 ```
