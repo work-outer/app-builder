@@ -35,9 +35,9 @@ You can build your app by drag & drop.
             "type": "section",
             "data": {
                  "label": "Section 1"
-            }
+            },
             "droppable": true,
-            "components": [
+            "body": [
                 {
                     "type": "header",
                     "data": {
