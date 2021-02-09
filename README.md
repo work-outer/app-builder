@@ -14,7 +14,8 @@ const Heading = props => (
 )
  
 AppBuilder.registerComponent(Heading, { 
-  name: 'Heading',
+  name: 'heading',
+  label: 'Heading',
   settings: [{ name: 'title', type: 'text' }]
 })
 ```
@@ -33,7 +34,7 @@ You can build your app by drag & drop.
         {
             "type": "section",
             "data": {
-                 "label": "Section 1",
+                 "label": "Section 1"
             }
             "droppable": true,
             "components": [
