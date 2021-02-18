@@ -2,7 +2,7 @@ import * as React from "react"
 import { Layout, Box } from "../src"
 
 export default {
-  title: "SimpleGrid",
+  title: "Layout",
 }
 
 export const WithColumns = () => (

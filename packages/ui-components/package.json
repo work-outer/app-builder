@@ -36,7 +36,6 @@
     "@chakra-ui/react": "^1.3.3",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
-    "amis": "^1.1.4",
     "framer-motion": "^3.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -44,5 +43,6 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.2"
-  }
+  },
+  "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-components"
 }

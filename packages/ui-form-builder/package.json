@@ -2,5 +2,6 @@
   "name": "@steedos/ui-form-builder",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-form-builder"
 }
