@@ -2,7 +2,7 @@ import * as React from "react"
 import { Layout, Center, LayoutItem } from "../src"
 
 export default {
-  title: "Grid",
+  title: "Layout",
 }
 
 export const ThreeColumns = () => (

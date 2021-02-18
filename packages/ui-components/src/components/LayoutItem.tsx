@@ -1,6 +1,6 @@
 
-import React, { Children } from "react";
-import { GridItem } from '@chakra-ui/react';
+import React from "react";
+import { GridItem } from '..';
 
 export class LayoutItem extends React.Component<any> {
   static defaultProps = {
