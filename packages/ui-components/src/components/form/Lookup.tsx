@@ -9,26 +9,36 @@ export class FieldLookup extends React.Component<any> {
 
   render() {
     const { ...rest} = this.props
-
-    return renderAmis({
-      "type": "picker",
-      "name": "picker",
-      "label": "picker",
-      "options": [
+    
+    const schema = {
+      "type": "form",
+      "api": "https://3xsw4ap8wah59.cfc-execute.bj.baidubce.com/api/amis-mock/mock2/form/saveForm",
+      "controls": [
         {
-          "label": "A",
-          "value": "a"
-        },
-        {
-          "label": "B",
-          "value": "b"
-        },
-        {
-          "label": "C",
-          "value": "c"
-        }
-      ]
-    });
+          "type": "picker",
+          "name": "picker",
+          "label": "picker",
+          "options": [
+            {
+              "label": "A",
+              "value": "a"
+            },
+            {
+              "label": "B",
+              "value": "b"
+            },
+            {
+              "label": "C",
+              "value": "c"
+            }
+          ]
+        }]
+      }
+    return (
+      <>
+      {renderAmis(schema, {})}
+      </>
+    )
   }
 }
 

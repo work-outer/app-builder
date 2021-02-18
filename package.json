@@ -48,8 +48,7 @@
   "resolutions": {
     "**/react": "17.0.1",
     "**/react-dom": "17.0.1",
-    "@popperjs/core": "2.4.4",
-    "**/@emotion/styled": "11.1.5"
+    "@popperjs/core": "2.4.4"
   },
   "dependencies": {
     "@babel/cli": "7.12.10",
