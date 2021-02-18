@@ -1,0 +1,9 @@
+{
+  "name": "@steedos/app-builder",
+  "version": "0.0.1",
+  "workspaces": ["packages/**"],
+  "repository": "https://github.com/steedos/app-builder.git",
+  "author": "Jack Zhuang <50353452+hotlong@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true
+}
