@@ -1,5 +1,5 @@
 import * as React from "react"
-import { RecordEditForm, FormSection, InputField } from "../src"
+import { RecordEditForm, FormSection, InputField, FieldLookup } from "../src"
 
 export default {
   title: "Form",
@@ -20,7 +20,7 @@ export const RecordEditFormWithSection = () => (
       </FormSection>
       <FormSection title="Section 2">
         <InputField fieldName="name"/>
-        <InputField fieldName="email"/>
+        <FieldLookup fieldName="email"/>
       </FormSection>
     </RecordEditForm>
   )

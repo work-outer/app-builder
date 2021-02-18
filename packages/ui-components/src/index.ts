@@ -1,4 +1,4 @@
-export * from '@chakra-ui/react'
+export {Center} from '@chakra-ui/react'
 
 export {default as Layout} from './components/Layout';
 export {default as LayoutItem} from './components/LayoutItem';
@@ -8,3 +8,6 @@ export {default as RecordForm} from './components/RecordForm';
 export {default as RecordViewForm} from './components/RecordViewForm';
 export {default as RecordEditForm} from './components/RecordEditForm';
 export {default as FormSection} from './components/FormSection';
+
+
+export {default as FieldLookup} from './components/form/Lookup';

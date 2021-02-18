@@ -1,6 +1,6 @@
 
 import React from "react";
-import { FormControl,FormLabel,Input,FormHelperText } from '..';
+import { FormControl,FormLabel,Input,FormHelperText } from '@chakra-ui/react';
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
 export class InputField extends React.Component<any> {

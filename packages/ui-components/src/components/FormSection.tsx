@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Accordion,AccordionItem,AccordionButton,Box,AccordionIcon,AccordionPanel } from '..';
+import { Accordion,AccordionItem,AccordionButton,Box,AccordionIcon,AccordionPanel } from '@chakra-ui/react';
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
 export class FormSection extends React.Component<any> {

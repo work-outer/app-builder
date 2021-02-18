@@ -1,6 +1,6 @@
 
 import React from "react";
-import { GridItem } from '..';
+import { GridItem } from '@chakra-ui/react';
 
 export class LayoutItem extends React.Component<any> {
   static defaultProps = {
