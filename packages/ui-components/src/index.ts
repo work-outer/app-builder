@@ -1,4 +1,6 @@
 export {
+    Box,
+    Grid,
     Container,
     Editable
 } from '@chakra-ui/react'
