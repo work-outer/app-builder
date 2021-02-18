@@ -1,23 +1,22 @@
 
-import React from "react";
+import React, { Children } from "react";
 import { Grid } from '@chakra-ui/react';
 
 export class Layout extends React.Component<any> {
   static defaultProps = {
     column: 12,
-    gap: 4,
   }
 
   render() {
-    const {height, columns, gap} = this.props
+    const {column, ...rest} = this.props
 
     return (
       <>
         <Grid
-          h={height}
-          templateColumns={`repeat(${columns}, 1fr)`}
-          gap={gap}
-          />
+          // column={[1, column,column,column]}
+          {...rest}
+          >
+        </Grid>
       </>
     )
   }

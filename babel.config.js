@@ -22,7 +22,7 @@ module.exports = function (api) {
 
   const plugins = [
     "@chakra-ui/babel-plugin",
-    "@babel/plugin-proposal-class-properties",
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
   ]
 
   return {
