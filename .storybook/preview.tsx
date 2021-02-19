@@ -10,6 +10,7 @@ import { StoryContext } from "@storybook/react"
 import * as React from "react"
 import { FaMoon, FaSun } from "react-icons/fa"
 import { withPerformance } from "storybook-addon-performance"
+import IconSettings from '@salesforce/design-system-react/components/icon-settings';
 
 /**
  * Add global context for RTL-LTR switching
@@ -60,4 +61,12 @@ const withChakra = (StoryFn: Function, context: StoryContext) => {
   )
 }
 
-export const decorators = [withChakra, withPerformance]
+const withSFDS = (StoryFn: Function, context: StoryContext) => {
+
+  return (
+    <IconSettings iconPath="/node_modules/@salesforce-ux/design-system/assets/icons">
+      <StoryFn />
+    </IconSettings>
+  )
+}
+export const decorators = [withChakra, withPerformance, withSFDS]

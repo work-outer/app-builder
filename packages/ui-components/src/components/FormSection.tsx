@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Collapse, Row } from 'antd';
+import ExpandableSection from '@salesforce/design-system-react/components/expandable-section';
 
 export class FormSection extends React.Component<any> {
   static defaultProps = {
@@ -12,13 +13,13 @@ export class FormSection extends React.Component<any> {
 
     return (
 
-      <Collapse defaultActiveKey={["1"]} ghost>
-        <Collapse.Panel header={title} {...rest} key="1">
-          <Row gutter={16}>
-            {children}
-          </Row>
-        </Collapse.Panel>
-      </Collapse>
+      <ExpandableSection
+        title="Section Title"
+      >
+        <div className="grid grid-cols-12 gap-4">
+          {children}
+        </div>
+      </ExpandableSection>
     )
   }
 }

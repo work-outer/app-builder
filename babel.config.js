@@ -18,6 +18,7 @@ module.exports = function (api) {
     ],
     "@babel/preset-typescript",
     "@babel/preset-react",
+    // "@salesforce/babel-preset-design-system-react"
   ]
 
   const plugins = [

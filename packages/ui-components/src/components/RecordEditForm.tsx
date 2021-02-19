@@ -12,9 +12,9 @@ export class RecordEditForm extends React.Component<any> {
     const {objectApiName, recordId, layout, children, ...rest} = this.props
 
     return (
-      <Form layout={layout} {...rest} >
+      <div className="slds-form" role="list">
           {children}
-      </Form>
+      </div>
     )
   }
 }

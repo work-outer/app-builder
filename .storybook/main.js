@@ -37,8 +37,16 @@ module.exports = {
           },
         },
       ],
-      include: path.resolve(__dirname, '../node_modules'),
+      include: path.resolve(__dirname, '../node_modules/antd'),
     });
+
+    config.module.rules.push({
+        test: /\.jsx?$/,
+        loaders: ['babel-loader'],
+        include: [
+            path.join(__dirname, '../node_modules/@salesforce/design-system-react'),
+        ]
+    })
 
     return {
       ...config,
