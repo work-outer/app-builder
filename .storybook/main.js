@@ -13,6 +13,33 @@ module.exports = {
     reactDocgen: false,
   },
   webpackFinal: async (config) => {
+
+    // Make whatever fine-grained changes you need
+    config.module.rules.push({
+      test: /\.less$/,
+      use: [
+        { 
+          loader: 'style-loader', 
+        }, 
+        { 
+          loader: 'css-loader', 
+          options: {
+            importLoaders: 1,
+            modules: true,
+          }
+        }, 
+        { 
+          loader: 'less-loader',
+          options: {
+            lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
+              javascriptEnabled: true,
+            },
+          },
+        },
+      ],
+      include: path.resolve(__dirname, '../node_modules'),
+    });
+
     return {
       ...config,
       resolve: {
