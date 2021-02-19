@@ -54,11 +54,11 @@ Drag and drop app building using your react components
 
 传入的json格式如下：
 
-```json
+```text
 {
   "{group-key}":{
     "label": "{group-label}",
-    "expanded": {true/false},
+    "expanded": true/false,
     "components":{
       "{component-key}":{
         "type": "{component-type}",
@@ -77,7 +77,7 @@ Drag and drop app building using your react components
 
 比如要允许拖动不同字段类型的FormItem组件，可以传入以下参数：
 
-```json
+```text
 {
   "fields":{
     "label": "字段",
@@ -112,7 +112,7 @@ Drag and drop app building using your react components
 
 再比如要允许拖动不同的相关表的RelatedList组件，可以传入以下参数：
 
-```json
+```text
 {
   "related-list":{
     "label": "相关表",
