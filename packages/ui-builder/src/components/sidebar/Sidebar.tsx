@@ -6,6 +6,11 @@ import {
   InputRightElement,
   DarkMode,
   IconButton,
+  Accordion,
+  AccordionItem,
+  AccordionButton, 
+  AccordionIcon,
+  AccordionPanel
 } from '@chakra-ui/react'
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
 import DragItem from './DragItem'
@@ -58,54 +63,94 @@ const Menu = () => {
           </InputRightElement>
         </InputGroup>
 
-        {(Object.keys(menuItems) as ComponentType[])
-          .filter(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
-          .map(name => {
-            const { children, soon } = menuItems[name] as MenuItem
+        <Accordion allowMultiple defaultIndex={[0,1]} color="#fff">
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  字段
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              
+            </AccordionPanel>
+          </AccordionItem>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  相关表
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              
+            </AccordionPanel>
+          </AccordionItem>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box flex="1" textAlign="left">
+                  组件
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              {(Object.keys(menuItems) as ComponentType[])
+                .filter(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
+                .map(name => {
+                  const { children, soon } = menuItems[name] as MenuItem
 
-            if (children) {
-              const elements = Object.keys(children).map(childName => (
-                <DragItem
-                  isChild
-                  key={childName}
-                  label={childName}
-                  type={childName as any}
-                  id={childName as any}
-                  rootParentType={menuItems[name]?.rootParentType || name}
-                >
-                  {childName}
-                </DragItem>
-              ))
+                  if (children) {
+                    const elements = Object.keys(children).map(childName => (
+                      <DragItem
+                        isChild
+                        key={childName}
+                        label={childName}
+                        type={childName as any}
+                        id={childName as any}
+                        rootParentType={menuItems[name]?.rootParentType || name}
+                      >
+                        {childName}
+                      </DragItem>
+                    ))
 
-              return [
-                <DragItem
-                  isMeta
-                  soon={soon}
-                  key={`${name}Meta`}
-                  label={name}
-                  type={`${name}Meta` as any}
-                  id={`${name}Meta` as any}
-                  rootParentType={menuItems[name]?.rootParentType || name}
-                >
-                  {name}
-                </DragItem>,
-                ...elements,
-              ]
-            }
+                    return [
+                      <DragItem
+                        isMeta
+                        soon={soon}
+                        key={`${name}Meta`}
+                        label={name}
+                        type={`${name}Meta` as any}
+                        id={`${name}Meta` as any}
+                        rootParentType={menuItems[name]?.rootParentType || name}
+                      >
+                        {name}
+                      </DragItem>,
+                      ...elements,
+                    ]
+                  }
 
-            return (
-              <DragItem
-                soon={soon}
-                key={name}
-                label={name}
-                type={name as any}
-                id={name as any}
-                rootParentType={menuItems[name]?.rootParentType || name}
-              >
-                {name}
-              </DragItem>
-            )
-          })}
+                  return (
+                    <DragItem
+                      soon={soon}
+                      key={name}
+                      label={name}
+                      type={name as any}
+                      id={name as any}
+                      rootParentType={menuItems[name]?.rootParentType || name}
+                    >
+                      {name}
+                    </DragItem>
+                  )
+              })}
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </Box>
     </DarkMode>
   )
