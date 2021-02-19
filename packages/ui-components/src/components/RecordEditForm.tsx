@@ -1,6 +1,5 @@
 
 import React from "react";
-import {Form} from 'antd'
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-record-edit-form
 export class RecordEditForm extends React.Component<any> {

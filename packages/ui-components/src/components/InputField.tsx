@@ -1,6 +1,5 @@
 
 import React from "react";
-// import { Form, Input, Col } from 'antd'
 import Input from '@salesforce/design-system-react/components/input'; 
 import Tooltip from '@salesforce/design-system-react/components/tooltip'; 
 

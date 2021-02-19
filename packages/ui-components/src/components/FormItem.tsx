@@ -1,9 +1,7 @@
 
 import React from "react";
-import { Form, Input, Col } from 'antd'
 import InputField from './InputField'
 import OutputField from './OutputField'
-import { read } from "fs";
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation

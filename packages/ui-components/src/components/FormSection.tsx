@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Collapse, Row } from 'antd';
 import ExpandableSection from '@salesforce/design-system-react/components/expandable-section';
 
 export class FormSection extends React.Component<any> {
