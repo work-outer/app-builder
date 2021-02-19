@@ -173,3 +173,30 @@ export const componentsList: ComponentType[] = [
   'Text',
   'Textarea',
 ]
+
+export const menuFieldsParms = {
+  "fields":{
+    "label": "字段",
+    "expanded": true,
+    "components": {
+      "form-item-name":{
+        "type": "form-item",
+        "label": "合同名称",
+        "defaultProps": {
+          "objectName": "contracts",
+          "fieldName": "name",
+          "fieldType": "text",
+        }
+      },
+      "form-item-amount":{
+        "type": "form-item",
+        "label": "合同金额",
+        "defaultProps": {
+          "objectName": "contracts",
+          "fieldName": "amount",
+          "fieldType": "currency",
+        }
+      }
+    }
+  },
+}
