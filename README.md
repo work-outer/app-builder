@@ -50,57 +50,62 @@ Drag and drop app building using your react components
 #### 传入
 
 - 支持拖动哪些组件类型，即左侧组件列表显示哪些可拖动的菜单。
-- 其他设计器开关属性，比如是否显示顶部header
+- 其他设计器开关属性，比如是否显示顶部header。
 
 传入的json格式如下：
 
 ```json
 {
-  "{component-key}":{
-    "type": "{component-type}",
-    "label": "{component-label}",
-    "parent": "{parent-component-key}",//指定该属性表示子菜单
-    "defaultProps": {
+  "{group-key}":{
+    "label": "{group-label}",
+    "expanded": {true/false},
+    "components":{
+      "{component-key}":{
+        "type": "{component-type}",
+        "label": "{component-label}",
+        "defaultProps": {
+          ...
+        }
+      }
       ...
     }
   }
-  ...
 }
 ```
+
+注意：传入的json第一层要求是group，它本身不可以被拖动，其下子节点`components`中的内容才是可以拖动的组件。
 
 比如要允许拖动不同字段类型的FormItem组件，可以传入以下参数：
 
 ```json
 {
-  "form-item":{
-    "type": "form-item",
+  "fields":{
     "label": "字段",
-    "defaultProps": {
-      ...//不指定对象和字段
-    }
-  },
-  "form-item-name":{
-    "type": "form-item",
-    "label": "合同名称",
-    "parent": "form-item",
-    "defaultProps": {
-      objectName: "contracts",
-      fieldName: "name",
-      fieldType: "text",
+    "expanded": true,
+    "components": {
+      "form-item-name":{
+        "type": "form-item",
+        "label": "合同名称",
+        "defaultProps": {
+          "objectName": "contracts",
+          "fieldName": "name",
+          "fieldType": "text",
+          ...
+        }
+      },
+      "form-item-amount":{
+        "type": "form-item",
+        "label": "合同金额",
+        "defaultProps": {
+          "objectName": "contracts",
+          "fieldName": "amount",
+          "fieldType": "currency",
+          ...
+        }
+      }
       ...
     }
   },
-  "form-item-amount":{
-    "type": "form-item",
-    "label": "合同金额",
-    "parent": "form-item",
-    "defaultProps": {
-      objectName: "contracts",
-      fieldName: "amount",
-      fieldType: "currency",
-      ...
-    }
-  }
   ...
 }
 ```
@@ -110,33 +115,31 @@ Drag and drop app building using your react components
 ```json
 {
   "related-list":{
-    "type": "related-list",
     "label": "相关表",
-    "defaultProps": {
-      ...//不指定对象和字段
-    }
-  },
-  "related-list-contract_payments":{
-    "type": "related-list",
-    "label": "付款",
-    "parent": "related-list",
-    "defaultProps": {
-      objectName: "contract_payments",
-      fieldName: "contract",
-      fieldType: "master_detail",
-      columns: ["name", "amount"],
-      ...
-    }
-  },
-  "related-list-contract_receipts":{
-    "type": "related-list",
-    "label": "付款",
-    "parent": "related-list",
-    "defaultProps": {
-      objectName: "contract_receipts",
-      fieldName: "contract",
-      fieldType: "master_detail",
-      columns: ["name", "amount"],
+    "expanded": true,
+    "components": {
+      "related-list-contract_payments":{
+        "type": "related-list",
+        "label": "付款",
+        "defaultProps": {
+          "objectName": "contract_payments",
+          "fieldName": "contract",
+          "fieldType": "master_detail",
+          "columns": ["name", "amount"],
+          ...
+        }
+      },
+      "related-list-contract_receipts":{
+        "type": "related-list",
+        "label": "收款",
+        "defaultProps": {
+          "objectName": "contract_receipts",
+          "fieldName": "contract",
+          "fieldType": "master_detail",
+          "columns": ["name", "amount"],
+          ...
+        }
+      },
       ...
     }
   },
@@ -198,24 +201,27 @@ FormItem组件只能拖到FormSection组件内。
 
 左侧显示一个二级菜单：
 
-- 字段（FormItem）
-  - 字段1
+- 字段
+  - 字段分组（FormSection）
+  - 字段1（FormItem）
   - 字段2
   - ...
-- 相关表（RelatedList）
-  - 相关表1
+- 相关表
+  - 相关表1（RelatedList）
   - 相关表2
   - ...
-- 字段分组（FormSection）
-- button
-- container
-- flex
-- center
-...
+- 组件（其他组件）
+  - button
+  - container
+  - flex
+  - center
+  ...
 
 上述字段列表及相关表是根据传入的objectName来显示当前对象下的所有字段label及相关表关联对象的label。
 
-> 注意： 字段列表是“字段”这个菜单的子菜单，每个字段都预设了对应的默认属性到FormItem组件，父菜单本身也是可以搬动的，只是没有预设属性值，相关表也是一样的原理，
+菜单中第一层是菜单分组，不可以拖动，一共三组。
+
+每个字段都预设了对应的默认属性到FormItem组件，相关表也是一样的原理，即预设了对应的默认属性到RelatedList组件。
 
 ##### 中间面板
 
