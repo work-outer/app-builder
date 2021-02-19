@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Collapse } from 'antd';
+import { Collapse, Row } from 'antd';
 
 export class FormSection extends React.Component<any> {
   static defaultProps = {
@@ -14,7 +14,9 @@ export class FormSection extends React.Component<any> {
 
       <Collapse defaultActiveKey={["1"]} ghost>
         <Collapse.Panel header={title} {...rest} key="1">
-        {children}
+          <Row gutter={16}>
+            {children}
+          </Row>
         </Collapse.Panel>
       </Collapse>
     )

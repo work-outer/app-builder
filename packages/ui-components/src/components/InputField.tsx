@@ -1,6 +1,7 @@
 
 import React from "react";
-import { FormControl,FormLabel,Input,FormHelperText } from '@chakra-ui/react';
+import { Form, Input, Col } from 'antd'
+
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
 export class InputField extends React.Component<any> {
@@ -12,10 +13,11 @@ export class InputField extends React.Component<any> {
 
     return (
       <>
-        <FormControl p={2} did={fieldName} {...rest}>
-          <FormLabel>{fieldName}</FormLabel>
-          <Input name={fieldName} placeholder={fieldName} />
-        </FormControl>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+          <Form.Item name={fieldName} label={fieldName}  {...rest}>
+            <Input />
+          </Form.Item>
+        </Col>
       </>
     )
   }
