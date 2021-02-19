@@ -168,7 +168,7 @@ FormItem组件只能拖到FormSection组件内。
 - 当选中中间面板空白处时保持现状，即显示该面板本身的属性，比如Children、Backgrounds。
 - 当选中中间面板中的字段或相关对象时，显示对应的属性并允许更改这些属性。
 
-### record-page-builder
+### ui-record-page-builder
 
 基于`ui-builder`这个包的功能，实现记录详细界面的设计功能。
 
@@ -225,7 +225,7 @@ FormItem组件只能拖到FormSection组件内。
 
 同`ui-builder`。
 
-### page-builder
+### ui-page-builder
 
 基于`ui-builder`这个包的功能，实现普通界面的设计功能，比如Dashboard界面设计。
 
@@ -242,7 +242,7 @@ FormItem组件只能拖到FormSection组件内。
 - 界面设计的json
 - react源码
 
-### form-builder
+### ui-form-builder
 
 基于`ui-builder`这个包的功能，实现流程设计中的表单设计功能。
 
@@ -258,4 +258,5 @@ FormItem组件只能拖到FormSection组件内。
 
 - 界面设计的json
 - react源码
+
 
