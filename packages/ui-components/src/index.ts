@@ -8,6 +8,7 @@ export {default as RecordForm} from './components/RecordForm';
 export {default as RecordViewForm} from './components/RecordViewForm';
 export {default as RecordEditForm} from './components/RecordEditForm';
 export {default as FormSection} from './components/FormSection';
+export {default as FormItem} from './components/FormItem';
 
 
 export {default as FieldLookup} from './components/form/Lookup';

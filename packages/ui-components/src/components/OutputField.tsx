@@ -1,6 +1,6 @@
 
 import React from "react";
-import { FormControl,FormLabel,Input,FormHelperText } from '@chakra-ui/react';
+import { Form, Input, Col } from 'antd'
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-output-field/documentation
 export class OutputField extends React.Component<any> {
@@ -8,14 +8,15 @@ export class OutputField extends React.Component<any> {
   }
 
   render() {
-    const {fieldName, ...rest} = this.props
+    const {fieldName, readonly, ...rest} = this.props
 
     return (
       <>
-        <FormControl p={2} did={fieldName} {...rest}>
-          <FormLabel>{fieldName}</FormLabel>
-          <Input name={fieldName} placeholder={fieldName} />
-        </FormControl>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+          <Form.Item name={fieldName} label={fieldName}  {...rest}>
+            {fieldName}
+          </Form.Item>
+        </Col>
       </>
     )
   }
