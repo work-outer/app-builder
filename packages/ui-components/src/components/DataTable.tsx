@@ -2,6 +2,7 @@
 import React, {FC, forwardRef, Ref} from "react";
 import _ from 'lodash'
 import { useTable, useSortBy, Column, Cell, Row, ColumnInstance, useResizeColumns, useFlexLayout, useRowSelect } from 'react-table'
+import onClickOutside from 'react-onclickoutside';
 
 import Button from '@salesforce/design-system-react/components/button'; 
 import Checkbox from '@salesforce/design-system-react/components/checkbox'; 
@@ -31,7 +32,6 @@ const CustomCellProps = (cell:any) => {
   }
 }
 
-
 // Create an editable cell renderer
 export class CustomCell extends React.Component<any> {
   static defaultProps = {
@@ -50,10 +50,19 @@ export class CustomCell extends React.Component<any> {
       isEdited: false,
       editable: !!this.props.column.editable
     };
+    this.inputField = React.createRef();
+    console.log(this.props)
+  }
+
+  componentDidMount() {
+    
   }
 
   onEdit = () => {
-    this.setState({editing: true})
+    this.setState({editing: true});
+    setTimeout(() => {
+      this.inputField && this.inputField.current && this.inputField.current.focus() 
+    }, 100);
   }
 
   // We'll only update the external data when the input is blurred
@@ -67,18 +76,25 @@ export class CustomCell extends React.Component<any> {
     this.setState({isEdited: (this.props.value !== e.target.value)})
   }
 
+  handleClickOutside = (evt:any) => {
+    this.setState({editing: false})
+    // ..handling code goes here...
+  };
+
   render() {
     // return 
     if (this.state["editable"]) {
-      console.log( this.state['isEdited'])
       const className = "slds-grid slds-grid_align-spread "  + (this.state['isEdited']?'slds-is-edited':'')
       return (
         <span className={className}>
+          <span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>
+          
           {this.state["editing"] && (
-            <InputField value={this.state["value"]} onChange={this.onChange} onBlur={this.onBlur}/>
-          )}
-          {!this.state["editing"] && (
-            <span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>
+          <section aria-label="Dialog title" aria-describedby="popover-body-id" className="slds-popover slds-popover_medium" role="dialog">
+            <div id="popover-body-id" className="slds-popover__body">
+              <InputField value={this.state["value"]} type={this.props.column.type} onChange={this.onChange} onBlur={this.onBlur} inputRef={this.inputField}/>
+            </div>
+          </section>
           )}
 
           <Button
@@ -98,6 +114,8 @@ export class CustomCell extends React.Component<any> {
   }
 }
 
+const CustomCellEnhanced = onClickOutside(CustomCell)
+
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
 export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref<HTMLDivElement>)  => {
   const {columns, data, ...rest} = props
@@ -116,7 +134,7 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
       minWidth: 50, // minWidth is only used as a limit for resizing
       width: 100, // width is used for both the flex-basis and flex-grow
       maxWidth: 200, // maxWidth is only used as a limit for resizing
-      Cell: CustomCell,
+      Cell: CustomCellEnhanced,
     }),
     []
   )

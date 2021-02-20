@@ -10,10 +10,10 @@ export class InputText extends React.Component<any> {
   }
 
   render() {
-    const {...rest} = this.props
+    const {style, ...rest} = this.props
     
     return (
-      <Input {...rest}
+      <Input styleContainer={style} {...rest}
         ></Input>
     )
   }

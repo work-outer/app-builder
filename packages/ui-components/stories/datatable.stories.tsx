@@ -26,7 +26,7 @@ const columns = [
         sortable: true,
         cellAttributes: { alignment: 'left' },
     },
-    { label: 'Email', fieldName: 'email', type: 'email' },
+    { label: 'Email', fieldName: 'email', type: 'lookup', editable: true  },
 ];
 
 export const DataTableSimple = () => {
