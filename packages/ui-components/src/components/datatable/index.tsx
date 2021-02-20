@@ -1,13 +1,13 @@
 
-import React, {FC, forwardRef, Ref} from "react";
+import React, {FC, forwardRef, PropsWithChildren, ReactElement, Ref} from "react";
 import _ from 'lodash'
-import { useTable, useSortBy, Column, Cell, Row, ColumnInstance, useResizeColumns, useFlexLayout, useRowSelect } from 'react-table'
+import { useTable, useSortBy, Column, Cell, Row, HeaderProps, CellProps, ColumnInstance, useResizeColumns, useFlexLayout, useBlockLayout, useRowSelect, Hooks } from 'react-table'
 import onClickOutside from 'react-onclickoutside';
 
 import Button from '@salesforce/design-system-react/components/button'; 
 import Checkbox from '@salesforce/design-system-react/components/checkbox'; 
 
-import { InputField } from '..'
+import { InputField } from '../..'
 
 type TableProps = any;
 type SteedosColumnOptions = {
@@ -22,13 +22,30 @@ export type SteedosColumnInstance<D extends object = {}> = ColumnInstance & Stee
 
 const CustomRowProps = (row:any) => {
   return {
-      class: "slds-hint-parent"
+      class: "slds-hint-parent",
+  }
+}
+
+const CustomHeaderProps = (column:any) => {
+  return {
+    class: "slds-is-resizable",
+    style: {
+      // justifyContent: 'flex-start',
+      // alignItems: 'flex-start',
+      // display: 'flex',
+    },
   }
 }
 
 const CustomCellProps = (cell:any) => {
+  console.log(cell.column)
   return {
-    class: cell.column["editable"]?"slds-cell-edit":"slds-cell-readonly"
+    class: ((!!cell.column["editable"])?"slds-cell-edit":"slds-cell-readonly"),
+    // style: {
+    //   justifyContent: 'flex-start',
+    //   alignItems: 'flex-start',
+    //   display: 'flex',
+    // },
   }
 }
 
@@ -88,7 +105,7 @@ export class CustomCell extends React.Component<any, any> {
           <span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>
           
           {this.state["editing"] && (
-         <section aria-describedby="dialog-body-id-225" className="slds-popover slds-popover slds-popover_edit" role="dialog" style={{position: "absolute", top: "0px", left: "0.0625rem"}}>
+            <section aria-describedby="dialog-body-id-225" className="slds-popover slds-popover slds-popover_edit" role="dialog" style={{position: "absolute", top: "0px", left: "0.0625rem"}}>
               <div id="popover-body-id" className="slds-popover__body">
                 <InputField 
                   value={this.state["value"]} 
@@ -97,15 +114,14 @@ export class CustomCell extends React.Component<any, any> {
                   onBlur={this.onBlur} 
                   inputRef={this.inputFieldRef}/>
               </div>
-          </section>
+            </section>
           )}
 
           <Button
             iconCategory="utility"
             iconName="edit"
-            iconSize="small"
             variant="icon"
-            className=" slds-cell-edit__button slds-m-left_x-small"
+            className=" slds-cell-edit__button"
             iconClassName=" slds-button__icon_hint slds-button__icon_edit"
             onClick={this.onEdit}
           />
@@ -120,13 +136,14 @@ export class CustomCell extends React.Component<any, any> {
 const CustomCellEnhanced = onClickOutside(CustomCell)
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
-export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref<HTMLDivElement>)  => {
+export function DataTable<T extends Record<string, unknown>>(props: PropsWithChildren<any>): ReactElement {
   const {columns, data, ...rest} = props
 
   _.each(columns, (col: SteedosColumn) => {
       col.accessor = col.fieldName
       col.Header = col.label
   });
+  
   
   const memoColumns:Array<SteedosColumn> = React.useMemo(() => columns, [])
   const memoData:Array<any> = React.useMemo(() => data, [])
@@ -135,8 +152,8 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
     () => ({
       // When using the useFlexLayout:
       minWidth: 50, // minWidth is only used as a limit for resizing
-      width: 100, // width is used for both the flex-basis and flex-grow
-      maxWidth: 200, // maxWidth is only used as a limit for resizing
+      width: 250, // width is used for both the flex-basis and flex-grow
+      maxWidth: 1000, // maxWidth is only used as a limit for resizing
       Cell: CustomCellEnhanced,
     }),
     []
@@ -158,12 +175,37 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
     }
   )
 
+  const selectionHook = (hooks: Hooks<any>) => {
+    hooks.allColumns.push(columnsX => [
+      // Let's make a column for selection
+      {
+        id: '_selector',
+        disableResizing: true,
+        disableGroupBy: true,
+        minWidth: 35,
+        width: 35,
+        maxWidth: 35,
+        // The header can use the table's getToggleAllRowsSelectedProps method
+        // to render a checkbox
+        Header: ({ getToggleAllRowsSelectedProps }: any) => (
+          <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+        ),
+        // The cell can use the individual row's getToggleRowSelectedProps method
+        // to the render a checkbox
+        Cell: ({ row }: any) => <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />,
+        // getResizerProps: () => {}
+      },
+      ...columnsX,
+    ])
+  }
+
   const {
       getTableProps,
       getTableBodyProps,
       headerGroups,
       rows,
       prepareRow,
+      // resetResizing,
     } = useTable(
       {
         columns: memoColumns,
@@ -174,41 +216,8 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
       useResizeColumns,
       useFlexLayout,
       useRowSelect,
-      hooks => {
-        hooks.allColumns.push(columns => [
-          // Let's make a column for selection
-          {
-            id: 'selection',
-            disableResizing: true,
-            minWidth: 50,
-            width: 50,
-            maxWidth: 50,
-            // The header can use the table's getToggleAllRowsSelectedProps method
-            // to render a checkbox
-            Header: ({ getToggleAllRowsSelectedProps }:any) => (
-              <div>
-                <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
-              </div>
-            ),
-            // The cell can use the individual row's getToggleRowSelectedProps method
-            // to the render a checkbox
-            Cell: ({ row }:any) => (
-              <div>
-                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-              </div>
-            ),
-          },
-          ...columns,
-        ])
-        hooks.useInstanceBeforeDimensions.push(({ headerGroups }) => {
-          // fix the parent group of the selection button to not be resizable
-          const selectionGroupHeader = headerGroups[0].headers[0]
-          // selectionGroupHeader.canResize = false
-        })
-      }
-    )
-
-
+      selectionHook,
+    );
 
   // We don't want to render all 2000 rows for this example, so cap
   // it at 20 for this use case
@@ -216,20 +225,32 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
   
   // Render the UI for your table
   return (
-    <table {...getTableProps()} className="slds-table slds-table_cell-buffer slds-table_bordered">
+    <div className="overflow-scroll w-full">
+    <table {...getTableProps()} className="slds-table slds-table_bordered slds-table_fixed-layout">
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()} className="slds-line-height_reset">
             {headerGroup.headers.map((column: any) => (
-              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render('Header')}
-                <span>
-                  {column.isSorted
-                    ? column.isSortedDesc
-                      ? ' 🔽'
-                      : ' 🔼'
-                    : ''}
-                </span>
+              <th {...column.getHeaderProps(CustomHeaderProps(column))}>
+                <div {...column.getSortByToggleProps()} class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                  {column.render('Header')}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? ' 🔽'
+                        : ' 🔼'
+                      : ''}
+                  </span>
+                </div>
+                {column.canResize && (
+                  <div className="slds-resizable" zIndex="100"
+                        {...column.getResizerProps()}>
+                    <input aria-label="Close Date column width" className="slds-resizable__input slds-assistive-text" id="cell-resize-handle-451" max="1000" min="20" type="range"/>
+                    <span className="slds-resizable__handle">
+                      <span className="slds-resizable__divider"></span>
+                    </span>
+                  </div>
+                )}
               </th>
             ))}
           </tr>
@@ -252,5 +273,6 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
         })}
       </tbody>
     </table>
+    </div>
   )
-})
+}

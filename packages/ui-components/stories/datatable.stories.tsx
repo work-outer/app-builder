@@ -15,6 +15,18 @@ const data = [
         age: 37,
         email: 'krystina@salesforce.com',
     },
+    { id: 5, name: 'Billy Simonns', age: 40, email: 'billy@salesforce.com' },
+    { id: 6, name: 'Kelsey Denesik', age: 35, email: 'kelsey@salesforce.com' },
+    { id: 7, name: 'Kyle Ruecker', age: 50, email: 'kyle@salesforce.com' },
+    { id: 8, name: 'Billy Simonns', age: 40, email: 'billy@salesforce.com' },
+    { id: 9, name: 'Kelsey Denesik', age: 35, email: 'kelsey@salesforce.com' },
+    { id: 10, name: 'Kyle Ruecker', age: 50, email: 'kyle@salesforce.com' },
+    { id: 11, name: 'Billy Simonns', age: 40, email: 'billy@salesforce.com' },
+    { id: 12, name: 'Kelsey Denesik', age: 35, email: 'kelsey@salesforce.com' },
+    { id: 13, name: 'Kyle Ruecker', age: 50, email: 'kyle@salesforce.com' },
+    { id: 14, name: 'Billy Simonns', age: 40, email: 'billy@salesforce.com' },
+    { id: 15, name: 'Kelsey Denesik', age: 35, email: 'kelsey@salesforce.com' },
+    { id: 16, name: 'Kyle Ruecker', age: 50, email: 'kyle@salesforce.com' },
 ];
 
 const columns = [
