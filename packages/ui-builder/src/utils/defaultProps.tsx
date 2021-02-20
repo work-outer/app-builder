@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Chakra from '@chakra-ui/react'
+// import * as SteedosUI from '@steedos/ui-components'
 
 import {
   BadgeProps,
@@ -278,9 +279,15 @@ export const DEFAULT_PROPS: PreviewDefaultProps = {
   Text: { children: 'Text value' },
 }
 
+const SteedosUI = {
+  "FormSection": Chakra["Text"]
+};
+
 export const getDefaultFormProps = (type: ComponentType) => {
   //@ts-ignore
-  const chakraDefaultProps = Chakra[type].defaultProps
+  // 优先取SteedosUI中的组件
+  const componentType = SteedosUI[type] || Chakra[type];
+  const chakraDefaultProps = componentType.defaultProps
   // @ts-ignore
   return { ...chakraDefaultProps, ...DEFAULT_PROPS[type]?.form }
 }

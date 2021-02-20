@@ -5,7 +5,12 @@ const ALERT_COMPONENTS: (ComponentType | MetaComponentType)[] = [
   'AlertTitle',
 ]
 
+const STEEDOS_COMPONENTS: (ComponentType | MetaComponentType)[] = [
+  'FormSection'
+]
+
 export const COMPONENTS: (ComponentType | MetaComponentType)[] = [
+  ...STEEDOS_COMPONENTS,
   ...ALERT_COMPONENTS,
   'Avatar',
   'AvatarBadge',

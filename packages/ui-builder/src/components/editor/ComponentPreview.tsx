@@ -12,6 +12,7 @@ import AccordionPreview, {
   AccordionPanelPreview,
 } from '~components/editor/previews/AccordionPreview'
 import * as Chakra from '@chakra-ui/react'
+// import * as SteedosUI from '@steedos/ui-components'
 import { getComponentBy } from '~core/selectors/components'
 import { InputRightElementPreview } from '~components/editor/previews/InputRightElement'
 import { InputLeftElementPreview } from '~components/editor/previews/InputLeftElement'
@@ -28,13 +29,26 @@ const ComponentPreview: React.FC<{
   componentName: string
 }> = ({ componentName, ...forwardedProps }) => {
   const component = useSelector(getComponentBy(componentName))
+  console.log("===ComponentPreview===");
   if (!component) {
     console.error(`ComponentPreview unavailable for component ${componentName}`)
   }
 
   const type = (component && component.type) || null
+  console.log("===ComponentPreview==component===", component);
 
   switch (type) {
+    // case 'FormSection':
+    //   return (
+    //     <PreviewContainer
+    //       component={component}
+    //       type={Chakra["Text"]}
+    //       {...forwardedProps}
+    //     />
+    //   )
+    case 'FormSection':
+      return <AccordionPreview component={component} />
+    // 以下是Chakra组件
     // Simple components
     case 'Badge':
     case 'Image':

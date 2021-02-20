@@ -12,6 +12,8 @@ type MenuItems = Partial<
 >
 
 export const menuItems: MenuItems = {
+  FormSection: {
+  },
   Accordion: {
     children: {
       Accordion: {},
@@ -113,6 +115,8 @@ export const menuItems: MenuItems = {
 }
 
 export const componentsList: ComponentType[] = [
+  'FormSection',
+  // 以下是Chakra包组件
   'Accordion',
   'AccordionIcon',
   'AccordionItem',

@@ -4,6 +4,8 @@ declare module 'coloreact'
 declare module 'browser-nativefs'
 
 type ComponentType =
+  | 'FormSection'
+  // 以下是Chakra组件
   | 'Accordion'
   | 'AccordionItem'
   | 'AccordionButton'
