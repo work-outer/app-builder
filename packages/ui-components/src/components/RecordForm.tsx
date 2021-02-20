@@ -16,5 +16,3 @@ export class RecordForm extends React.Component<any> {
     )
   }
 }
-
-export default RecordForm;

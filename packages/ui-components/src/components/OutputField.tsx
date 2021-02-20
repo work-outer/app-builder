@@ -23,5 +23,3 @@ export class OutputField extends React.Component<any> {
     )
   }
 }
-
-export default OutputField;

@@ -1,14 +1,15 @@
 export {Center} from '@chakra-ui/react'
 
-export {default as Layout} from './components/Layout';
-export {default as LayoutItem} from './components/LayoutItem';
-export {default as InputField} from './components/InputField';
-export {default as OutputField} from './components/OutputField';
-export {default as RecordForm} from './components/RecordForm';
-export {default as RecordViewForm} from './components/RecordViewForm';
-export {default as RecordEditForm} from './components/RecordEditForm';
-export {default as FormSection} from './components/FormSection';
-export {default as FormItem} from './components/FormItem';
+export * from './components/Layout';
+export * from './components/LayoutItem';
+export * from './components/InputField';
+export * from './components/OutputField';
+export * from './components/RecordForm';
+export * from './components/RecordViewForm';
+export * from './components/RecordEditForm';
+export * from './components/FormSection';
+export * from './components/FormItem';
+export * from './components/DataTable';
 
 
 export {default as FieldLookup} from './components/form/Lookup';

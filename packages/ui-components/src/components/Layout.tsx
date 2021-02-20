@@ -21,5 +21,3 @@ export class Layout extends React.Component<any> {
     )
   }
 }
-
-export default Layout;

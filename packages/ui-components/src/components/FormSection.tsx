@@ -22,5 +22,3 @@ export class FormSection extends React.Component<any> {
     )
   }
 }
-
-export default FormSection;

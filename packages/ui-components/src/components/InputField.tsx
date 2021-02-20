@@ -34,5 +34,3 @@ export class InputField extends React.Component<any> {
     )
   }
 }
-
-export default InputField;

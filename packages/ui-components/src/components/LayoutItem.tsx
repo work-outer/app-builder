@@ -21,5 +21,3 @@ export class LayoutItem extends React.Component<any> {
     )
   }
 }
-
-export default LayoutItem;

@@ -1,7 +1,6 @@
 
 import React from "react";
-import InputField from './InputField'
-import OutputField from './OutputField'
+import { InputField,OutputField } from '..'
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
@@ -18,5 +17,3 @@ export class FormItem extends React.Component<any> {
         return <InputField fieldName={fieldName} {...rest}></InputField>
   }
 }
-
-export default FormItem;
