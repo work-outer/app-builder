@@ -1,19 +1,19 @@
 import * as React from "react"
-import { RecordEditForm, FormSection, FormItem, InputLookup } from "../src"
+import { RecordEditForm, FormSection, FormItem, InputText, InputLookup } from "../src"
 import IconSettings from '@salesforce/design-system-react/components/icon-settings';
 
 export default {
   title: "Form",
 }
 
-export const RecordEditForm1 = () => (
-  <RecordEditForm>
-    <FormItem fieldName="name" placeholder="name"/>
-    <FormItem fieldName="email" placeholder="email"/>
-  </RecordEditForm>
+export const SimpleForm = () => (
+  <form>
+      <InputLookup fieldName="lookup" label="Lookup"/>
+      <InputText fieldName="Text" label="text"/>
+  </form>
 )
 
-export const RecordEditFormWithSection = () => (
+export const RecordForm = () => (
     <RecordEditForm>
       <FormSection title="Section 1">
         <FormItem fieldName="name" required label="Name" fieldLevelHelp="Please input name"/>
@@ -23,7 +23,6 @@ export const RecordEditFormWithSection = () => (
       </FormSection>
       <FormSection title="Section 2">
         <FormItem fieldName="name" label="Name"/>
-        <InputLookup fieldName="lookup2" label="Lookup"/>
       </FormSection>
     </RecordEditForm>
   )

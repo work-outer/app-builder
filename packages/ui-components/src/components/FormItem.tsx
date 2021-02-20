@@ -19,11 +19,11 @@ export class FormItem extends React.Component<any> {
             </div>
         )
     else
-    return (
-        <div className="col-span-6">
-            <InputField fieldName={fieldName} readonly {...rest}>
-            </InputField>
-        </div>
-    )
+        return (
+            <div className="col-span-6">
+                <InputField fieldName={fieldName} readonly {...rest}>
+                </InputField>
+            </div>
+        )
   }
 }
