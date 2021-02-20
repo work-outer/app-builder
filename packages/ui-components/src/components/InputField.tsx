@@ -1,6 +1,6 @@
 
 import React from "react";
-import {InputText, InputLookup} from '..'; 
+import {Input} from '..'; 
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
@@ -10,17 +10,12 @@ export class InputField extends React.Component<any> {
   }
 
   render() {
-    const {fieldName, type, ...rest} = this.props
+    const {fieldName, ...rest} = this.props
 
-    if (type=="lookup"){
-      return (
-        <InputLookup id={fieldName} {...rest}/>
-      )
-    }
-    else {
-      return (
-        <InputText id={fieldName} {...rest}/>
-      )
-    }
+    // 根据fieldName，解析 type, label 等属性
+    
+    return (
+      <Input id={fieldName} {...rest}/>
+    )
   }
 }

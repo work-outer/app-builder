@@ -16,7 +16,7 @@ export const RecordEditForm1 = () => (
 export const RecordEditFormWithSection = () => (
     <RecordEditForm>
       <FormSection title="Section 1">
-        <FormItem fieldName="name" required label="Name"/>
+        <FormItem fieldName="name" required label="Name" fieldLevelHelp="Please input name"/>
         <FormItem fieldName="email" readonly label="Email"/>
         <FormItem fieldName="start" type="number" label="Start"/>
         <FormItem fieldName="lookup" type="lookup" label="Lookup"/>
