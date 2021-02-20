@@ -14,7 +14,7 @@ export class InputField extends React.Component<any> {
 
     // 根据fieldName，解析 type, label 等属性
     return (
-      <div className={isWide?"col-span-12":"col-span-6"}>
+      <div className={isWide?"sm:col-span-12":"sm:col-span-6"}>
         <Input id={fieldName} {...rest}/>
       </div>
     )

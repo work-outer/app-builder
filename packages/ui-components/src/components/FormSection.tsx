@@ -12,9 +12,9 @@ export class FormSection extends React.Component<any> {
 
     return (
       <ExpandableSection
-        title="Section Title"
+        title={title}
       >
-        <div className="grid grid-cols-12 gap-4">
+        <div className="grid sm:grid-cols-12 gap-4">
           {children}
         </div>
       </ExpandableSection>

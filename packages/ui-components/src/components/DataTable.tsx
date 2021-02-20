@@ -1,10 +1,12 @@
 
 import React, {FC, forwardRef, Ref} from "react";
+import _ from 'lodash'
+import { useTable, useSortBy, Column, Cell, Row, ColumnInstance, useResizeColumns, useFlexLayout, useRowSelect } from 'react-table'
 
 import Button from '@salesforce/design-system-react/components/button'; 
 import Checkbox from '@salesforce/design-system-react/components/checkbox'; 
-import { useTable, useSortBy, Column, Cell, Row, ColumnInstance, useResizeColumns, useFlexLayout, useRowSelect } from 'react-table'
-import _ from 'lodash'
+
+import { InputField } from '..'
 
 type TableProps = any;
 type SteedosColumnOptions = {
@@ -25,7 +27,7 @@ const CustomRowProps = (row:any) => {
 
 const CustomCellProps = (cell:any) => {
   return {
-      class: cell.column["editable"]?"slds-cell-edit":"slds-cell-readonly"
+    class: cell.column["editable"]?"slds-cell-edit":"slds-cell-readonly"
   }
 }
 
@@ -45,6 +47,7 @@ export class CustomCell extends React.Component<any> {
     super(props);
     this.state = {
       value: this.props.value,
+      isEdited: false,
       editable: !!this.props.column.editable
     };
   }
@@ -61,15 +64,18 @@ export class CustomCell extends React.Component<any> {
 
   onChange = (e:any) => {
     this.setState({value: e.target.value})
+    this.setState({isEdited: (this.props.value !== e.target.value)})
   }
 
   render() {
     // return 
-    if (this.state["editable"]) 
+    if (this.state["editable"]) {
+      console.log( this.state['isEdited'])
+      const className = "slds-grid slds-grid_align-spread "  + (this.state['isEdited']?'slds-is-edited':'')
       return (
-        <span className="slds-grid slds-grid_align-spread">
+        <span className={className}>
           {this.state["editing"] && (
-            <input value={this.state["value"]} onChange={this.onChange} onBlur={this.onBlur} style={{width: "100%"}}/>
+            <InputField value={this.state["value"]} onChange={this.onChange} onBlur={this.onBlur}/>
           )}
           {!this.state["editing"] && (
             <span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>
@@ -86,6 +92,7 @@ export class CustomCell extends React.Component<any> {
           />
         </span>
       )
+    }
     else 
       return (<span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>)
   }
@@ -129,7 +136,7 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
       )
     }
   )
-  
+
   const {
       getTableProps,
       getTableBodyProps,
