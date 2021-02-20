@@ -1,5 +1,5 @@
 import * as React from "react"
-import { RecordEditForm, FormSection, FormItem, FieldLookup } from "../src"
+import { RecordEditForm, FormSection, FormItem, InputLookup } from "../src"
 import IconSettings from '@salesforce/design-system-react/components/icon-settings';
 
 export default {
@@ -10,6 +10,7 @@ export const RecordEditForm1 = () => (
   <RecordEditForm>
     <FormItem fieldName="name"/>
     <FormItem fieldName="email"/>
+    <InputLookup fieldName="email"/>
   </RecordEditForm>
 )
 
@@ -19,10 +20,11 @@ export const RecordEditFormWithSection = () => (
         <FormItem fieldName="name" required/>
         <FormItem fieldName="email" readonly/>
         <FormItem fieldName="start" type="number"/>
+        <FormItem fieldName="user" type="lookup"/>
       </FormSection>
       <FormSection title="Section 2">
         <FormItem fieldName="name"/>
-        <FieldLookup fieldName="email"/>
+        <InputLookup fieldName="email"/>
       </FormSection>
     </RecordEditForm>
   )

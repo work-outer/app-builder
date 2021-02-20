@@ -12,4 +12,4 @@ export * from './components/FormItem';
 export * from './components/DataTable';
 
 
-export {default as FieldLookup} from './components/form/Lookup';
+export * from './components/form/InputLookup';
