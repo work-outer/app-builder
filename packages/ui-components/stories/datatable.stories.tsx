@@ -18,7 +18,7 @@ const data = [
 ];
 
 const columns = [
-    { label: 'Name', fieldName: 'name' },
+    { label: 'Name', fieldName: 'name', editable: true },
     {
         label: 'Age',
         fieldName: 'age',
