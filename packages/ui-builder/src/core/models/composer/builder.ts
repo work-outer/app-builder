@@ -1,4 +1,5 @@
 import Composer from './composer'
+import { menuItems, MenuItem } from '~componentsList'
 
 type ComposedComponent = {
   components: IComponents
@@ -71,14 +72,15 @@ export const buildFormControl = (parent: string): ComposedComponent => {
 export const buildAccordion = (parent: string): ComposedComponent => {
   const composer = new Composer('Accordion')
 
-  const nodeId = composer.addNode({ type: 'Accordion', parent })
-  const itemId = composer.addNode({ type: 'AccordionItem', parent: nodeId })
-  const headerId = composer.addNode({ type: 'AccordionButton', parent: itemId })
-  const panelId = composer.addNode({ type: 'AccordionPanel', parent: itemId })
+  const nodeId = composer.addNode({ type: 'Accordion', parent, props: menuItems["Accordion"]?.defaultProps })
+  const itemId = composer.addNode({ type: 'AccordionItem', parent: nodeId, props: menuItems["Accordion"]?.defaultProps })
+  const headerId = composer.addNode({ type: 'AccordionButton', parent: itemId, props: menuItems["Accordion"]?.defaultProps })
+  const panelId = composer.addNode({ type: 'AccordionPanel', parent: itemId, props: menuItems["Accordion"]?.defaultProps })
 
-  composer.addNode({ type: 'Text', parent: headerId, rootParentType: 'Text' })
-  composer.addNode({ type: 'AccordionIcon', parent: headerId })
-  composer.addNode({ type: 'Text', parent: panelId, rootParentType: 'Text' })
+
+  composer.addNode({ type: 'Text', parent: headerId, rootParentType: 'Text', props: menuItems["Text"]?.defaultProps })
+  composer.addNode({ type: 'AccordionIcon', parent: headerId, props: menuItems["AccordionIcon"]?.defaultProps })
+  composer.addNode({ type: 'Text', parent: panelId, rootParentType: 'Text', props: menuItems["Text"]?.defaultProps })
 
   const components = composer.getComponents()
 
