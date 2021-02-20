@@ -84,11 +84,11 @@ export class CustomCell extends React.Component<any, any> {
     if (this.state["editable"]) {
       const className = "slds-grid slds-grid_align-spread "  + (this.state['isEdited']?'slds-is-edited':'')
       return (
-        <span className={className}>
+        <span className={className} onDoubleClick={this.onEdit}>
           <span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>
           
           {this.state["editing"] && (
-         <section aria-describedby="dialog-body-id-225" class="slds-popover slds-popover slds-popover_edit" role="dialog" style={{position: "absolute", top: "0px", left: "0.0625rem"}}>
+         <section aria-describedby="dialog-body-id-225" className="slds-popover slds-popover slds-popover_edit" role="dialog" style={{position: "absolute", top: "0px", left: "0.0625rem"}}>
               <div id="popover-body-id" className="slds-popover__body">
                 <InputField 
                   value={this.state["value"]} 
