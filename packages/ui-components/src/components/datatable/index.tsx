@@ -22,13 +22,13 @@ export type SteedosColumnInstance<D extends object = {}> = ColumnInstance & Stee
 
 const CustomRowProps = (row:any) => {
   return {
-      class: "slds-hint-parent",
+    className: "slds-hint-parent",
   }
 }
 
 const CustomHeaderProps = (column:any) => {
   return {
-    class: "slds-is-resizable",
+    className: "slds-is-resizable",
     style: {
       // justifyContent: 'flex-start',
       // alignItems: 'flex-start',
@@ -38,9 +38,8 @@ const CustomHeaderProps = (column:any) => {
 }
 
 const CustomCellProps = (cell:any) => {
-  console.log(cell.column)
   return {
-    class: ((!!cell.column["editable"])?"slds-cell-edit":"slds-cell-readonly"),
+    className: ((!!cell.column["editable"])?"slds-cell-edit":"slds-cell-readonly"),
     // style: {
     //   justifyContent: 'flex-start',
     //   alignItems: 'flex-start',
@@ -51,7 +50,7 @@ const CustomCellProps = (cell:any) => {
 
 // Create an editable cell renderer
 export class CustomCell extends React.Component<any, any> {
-  inputFieldRef: React.RefObject<HTMLInputElement>;
+  inputFieldRef: any; //React.RefObject<HTMLInputElement>;
 
   static defaultProps = {
   }
@@ -70,7 +69,6 @@ export class CustomCell extends React.Component<any, any> {
       editable: !!this.props.column.editable
     };
     this.inputFieldRef = React.createRef();
-    console.log(this.props)
   }
 
   onEdit = () => {
@@ -83,7 +81,7 @@ export class CustomCell extends React.Component<any, any> {
   // We'll only update the external data when the input is blurred
   onBlur = () => {
     this.setState({editing: false})
-    // updateMyData(this.props.row.index, this.props.column.id, this.state.value)
+    // this.props.updateData(this.props.row.index, this.props.column.id, this.state.value)
   }
 
   onChange = (e:any) => {
@@ -135,9 +133,52 @@ export class CustomCell extends React.Component<any, any> {
 
 const CustomCellEnhanced = onClickOutside(CustomCell)
 
+
+const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }: any, ref) => {
+  const defaultRef = React.useRef();
+  const resolvedRef: any = ref || defaultRef;
+
+  React.useEffect(() => {
+    if (resolvedRef.current) {
+      resolvedRef.current.indeterminate = indeterminate;
+    }
+  }, [resolvedRef, indeterminate]);
+
+  return (
+      <Checkbox ref={resolvedRef} {...rest}/>
+  )
+})
+
+
+const selectionHook = (hooks: Hooks<any>) => {
+  hooks.allColumns.push(columnsX => [
+    // Let's make a column for selection
+    {
+      id: '_selector',
+      disableResizing: true,
+      disableGroupBy: true,
+      minWidth: 35,
+      width: 35,
+      maxWidth: 35,
+      // The header can use the table's getToggleAllRowsSelectedProps method
+      // to render a checkbox
+      Header: ({ getToggleAllRowsSelectedProps }: any) => (
+        <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+      ),
+      // The cell can use the individual row's getToggleRowSelectedProps method
+      // to the render a checkbox
+      Cell: ({ row }: any) => <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />,
+      // getResizerProps: () => {}
+    },
+    ...columnsX,
+  ])
+}
+
+
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
 export function DataTable<T extends Record<string, unknown>>(props: PropsWithChildren<any>): ReactElement {
   const {columns, data, ...rest} = props
+  const initialData = _.cloneDeep(data);
 
   _.each(columns, (col: SteedosColumn) => {
       col.accessor = col.fieldName
@@ -159,46 +200,6 @@ export function DataTable<T extends Record<string, unknown>>(props: PropsWithChi
     []
   )
 
-  const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }: any, ref) => {
-      const defaultRef = React.useRef();
-      const resolvedRef: any = ref || defaultRef;
-  
-      React.useEffect(() => {
-        if (resolvedRef.current) {
-          resolvedRef.current.indeterminate = indeterminate;
-        }
-      }, [resolvedRef, indeterminate]);
-    
-      return (
-					<Checkbox ref={resolvedRef} {...rest}/>
-      )
-    }
-  )
-
-  const selectionHook = (hooks: Hooks<any>) => {
-    hooks.allColumns.push(columnsX => [
-      // Let's make a column for selection
-      {
-        id: '_selector',
-        disableResizing: true,
-        disableGroupBy: true,
-        minWidth: 35,
-        width: 35,
-        maxWidth: 35,
-        // The header can use the table's getToggleAllRowsSelectedProps method
-        // to render a checkbox
-        Header: ({ getToggleAllRowsSelectedProps }: any) => (
-          <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
-        ),
-        // The cell can use the individual row's getToggleRowSelectedProps method
-        // to the render a checkbox
-        Cell: ({ row }: any) => <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />,
-        // getResizerProps: () => {}
-      },
-      ...columnsX,
-    ])
-  }
-
   const {
       getTableProps,
       getTableBodyProps,
@@ -208,8 +209,8 @@ export function DataTable<T extends Record<string, unknown>>(props: PropsWithChi
       // resetResizing,
     } = useTable(
       {
-        columns: memoColumns,
-        data: memoData,
+        columns: columns,
+        data: data,
         defaultColumn: defaultColumn
       },
       useSortBy,
@@ -217,6 +218,7 @@ export function DataTable<T extends Record<string, unknown>>(props: PropsWithChi
       useFlexLayout,
       useRowSelect,
       selectionHook,
+      // updateData,
     );
 
   // We don't want to render all 2000 rows for this example, so cap
@@ -232,7 +234,7 @@ export function DataTable<T extends Record<string, unknown>>(props: PropsWithChi
           <tr {...headerGroup.getHeaderGroupProps()} className="slds-line-height_reset">
             {headerGroup.headers.map((column: any) => (
               <th {...column.getHeaderProps(CustomHeaderProps(column))}>
-                <div {...column.getSortByToggleProps()} class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                <div {...column.getSortByToggleProps()} className="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
                   {column.render('Header')}
                   <span>
                     {column.isSorted
@@ -243,7 +245,7 @@ export function DataTable<T extends Record<string, unknown>>(props: PropsWithChi
                   </span>
                 </div>
                 {column.canResize && (
-                  <div className="slds-resizable" zIndex="100"
+                  <div className="slds-resizable" zindex="100"
                         {...column.getResizerProps()}>
                     <input aria-label="Close Date column width" className="slds-resizable__input slds-assistive-text" id="cell-resize-handle-451" max="1000" min="20" type="range"/>
                     <span className="slds-resizable__handle">

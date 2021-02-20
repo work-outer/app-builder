@@ -5,7 +5,7 @@ export default {
   title: "DataTable",
 }
 
-const data = [
+const DATA = [
     { id: 1, name: 'Billy Simonns', age: 40, email: 'billy@salesforce.com' },
     { id: 2, name: 'Kelsey Denesik', age: 35, email: 'kelsey@salesforce.com' },
     { id: 3, name: 'Kyle Ruecker', age: 50, email: 'kyle@salesforce.com' },
@@ -29,7 +29,7 @@ const data = [
     { id: 16, name: 'Kyle Ruecker', age: 50, email: 'kyle@salesforce.com' },
 ];
 
-const columns = [
+const COLUMNS = [
     { label: 'Name', fieldName: 'name', editable: true },
     {
         label: 'Age',
@@ -43,10 +43,24 @@ const columns = [
 
 export const DataTableSimple = () => {
     
-// const mColumns = React.useMemo(() => columns, []);
+  // const [data, setData] = React.useState(() => data)
 
-    return (
-
-    <DataTable data={data} columns={columns} id="DataTableExample-1-default">
+  // const updateData = (rowIndex:number, columnId:number, value:any) => {
+  //   // We also turn on the flag to not reset the page
+  //   setData((old:any) =>
+  //     old.map((row:any, index:number) => {
+  //       if (index === rowIndex) {
+  //         return {
+  //           ...old[rowIndex],
+  //           [columnId]: value,
+  //         }
+  //       }
+  //       return row
+  //     })
+  //   )
+  // }
+  return (
+    <DataTable data={DATA} columns={COLUMNS} id="DataTableExample-1-default">
     </DataTable>
-)}
+  )
+}
