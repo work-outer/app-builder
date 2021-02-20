@@ -114,6 +114,7 @@ const Menu = () => {
                         type={childName as any}
                         id={childName as any}
                         rootParentType={menuItems[name]?.rootParentType || name}
+                        defaultProps={menuItems[name]?.defaultProps}
                       >
                         {childName}
                       </DragItem>
@@ -128,6 +129,7 @@ const Menu = () => {
                         type={`${name}Meta` as any}
                         id={`${name}Meta` as any}
                         rootParentType={menuItems[name]?.rootParentType || name}
+                        defaultProps={menuItems[name]?.defaultProps}
                       >
                         {name}
                       </DragItem>,
@@ -143,7 +145,8 @@ const Menu = () => {
                       type={name as any}
                       id={name as any}
                       rootParentType={menuItems[name]?.rootParentType || name}
-                    >
+                      defaultProps={menuItems[name]?.defaultProps}
+                      >
                       {name}
                     </DragItem>
                   )

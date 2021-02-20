@@ -104,5 +104,6 @@ interface ComponentItemProps {
   isChild?: boolean
   isMeta?: boolean
   soon?: boolean
-  rootParentType?: ComponentType
+  rootParentType?: ComponentType, 
+  defaultProps?: any
 }

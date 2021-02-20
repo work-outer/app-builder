@@ -10,9 +10,10 @@ const DragItem: React.FC<ComponentItemProps> = ({
   isMeta,
   isChild,
   rootParentType,
+  defaultProps
 }) => {
   const [, drag] = useDrag({
-    item: { id: type, type, isMeta, rootParentType },
+    item: { id: type, type, isMeta, rootParentType, defaultProps },
   })
 
   let boxProps: any = {
