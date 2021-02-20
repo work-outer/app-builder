@@ -50,6 +50,7 @@ const components = createModel({
       }
     },
     resetProps(state: ComponentsState, componentId: string): ComponentsState {
+      console.log("===resetProps===");
       return produce(state, (draftState: ComponentsState) => {
         const component = draftState.components[componentId]
         const { form, ...defaultProps } = DEFAULT_PROPS[component.type] || {}
@@ -105,6 +106,7 @@ const components = createModel({
       state: ComponentsState,
       payload: { parentId: string; componentId: string },
     ): ComponentsState {
+      console.log("===moveComponent===");
       if (
         state.components[payload.componentId].parent === payload.parentId ||
         payload.parentId === payload.componentId
@@ -152,12 +154,19 @@ const components = createModel({
         parentName: string
         type: ComponentType
         rootParentType?: ComponentType
-        testId?: string
+        testId?: string,
+        defaultProps?: any
       },
     ): ComponentsState {
+      console.log("===addComponent===");
       return produce(state, (draftState: ComponentsState) => {
         const id = payload.testId || generateId()
-        const { form, ...defaultProps } = DEFAULT_PROPS[payload.type] || {}
+        console.log("===addComponent==payload=", payload);
+        let { form, ...defaultProps } = DEFAULT_PROPS[payload.type] || {}
+        console.log("===addComponent==defaultProps=", defaultProps);
+        console.log("===addComponent==payload.defaultProps=", payload.defaultProps);
+        defaultProps = Object.assign({}, defaultProps, payload.defaultProps);
+        console.log("===addComponent==defaultProps==2==", defaultProps);
         draftState.selectedId = id
         draftState.components[payload.parentName].children.push(id)
         draftState.components[id] = {
@@ -174,6 +183,7 @@ const components = createModel({
       state: ComponentsState,
       payload: { components: IComponents; root: string; parent: string },
     ): ComponentsState {
+      console.log("===addMetaComponent===");
       return produce(state, (draftState: ComponentsState) => {
         draftState.selectedId = payload.root
         draftState.components[payload.parent].children.push(payload.root)

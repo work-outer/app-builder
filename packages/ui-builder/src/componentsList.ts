@@ -2,6 +2,7 @@ export type MenuItem = {
   children?: MenuItems
   soon?: boolean
   rootParentType?: ComponentType
+  defaultProps?: any
 }
 
 type MenuItems = Partial<
@@ -97,7 +98,11 @@ export const menuItems: MenuItems = {
   Stack: {},
   Switch: {},
   Tag: {},
-  Text: {},
+  Text: {
+    defaultProps: {
+      children:"UnTitled Text"
+    }
+  },
   Textarea: {},
   Menu: { soon: true },
   Tab: { soon: true },

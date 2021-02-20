@@ -28,10 +28,12 @@ export const useDropComponent = (
       } else if (item.isMeta) {
         dispatch.components.addMetaComponent(builder[item.type](componentId))
       } else {
+        console.log("drop==item===", item);
         dispatch.components.addComponent({
           parentName: componentId,
           type: item.type,
           rootParentType: item.rootParentType,
+          defaultProps: item.defaultProps,
         })
       }
     },
