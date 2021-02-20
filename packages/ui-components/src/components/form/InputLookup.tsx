@@ -9,10 +9,10 @@ export class InputLookup extends React.Component<any> {
   }
 
   render() {
-    const { ...rest} = this.props
+    const {label, placeholder, ...rest} = this.props
     
     return (
-      <Combobox/>
+      <Combobox labels={{label, placeholder}} {...rest}/>
     )
   }
 }

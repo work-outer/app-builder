@@ -10,7 +10,6 @@ export const RecordEditForm1 = () => (
   <RecordEditForm>
     <FormItem fieldName="name"/>
     <FormItem fieldName="email"/>
-    <InputLookup fieldName="email"/>
   </RecordEditForm>
 )
 
@@ -24,7 +23,7 @@ export const RecordEditFormWithSection = () => (
       </FormSection>
       <FormSection title="Section 2">
         <FormItem fieldName="name"/>
-        <InputLookup fieldName="email"/>
+        <InputLookup fieldName="email" label="Lookup"/>
       </FormSection>
     </RecordEditForm>
   )
