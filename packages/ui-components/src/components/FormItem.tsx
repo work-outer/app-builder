@@ -12,8 +12,18 @@ export class FormItem extends React.Component<any> {
     const {fieldName, readonly, ...rest} = this.props
 
     if (readonly) 
-        return <OutputField fieldName={fieldName} readonly {...rest}></OutputField>
+        return (
+            <div className="col-span-6">
+                <OutputField fieldName={fieldName} readonly {...rest}>
+                </OutputField>
+            </div>
+        )
     else
-        return <InputField fieldName={fieldName} {...rest}></InputField>
+    return (
+        <div className="col-span-6">
+            <InputField fieldName={fieldName} readonly {...rest}>
+            </InputField>
+        </div>
+    )
   }
 }
