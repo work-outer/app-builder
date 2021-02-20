@@ -10,12 +10,13 @@ export class InputField extends React.Component<any> {
   }
 
   render() {
-    const {fieldName, ...rest} = this.props
+    const {fieldName, isWide, ...rest} = this.props
 
     // 根据fieldName，解析 type, label 等属性
-    
     return (
-      <Input id={fieldName} {...rest}/>
+      <div className={isWide?"col-span-12":"col-span-6"}>
+        <Input id={fieldName} {...rest}/>
+      </div>
     )
   }
 }

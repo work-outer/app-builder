@@ -8,7 +8,6 @@ export * from './components/RecordForm';
 export * from './components/RecordViewForm';
 export * from './components/RecordEditForm';
 export * from './components/FormSection';
-export * from './components/FormItem';
 export * from './components/DataTable';
 
 

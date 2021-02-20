@@ -11,7 +11,6 @@ export class FormSection extends React.Component<any> {
     const {title,  children, ...rest} = this.props
 
     return (
-
       <ExpandableSection
         title="Section Title"
       >

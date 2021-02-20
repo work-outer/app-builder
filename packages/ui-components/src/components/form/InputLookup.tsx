@@ -71,6 +71,9 @@ const accountsWithIcon = accounts.map((elem) => ({
 }));
 export class InputLookup extends React.Component<any> {
   static defaultProps = {
+    referenceTo: null,
+    filters: [],
+    referenceKey: '_id'
   }
 
   render() {
