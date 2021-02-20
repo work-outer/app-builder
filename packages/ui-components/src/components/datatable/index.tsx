@@ -177,8 +177,10 @@ const selectionHook = (hooks: Hooks<any>) => {
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
 export function DataTable<T extends Record<string, unknown>>(props: PropsWithChildren<any>): ReactElement {
-  const {columns, data, ...rest} = props
-  const initialData = _.cloneDeep(data);
+  const {columns, ...rest} = props
+  const [data, setData] = React.useState(() => props.data);
+  const [originalData] = React.useState(props.data)
+  const resetData = () => setData(originalData)
 
   _.each(columns, (col: SteedosColumn) => {
       col.accessor = col.fieldName
@@ -209,8 +211,8 @@ export function DataTable<T extends Record<string, unknown>>(props: PropsWithChi
       // resetResizing,
     } = useTable(
       {
-        columns: columns,
-        data: data,
+        columns: memoColumns,
+        data: memoData,
         defaultColumn: defaultColumn
       },
       useSortBy,
@@ -223,11 +225,14 @@ export function DataTable<T extends Record<string, unknown>>(props: PropsWithChi
 
   // We don't want to render all 2000 rows for this example, so cap
   // it at 20 for this use case
-  const firstPageRows = rows.slice(0, 20)
+  // const firstPageRows = rows.slice(0, 20)
   
   // Render the UI for your table
   return (
     <div className="overflow-scroll w-full">
+
+    <Button label="Reset Data" variant="brand" onClick={resetData}/>
+    
     <table {...getTableProps()} className="slds-table slds-table_bordered slds-table_fixed-layout">
       <thead>
         {headerGroups.map(headerGroup => (
