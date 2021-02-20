@@ -1,5 +1,5 @@
 import Composer from './composer'
-import { menuItems, MenuItem } from '~componentsList'
+import { menuItems } from '~componentsList'
 
 type ComposedComponent = {
   components: IComponents
