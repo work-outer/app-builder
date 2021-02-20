@@ -33,7 +33,9 @@ const CustomCellProps = (cell:any) => {
 }
 
 // Create an editable cell renderer
-export class CustomCell extends React.Component<any> {
+export class CustomCell extends React.Component<any, any> {
+  inputFieldRef: React.RefObject<HTMLInputElement>;
+
   static defaultProps = {
   }
 
@@ -50,18 +52,14 @@ export class CustomCell extends React.Component<any> {
       isEdited: false,
       editable: !!this.props.column.editable
     };
-    this.inputField = React.createRef();
+    this.inputFieldRef = React.createRef();
     console.log(this.props)
-  }
-
-  componentDidMount() {
-    
   }
 
   onEdit = () => {
     this.setState({editing: true});
     setTimeout(() => {
-      this.inputField && this.inputField.current && this.inputField.current.focus() 
+      this.inputFieldRef && this.inputFieldRef.current && this.inputFieldRef.current.focus() 
     }, 100);
   }
 
@@ -90,10 +88,15 @@ export class CustomCell extends React.Component<any> {
           <span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>
           
           {this.state["editing"] && (
-          <section aria-label="Dialog title" aria-describedby="popover-body-id" className="slds-popover slds-popover_medium" role="dialog">
-            <div id="popover-body-id" className="slds-popover__body">
-              <InputField value={this.state["value"]} type={this.props.column.type} onChange={this.onChange} onBlur={this.onBlur} inputRef={this.inputField}/>
-            </div>
+         <section aria-describedby="dialog-body-id-225" class="slds-popover slds-popover slds-popover_edit" role="dialog" style={{position: "absolute", top: "0px", left: "0.0625rem"}}>
+              <div id="popover-body-id" className="slds-popover__body">
+                <InputField 
+                  value={this.state["value"]} 
+                  type={this.props.column.type} 
+                  onChange={this.onChange} 
+                  onBlur={this.onBlur} 
+                  inputRef={this.inputFieldRef}/>
+              </div>
           </section>
           )}
 
