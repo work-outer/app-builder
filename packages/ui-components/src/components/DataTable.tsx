@@ -3,7 +3,7 @@ import React, {FC, forwardRef, Ref} from "react";
 
 import Button from '@salesforce/design-system-react/components/button'; 
 import Checkbox from '@salesforce/design-system-react/components/checkbox'; 
-import { useTable, useSortBy, Column, ColumnInstance, useResizeColumns, useFlexLayout, useRowSelect } from 'react-table'
+import { useTable, useSortBy, Column, Cell, Row, ColumnInstance, useResizeColumns, useFlexLayout, useRowSelect } from 'react-table'
 import _ from 'lodash'
 
 type TableProps = any;
@@ -17,22 +17,16 @@ export type SteedosColumn = Column & SteedosColumnOptions
 export type SteedosColumnInstance<D extends object = {}> = ColumnInstance & SteedosColumnOptions
 
 
-const CustomRowProps = (props, { cell }) => {
-  return[
-    props,
-    {
+const CustomRowProps = (row:any) => {
+  return {
       class: "slds-hint-parent"
-    },
-  ] 
+  }
 }
 
-const CustomCellProps = (props, { cell }) => {
-  return[
-    props,
-    {
-      class: cell.column.editable?"slds-cell-edit":"slds-cell-readonly"
-    },
-  ] 
+const CustomCellProps = (cell:any) => {
+  return {
+      class: cell.column["editable"]?"slds-cell-edit":"slds-cell-readonly"
+  }
 }
 
 
@@ -47,7 +41,7 @@ export class CustomCell extends React.Component<any> {
     value: null,
   }
 
-  constructor(props) {
+  constructor(props:any) {
     super(props);
     this.state = {
       value: this.props.value,
@@ -71,14 +65,14 @@ export class CustomCell extends React.Component<any> {
 
   render() {
     // return 
-    if (this.state.editable) 
+    if (this.state["editable"]) 
       return (
         <span className="slds-grid slds-grid_align-spread">
-          {this.state.editing && (
-            <input value={this.state.value} onChange={this.onChange} onBlur={this.onBlur} style={{width: "100%"}}/>
+          {this.state["editing"] && (
+            <input value={this.state["value"]} onChange={this.onChange} onBlur={this.onBlur} style={{width: "100%"}}/>
           )}
-          {!this.state.editing && (
-            <span className="slds-truncate" title={this.state.value}>{this.state.value}</span>
+          {!this.state["editing"] && (
+            <span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>
           )}
 
           <Button
@@ -93,7 +87,7 @@ export class CustomCell extends React.Component<any> {
         </span>
       )
     else 
-      return (<span className="slds-truncate" title={this.state.value}>{this.state.value}</span>)
+      return (<span className="slds-truncate" title={this.state["value"]}>{this.state["value"]}</span>)
   }
 }
 
@@ -104,11 +98,6 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
   _.each(columns, (col: SteedosColumn) => {
       col.accessor = col.fieldName
       col.Header = col.label
-      if (col.editable){
-        col.Cell = CustomCell;
-      } else {
-        col.Cell = CustomCell;
-      }
   });
   
   const memoColumns:Array<SteedosColumn> = React.useMemo(() => columns, [])
@@ -120,33 +109,27 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
       minWidth: 50, // minWidth is only used as a limit for resizing
       width: 100, // width is used for both the flex-basis and flex-grow
       maxWidth: 200, // maxWidth is only used as a limit for resizing
+      Cell: CustomCell,
     }),
     []
   )
 
-  const IndeterminateCheckbox = React.forwardRef(
-    ({ indeterminate, ...rest }, ref) => {
-      const defaultRef = React.useRef()
-      const resolvedRef = ref || defaultRef
+  const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }: any, ref) => {
+      const defaultRef = React.useRef();
+      const resolvedRef: any = ref || defaultRef;
   
       React.useEffect(() => {
-        resolvedRef.current.indeterminate = indeterminate
-      }, [resolvedRef, indeterminate])
-  
-      console.log(rest)
+        if (resolvedRef.current) {
+          resolvedRef.current.indeterminate = indeterminate;
+        }
+      }, [resolvedRef, indeterminate]);
+    
       return (
-					<Checkbox
-            ref={resolvedRef}
-            {...rest}
-          />
-        // <div class="slds-checkbox">
-        //   <input type="checkbox" name="options" id="checkbox-01" tabindex="-1" aria-labelledby="check-button-label-01 column-group-header"
-        //       />
-        //   <label class="slds-checkbox__label" for="checkbox-01" id="check-button-label-01"><span class="slds-checkbox_faux"></span><span class="slds-form-element__label slds-assistive-text">Select item 1</span></label>
-        // </div>
+					<Checkbox ref={resolvedRef} {...rest}/>
       )
     }
   )
+  
   const {
       getTableProps,
       getTableBodyProps,
@@ -174,14 +157,14 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
             maxWidth: 50,
             // The header can use the table's getToggleAllRowsSelectedProps method
             // to render a checkbox
-            Header: ({ getToggleAllRowsSelectedProps }) => (
+            Header: ({ getToggleAllRowsSelectedProps }:any) => (
               <div>
                 <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
               </div>
             ),
             // The cell can use the individual row's getToggleRowSelectedProps method
             // to the render a checkbox
-            Cell: ({ row }) => (
+            Cell: ({ row }:any) => (
               <div>
                 <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
               </div>
@@ -192,7 +175,7 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
         hooks.useInstanceBeforeDimensions.push(({ headerGroups }) => {
           // fix the parent group of the selection button to not be resizable
           const selectionGroupHeader = headerGroups[0].headers[0]
-          selectionGroupHeader.canResize = false
+          // selectionGroupHeader.canResize = false
         })
       }
     )
@@ -209,7 +192,7 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()} className="slds-line-height_reset">
-            {headerGroup.headers.map(column => (
+            {headerGroup.headers.map((column: any) => (
               <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                 {column.render('Header')}
                 <span>
@@ -225,14 +208,14 @@ export const DataTable: FC<TableProps> = forwardRef((props: TableProps, ref: Ref
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
+        {rows.map((row:any, i) => {
           prepareRow(row)
           return (
-            <tr {...row.getRowProps(CustomRowProps)}>
-              {row.cells.map(cell => {
+            <tr {...row.getRowProps(CustomRowProps(row))}>
+              {row.cells.map((cell:any) => {
                 const column:SteedosColumnInstance = cell.column;
                 return (
-                  <td {...cell.getCellProps(CustomCellProps)}
+                  <td {...cell.getCellProps(CustomCellProps(cell))}
                     >{cell.render('Cell')}</td>
                 )
               })}

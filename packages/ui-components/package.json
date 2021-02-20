@@ -38,6 +38,7 @@
     "@emotion/styled": "^11.1.5",
     "@salesforce-ux/design-system": "^2.14.2",
     "@salesforce/design-system-react": "^0.10.29",
+    "@types/react-onclickoutside": "^6.7.3",
     "framer-motion": "^3.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
