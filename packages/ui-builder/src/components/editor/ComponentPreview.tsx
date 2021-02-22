@@ -47,7 +47,8 @@ const ComponentPreview: React.FC<{
     //     />
     //   )
     case 'FormSection':
-      return <AccordionPreview component={component} />
+      // return <AccordionPreview component={component} />
+      return <ButtonPreview component={component} />
     // 以下是Chakra组件
     // Simple components
     case 'Badge':
