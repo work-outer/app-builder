@@ -33,7 +33,26 @@ Drag and drop app building using your react components
 #### 传入
 
 - `ui-builder`包中输出的json，传入的json有每个字段是否只读必填等属性。
-- 上述json中type与组件名称对应关系，即json中每个type分别应该用什么组件来渲染，可以为空，为空则使用默认的规则来处理。
+- 上述json中type与组件名称对应关系，即json中每个type分别应该用什么组件来渲染，不能为空。
+
+`**antd-render.page.jsx`**
+
+```jsx
+import {Form, Input} from '@antd';
+import UIRender  from '@steedos/ui-render';
+
+// 这个就是ui-builder包中输出的json
+pageJSON = {
+  ...
+}
+
+components = {
+  "@antd/Form": Form,
+  "@antd/Input": Input
+}
+
+<UIRender page={pageJSON} components={components}/>
+```
 
 #### 输出
 
@@ -52,129 +71,64 @@ Drag and drop app building using your react components
 - 支持拖动哪些组件类型，即左侧组件列表显示哪些可拖动的菜单。
 - 其他设计器开关属性，比如是否显示顶部header。
 
-传入的json格式如下：
+传入的参数是一个组件数组，其元素格式如下：
 
 ```text
 {
-  "{group-key}":{
-    "label": "{group-label}",
-    "expanded": true/false,
-    "components":{
-      "{component-key}":{
-        "type": "{component-type}",
-        "label": "{component-label}",
-        "defaultProps": {
-          ...
-        }
-      }
+  "label": "{group-label}",
+  "expanded": true/false,
+  "components":[
+    "type": "{component-type}",
+    "component": {组件定义},
+    "componentSettings": {对应的右侧属性设置组件定义},
+    "droppable": ["{component-type}",...], // 只有指定控件才能拖入
+    "droppable": true, //所有控件都能拖入
+    "label": "{component-label}",
+    "defaultProps": {
       ...
     }
-  }
+  ]
 }
 ```
 
 注意：传入的json第一层要求是group，它本身不可以被拖动，其下子节点`components`中的内容才是可以拖动的组件。
 
-比如要允许拖动不同字段类型的FormItem组件，可以传入以下参数：
+比如以下代码允许拖动Form和Input组件到中间面板，且Form中只能接收拖动Input组件到里面：
 
-### antd-render.page.jsx
+**`antd-build.page.jsx`**
+
 ```jsx
-
-import {Form, Input} from '@antd';
-import UIRender  from '@steedos/ui-render';
-
-pageJSON = {
-
-}
-
-components = {
-  "@antd/Form": Form,
-  "@antd/Input": Input
-}
-
-<UIRender page={pageJSON} components={components}/>
-```
-
-
-### antd-build.page.jsx
-```jsx
-
 import {Form, Input} from '@antd';
 import UIBuilder  from '@steedos/ui-builder';
+import FormSettings  from './components/FormSettings';
+import InputSettings  from './components/InputSettings';
 
 builderComponents =
   [{
-    "label": "字段",
+    "label": "组件分组标题",
     "expanded": true,
     "components": [{
-        "type": "@antd/Form",
-        "component": Form,
-        "comoonentSettings": ...,
-        "droppable": ["@antd/Input"], // 只有指定控件才能拖入
-        "droppable": true, //所有控件都能拖入
-        "label": "合同名称",
-        "defaultProps": {
-          "objectName": "contracts",
-          "fieldName": "name",
-          "fieldType": "text",
-          ...
-        }
-      },
-      "form-item-amount":{
-        "type": "@antd/Input",
-        "component": Form,
-        "comoonentSettings": ...,
-        "settings":  "@steedos/ui-builder-antd/InputSettings",
-        "label": "合同金额",
-        "defaultProps": {
-          "objectName": "contracts",
-          "fieldName": "amount",
-          "fieldType": "currency",
-          ...
-        }
+      "type": "@antd/Form",
+      "component": Form,
+      "componentSettings": FormSettings,
+      "droppable": ["@antd/Input"],
+      "label": "表单组件",
+      "defaultProps": {
+        ...
       }
-    ]
+    },{
+      "type": "@antd/Input",
+      "component": Input,
+      "comoonentSettings": InputSettings,
+      "label": "Input组件",
+      "defaultProps": {
+        ...
+      }
+    }]
   }]
 
 
 <UIBuilder components={builderComponents}/>
-```
-
-再比如要允许拖动不同的相关表的RelatedList组件，可以传入以下参数：
-
-```text
-{
-  "related-list":{
-    "label": "相关表",
-    "expanded": true,
-    "components": {
-      "related-list-contract_payments":{
-        "type": "related-list",
-        "label": "付款",
-        "defaultProps": {
-          "objectName": "contract_payments",
-          "fieldName": "contract",
-          "fieldType": "master_detail",
-          "columns": ["name", "amount"],
-          ...
-        }
-      },
-      "related-list-contract_receipts":{
-        "type": "related-list",
-        "label": "收款",
-        "defaultProps": {
-          "objectName": "contract_receipts",
-          "fieldName": "contract",
-          "fieldType": "master_detail",
-          "columns": ["name", "amount"],
-          ...
-        }
-      },
-      ...
-    }
-  },
-  ...
-}
 ```
 
 #### 输出
@@ -204,6 +158,101 @@ FormItem组件只能拖到FormSection组件内。
 ### ui-record-page-builder
 
 基于`ui-builder`这个包的功能，实现记录详细界面的设计功能。
+
+比如要允许拖动不同的字段组件，可以像下面这样传入组件参数给UIBuilder组件：
+
+```jsx
+import {FormSection, FormItem} from '@steedos/ui-components';
+import UIBuilder  from '@steedos/ui-builder';
+import FormSectionSettings  from './components/FormSectionSettings';
+import FormItemSettings  from './components/FormItemSettings';
+
+builderComponents =
+  [{
+    "label": "字段",
+    "expanded": true,
+    "components": [{
+        "type": "@steedos/ui-components/form-section",
+        "component": FormSection,
+        "componentSettings": FormSectionSettings,
+        "droppable": ["@steedos/ui-components/form-item"], 
+        "label": "字段分组",
+        "defaultProps": {
+          ...
+        }
+      },{
+        "type": "@steedos/ui-components/form-item",
+        "component": FormItem,
+        "componentSettings": FormItemSettings,
+        "droppable": true, 
+        "label": "合同名称",
+        "defaultProps": {
+          "objectName": "contracts",
+          "fieldName": "name",
+          "fieldType": "text",
+          ...
+        }
+      },{
+        "type": "@steedos/ui-components/form-item",
+        "component": FormItem,
+        "componentSettings": FormItemSettings,
+        "droppable": true, 
+        "label": "合同金额",
+        "defaultProps": {
+          "objectName": "contracts",
+          "fieldName": "amount",
+          "fieldType": "currency",
+          ...
+        }
+      }
+    ]
+  }]
+
+
+<UIBuilder components={builderComponents}/>
+```
+
+再比如要允许拖动不同的相关表的RelatedList组件，可以像下面这样传入组件参数给UIBuilder组件：
+
+```jsx
+import {RelatedList} from '@steedos/ui-components';
+import UIBuilder  from '@steedos/ui-builder';
+import RelatedListSettings  from './components/RelatedListSettings';
+
+builderComponents =
+  [{
+    "label": "相关表",
+    "expanded": true,
+    "components": [{
+        "type": "@steedos/ui-components/related-list",
+        "component": RelatedList,
+        "componentSettings": RelatedListSettings,
+        "label": "付款",
+        "defaultProps": {
+          "objectName": "contract_payments",
+          "fieldName": "contract",
+          "fieldType": "master_detail",
+          "columns": ["name", "amount"]
+        }
+      },{
+        "type": "@steedos/ui-components/related-list",
+        "component": RelatedList,
+        "componentSettings": RelatedListSettings,
+        "label": "收款",
+        "defaultProps": {
+          "objectName": "contract_receipts",
+          "fieldName": "contract",
+          "fieldType": "master_detail",
+          "columns": ["name", "amount"],
+        }
+      }
+    ]
+  }]
+
+
+<UIBuilder components={builderComponents}/>
+```
+
 
 #### 依赖包
 
