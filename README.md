@@ -79,12 +79,13 @@ Drag and drop app building using your react components
 
 ```text
 {
-  "fields":{
+  [{
     "label": "字段",
     "expanded": true,
-    "components": {
-      "form-item-name":{
-        "type": "form-item",
+    "components": [{
+        "type": "@antd/Form",
+        "settings":  "@steedos/ui-builder-antd/FormSettings",
+        "droppable": ["@antd/Input"],
         "label": "合同名称",
         "defaultProps": {
           "objectName": "contracts",
@@ -94,7 +95,8 @@ Drag and drop app building using your react components
         }
       },
       "form-item-amount":{
-        "type": "form-item",
+        "type": "@antd/Input",
+        "settings":  "@steedos/ui-builder-antd/InputSettings",
         "label": "合同金额",
         "defaultProps": {
           "objectName": "contracts",
@@ -103,10 +105,8 @@ Drag and drop app building using your react components
           ...
         }
       }
-      ...
-    }
-  },
-  ...
+    ]
+  }]
 }
 ```
 
