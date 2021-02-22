@@ -1,6 +1,6 @@
 
 import React from "react";
-import Input from '@salesforce/design-system-react/components/input'; 
+import { Input } from 'antd';
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
@@ -10,10 +10,10 @@ export class InputText extends React.Component<any> {
   }
 
   render() {
-    const {style, ...rest} = this.props
+    const {...rest} = this.props
     
     return (
-      <Input styleContainer={style} {...rest}
+      <Input {...rest}
         ></Input>
     )
   }

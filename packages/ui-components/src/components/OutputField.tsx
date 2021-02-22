@@ -9,15 +9,15 @@ export class OutputField extends React.Component<any> {
   }
 
   render() {
-    const {fieldName, readonly, ...rest} = this.props
+    const {fieldName, value, ...rest} = this.props
 
     return (
       <div className="col-span-6">
         <Input
-          id="unique-id-3"
-          label="Input Label"
+          name={fieldName}
           readOnly
-          value="Read Only Value"
+          value={value}
+          {...rest}
         />
       </div>
     )

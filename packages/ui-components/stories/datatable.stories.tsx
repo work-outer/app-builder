@@ -30,6 +30,7 @@ const DATA = [
 ];
 
 const COLUMNS = [
+    { label: 'ID', fieldName: 'id', editable: false },
     { label: 'Name', fieldName: 'name', editable: true },
     {
         label: 'Age',
