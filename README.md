@@ -77,14 +77,37 @@ Drag and drop app building using your react components
 
 比如要允许拖动不同字段类型的FormItem组件，可以传入以下参数：
 
-```text
-{
+### antd-render.page.jsx
+```jsx
+
+import {Form, Input} from '@antd';
+
+page = {
+
+}
+
+components = {
+  "@antd/Form": Form,
+  "@antd/Form": Input
+}
+
+<UIRender page={page} components={components}/>
+```
+
+
+### antd-build.page.jsx
+```jsx
+
+import {Form, Input} from '@antd';
+
+builderComponents =
   [{
     "label": "字段",
     "expanded": true,
     "components": [{
         "type": "@antd/Form",
-        "settings":  "@steedos/ui-builder-antd/FormSettings",
+        "component": Form,
+        "comoonentSettings": ...,
         "droppable": ["@antd/Input"], // 只有指定控件才能拖入
         "droppable": true, //所有控件都能拖入
         "label": "合同名称",
@@ -97,6 +120,8 @@ Drag and drop app building using your react components
       },
       "form-item-amount":{
         "type": "@antd/Input",
+        "component": Form,
+        "comoonentSettings": ...,
         "settings":  "@steedos/ui-builder-antd/InputSettings",
         "label": "合同金额",
         "defaultProps": {
@@ -108,7 +133,9 @@ Drag and drop app building using your react components
       }
     ]
   }]
-}
+
+
+<UIBuilder components={builderComponents}/>
 ```
 
 再比如要允许拖动不同的相关表的RelatedList组件，可以传入以下参数：
