@@ -85,7 +85,8 @@ Drag and drop app building using your react components
     "components": [{
         "type": "@antd/Form",
         "settings":  "@steedos/ui-builder-antd/FormSettings",
-        "droppable": ["@antd/Input"],
+        "droppable": ["@antd/Input"], // 只有指定控件才能拖入
+        "droppable": true, //所有控件都能拖入
         "label": "合同名称",
         "defaultProps": {
           "objectName": "contracts",
