@@ -1,5 +1,5 @@
 import * as React from "react"
-import { RecordEditForm, FormSection, InputField, InputText, InputLookup } from "../src"
+import { RecordEditForm, FormSection, InputField, InputText, InputLookup, InputDate, InputDateTime } from "../src"
 
 export default {
   title: "Form",
@@ -9,6 +9,8 @@ export const SimpleForm = () => (
   <form>
       <InputLookup fieldName="lookup" label="Lookup"/>
       <InputText fieldName="Text" label="text"/>
+      <InputDate fieldName="Date" label="Date" />
+      <InputDateTime fieldName="DateTime" label="DateTime" />
   </form>
 )
 
