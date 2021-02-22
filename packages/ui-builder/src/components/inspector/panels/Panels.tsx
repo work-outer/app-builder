@@ -48,6 +48,7 @@ import NumberInputPanel from '~components/inspector/panels/components/NumberInpu
 import AspectRatioPanel from '~components/inspector/panels/components/AspectRatioPanel'
 import BreadcrumbPanel from '~components/inspector/panels/components/BreadcrumbPanel'
 import BreadcrumbItemPanel from '~components/inspector/panels/components/BreadcrumbItemPanel'
+import FormSectionPanel from '~components/inspector/panels/components/FormSectionPanel'
 
 const Panels: React.FC<{ component: IComponent; isRoot: boolean }> = ({
   component,
@@ -61,6 +62,8 @@ const Panels: React.FC<{ component: IComponent; isRoot: boolean }> = ({
 
   return (
     <>
+      {type === 'FormSection' && <FormSectionPanel />}
+      {/* 以下是Chakra包组件 */}
       {type === 'Button' && <ButtonPanel />}
       {type === 'Checkbox' && <CheckboxPanel />}
       {type === 'Box' && <BoxPanel />}
