@@ -12,14 +12,7 @@ export class OutputField extends React.Component<any> {
     const {fieldName, value, ...rest} = this.props
 
     return (
-      <div className="col-span-6">
-        <Input
-          name={fieldName}
-          readOnly
-          value={value}
-          {...rest}
-        />
-      </div>
+      <div {...rest}>{value}</div>
     )
   }
 }

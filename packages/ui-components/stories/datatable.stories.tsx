@@ -100,6 +100,7 @@ export const DataTableAntD = () => {
       columns={columns2} 
       scroll={{ y: 300 }} 
       request={loadData} 
+      size='small'
       pagination={{
         pageSize: 10,
       }}> 

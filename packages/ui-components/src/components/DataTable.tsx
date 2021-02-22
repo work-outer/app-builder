@@ -99,7 +99,7 @@ export class DataTable extends React.Component<any> {
               <OutputField 
                 fieldName={col.fieldName} 
                 value={text} 
-                onClick={() => {
+                onDoubleClick={() => {
                   action.startEditable?.(record.id);
                 }}/>
             )
@@ -111,7 +111,7 @@ export class DataTable extends React.Component<any> {
   }
 
   render() {
-    const {columns, data, ...rest} = this.props
+    const {columns, data, size, ...rest} = this.props
     const {tableColumns} = this.state
     
     return (
@@ -124,6 +124,7 @@ export class DataTable extends React.Component<any> {
           // defaultData={data}
           editable={this.editableConfig}
           toolBarRender={this.toolBarRender}
+          size={size}
           {...rest}
           >
         </EditableProTable>
