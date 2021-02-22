@@ -1,5 +1,5 @@
 import * as React from "react"
-import { DataTable } from "../src"
+import { DataTable, DataTableSF } from "../src"
 
 export default {
   title: "DataTable",
@@ -41,24 +41,21 @@ const COLUMNS = [
     { label: 'Email', fieldName: 'email', type: 'lookup', editable: true  },
 ];
 
-export const DataTableSimple = () => {
+export const DemoSF = () => {
     
   // const [data, setData] = React.useState(() => data)
 
-  // const updateData = (rowIndex:number, columnId:number, value:any) => {
-  //   // We also turn on the flag to not reset the page
-  //   setData((old:any) =>
-  //     old.map((row:any, index:number) => {
-  //       if (index === rowIndex) {
-  //         return {
-  //           ...old[rowIndex],
-  //           [columnId]: value,
-  //         }
-  //       }
-  //       return row
-  //     })
-  //   )
-  // }
+  return (
+    <DataTableSF data={DATA} columns={COLUMNS} id="DataTableExample-1-default">
+    </DataTableSF>
+  )
+}
+
+
+export const DataTableAntD = () => {
+    
+  // const [data, setData] = React.useState(() => data)
+
   return (
     <DataTable data={DATA} columns={COLUMNS} id="DataTableExample-1-default">
     </DataTable>

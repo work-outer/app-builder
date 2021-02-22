@@ -1,6 +1,8 @@
 
 import React from "react";
-import ExpandableSection from '@salesforce/design-system-react/components/expandable-section';
+import ProCard from '@ant-design/pro-card';
+
+import '@ant-design/pro-card/dist/card.css'
 
 export class FormSection extends React.Component<any> {
   static defaultProps = {
@@ -11,13 +13,9 @@ export class FormSection extends React.Component<any> {
     const {title,  children, ...rest} = this.props
 
     return (
-      <ExpandableSection
-        title={title}
-      >
-        <div className="grid sm:grid-cols-12 gap-4">
+      <ProCard title={title} ghost gutter={8} collapsible>
           {children}
-        </div>
-      </ExpandableSection>
+      </ProCard>
     )
   }
 }
