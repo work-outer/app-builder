@@ -16,9 +16,11 @@ import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
 import DragItem from './DragItem'
 import { menuItems, MenuItem } from '~componentsList'
 
-const Menu = () => {
+const Menu: React.FC<UIBuilderComponentProps> = ({
+  components
+}) => {
   const [searchTerm, setSearchTerm] = useState('')
-
+  console.log("==components=", components);
   return (
     <DarkMode>
       <Box
@@ -62,8 +64,105 @@ const Menu = () => {
             )}
           </InputRightElement>
         </InputGroup>
-
         <Accordion allowMultiple defaultIndex={[0,1]} color="#fff">
+          {(components as UIBuilderComponentsGroupProps[])
+            // .filter(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map(componentGroup => {
+              const {
+                label,
+                expanded,
+                components: items
+              } = componentGroup;
+
+              return (
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        {label}
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <AccordionPanel pb={4}>
+                    {(items as UIBuilderComponentsItemProps[])
+                    // .filter(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
+                    .map((componentItem,index) => {
+                      const {
+                        type,
+                        component,
+                        componentSettings,
+                        droppable,
+                        label,
+                        defaultProps
+                      } = componentItem;
+                      // console.log("===xx===", component.type);
+                      return (
+                        <DragItem
+                          key={type+index.toString()}
+                          label={label}
+                          type={type as any}
+                          id={type+index.toString()}
+                          defaultProps={defaultProps}
+                          >
+                          {label}
+                        </DragItem>
+                      );
+                    })}
+                  </AccordionPanel>
+                </AccordionItem>
+              )
+              
+              // const { children, soon } = menuItems[name] as MenuItem
+
+              // if (children) {
+              //   const elements = Object.keys(children).map(childName => (
+              //     <DragItem
+              //       isChild
+              //       key={childName}
+              //       label={childName}
+              //       type={childName as any}
+              //       id={childName as any}
+              //       rootParentType={menuItems[name]?.rootParentType || name}
+              //       defaultProps={menuItems[name]?.defaultProps}
+              //     >
+              //       {childName}
+              //     </DragItem>
+              //   ))
+
+              //   return [
+              //     <DragItem
+              //       isMeta
+              //       soon={soon}
+              //       key={`${name}Meta`}
+              //       label={name}
+              //       type={`${name}Meta` as any}
+              //       id={`${name}Meta` as any}
+              //       rootParentType={menuItems[name]?.rootParentType || name}
+              //       defaultProps={menuItems[name]?.defaultProps}
+              //     >
+              //       {name}
+              //     </DragItem>,
+              //     ...elements,
+              //   ]
+              // }
+
+              // return (
+              //   <DragItem
+              //     soon={soon}
+              //     key={name}
+              //     label={name}
+              //     type={name as any}
+              //     id={name as any}
+              //     rootParentType={menuItems[name]?.rootParentType || name}
+              //     defaultProps={menuItems[name]?.defaultProps}
+              //     >
+              //     {name}
+              //   </DragItem>
+              // )
+          })}
+        </Accordion>
+        {/* <Accordion allowMultiple defaultIndex={[0,1]} color="#fff">
           <AccordionItem>
             <h2>
               <AccordionButton>
@@ -153,7 +252,7 @@ const Menu = () => {
               })}
             </AccordionPanel>
           </AccordionItem>
-        </Accordion>
+        </Accordion> */}
       </Box>
     </DarkMode>
   )
