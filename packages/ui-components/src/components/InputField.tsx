@@ -1,5 +1,6 @@
 
 import React from "react";
+
 import {Input} from '..'; 
 
 
@@ -9,8 +10,14 @@ export class InputField extends React.Component<any> {
     required: false,
   }
 
+  handleClickOutside = (evt:any) => {
+    if (this.props.onClickOutside){
+      this.props.onClickOutside(evt);
+    }
+  };
+
   render() {
-    const {fieldName, isWide, ...rest} = this.props
+    const {fieldName, isWide, onClickOutside, ...rest} = this.props
 
     // 根据fieldName，解析 type, label 等属性
     return (
