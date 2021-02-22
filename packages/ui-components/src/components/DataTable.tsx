@@ -113,22 +113,12 @@ export class DataTable extends React.Component<any> {
     const {columns, data, ...rest} = this.props
     const {tableColumns} = this.state
     
-    const rowSelection = {
-      selectedRowKeys: this.state["selectedRowKeys"],
-      onChange: this.onSelectChange,
-      selections: [
-        Table.SELECTION_ALL,
-        Table.SELECTION_INVERT,
-        Table.SELECTION_NONE,
-      ],
-    };
-
     return (
       <>
         <EditableProTable 
           rowKey="id"
           headerTitle="可编辑表格"
-          rowSelection={rowSelection} 
+          rowSelection={{}} 
           columns={tableColumns} 
           value={data}
           editable={this.editableConfig}
