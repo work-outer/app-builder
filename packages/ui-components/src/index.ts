@@ -14,3 +14,4 @@ export * from './components/datatable/';
 export * from './components/form/Input';
 export * from './components/form/InputText';
 export * from './components/form/InputLookup';
+export * from './components/form/InputDate';
