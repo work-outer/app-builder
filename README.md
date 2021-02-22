@@ -81,17 +81,18 @@ Drag and drop app building using your react components
 ```jsx
 
 import {Form, Input} from '@antd';
+import UIRender  from '@steedos/ui-render';
 
-page = {
+pageJSON = {
 
 }
 
 components = {
   "@antd/Form": Form,
-  "@antd/Form": Input
+  "@antd/Input": Input
 }
 
-<UIRender page={page} components={components}/>
+<UIRender page={pageJSON} components={components}/>
 ```
 
 
@@ -99,6 +100,7 @@ components = {
 ```jsx
 
 import {Form, Input} from '@antd';
+import UIBuilder  from '@steedos/ui-builder';
 
 builderComponents =
   [{
