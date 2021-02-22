@@ -82,6 +82,7 @@ export class DataTable extends React.Component<any> {
           title: col.label,
           key: col.fieldName,
           dataIndex: col.fieldName,
+          // ellipsis: true, 
           editable: (text:any, record:any, index:any, ...rest:any) => {
             return !!col.editable
           },
@@ -120,7 +121,7 @@ export class DataTable extends React.Component<any> {
           headerTitle="可编辑表格"
           rowSelection={{}} 
           columns={tableColumns} 
-          value={data}
+          // defaultData={data}
           editable={this.editableConfig}
           toolBarRender={this.toolBarRender}
           {...rest}

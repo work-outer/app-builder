@@ -1,4 +1,7 @@
 import * as React from "react"
+import _ from 'lodash';
+import request from 'umi-request';
+
 import { DataTable, DataTableSF } from "../src"
 
 export default {
@@ -30,7 +33,6 @@ const DATA = [
 ];
 
 const COLUMNS = [
-    { label: 'ID', fieldName: 'id', editable: false },
     { label: 'Name', fieldName: 'name', editable: true },
     {
         label: 'Age',
@@ -41,6 +43,34 @@ const COLUMNS = [
     },
     { label: 'Email', fieldName: 'email', type: 'lookup', editable: true  },
 ];
+
+const recordMetadata = {
+  name: 'name',
+  email: 'email',
+  website: 'url',
+  amount: 'currency',
+  phone: 'phoneNumber',
+  closeAt: 'dateInFuture',
+};
+
+const loadData = async (params?: {pageSize:number,current:number}, sort?:any, filter?:any) => {
+  console.log('loadData')
+  const data = await request('https://data-faker.herokuapp.com/collection', {
+    params,
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+    },
+    body: JSON.stringify({
+        amountOfRecords: params?.pageSize,
+        recordMetadata,
+    }),
+  })
+
+  const total = 100
+  return {data, total}
+}
+
 
 export const DemoSF = () => {
     
@@ -53,12 +83,26 @@ export const DemoSF = () => {
 }
 
 
+const columns2 = [
+  { label: 'Label', fieldName: 'name', editable: true },
+  { label: 'Website', fieldName: 'website', type: 'url', editable: true },
+  { label: 'Phone', fieldName: 'phone', type: 'phone', editable: true },
+  { label: 'CloseAt', fieldName: 'closeAt', type: 'date', editable: true },
+  { label: 'Balance', fieldName: 'amount', type: 'currency', editable: true },
+];
+
 export const DataTableAntD = () => {
     
   // const [data, setData] = React.useState(() => data)
 
   return (
-    <DataTable data={DATA} columns={COLUMNS} id="DataTableExample-1-default">
+    <DataTable 
+      columns={columns2} 
+      scroll={{ y: 300 }} 
+      request={loadData} 
+      pagination={{
+        pageSize: 10,
+      }}> 
     </DataTable>
   )
 }
