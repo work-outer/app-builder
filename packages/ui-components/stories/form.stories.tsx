@@ -5,7 +5,6 @@ import {
   FormSection, 
   InputField, 
   InputLookup, 
-  Input,
 } from "../src"
 
 export default {
