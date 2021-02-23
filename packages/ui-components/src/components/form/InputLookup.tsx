@@ -51,10 +51,6 @@ export class InputLookup extends React.Component {
     data: [],
     value: undefined,
   };
-
-  constructor(props:any){
-    super(props);
-  }
   
   componentDidMount = () => {
     this.getQueryDate()
@@ -87,8 +83,7 @@ export class InputLookup extends React.Component {
   handleSearch = (value:any) => {
     console.log('value--->', value)
     if (value) {
-      // fetch(value, (data:any) => this.setState({ data }));
-      this.getQueryDate();
+      fetch(value, (data:any) => this.setState({ data }));
     } else {
       this.setState({ data: [] });
     }
