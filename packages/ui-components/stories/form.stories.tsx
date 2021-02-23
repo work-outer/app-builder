@@ -18,8 +18,11 @@ export default {
 
 export const SimpleForm = () => (
   <form>
+      <Divider plain orientation="left" >Text</Divider>
       <InputText fieldName="Text" label="text"/>
+      <Divider plain orientation="left" >Date</Divider>
       <InputDate fieldName="Date" label="Date" />
+      <Divider plain orientation="left" >DateTime</Divider>
       <InputDateTime fieldName="DateTime" label="DateTime" />
       <Divider plain orientation="left" >Lookup</Divider>
       <InputLookup fieldName="lookup" placeholder="Please select object" />
