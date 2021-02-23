@@ -46,7 +46,6 @@ function fetch(value:any, callback:any) {
 
   timeout = setTimeout(fake, 200);
 }
-
 export class InputLookup extends React.Component {
   state = {
     data: [],
@@ -55,13 +54,41 @@ export class InputLookup extends React.Component {
 
   constructor(props:any){
     super(props);
-    this.handleSearch;
   }
+  
+  componentDidMount = () => {
+    this.getQueryDate()
+  }
+
+  getQueryDate =() => {
+    console.log('getQueryDate  start');
+    steedosClient.graphql.query(`
+      {
+        objects {
+          _id
+          label
+          name
+          icon
+        }
+      }
+    `).then((res:any) => {
+        console.log('res is ', res);
+        const children = res.data.objects.map((item:any) => ({
+          id:item._id,
+          icon: item.icon,
+          name: item.name,
+          label: item.label
+        }));
+        console.log('chi--->', children)
+        this.setState({data:children});
+      });
+  };
 
   handleSearch = (value:any) => {
     console.log('value--->', value)
     if (value) {
-      fetch(value, (data:any) => this.setState({ data }));
+      // fetch(value, (data:any) => this.setState({ data }));
+      this.getQueryDate();
     } else {
       this.setState({ data: [] });
     }
@@ -87,7 +114,7 @@ export class InputLookup extends React.Component {
         notFoundContent={null}
       >
         {data.map((d:any) => (
-            <Option>{d.label}</Option>
+            <Option key={d.id}>{d.label}</Option>
         ))}
       </Select>
     );
