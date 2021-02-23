@@ -13,8 +13,8 @@ export class InputField extends React.Component<any> {
   }
 
   render() {
-    const {type, ...rest} = this.props;
-    const valueType:any = getValueType(type);
+    const {type, valueType:defaultValueType, ...rest} = this.props;
+    const valueType:any = getValueType(type, defaultValueType);
 
     return <ProField mode="edit" valueType={valueType} {...rest}/>
   }

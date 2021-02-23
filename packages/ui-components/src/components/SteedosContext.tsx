@@ -29,7 +29,7 @@ export class SteedosContextWrap extends React.Component {
                 locale: 'default',
               },
               valueTypeMap: {
-                text: {
+                href: {
                   render: (text) => <a>{text}</a>,
                   renderFormItem: (text, props) => (
                     <Input placeholder="请输入链接" {...props?.fieldProps} />

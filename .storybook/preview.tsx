@@ -86,7 +86,7 @@ const withAntDesignPro = (StoryFn: Function, context: StoryContext) => {
         href: {
           render: (text) => <a>{text}</a>,
           renderFormItem: (text, props) => (
-            <Input placeholder="请输入" {...props?.fieldProps} />
+            <Input placeholder="请输入链接" {...props?.fieldProps} />
           ),
         }
       }
@@ -95,12 +95,13 @@ const withAntDesignPro = (StoryFn: Function, context: StoryContext) => {
     </ProProvider.Provider>
   )
 }
-const withSteedos = (StoryFn: Function, context: StoryContext) => {
 
+const withSteedos = (StoryFn: Function, context: StoryContext) => {
   return (
     <SteedosContextWrap>
       <StoryFn />
     </SteedosContextWrap>
   )
 }
+
 export const decorators = [withChakra, withPerformance, withSFDS, withSteedos]
