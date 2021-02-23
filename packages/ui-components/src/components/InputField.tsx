@@ -1,7 +1,9 @@
 
 import React from "react";
 
-import {Input} from '..'; 
+import ProField from '@ant-design/pro-field';
+
+import {getValueType} from '..'
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
@@ -11,9 +13,9 @@ export class InputField extends React.Component<any> {
   }
 
   render() {
-    const {fieldName, isWide, ...rest} = this.props
+    const {type, ...rest} = this.props;
+    const valueType:any = getValueType(type);
 
-    // 根据fieldName，解析 type, label 等属性
-    return <Input name={fieldName} {...rest}/>
+    return <ProField mode="edit" valueType={valueType} {...rest}/>
   }
 }

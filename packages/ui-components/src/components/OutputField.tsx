@@ -1,7 +1,9 @@
 
 import React from "react";
 
-import {Input} from '..'; 
+import ProField from '@ant-design/pro-field';
+import {getValueType} from '..'
+
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-output-field/documentation
 export class OutputField extends React.Component<any> {
@@ -9,8 +11,9 @@ export class OutputField extends React.Component<any> {
   }
 
   render() {
-    const {fieldName, mode, ...rest} = this.props
+    const {type, ...rest} = this.props;
+    const valueType:any = getValueType(type);
 
-    return <Input name={fieldName} mode='read' {...rest}/>
+    return <ProField mode="read" valueType={valueType} {...rest}/>
   }
 }

@@ -11,13 +11,6 @@ export * from './components/FormSection';
 export * from './components/datatable-sf';
 export * from './components/DataTable';
 
-
-export * from './components/form/Input';
-export * from './components/form/InputText';
-export * from './components/form/InputTextWithFix';
-export * from './components/form/InputTextarea';
 export * from './components/form/InputLookup';
-export * from './components/form/InputDate';
-export * from './components/form/InputDateTime';
 
 export * from './utils/';

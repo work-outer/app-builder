@@ -8,8 +8,6 @@ import {getValueType} from '../'
 
 import '@ant-design/pro-table/dist/table.css'
 
-import { Input, InputText, InputField, OutputField } from "..";
-
 export class DataTable extends React.Component<any> {
   static defaultProps = {
       size: 'small',
