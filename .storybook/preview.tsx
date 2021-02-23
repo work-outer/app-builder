@@ -11,6 +11,10 @@ import * as React from "react"
 import { FaMoon, FaSun } from "react-icons/fa"
 import { withPerformance } from "storybook-addon-performance"
 import IconSettings from '@salesforce/design-system-react/components/icon-settings';
+import ProProvider, {zhCNIntl} from '@ant-design/pro-provider';
+import { Input, Space, Tag } from 'antd';
+
+import {SteedosContextWrap} from '../packages/ui-components/src/components/SteedosContext';
 
 /**
  * Add global context for RTL-LTR switching
@@ -69,4 +73,34 @@ const withSFDS = (StoryFn: Function, context: StoryContext) => {
     </IconSettings>
   )
 }
-export const decorators = [withChakra, withPerformance, withSFDS]
+
+const withAntDesignPro = (StoryFn: Function, context: StoryContext) => {
+
+  return (
+    <ProProvider.Provider value={{
+      intl: {
+        ...zhCNIntl,
+        locale: 'default',
+      },
+      valueTypeMap: {
+        href: {
+          render: (text) => <a>{text}</a>,
+          renderFormItem: (text, props) => (
+            <Input placeholder="请输入" {...props?.fieldProps} />
+          ),
+        }
+      }
+    }}>
+      <StoryFn />
+    </ProProvider.Provider>
+  )
+}
+const withSteedos = (StoryFn: Function, context: StoryContext) => {
+
+  return (
+    <SteedosContextWrap>
+      <StoryFn />
+    </SteedosContextWrap>
+  )
+}
+export const decorators = [withChakra, withPerformance, withSFDS, withSteedos]

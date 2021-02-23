@@ -73,7 +73,7 @@ const loadData = async (params?: {pageSize:number,current:number}, sort?:any, fi
 
 const columns2 = [
   { label: 'Label', fieldName: 'name', type: 'text', editable: true, filters: true },
-  { label: 'Website', fieldName: 'website', type: 'text', editable: true },
+  { label: 'Website', fieldName: 'website', type: 'href', editable: true },
   { label: 'Phone', fieldName: 'phone', type: 'text', editable: true },
   { label: 'CloseAt', fieldName: 'closeAt', type: 'datetime', editable: true, filters: true },
   { label: 'Balance', fieldName: 'amount', type: 'number', editable: true },
