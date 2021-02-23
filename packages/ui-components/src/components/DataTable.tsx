@@ -3,35 +3,35 @@ import _ from 'lodash';
 
 
 import { Form, Table, Tag, Space, Button } from 'antd';
-import { EditableProTable } from '@ant-design/pro-table';
+import ProTable, { EditableProTable } from '@ant-design/pro-table';
+import {getValueType} from '../'
 
 import '@ant-design/pro-table/dist/table.css'
 
-import { InputField, OutputField } from "..";
+import { Input, InputText, InputField, OutputField } from "..";
 
 export class DataTable extends React.Component<any> {
   static defaultProps = {
       size: 'small',
+      editable: false,
       data: [],
   }
 
   state = {
     loading: true, 
     selectedRowKeys: [],
-    datasource: [],
     tableColumns: [],
   }
 
   constructor(props:any) {
     super(props);
-
   }
+
   componentDidMount() {
     this.setState({ loading: true });
 
     const tableColumns = this.getTableColumns(this.props.columns)
     this.setState({
-      datasource: this.props.data,
       tableColumns: tableColumns
     });
 
@@ -52,14 +52,13 @@ export class DataTable extends React.Component<any> {
     onSave: async () => {
     },
     onValuesChange: (record:any, recordList:any) => {
-      this.setState({datasource: recordList});
+      // this.setState({dataSource: recordList});
     },
     onChange: (editableKeys: any, editableRows: any) => {
     }
   }
 
   toolBarRender = () => {
-    const {datasource} = this.state
     return ([
       <Button
         type="primary"
@@ -77,32 +76,34 @@ export class DataTable extends React.Component<any> {
   getTableColumns = (columns:any)=> {
 
     const tableColumns:any = [];
-    _.each(columns, (col) => {
+    _.each(columns, (col:any) => {
         tableColumns.push({
           title: col.label,
           key: col.fieldName,
           dataIndex: col.fieldName,
+          valueType: getValueType(col.type),
           // ellipsis: true, 
           editable: (text:any, record:any, index:any, ...rest:any) => {
             return !!col.editable
           },
-          renderFormItem: (text:any, record:any, _:any, action:any) => {
-            return (
-              <InputField 
-                fieldName={col.fieldName} 
-                value={text}
-              />
-            )
-          },
-          render: (text:any, record:any, _:any, action:any) => {
-            return (
-              <OutputField 
-                fieldName={col.fieldName} 
-                value={text} 
-                onDoubleClick={() => {
-                  action.startEditable?.(record.id);
-                }}/>
-            )
+          // renderFormItem: (column: any, form: any, actions: any) => {
+          //   console.log('renderFormItem')
+          //   console.log(column)
+          //   console.log(actions)
+          //   const value = actions.getFieldValue(column.key)
+          //   return <InputField 
+          //       name={col.fieldName} 
+          //       type={col.type}
+          //     />
+          // },
+          // renderFormItem: (_:any, { isEditable }:any) => (isEditable ? <InputField /> : <OutputField /> ),
+          render: (dom:any, record:any, _:any, action:any) => {
+            const props = {
+              onDoubleClick: () => {
+                action.startEditable?.(record.id);
+              }
+            }
+            return <div {...props}>{dom}</div>
           }
         })
     });
@@ -113,22 +114,26 @@ export class DataTable extends React.Component<any> {
   render() {
     const {columns, data, size, ...rest} = this.props
     const {tableColumns} = this.state
+
+    const tableConfig = {
+      rowKey: "id",
+      headerTitle: "可编辑表格",
+      rowSelection: {},
+      columns: tableColumns,
+      // defaultData={data}
+      toolBarRender: this.toolBarRender,
+      ...rest
+    }
+
+    if (this.props.editable)
+      tableConfig['editable'] = this.editableConfig;
+    else
+      tableConfig['editable'] = false;
     
-    return (
-      <>
-        <EditableProTable 
-          rowKey="id"
-          headerTitle="可编辑表格"
-          rowSelection={{}} 
-          columns={tableColumns} 
-          // defaultData={data}
-          editable={this.editableConfig}
-          toolBarRender={this.toolBarRender}
-          size={size}
-          {...rest}
-          >
-        </EditableProTable>
-      </>
-    )
+    if (this.props.editable) {
+      return <EditableProTable {...tableConfig}/>
+    } else {
+      return <EditableProTable {...tableConfig}/>
+    }
   }
 }

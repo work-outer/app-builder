@@ -1,7 +1,7 @@
 
 import React from "react";
-import Input from '@salesforce/design-system-react/components/input'; 
-import Tooltip from '@salesforce/design-system-react/components/tooltip'; 
+
+import {Input} from '..'; 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-output-field/documentation
 export class OutputField extends React.Component<any> {
@@ -9,10 +9,8 @@ export class OutputField extends React.Component<any> {
   }
 
   render() {
-    const {fieldName, value, ...rest} = this.props
+    const {fieldName, mode, ...rest} = this.props
 
-    return (
-      <div {...rest}>{value}</div>
-    )
+    return <Input name={fieldName} mode='read' {...rest}/>
   }
 }

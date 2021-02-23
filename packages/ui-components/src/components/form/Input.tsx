@@ -1,8 +1,9 @@
 
 import React from "react";
-import Tooltip from '@salesforce/design-system-react/components/tooltip'; 
-import {InputText, InputLookup} from '../..'; 
 
+import ProField from '@ant-design/pro-field';
+
+import {getValueType} from '../..'
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation
 export class Input extends React.Component<any> {
@@ -12,26 +13,9 @@ export class Input extends React.Component<any> {
   }
 
   render() {
-    const {type, fieldLevelHelp, ...rest} = this.props
-    const autoProps:any = rest
+    const {type, ...rest} = this.props;
+    const valueType:any = getValueType(type);
 
-    if (fieldLevelHelp)
-        autoProps.fieldLevelHelpTooltip = (
-            <Tooltip
-                id="field-level-help-tooltip"
-                align="top left"
-                content={fieldLevelHelp}
-                isOpen={this.props.tooltipOpen}
-            />)
-    if (type=="lookup"){
-      return (
-        <InputLookup {...autoProps}/>
-      )
-    }
-    else {
-      return (
-        <InputText {...autoProps}/>
-      )
-    }
+    return <ProField mode="edit" valueType={valueType} {...rest}/>
   }
 }

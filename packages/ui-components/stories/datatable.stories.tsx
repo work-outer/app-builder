@@ -84,11 +84,11 @@ export const DemoSF = () => {
 
 
 const columns2 = [
-  { label: 'Label', fieldName: 'name', editable: true },
-  { label: 'Website', fieldName: 'website', type: 'url', editable: true },
-  { label: 'Phone', fieldName: 'phone', type: 'phone', editable: true },
-  { label: 'CloseAt', fieldName: 'closeAt', type: 'date', editable: true },
-  { label: 'Balance', fieldName: 'amount', type: 'currency', editable: true },
+  { label: 'Label', fieldName: 'name', type: 'text', editable: true, filters: true },
+  { label: 'Website', fieldName: 'website', type: 'text', editable: true },
+  { label: 'Phone', fieldName: 'phone', type: 'text', editable: true },
+  { label: 'CloseAt', fieldName: 'closeAt', type: 'datetime', editable: true, filters: true },
+  { label: 'Balance', fieldName: 'amount', type: 'number', editable: true },
 ];
 
 export const DataTableAntD = () => {
@@ -101,6 +101,7 @@ export const DataTableAntD = () => {
       scroll={{ y: 300 }} 
       request={loadData} 
       size='small'
+      editable={true}
       pagination={{
         pageSize: 10,
       }}> 

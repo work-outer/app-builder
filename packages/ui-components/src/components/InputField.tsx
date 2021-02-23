@@ -10,20 +10,10 @@ export class InputField extends React.Component<any> {
     required: false,
   }
 
-  handleClickOutside = (evt:any) => {
-    if (this.props.onClickOutside){
-      this.props.onClickOutside(evt);
-    }
-  };
-
   render() {
-    const {fieldName, isWide, onClickOutside, ...rest} = this.props
+    const {fieldName, isWide, ...rest} = this.props
 
     // 根据fieldName，解析 type, label 等属性
-    return (
-      <div className={isWide?"sm:col-span-12":"sm:col-span-6"}>
-        <Input id={fieldName} {...rest}/>
-      </div>
-    )
+    return <Input name={fieldName} {...rest}/>
   }
 }
