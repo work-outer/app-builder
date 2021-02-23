@@ -167,26 +167,29 @@ import UIBuilder  from '@steedos/ui-builder';
 import FormSectionSettings  from './components/FormSectionSettings';
 import FormItemSettings  from './components/FormItemSettings';
 
-builderComponents =
-  [{
+builderOptions = {
+  logo: '',
+  components: {
+    "@steedos/ui-components/form-section": {
+        "component": FormSection,
+        "componentPreview": FormSectionPreview,
+        "componentSettings": FormSectionSettings,
+        "droppable": ["@steedos/ui-components/form-item"],
+    }
+  },
+  componentTree: [{
     "label": "字段",
     "expanded": true,
-    "components": [{
+    "children": [{
         "type": "@steedos/ui-components/form-section",
-        "component": FormSection,
-        "componentSettings": FormSectionSettings,
-        "droppable": ["@steedos/ui-components/form-item"], 
         "label": "字段分组",
-        "defaultProps": {
+        "props": {
           ...
         }
       },{
         "type": "@steedos/ui-components/form-item",
-        "component": FormItem,
-        "componentSettings": FormItemSettings,
-        "droppable": true, 
         "label": "合同名称",
-        "defaultProps": {
+        "props": {
           "objectName": "contracts",
           "fieldName": "name",
           "fieldType": "text",
@@ -194,11 +197,8 @@ builderComponents =
         }
       },{
         "type": "@steedos/ui-components/form-item",
-        "component": FormItem,
-        "componentSettings": FormItemSettings,
-        "droppable": true, 
         "label": "合同金额",
-        "defaultProps": {
+        "props": {
           "objectName": "contracts",
           "fieldName": "amount",
           "fieldType": "currency",
@@ -209,7 +209,7 @@ builderComponents =
   }]
 
 
-<UIBuilder components={builderComponents}/>
+<UIBuilder {...builderOptions}/>
 ```
 
 再比如要允许拖动不同的相关表的RelatedList组件，可以像下面这样传入组件参数给UIBuilder组件：
