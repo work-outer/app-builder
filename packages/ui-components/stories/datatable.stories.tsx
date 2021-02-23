@@ -2,7 +2,7 @@ import * as React from "react"
 import _ from 'lodash';
 import request from 'umi-request';
 
-import { DataTable, DataTableSF } from "../src"
+import { DataTable } from "../src"
 
 export default {
   title: "DataTable",
@@ -70,18 +70,6 @@ const loadData = async (params?: {pageSize:number,current:number}, sort?:any, fi
   const total = 100
   return {data, total}
 }
-
-
-export const DemoSF = () => {
-    
-  // const [data, setData] = React.useState(() => data)
-
-  return (
-    <DataTableSF data={DATA} columns={COLUMNS} id="DataTableExample-1-default">
-    </DataTableSF>
-  )
-}
-
 
 const columns2 = [
   { label: 'Label', fieldName: 'name', type: 'text', editable: true, filters: true },
