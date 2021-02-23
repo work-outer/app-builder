@@ -3,82 +3,86 @@ declare module 'prettier/standalone'
 declare module 'coloreact'
 declare module 'browser-nativefs'
 
-type ComponentType =
-  | 'FormSection'
-  // 以下是Chakra组件
-  | 'Accordion'
-  | 'AccordionItem'
-  | 'AccordionButton'
-  | 'AccordionPanel'
-  | 'AccordionIcon'
-  | 'Alert'
-  | 'AlertIcon'
-  | 'AlertTitle'
-  | 'AlertDescription'
-  | 'AspectRatio'
-  | 'AvatarBadge'
-  | 'AvatarGroup'
-  | 'Avatar'
-  | 'Badge'
-  | 'Box'
-  | 'Breadcrumb'
-  | 'BreadcrumbItem'
-  | 'BreadcrumbLink'
-  | 'Button'
-  | 'Center'
-  | 'Checkbox'
-  | 'CircularProgress'
-  | 'CloseButton'
-  | 'Code'
-  | 'Container'
-  | 'Divider'
-  | 'Editable'
-  | 'Flex'
-  | 'FormControl'
-  | 'FormLabel'
-  | 'FormHelperText'
-  | 'FormErrorMessage'
-  | 'Grid'
-  | 'Heading'
-  | 'Icon'
-  | 'IconButton'
-  | 'Image'
-  | 'Input'
-  | 'InputGroup'
-  | 'InputLeftAddon'
-  | 'InputRightAddon'
-  | 'InputLeftElement'
-  | 'InputRightElement'
-  | 'Link'
-  | 'List'
-  | 'ListItem'
-  | 'ListIcon'
-  | 'Menu'
-  | 'NumberInput'
-  | 'Progress'
-  | 'Radio'
-  | 'RadioGroup'
-  | 'Select'
-  | 'SimpleGrid'
-  | 'Spinner'
-  | 'Stack'
-  | 'Switch'
-  | 'Tab'
-  | 'Tabs'
-  | 'TabList'
-  | 'TabPanel'
-  | 'TabPanels'
-  | 'Tag'
-  | 'Text'
-  | 'Textarea'
+// import React, { FunctionComponent, ComponentClass } from 'react'
 
-type MetaComponentType =
-  | 'FormControlMeta'
-  | 'AccordionMeta'
-  | 'ListMeta'
-  | 'AlertMeta'
-  | 'InputGroupMeta'
-  | 'BreadcrumbMeta'
+// type ComponentType =
+//   | 'FormSection'
+//   // 以下是Chakra组件
+//   | 'Accordion'
+//   | 'AccordionItem'
+//   | 'AccordionButton'
+//   | 'AccordionPanel'
+//   | 'AccordionIcon'
+//   | 'Alert'
+//   | 'AlertIcon'
+//   | 'AlertTitle'
+//   | 'AlertDescription'
+//   | 'AspectRatio'
+//   | 'AvatarBadge'
+//   | 'AvatarGroup'
+//   | 'Avatar'
+//   | 'Badge'
+//   | 'Box'
+//   | 'Breadcrumb'
+//   | 'BreadcrumbItem'
+//   | 'BreadcrumbLink'
+//   | 'Button'
+//   | 'Center'
+//   | 'Checkbox'
+//   | 'CircularProgress'
+//   | 'CloseButton'
+//   | 'Code'
+//   | 'Container'
+//   | 'Divider'
+//   | 'Editable'
+//   | 'Flex'
+//   | 'FormControl'
+//   | 'FormLabel'
+//   | 'FormHelperText'
+//   | 'FormErrorMessage'
+//   | 'Grid'
+//   | 'Heading'
+//   | 'Icon'
+//   | 'IconButton'
+//   | 'Image'
+//   | 'Input'
+//   | 'InputGroup'
+//   | 'InputLeftAddon'
+//   | 'InputRightAddon'
+//   | 'InputLeftElement'
+//   | 'InputRightElement'
+//   | 'Link'
+//   | 'List'
+//   | 'ListItem'
+//   | 'ListIcon'
+//   | 'Menu'
+//   | 'NumberInput'
+//   | 'Progress'
+//   | 'Radio'
+//   | 'RadioGroup'
+//   | 'Select'
+//   | 'SimpleGrid'
+//   | 'Spinner'
+//   | 'Stack'
+//   | 'Switch'
+//   | 'Tab'
+//   | 'Tabs'
+//   | 'TabList'
+//   | 'TabPanel'
+//   | 'TabPanels'
+//   | 'Tag'
+//   | 'Text'
+//   | 'Textarea'
+
+// type MetaComponentType =
+//   | 'FormControlMeta'
+//   | 'AccordionMeta'
+//   | 'ListMeta'
+//   | 'AlertMeta'
+//   | 'InputGroupMeta'
+//   | 'BreadcrumbMeta'
+
+type ComponentType = string | FunctionComponent<any> | ComponentClass<any, any>
 
 interface IComponent {
   children: string[]
@@ -99,7 +103,7 @@ interface IPreviewProps {
 }
 
 interface ComponentItemProps {
-  id: string
+  id?: string
   label: string
   type: ComponentType
   isMoved?: boolean
@@ -110,21 +114,29 @@ interface ComponentItemProps {
   defaultProps?: any
 }
 
+interface ComponentTypeProps {
+  component: string | FunctionComponent<any> | ComponentClass<any, any>,
+  componentSettings?: string | FunctionComponent<any> | ComponentClass<any, any>,
+  droppable?: Array<string> | boolean
+}
+
 interface UIBuilderComponentsItemProps {
   type: string,
-  component: any,
-  componentSettings?: any,
-  droppable?: Array<string> | boolean,
   label: string,
-  defaultProps?: any
+  props?: any
 }
 
 interface UIBuilderComponentsGroupProps {
   label: string,
   expanded?: boolean,
-  components: Array<UIBuilderComponentsItemProps>
+  children: Array<UIBuilderComponentsItemProps>
 }
 
 interface UIBuilderComponentProps {
-  components: Array<UIBuilderComponentsGroupProps>
+  components: any,//一个json，key为componentTree中children元素中的type，value为ComponentTypeProps类型
+  componentTree: Array<UIBuilderComponentsGroupProps>
+}
+
+interface UIBuilderSidebarComponentProps {
+  componentTree: Array<UIBuilderComponentsGroupProps>
 }

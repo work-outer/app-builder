@@ -16,11 +16,12 @@ import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
 import DragItem from './DragItem'
 import { menuItems, MenuItem } from '~componentsList'
 
-const Menu: React.FC<UIBuilderComponentProps> = ({
-  components
+const Menu: React.FC<UIBuilderSidebarComponentProps> = ({
+  componentTree
 }) => {
   const [searchTerm, setSearchTerm] = useState('')
-  console.log("==components=", components);
+  console.log("==componentTree=", componentTree);
+  const components = componentTree;
   return (
     <DarkMode>
       <Box
@@ -67,15 +68,15 @@ const Menu: React.FC<UIBuilderComponentProps> = ({
         <Accordion allowMultiple defaultIndex={[0,1]} color="#fff">
           {(components as UIBuilderComponentsGroupProps[])
             // .filter(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
-            .map(componentGroup => {
+            .map((componentGroup,groupIndex) => {
               const {
                 label,
                 expanded,
-                components: items
+                children: items
               } = componentGroup;
 
               return (
-                <AccordionItem>
+                <AccordionItem key={"sidebar-group-" + groupIndex.toString()}>
                   <h2>
                     <AccordionButton>
                       <Box flex="1" textAlign="left">
@@ -87,23 +88,19 @@ const Menu: React.FC<UIBuilderComponentProps> = ({
                   <AccordionPanel pb={4}>
                     {(items as UIBuilderComponentsItemProps[])
                     // .filter(c => c.toLowerCase().includes(searchTerm.toLowerCase()))
-                    .map((componentItem,index) => {
+                    .map((componentItem,itemIndex) => {
                       const {
                         type,
-                        component,
-                        componentSettings,
-                        droppable,
                         label,
-                        defaultProps
+                        props
                       } = componentItem;
                       // console.log("===xx===", component.type);
                       return (
                         <DragItem
-                          key={type+index.toString()}
+                          key={`sidebar-item-${groupIndex.toString()}-${itemIndex.toString()}`}
                           label={label}
-                          type={type as any}
-                          id={type+index.toString()}
-                          defaultProps={defaultProps}
+                          type={type}
+                          defaultProps={props}
                           >
                           {label}
                         </DragItem>

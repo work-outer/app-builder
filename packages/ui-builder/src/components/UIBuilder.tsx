@@ -11,10 +11,15 @@ import EditorErrorBoundary from '~components/errorBoundaries/EditorErrorBoundary
 import Editor from '~components/editor/Editor'
 import { InspectorProvider } from '~contexts/inspector-context'
 import Inspector from '~components/inspector/Inspector'
+import useDispatch from '~hooks/useDispatch'
 
 const UIBuilder: React.FC<UIBuilderComponentProps> = ({
-  components
+  components,
+  componentTree
 }) => {
+  const dispatch = useDispatch()
+  dispatch.types.setComponents(components)
+
   useShortcuts()
 
   return (
@@ -28,7 +33,7 @@ const UIBuilder: React.FC<UIBuilderComponentProps> = ({
       <Header />
       <DndProvider backend={Backend}>
         <Flex h="calc(100vh - 3rem)">
-          <Sidebar components={components}/>
+          <Sidebar componentTree={componentTree}/>
           <EditorErrorBoundary>
             <Box bg="white" flex={1} position="relative">
               <Editor />

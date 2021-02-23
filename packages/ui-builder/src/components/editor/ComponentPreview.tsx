@@ -28,8 +28,8 @@ import NumberInputPreview from '~components/editor/previews/NumberInputPreview'
 const ComponentPreview: React.FC<{
   componentName: string
 }> = ({ componentName, ...forwardedProps }) => {
+  console.log("===ComponentPreview===componentName==", componentName);
   const component = useSelector(getComponentBy(componentName))
-  console.log("===ComponentPreview===");
   if (!component) {
     console.error(`ComponentPreview unavailable for component ${componentName}`)
   }

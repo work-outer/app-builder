@@ -2,13 +2,21 @@ import { useDrop, DropTargetMonitor } from 'react-dnd'
 import { rootComponents } from '~utils/editor'
 import useDispatch from './useDispatch'
 import builder from '~core/models/composer/builder'
+import { getTypeNames } from '~core/selectors/types'
+import { useSelector } from 'react-redux'
 
 export const useDropComponent = (
   componentId: string,
-  accept: (ComponentType | MetaComponentType)[] = rootComponents,
+  // accept: (ComponentType)[] = rootComponents,
+  accept?: (ComponentType)[],
   canDrop: boolean = true,
 ) => {
   const dispatch = useDispatch()
+  const typeNames = useSelector(getTypeNames)
+
+  if(!accept){
+    accept = typeNames
+  }
 
   const [{ isOver }, drop] = useDrop({
     accept,
@@ -23,7 +31,7 @@ export const useDropComponent = (
       if (item.isMoved) {
         dispatch.components.moveComponent({
           parentId: componentId,
-          componentId: item.id,
+          componentId: <string>item.id,
         })
       } else if (item.isMeta) {
         dispatch.components.addMetaComponent(builder[item.type](componentId))
