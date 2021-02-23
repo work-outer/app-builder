@@ -109,3 +109,22 @@ interface ComponentItemProps {
   rootParentType?: ComponentType, 
   defaultProps?: any
 }
+
+interface UIBuilderComponentsItemProps {
+  type: string,
+  component: any,
+  componentSettings?: any,
+  droppable?: Array<string> | boolean,
+  label: string,
+  defaultProps?: any
+}
+
+interface UIBuilderComponentsGroupProps {
+  label: string,
+  expanded?: boolean,
+  components: Array<UIBuilderComponentsItemProps>
+}
+
+interface UIBuilderComponentProps {
+  components: Array<UIBuilderComponentsGroupProps>
+}
