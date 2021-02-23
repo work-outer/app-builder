@@ -18,6 +18,7 @@ export const RecordForm = () => (
         <InputField fieldName="email" readOnly label="Email" value="user@company.com"/>
         <InputField fieldName="number" type="number" label="Number"/>
         <InputField fieldName="lookup" type="lookup" label="Lookup"/>
+        <InputLookup />
       </FormSection>
       <FormSection title="Section 2">
         <InputField fieldName="name" label="Name"/>

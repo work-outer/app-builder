@@ -1,51 +1,96 @@
 import { Select } from 'antd';
 import React from 'react';
+import { SteedosClient }  from '@steedos/client';
 
 const Option = Select;
 
-const children:any = [];
-for (let i = 10; i < 36; i++) {
-  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
+let timeout:any;
+let currentValue:any;
+const steedosClient = new SteedosClient();
+steedosClient.setUrl("http://localhost:8080/graphql");
+function fetch(value:any, callback:any) {
+  if (timeout) {
+    clearTimeout(timeout);
+    timeout = null;
+  }
+  
+  currentValue = value;
+  console.log('currentValue--', currentValue);
+
+  function fake() {
+    steedosClient.graphql.query(`
+        {
+          objects (filters: [["label", "contains", "${currentValue}"]]){
+            _id
+            label
+            name
+            icon
+          }
+        }
+      `).then((res:any) => {
+          console.log('res is ', res);
+          if (currentValue === value) {
+            const data:any = [];
+            res.data.objects.forEach((item:any) => {
+              data.push({
+                id:item._id,
+                icon: item.icon,
+                name: item.name,
+                label: item.label
+              });
+            });
+            callback(data);
+          }
+        });
+  }
+
+  timeout = setTimeout(fake, 200);
 }
 
-function onChange(value:any) {
-	console.log(`selected ${value}`);
-}
+export class InputLookup extends React.Component {
+  state = {
+    data: [],
+    value: undefined,
+  };
 
-function onBlur() {
-	console.log('blur');
-}
+  constructor(props:any){
+    super(props);
+    this.handleSearch;
+  }
 
-function onFocus() {
-	console.log('focus');
-}
-
-function onSearch(val:any) {
-	console.log('search:', val);
-}
-
-export class InputLookup extends React.Component<any> {
-    static defaultProps = {
-        referenceTo: null,
-        filters: [],
-        referenceKey: '_id'
+  handleSearch = (value:any) => {
+    console.log('value--->', value)
+    if (value) {
+      fetch(value, (data:any) => this.setState({ data }));
+    } else {
+      this.setState({ data: [] });
     }
-    render() {
-        const {style, label, placeholder, ...rest} = this.props
-        
-        return (
-            <Select
-                mode="multiple"
-                allowClear
-                style={{ width: '100%' }}
-                placeholder={placeholder}
-				onChange={onChange}
-				onFocus={onFocus}
-				onBlur={onBlur}
-				onSearch={onSearch}
-            >
-            {children}
-          </Select>
-        )
-      }
+  };
+
+  handleChange = (value:any) => {
+    console.log('value--->', value)
+    this.setState({ value });
+  };
+  render() {
+    //const {style, label, placeholder, ...rest} = this.props;
+    const { data, value} = this.state;
+    return (
+      <Select
+        showSearch
+        value={value}
+        style={{ width: '100%' }}
+        defaultActiveFirstOption={false}
+        showArrow={false}
+        filterOption={false}
+        onSearch={this.handleSearch}
+        onChange={this.handleChange}
+        notFoundContent={null}
+      >
+        {data.map((d:any) => (
+            <Option>{d.label}</Option>
+        ))}
+      </Select>
+    );
+  
+    }
 }
