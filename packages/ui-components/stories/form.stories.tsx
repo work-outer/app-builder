@@ -6,7 +6,8 @@ import {
   InputField, 
   OutputField, 
   InputLookup,
-  SteedosContextWrap, 
+  SteedosContextWrap,
+  RecordForm, 
 } from "../src"
 
 export default {
@@ -48,4 +49,10 @@ export const ReadonlyForm = () => (
       <OutputField fieldName="name" label="Name" value="Jack Zhuang"/>
     </FormSection>
   </RecordViewForm>
+)
+
+export const objectForm = () => (
+  <RecordForm objectApiName='accounts' recordId='wspdRw3z3gqkWBWWF'>
+
+  </RecordForm>
 )
