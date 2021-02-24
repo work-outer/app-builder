@@ -1,7 +1,7 @@
 export function getFieldValueType(fieldType:string, defaultValueType?:string) {
 
     switch(fieldType) { 
-      case "boolean": return 'switch'
+      case "checkbox": return 'switch'
       case "switch": return 'switch'
       case "text": return 'text'
       case "href": return 'href'
@@ -11,7 +11,7 @@ export function getFieldValueType(fieldType:string, defaultValueType?:string) {
       case "percent": return 'percent'
       case "currency": return 'money'
       case "date": return 'date'
-      case "datetime": return 'dateTime'
+      case "datetime": return 'datetime'
       defaut: return defaultValueType?defaultValueType:fieldType?fieldType:'text'
     }
 }

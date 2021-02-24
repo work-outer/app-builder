@@ -34,35 +34,46 @@ const fields = [{
 },{
   name: 'active',
   label: 'Active',
-  valueType: 'switch',
+  valueType: 'checkbox',
+},{
+  name: 'created',
+  valueType: 'datetime',
 }]
 
+const initialValues = {
+  name: 'Hello World',
+  active: true,
+  created: new Date(),
+  birthday: new Date(),
+  website: 'https://www.steedos.com',
+  email: 'support@steedos.com',
+}
 export const FormReadOnly = () => (
   <Form 
     fields={fields}
     layout='vertical'
     mode='read'
-    initialValues={{name:'Hello World'}}/>
+    initialValues={initialValues}/>
 )
 export const FormVertical = () => (
   <Form 
     fields={fields}
     layout='vertical'
-    initialValues={{name:'Hello World'}}/>
+    initialValues={initialValues}/>
 )
 
 export const FormHorizontal = () => (
   <Form 
     fields={fields}
     layout='horizontal'
-    initialValues={{name:'Hello World'}}/>
+    initialValues={initialValues}/>
 )
 
 export const FormInline = () => (
   <Form 
     fields={fields}
     layout='inline'
-    initialValues={{name:'Hello World'}}/>
+    initialValues={initialValues}/>
 )
 
 export const FormFourColumn = () => (
@@ -70,13 +81,13 @@ export const FormFourColumn = () => (
     fields={fields}
     layout='vertical'
     columns={4}
-    initialValues={{name:'Hello World'}}/>
+    initialValues={initialValues}/>
 )
 export const FormNoSubmit = () => (
   <Form 
     fields={fields}
     submitter={false}
-    initialValues={{name:'Hello World'}}/>
+    initialValues={initialValues}/>
 )
 
 export const RecordEditFormDefault = () => (
