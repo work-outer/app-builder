@@ -10,23 +10,29 @@ import { Form as AntForm, Col, Row } from 'antd';
 //   valueType: 
 //   ... 其他字段相关属性
 // initialValues: 初始化值
-// span: 每一列默认占几栅格，总共24栅格
+// layout: horizontal, vertical, inline
+// span: 每一列默认占几栅格，总共12栅格
 export const Form = (props:any) => {
-  const {fields, initialValues, fieldProps = {}, children, ...rest} = props
+  const {fields, initialValues, layout='horizontal', fieldProps = {}, children, ...rest} = props
   return <ProForm 
       initialValues={initialValues} 
+      layout={layout}
+      style={{display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(12, minmax(0, 1fr))'}}
       {...rest}>
-      <Row gutter={[24,0]}>
-        {getFields(fields, fieldProps)}
-      </Row>
+      {/* <Row gutter={[24,0]}> */}
+        {getFields(fields, fieldProps, props)}
+      {/* </Row> */}
   </ProForm>
 }
 
-const getFields = (fields:[], defaultProps:any) => {
+const getFields = (fields:[], defaultFieldProps:any, formProps:any) => {
   return fields.map((field:any) => {
     const {
-      span: defaultSpan = 24
-    } = defaultProps
+      span: defaultSpan = 12
+    } = defaultFieldProps
+    const {
+      layout
+    } = formProps
     
     const {
       name, 
@@ -46,6 +52,12 @@ const getFields = (fields:[], defaultProps:any) => {
       help,
       tooltip,
       required,
+      labelCol: layout=='horizontal'?{
+        flex: '120px'
+      }:{},
+      wrapperCol: layout=='horizontal'?{
+        flex: 'auto'
+      }:{}
     }
     const colSpan = {
       xs: 24,
@@ -55,9 +67,10 @@ const getFields = (fields:[], defaultProps:any) => {
     }
 
     return (
-      <Col {...colSpan}>
+      // <Col {...colSpan}>
         <AntForm.Item 
             shouldUpdate 
+            style={{gridColumn: `span ${span} / span ${span}`, marginBottom: 0}}
             {...itemOptions}>
           <ProField 
               mode={mode}
@@ -65,7 +78,7 @@ const getFields = (fields:[], defaultProps:any) => {
               {...rest}
             />
         </AntForm.Item>
-      </Col>
+      // </Col>
     )
   }) 
 }

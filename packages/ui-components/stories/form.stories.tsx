@@ -23,20 +23,20 @@ const fields = [{
   name: 'email',
   label: 'Email',
   valueType: 'email',
-  span: 12
+  span: 6
 },{
   name: 'website',
   valueType: 'href',
-  span: 12
+  span: 6
 },{
   name: 'birthday',
   valueType: 'date',
-  span: 6
+  span: 3
 },{
   name: 'active',
   label: 'Active',
   valueType: 'switch',
-  span: 6
+  span: 3
 }]
 
 export const FormVertical = () => (
@@ -50,6 +50,13 @@ export const FormHorizontal = () => (
   <Form 
     fields={fields}
     layout='horizontal'
+    initialValues={{name:'Hello World'}}/>
+)
+
+export const FormInline = () => (
+  <Form 
+    fields={fields}
+    layout='inline'
     initialValues={{name:'Hello World'}}/>
 )
 

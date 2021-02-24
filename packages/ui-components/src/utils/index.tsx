@@ -15,13 +15,3 @@ export function getFieldValueType(fieldType:string, defaultValueType?:string) {
       defaut: return defaultValueType?defaultValueType:fieldType?fieldType:'text'
     }
 }
-
-export function getFieldAllowClear(fieldType: string) {
-    // switch(fieldType) { 
-    //     case "datetime": return false
-    //     case "date": return false
-    //     case "lookup": return false
-    //     defaut: return true
-    // }
-    return false
-}
