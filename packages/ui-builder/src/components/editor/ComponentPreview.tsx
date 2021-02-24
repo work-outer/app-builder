@@ -24,11 +24,13 @@ import IconPreview from './previews/IconPreview'
 import IconButtonPreview from './previews/IconButtonPreview'
 import SelectPreview from '~components/editor/previews/SelectPreview'
 import NumberInputPreview from '~components/editor/previews/NumberInputPreview'
+import { getPreviewComponent } from '~core/selectors/types'
 
 const ComponentPreview: React.FC<{
   componentName: string
 }> = ({ componentName, ...forwardedProps }) => {
   console.log("===ComponentPreview===componentName==", componentName);
+  console.log("===ComponentPreview===forwardedProps==", forwardedProps);
   const component = useSelector(getComponentBy(componentName))
   if (!component) {
     console.error(`ComponentPreview unavailable for component ${componentName}`)
@@ -36,16 +38,19 @@ const ComponentPreview: React.FC<{
 
   const type = (component && component.type) || null
   console.log("===ComponentPreview==component===", component);
-
+  const previewComponentType = useSelector(getPreviewComponent(type))
+  if (!previewComponentType) {
+    console.error(`ComponentPreview unavailable for component type ${type}`)
+  }
+  return (
+    <PreviewContainer
+      component={component}
+      type={previewComponentType}
+      {...forwardedProps}
+    />
+  )
+  /*
   switch (type) {
-    // case 'FormSection':
-    //   return (
-    //     <PreviewContainer
-    //       component={component}
-    //       type={Chakra["Text"]}
-    //       {...forwardedProps}
-    //     />
-    //   )
     case 'FormSection':
       // return <AccordionPreview component={component} />
       return <ButtonPreview component={component} />
@@ -168,6 +173,7 @@ const ComponentPreview: React.FC<{
     default:
       return null
   }
+  */
 }
 
 export default memo(ComponentPreview)
