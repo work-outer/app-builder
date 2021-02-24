@@ -7,34 +7,25 @@ import { Input, Space, Tag } from 'antd';
 
 export const SteedosContext = React.createContext<any>(null);
 
-export class SteedosContextWrap extends React.Component {
+export class SteedosContextWrap extends React.Component<any, any> {
 
   defaultProps = {
     rootUrl: null,
   }
 
-  state = {
-    rootUrl: null,
-    version: null,
-    tenantId: null,
-    userId: null, 
-    authToken: null,
-    locale: 'zh-CN',
-  }
-
-
   constructor(props:any) {
     super(props);
+    console.log(props)
 
     const {rootUrl, tenantId, userId, authToken, locale} = props;
 
-    this.setState({
-      rootUrl,
+    this.state = {
+      rootUrl: rootUrl?rootUrl:process.env.ROOT_URL,
       tenantId,
       userId,
       authToken,
       locale: locale?locale:'zh-CN',
-    })
+    }
   }
 
   componentDidMount() {

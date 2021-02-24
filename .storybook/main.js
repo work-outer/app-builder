@@ -1,5 +1,6 @@
 const path = require("path")
 
+require('dotenv-flow').config(process.cwd());
 const toPath = (_path) => path.join(process.cwd(), _path)
 
 module.exports = {
