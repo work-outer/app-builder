@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import { Form, Table, Tag, Space, Button } from 'antd';
 import ProTable, { EditableProTable } from '@ant-design/pro-table';
-import {getValueType} from '../'
+import {getFieldValueType} from '../'
 
 import '@ant-design/pro-table/dist/table.css'
 
@@ -79,7 +79,7 @@ export class DataTable extends React.Component<any> {
           title: col.label,
           key: col.fieldName,
           dataIndex: col.fieldName,
-          valueType: getValueType(col.type, col.valueType),
+          valueType: getFieldValueType(col.type, col.valueType),
           // ellipsis: true, 
           editable: (text:any, record:any, index:any, ...rest:any) => {
             return !!col.editable

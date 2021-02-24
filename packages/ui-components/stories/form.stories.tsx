@@ -17,13 +17,15 @@ export const EditForm = () => (
     <RecordEditForm>
       <FormSection title="Section 1">
         <InputField fieldName="name" required label="Name" isWide placeholder="Please enter name." tooltip="Please input name" help="form help text"/>
-        <InputField fieldName="email" readOnly label="Email" value="user@company.com"/>
+        <InputField fieldName="email" label="Email" initialValue="user@company.com"/>
         <InputField fieldName="number" type="number" label="Number"/>
-        <InputField fieldName="lookup" type="lookup" label="Lookup"/>
+        <InputField fieldName="datetime" type="datetime" label="Datetime"/>
+        <InputField fieldName="date" type="date" label="Date"/>
+        <InputField fieldName="number" type="number" label="Number"/>
         <InputLookup />
       </FormSection>
       <FormSection title="Section 2">
-        <InputField fieldName="name" label="Name"/>
+        <InputField fieldName="select" type='select' label="Select"/>
       </FormSection>
     </RecordEditForm>
   )

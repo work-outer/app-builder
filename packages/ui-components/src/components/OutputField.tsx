@@ -1,9 +1,7 @@
 
 import React from "react";
 
-import ProField from '@ant-design/pro-field';
-import { Form } from 'antd';
-import {getValueType, InputField} from '..'
+import {InputField} from '..'
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-output-field/documentation
