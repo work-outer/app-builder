@@ -73,8 +73,11 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
       label, 
       help, 
       tooltip, 
+      fieldProps = {},
       ...rest
     } = field
+
+    fieldProps.allowClear = false;
 
     const itemOptions = {
       name, 
@@ -104,6 +107,7 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
           <ProField 
               mode={mode}
               valueType={valueType}
+              fieldProps={fieldProps}
               {...rest}
             />
         </AntForm.Item>
