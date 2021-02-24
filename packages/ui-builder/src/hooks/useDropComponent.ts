@@ -9,13 +9,16 @@ export const useDropComponent = (
   componentId: string,
   // accept: (ComponentType)[] = rootComponents,
   accept?: (ComponentType)[],
-  canDrop: boolean = true,
+  canDrop?: boolean,
 ) => {
   const dispatch = useDispatch()
   const typeNames = useSelector(getTypeNames)
 
   if(!accept){
     accept = typeNames
+  }
+  if(canDrop === undefined){
+    canDrop = true
   }
 
   const [{ isOver }, drop] = useDrop({

@@ -9,14 +9,16 @@ const WithChildrenPreviewContainer: React.FC<{
   type: string | FunctionComponent<any> | ComponentClass<any, any>
   enableVisualHelper?: boolean
   isBoxWrapped?: boolean
+  accept?: (ComponentType)[]
 }> = ({
   component,
   type,
   enableVisualHelper = false,
   isBoxWrapped,
+  accept,
   ...forwardedProps
 }) => {
-  const { drop, isOver } = useDropComponent(component.id)
+  const { drop, isOver } = useDropComponent(component.id, accept)
   const { props, ref } = useInteractive(component, enableVisualHelper)
   const propsElement = { ...props, ...forwardedProps, pos: 'relative' }
 
