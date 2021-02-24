@@ -19,7 +19,7 @@ export class InputField extends React.Component<any> {
   render() {
     const {type, label, labelAlign, isWide, tooltip, required, help, mode, valueType:defaultValueType, ...rest} = this.props;
     const valueType:any = getValueType(type, defaultValueType);
-    const colSpan = isWide?24:12
+    const colSpan = isWide?{span:24}:{xs:24, sm:24, md:12, lg:12}
 
     const itemOptions = {
       label,
@@ -29,15 +29,37 @@ export class InputField extends React.Component<any> {
       help,
       className: mode =='read'? 'slds-form-element slds-form-element_readonly ':'slds-form-element',
       labelCol: {
-        span: isWide?3:6,
+        xs: {
+          span: 6,
+        },
+        sm: {
+          span: 6,
+        },
+        md: {
+          span: isWide?3:6,
+        },
+        lg: {
+          span: isWide?3:6,
+        }
       },
       wrapperCol: {
-        span: isWide?24:18,
+        xs: {
+          span: 18,
+        },
+        sm: {
+          span: 18,
+        },
+        md: {
+          span: isWide?21:18,
+        },
+        lg: {
+          span: isWide?21:18,
+        }
       },
     }
 
     return (
-      <Col span={colSpan}>
+      <Col {...colSpan}>
         <Form.Item {...itemOptions}>
           <ProField mode={mode} valueType={valueType} {...rest}/>
         </Form.Item>
