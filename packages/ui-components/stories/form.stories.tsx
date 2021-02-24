@@ -16,7 +16,7 @@ export default {
 export const EditForm = () => (
     <RecordEditForm>
       <FormSection title="Section 1">
-        <InputField fieldName="name" required label="Name" isWide placeholder="Please enter name." fieldLevelHelp="Please input name"/>
+        <InputField fieldName="name" required label="Name" isWide placeholder="Please enter name." tooltip="Please input name" help="form help text"/>
         <InputField fieldName="email" readOnly label="Email" value="user@company.com"/>
         <InputField fieldName="number" type="number" label="Number"/>
         <InputField fieldName="lookup" type="lookup" label="Lookup"/>
