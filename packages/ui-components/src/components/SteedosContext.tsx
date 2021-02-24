@@ -44,7 +44,7 @@ export class SteedosContextWrap extends React.Component<any, any> {
           valueTypeMap: {
             href: {
               render: (text) => <a>{text}</a>,
-              renderFormItem: (text, props:any) => {debugger; return <ProField valueType='text' mode='edit' {...props.fieldProps} allowClear={false} />},
+              renderFormItem: (text, props:any) => {return <ProField valueType='text' mode='edit' {...props.fieldProps} allowClear={false} />},
             }
           }
         }}>

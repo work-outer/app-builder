@@ -14,9 +14,21 @@ import { Form as AntForm, Col, Row } from 'antd';
 // span: 每一列默认占几栅格，总共12栅格
 export const Form = (props:any) => {
   const {fields, initialValues, layout='horizontal', fieldProps = {}, children, ...rest} = props
+  const submitter = {
+    render: ({submit, reset, ...props }:any, dom:any) => {
+      console.log(props)
+      return (
+        <div
+          style={{gridColumn: `span 12 / span 12`, marginTop: '1rem'}}>
+          {dom}
+        </div>
+      )
+    }
+  }
   return <ProForm 
       initialValues={initialValues} 
       layout={layout}
+      submitter={submitter}
       style={{display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(12, minmax(0, 1fr))'}}
       {...rest}>
       {/* <Row gutter={[24,0]}> */}
