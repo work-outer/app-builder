@@ -47,17 +47,6 @@ export class RecordForm extends React.Component<any> {
   render() {
     const {objectApiName, recordId, children, ...rest} = this.props
     const fields =  this.state.data;
-    // const keys =  _.keys(fields);
-    // const datas = [];
-    // for(const k in keys ){
-    //   const field = fields[keys[k]];
-    //   datas.push({
-    //     id: field._id,
-    //     name: field.name,
-    //     type: field.type,
-    //     label: field.label
-    //   });
-    // }
     return (
       <ProForm>
           {fields.map((d:any) => (
