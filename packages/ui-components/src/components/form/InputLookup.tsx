@@ -1,6 +1,7 @@
 import { Select } from 'antd';
 import React from 'react';
 import { SteedosClient }  from '@steedos/client';
+import { SteedosContext } from '../..'
 
 const Option = Select;
 
@@ -43,10 +44,12 @@ function fetch(value:any, callback:any) {
           }
         });
   }
-
   timeout = setTimeout(fake, 200);
 }
 export class InputLookup extends React.Component {
+
+  static contextType = SteedosContext
+
   state = {
     data: [],
     value: undefined,
@@ -94,6 +97,7 @@ export class InputLookup extends React.Component {
     this.setState({ value });
   };
   render() {
+    console.log(this.context)
     //const {style, label, placeholder, ...rest} = this.props;
     const { data, value} = this.state;
     return (
