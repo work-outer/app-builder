@@ -12,12 +12,10 @@ export class RecordViewForm extends React.Component<any> {
   render() {
     const {objectApiName, recordId, layout, children, ...rest} = this.props
 
-    return (
-      <ProForm 
+    return <ProForm 
           layout={layout}
           {...rest}>
           {children}
       </ProForm>
-    )
   }
 }
