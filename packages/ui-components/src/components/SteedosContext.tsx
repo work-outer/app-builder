@@ -20,10 +20,10 @@ export class SteedosContextWrap extends React.Component<any, any> {
     const {rootUrl, tenantId, userId, authToken, locale} = props;
 
     this.state = {
-      rootUrl: rootUrl?rootUrl:process.env.ROOT_URL,
-      tenantId,
-      userId,
-      authToken,
+      rootUrl: rootUrl?rootUrl:process.env.STEEDOS_ROOT_URL,
+      tenantId: tenantId?userId:process.env.STEEDOS_TENANT_ID,
+      userId: userId?userId:process.env.STEEDOS_USER_ID,
+      authToken: authToken?userId:process.env.STEEDOSAUTH_TOKEN,
       locale: locale?locale:'zh-CN',
     }
   }
