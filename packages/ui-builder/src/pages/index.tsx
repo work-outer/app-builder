@@ -48,14 +48,12 @@ import {
 
 type ComponentSettingsPropType = {
   value: any
-  onChange: Function,
-  props: any
+  onChange: Function
 }
 
 const ButtonSettings: React.FC<ComponentSettingsPropType> = ({
   value,
-  onChange,
-  props
+  onChange
 }) => {
   const setValueFromEvent = ({
     target: { name, value },
@@ -104,6 +102,11 @@ const components = {
   "button": {
     "component": Chakra["Button"],
     "componentSettings": ButtonSettings,
+  },
+  "container": {
+    "component": Chakra["Container"],
+    "componentSettings": ButtonSettings,
+    "droppable": ["button"],
   }
 };
 
@@ -112,6 +115,12 @@ const componentTree: Array<UIBuilderComponentsGroupProps> = [{
   children: [{
     type: "button", 
     label: "按钮"
+  },{
+    type: "container", 
+    label: "容器"
+  },{
+    type: "container", 
+    label: "容器2"
   }]
 }];
 

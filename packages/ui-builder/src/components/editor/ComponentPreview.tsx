@@ -24,7 +24,7 @@ import IconPreview from './previews/IconPreview'
 import IconButtonPreview from './previews/IconButtonPreview'
 import SelectPreview from '~components/editor/previews/SelectPreview'
 import NumberInputPreview from '~components/editor/previews/NumberInputPreview'
-import { getPreviewComponent } from '~core/selectors/types'
+import { getPreviewComponent, getDroppable } from '~core/selectors/types'
 
 const ComponentPreview: React.FC<{
   componentName: string
@@ -42,13 +42,43 @@ const ComponentPreview: React.FC<{
   if (!previewComponentType) {
     console.error(`ComponentPreview unavailable for component type ${type}`)
   }
-  return (
-    <PreviewContainer
-      component={component}
-      type={previewComponentType}
-      {...forwardedProps}
-    />
-  )
+  const droppable = useSelector(getDroppable(type))
+  if(typeof droppable === "boolean" || (droppable instanceof Array && droppable.length)){
+    if(droppable === true){
+      // 表示可以拖入任意控件类型到这里
+      return (
+        <WithChildrenPreviewContainer
+          enableVisualHelper
+          component={component}
+          type={previewComponentType}
+          {...forwardedProps}
+        />
+      )
+    }
+    else{
+      // 表示可以拖入droppable数组中指定的控件类型到这里
+      const accept:any = droppable;
+      return (
+        <WithChildrenPreviewContainer
+          enableVisualHelper
+          component={component}
+          type={previewComponentType}
+          accept={accept}
+          {...forwardedProps}
+        />
+      )
+    }
+  }
+  else{
+    // 表示不可以拖入控件到这里
+    return (
+      <PreviewContainer
+        component={component}
+        type={previewComponentType}
+        {...forwardedProps}
+      />
+    )
+  }
   /*
   switch (type) {
     case 'FormSection':
