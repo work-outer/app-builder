@@ -2,7 +2,7 @@
 import React from "react";
 import ProForm from '@ant-design/pro-form';
 import ProField from '@ant-design/pro-field';
-import { Form as AntForm, Col, Row } from 'antd';
+import { Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 
 // 按照 Ant Design ProForm 的规范，自动生成表单。
@@ -29,11 +29,11 @@ export const Form = (props:any) => {
   const submitter = {
     render: ({submit, reset, ...props }:any, dom:any) => {
       return (
-        <>
+        <Affix offsetBottom={10}>
         <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
           {dom}
         </Flex>
-        </>
+        </Affix>
       )
     }
   }
