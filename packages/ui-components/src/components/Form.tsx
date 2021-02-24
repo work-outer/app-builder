@@ -3,6 +3,7 @@ import React from "react";
 import ProForm from '@ant-design/pro-form';
 import ProField from '@ant-design/pro-field';
 import { Form as AntForm, Col, Row } from 'antd';
+import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 
 // 按照 Ant Design ProForm 的规范，自动生成表单。
 // fields: 字段数组
@@ -11,37 +12,50 @@ import { Form as AntForm, Col, Row } from 'antd';
 //   ... 其他字段相关属性
 // initialValues: 初始化值
 // layout: horizontal, vertical, inline
-// span: 每一列默认占几栅格，总共12栅格
+// colSpan: 每一列默认占几栅格，总共12栅格
 export const Form = (props:any) => {
-  const {fields, initialValues, layout='horizontal', fieldProps = {}, children, ...rest} = props
+  const {
+    fields, 
+    initialValues, 
+    layout='horizontal', 
+    labelAlign='left',
+    fieldProps = {}, 
+    children, 
+    ...rest
+  } = props
   const submitter = {
     render: ({submit, reset, ...props }:any, dom:any) => {
-      console.log(props)
       return (
-        <div
-          style={{gridColumn: `span 12 / span 12`, marginTop: '1rem'}}>
+        <>
+        <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
           {dom}
-        </div>
+        </Flex>
+        </>
       )
     }
   }
+  const formProps = {
+    initialValues,
+    layout,
+    labelAlign,
+    submitter,
+    ...rest
+  }
   return <ProForm 
-      initialValues={initialValues} 
-      layout={layout}
-      submitter={submitter}
-      style={{display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(12, minmax(0, 1fr))'}}
-      {...rest}>
-      {/* <Row gutter={[24,0]}> */}
-        {getFields(fields, fieldProps, props)}
-      {/* </Row> */}
+      {...formProps}>
+        <Grid templateColumns="repeat(12, 1fr)" gap={6}>
+          {renderFields(fields, fieldProps, props)}
+        </Grid>
   </ProForm>
 }
 
-const getFields = (fields:[], defaultFieldProps:any, formProps:any) => {
+const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
   return fields.map((field:any) => {
+    
     const {
-      span: defaultSpan = 12
+      colSpan: defaultSpan = 12
     } = defaultFieldProps
+
     const {
       layout
     } = formProps
@@ -50,7 +64,7 @@ const getFields = (fields:[], defaultFieldProps:any, formProps:any) => {
       name, 
       valueType, 
       required, 
-      span = defaultSpan,
+      colSpan = defaultSpan,
       label, 
       help, 
       tooltip, 
@@ -71,18 +85,12 @@ const getFields = (fields:[], defaultFieldProps:any, formProps:any) => {
         flex: 'auto'
       }:{}
     }
-    const colSpan = {
-      xs: 24,
-      sm: 24,
-      md: span,
-      lg: span
-    }
 
     return (
-      // <Col {...colSpan}>
+      <GridItem colSpan={layout =='inline'? 4: [12, colSpan, colSpan, colSpan]}>
         <AntForm.Item 
             shouldUpdate 
-            style={{gridColumn: `span ${span} / span ${span}`, marginBottom: 0}}
+            style={{marginBottom: 0}}
             {...itemOptions}>
           <ProField 
               mode={mode}
@@ -90,7 +98,7 @@ const getFields = (fields:[], defaultFieldProps:any, formProps:any) => {
               {...rest}
             />
         </AntForm.Item>
-      // </Col>
+      </GridItem>
     )
   }) 
 }

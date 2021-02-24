@@ -23,20 +23,20 @@ const fields = [{
   name: 'email',
   label: 'Email',
   valueType: 'email',
-  span: 6
+  colSpan: 6
 },{
   name: 'website',
   valueType: 'href',
-  span: 6
+  colSpan: 6
 },{
   name: 'birthday',
   valueType: 'date',
-  span: 3
+  colSpan: 3
 },{
   name: 'active',
   label: 'Active',
   valueType: 'switch',
-  span: 3
+  colSpan: 3
 }]
 
 export const FormVertical = () => (
