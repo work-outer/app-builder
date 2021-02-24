@@ -33,7 +33,7 @@ export class SteedosContextWrap extends React.Component<any, any> {
   }
 
 	render() {
-    console.log(this.state)
+    //console.log(this.state)
     return (
       <SteedosContext.Provider value={this.state}>
         <ProProvider.Provider value={{

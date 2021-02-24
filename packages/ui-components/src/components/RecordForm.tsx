@@ -26,7 +26,7 @@ export class RecordForm extends React.Component<any> {
           'Content-Type': 'application/json',
       }
     })
-    console.log('res--------', res);
+    //console.log('res--------', res);
   }
 
   render() {
