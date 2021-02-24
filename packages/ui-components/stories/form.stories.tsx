@@ -1,5 +1,6 @@
 import * as React from "react"
 import { 
+  Form,
   RecordEditForm, 
   RecordViewForm, 
   FormSection, 
@@ -14,7 +15,52 @@ export default {
   title: "Form",
 }
 
-export const EditForm = () => (
+const fields = [{
+  name: 'name',
+  valueType: 'text',
+  width: 'sm'
+},{
+  name: 'email',
+  label: 'Email',
+  valueType: 'email',
+  span: 12
+},{
+  name: 'website',
+  valueType: 'href',
+  span: 12
+},{
+  name: 'birthday',
+  valueType: 'date',
+  span: 6
+},{
+  name: 'active',
+  label: 'Active',
+  valueType: 'switch',
+  span: 6
+}]
+
+export const FormVertical = () => (
+  <Form 
+    fields={fields}
+    layout='vertical'
+    initialValues={{name:'Hello World'}}/>
+)
+
+export const FormHorizontal = () => (
+  <Form 
+    fields={fields}
+    layout='horizontal'
+    initialValues={{name:'Hello World'}}/>
+)
+
+export const FormNoSubmit = () => (
+  <Form 
+    fields={fields}
+    submitter={false}
+    initialValues={{name:'Hello World'}}/>
+)
+
+export const RecordEditFormDefault = () => (
   <RecordEditForm initialValues={{name: 'xxx', "email": "user@company.com"}}>
       <InputField fieldName="name" required label="Name" isWide placeholder="Please enter name." tooltip="Please input name" help="form help text"/>
       <InputField fieldName="email" label="Email" initialValue="user@company.com"/>
@@ -28,7 +74,7 @@ export const EditForm = () => (
 )
 
 
-export const EditFormWithSection = () => (
+export const RecordEditFormWithSection = () => (
     <RecordEditForm initialValues={{name: 'xxx', "email": "user@company.com"}}>
       <FormSection title="Section 1">
         <InputField fieldName="name" required label="Name" isWide placeholder="Please enter name." tooltip="Please input name" help="form help text"/>
@@ -50,7 +96,7 @@ export const EditFormWithSection = () => (
     </RecordEditForm>
   )
   
-export const ReadonlyForm = () => (
+export const RecordViewFormDefault = () => (
   <RecordViewForm>
     <FormSection title="Section 1">
       <OutputField fieldName="name" required label="Name" isWide placeholder="Please enter name." fieldLevelHelp="Please input name" value="123"/>

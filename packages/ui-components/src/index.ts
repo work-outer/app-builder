@@ -1,5 +1,6 @@
 export {Center} from '@chakra-ui/react'
 
+export * from './components/Form';
 export * from './components/Layout';
 export * from './components/LayoutItem';
 export * from './components/InputField';
