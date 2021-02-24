@@ -42,6 +42,7 @@ export const Form = (props:any) => {
     initialValues,
     layout,
     mode,
+    columns,
     labelAlign,
     submitter,
     ...rest
@@ -63,7 +64,8 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
 
     const {
       layout,
-      mode
+      mode,
+      columns
     } = formProps
     
     const {
@@ -95,7 +97,7 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
     }
 
     const gridItemOptions = {
-      colSpan: layout =='inline'? 4: [12, colSpan, colSpan, colSpan],
+      colSpan: layout =='inline'? 1: [columns, colSpan, colSpan, colSpan],
       borderBottom: mode=='read'?'1px solid #dddbda':''
     }
 

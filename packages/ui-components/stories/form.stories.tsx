@@ -65,6 +65,13 @@ export const FormInline = () => (
     initialValues={{name:'Hello World'}}/>
 )
 
+export const FormFourColumn = () => (
+  <Form 
+    fields={fields}
+    layout='vertical'
+    columns={4}
+    initialValues={{name:'Hello World'}}/>
+)
 export const FormNoSubmit = () => (
   <Form 
     fields={fields}
