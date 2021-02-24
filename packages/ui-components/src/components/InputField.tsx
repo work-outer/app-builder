@@ -2,6 +2,8 @@
 import React from "react";
 
 import ProField from '@ant-design/pro-field';
+import { Form, Col } from 'antd';
+
 
 import {getValueType} from '..'
 
@@ -10,12 +12,30 @@ import {getValueType} from '..'
 export class InputField extends React.Component<any> {
   static defaultProps = {
     required: false,
+    mode: 'edit',
+    labelAlign: 'left',
   }
 
   render() {
-    const {type, valueType:defaultValueType, ...rest} = this.props;
+    const {type, label, labelAlign, isWide, mode, valueType:defaultValueType, ...rest} = this.props;
     const valueType:any = getValueType(type, defaultValueType);
+    const colSpan = isWide?24:12
 
-    return <ProField mode="edit" valueType={valueType} {...rest}/>
+    const itemLayout = {
+      labelCol: {
+        span: isWide?3:6,
+      },
+      wrapperCol: {
+        span: isWide?24:18,
+      },
+    }
+
+    return (
+      <Col span={colSpan}>
+        <Form.Item label={label} labelAlign={labelAlign} {...itemLayout}>
+          <ProField mode={mode} valueType={valueType} {...rest}/>
+        </Form.Item>
+      </Col>
+    )
   }
 }

@@ -24,6 +24,7 @@ export class SteedosContextWrap extends React.Component<any, any> {
       tenantId: tenantId?userId:process.env.STEEDOS_TENANT_ID,
       userId: userId?userId:process.env.STEEDOS_USER_ID,
       authToken: authToken?userId:process.env.STEEDOSAUTH_TOKEN,
+      user: {},
       locale: locale?locale:'zh-CN',
     }
   }

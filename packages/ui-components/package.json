@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@ant-design/pro-card": "^1.10.3",
+    "@ant-design/pro-descriptions": "^1.6.1",
     "@ant-design/pro-field": "^1.10.0",
     "@ant-design/pro-form": "^1.16.0",
     "@ant-design/pro-table": "^2.30.0",
