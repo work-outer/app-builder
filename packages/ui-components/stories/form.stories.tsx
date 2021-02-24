@@ -18,6 +18,7 @@ export const EditForm = () => (
       <FormSection title="Section 1">
         <InputField fieldName="name" required label="Name" isWide placeholder="Please enter name." tooltip="Please input name" help="form help text"/>
         <InputField fieldName="email" label="Email" initialValue="user@company.com"/>
+        <InputField fieldName="href" type="href" label="Href" initialValue="https://www.steedos.com"/>
         <InputField fieldName="number" type="number" label="Number"/>
         <InputField fieldName="datetime" type="datetime" label="Datetime"/>
         <InputField fieldName="date" type="date" label="Date"/>
@@ -37,6 +38,7 @@ export const ReadonlyForm = () => (
       <OutputField fieldName="email" readOnly label="Email" value="user@company.com"/>
       <OutputField fieldName="number" type="number" label="Number" value="111222"/>
       <OutputField fieldName="lookup" type="lookup" label="Lookup"/>
+      <OutputField fieldName="href" type="href" label="Href" initialValue="https://www.steedos.com"/>
     </FormSection>
     <FormSection title="Section 2">
       <OutputField fieldName="name" label="Name" value="Jack Zhuang"/>

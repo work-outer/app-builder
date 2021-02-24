@@ -9,12 +9,26 @@ import {getFieldValueType, getFieldAllowClear} from '..'
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
-export class InputField extends React.Component<any> {
+export class InputField extends React.Component<any,any> {
   static defaultProps = {
     required: false,
     mode: 'edit',
     labelAlign: 'left',
   }
+
+  constructor(props:any) {
+    super(props);
+    // let {value, initialValue, onChange} = props
+    // value = value?value:initialValue?initialValue:null,
+    // this.state = {
+    //   value: value,
+    // }
+  }
+
+  // onChange(value:any) {
+  //   this.setState({value: value})
+  //   this.props.onChange(value);
+  // }
 
   render() {
     const {type, label, labelAlign, isWide, tooltip, required, help, mode, valueType:defaultValueType, ...rest} = this.props;
@@ -61,7 +75,13 @@ export class InputField extends React.Component<any> {
     return (
       <Col {...colSpan}>
         <Form.Item {...itemOptions}>
-          <ProField mode={mode} valueType={valueType} {...rest} allowClear={getFieldAllowClear(type)}/>
+          <ProField 
+            mode={mode} 
+            // value={this.state.value}
+            // onChange={this.onChange}
+            valueType={valueType} 
+            {...rest} 
+            allowClear={getFieldAllowClear(type)}/>
         </Form.Item>
       </Col>
     )

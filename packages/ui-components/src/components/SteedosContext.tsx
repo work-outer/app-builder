@@ -2,6 +2,7 @@
 import React, {useContext} from "react";
 
 import ProProvider, {zhCNIntl} from '@ant-design/pro-provider';
+import ProField from '@ant-design/pro-field';
 import { Input, Space, Tag } from 'antd';
 
 
@@ -15,7 +16,6 @@ export class SteedosContextWrap extends React.Component<any, any> {
 
   constructor(props:any) {
     super(props);
-    console.log(props)
 
     const {rootUrl, tenantId, userId, authToken, locale} = props;
 
@@ -44,9 +44,7 @@ export class SteedosContextWrap extends React.Component<any, any> {
           valueTypeMap: {
             href: {
               render: (text) => <a>{text}</a>,
-              renderFormItem: (text, props) => (
-                <Input placeholder="请输入链接" {...props?.fieldProps} />
-              ),
+              renderFormItem: (text, props:any) => {debugger; return <ProField valueType='text' mode='edit' {...props.fieldProps} allowClear={false} />},
             }
           }
         }}>

@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import { Form, Table, Tag, Space, Button } from 'antd';
 import ProTable, { EditableProTable } from '@ant-design/pro-table';
-import {getFieldValueType} from '../'
+import {InputField, OutputField, getFieldValueType} from '../'
 
 import '@ant-design/pro-table/dist/table.css'
 
@@ -94,7 +94,7 @@ export class DataTable extends React.Component<any> {
           //       type={col.type}
           //     />
           // },
-          // renderFormItem: (_:any, { isEditable }:any) => (isEditable ? <InputField /> : <OutputField /> ),
+          // renderFormItem: (_:any, { isEditable }:any) => (isEditable ? <InputField isWide/> : <OutputField isWide/> ),
           render: (dom:any, record:any, _:any, action:any) => {
             const props = {
               onDoubleClick: () => {

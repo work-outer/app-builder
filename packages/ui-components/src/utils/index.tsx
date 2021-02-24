@@ -17,10 +17,11 @@ export function getFieldValueType(fieldType:string, defaultValueType?:string) {
 }
 
 export function getFieldAllowClear(fieldType: string) {
-    switch(fieldType) { 
-        case "datetime": return false
-        case "date": return false
-        case "lookup": return false
-        defaut: return true
-    }
+    // switch(fieldType) { 
+    //     case "datetime": return false
+    //     case "date": return false
+    //     case "lookup": return false
+    //     defaut: return true
+    // }
+    return false
 }

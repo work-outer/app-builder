@@ -10,8 +10,10 @@ export class OutputField extends React.Component<any> {
   }
 
   render() {
-    const {...rest} = this.props;
+    let {initialValue, value, ...rest} = this.props;
+    if (!value)
+      value = initialValue
 
-    return <InputField mode="read" {...rest}/>
+    return <InputField mode="read" value={value} {...rest}/>
   }
 }
