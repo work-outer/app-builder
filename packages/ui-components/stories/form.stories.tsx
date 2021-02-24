@@ -6,7 +6,8 @@ import {
   FormSection, 
   InputField, 
   OutputField, 
-  InputLookup, 
+  InputLookup,
+  SteedosContextWrap, 
 } from "../src"
 
 export default {
@@ -20,7 +21,11 @@ export const EditForm = () => (
         <InputField fieldName="email" readOnly label="Email" value="user@company.com"/>
         <InputField fieldName="number" type="number" label="Number"/>
         <InputField fieldName="lookup" type="lookup" label="Lookup"/>
-        <InputLookup />
+        <SteedosContextWrap 
+          rootUrl='http://localhost:8080/graphql'>  
+          <InputLookup />
+        </SteedosContextWrap>
+        
       </FormSection>
       <FormSection title="Section 2">
         <InputField fieldName="name" label="Name"/>
