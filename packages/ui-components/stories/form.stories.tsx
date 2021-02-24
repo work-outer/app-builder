@@ -18,25 +18,23 @@ export default {
 const fields = [{
   name: 'name',
   valueType: 'text',
-  width: 'sm'
+  colSpan: 2
 },{
   name: 'email',
   label: 'Email',
   valueType: 'email',
-  colSpan: 6
+  colSpan: 1
 },{
   name: 'website',
   valueType: 'href',
-  colSpan: 6
+  colSpan: 1
 },{
   name: 'birthday',
   valueType: 'date',
-  colSpan: 3
 },{
   name: 'active',
   label: 'Active',
   valueType: 'switch',
-  colSpan: 3
 }]
 
 export const FormReadOnly = () => (

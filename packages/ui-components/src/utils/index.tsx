@@ -1,7 +1,7 @@
 export function getFieldValueType(fieldType:string, defaultValueType?:string) {
 
     switch(fieldType) { 
-      case "boolean": return 'checkbox'
+      case "boolean": return 'switch'
       case "switch": return 'switch'
       case "text": return 'text'
       case "href": return 'href'

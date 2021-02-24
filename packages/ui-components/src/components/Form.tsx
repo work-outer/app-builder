@@ -21,6 +21,7 @@ export const Form = (props:any) => {
     layout='horizontal', 
     labelAlign='left',
     mode='edit',
+    columns=2,
     fieldProps = {
     }, 
     children, 
@@ -30,9 +31,9 @@ export const Form = (props:any) => {
     render: ({submit, reset, ...props }:any, dom:any) => {
       return (
         <Affix offsetBottom={10}>
-        <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
-          {dom}
-        </Flex>
+          <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
+            {dom}
+          </Flex>
         </Affix>
       )
     }
@@ -47,7 +48,7 @@ export const Form = (props:any) => {
   }
   return <ProForm 
       {...formProps}>
-        <Grid templateColumns="repeat(12, 1fr)" gap={4}>
+        <Grid templateColumns={`repeat(${columns}, 1fr)`} gap={4}>
           {renderFields(fields, fieldProps, formProps)}
         </Grid>
   </ProForm>
@@ -57,7 +58,7 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
   return fields.map((field:any) => {
     
     const {
-      colSpan: defaultSpan = 12, 
+      colSpan: defaultSpan = 1, 
     } = defaultFieldProps
 
     const {
