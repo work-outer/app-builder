@@ -16,19 +16,22 @@ export class RecordForm extends React.Component<any> {
   state = {
     data: []
   };
-  componentDidMount = () => {
-    const fields =  data.fields;
-    console.log('res.fields---', fields);
-    this.setState({fields})
+  componentDidMount = async () => {
+    const url = `http://localhost:8080/api/bootstrap/wspdRw3z3gqkWBWWF/accounts`;
+    const token = `Bearer C6tdnBaPhEFomAWE7,1d48e7c566307d9a80156811c3cf91cead17e0ef04eb4eba8d752e660bbdd580ce00bd0dbd643d2c25f877`
+    const res = await steedosClient.doFetch(url,{
+      method: 'GET',
+      headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+      }
+    })
+    console.log('res--------', res);
   }
 
   render() {
     const {objectApiName, recordId, children, ...rest} = this.props
-    const url = `/api/bootstrap/wspdRw3z3gqkWBWWF/accounts`;
-    const res = steedosClient.doFetch(url).then((data:any) => {
-      console.log('data-----', data);
-      return data || {}
-    })
+   
     
     
     const fields =  data.fields;
@@ -37,6 +40,7 @@ export class RecordForm extends React.Component<any> {
     for(const k in keys ){
       const field = fields[keys[k]];
       datas.push({
+        id: field._id,
         name: field.name,
         type: field.type,
         label: field.label
@@ -46,7 +50,7 @@ export class RecordForm extends React.Component<any> {
       <ProForm>
           {datas.map((d:any) => (
             <InputField 
-                 fieldName={d.name}
+                 key={d.id}
                  type={d.type}
                  label={d.label}
               />
