@@ -13,13 +13,16 @@ import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 // initialValues: 初始化值
 // layout: horizontal, vertical, inline
 // colSpan: 每一列默认占几栅格，总共12栅格
+// mode: edit, read
 export const Form = (props:any) => {
   const {
     fields, 
     initialValues, 
     layout='horizontal', 
     labelAlign='left',
-    fieldProps = {}, 
+    mode='edit',
+    fieldProps = {
+    }, 
     children, 
     ...rest
   } = props
@@ -37,14 +40,15 @@ export const Form = (props:any) => {
   const formProps = {
     initialValues,
     layout,
+    mode,
     labelAlign,
     submitter,
     ...rest
   }
   return <ProForm 
       {...formProps}>
-        <Grid templateColumns="repeat(12, 1fr)" gap={6}>
-          {renderFields(fields, fieldProps, props)}
+        <Grid templateColumns="repeat(12, 1fr)" gap={4}>
+          {renderFields(fields, fieldProps, formProps)}
         </Grid>
   </ProForm>
 }
@@ -53,11 +57,12 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
   return fields.map((field:any) => {
     
     const {
-      colSpan: defaultSpan = 12
+      colSpan: defaultSpan = 12, 
     } = defaultFieldProps
 
     const {
-      layout
+      layout,
+      mode
     } = formProps
     
     const {
@@ -71,7 +76,6 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
       ...rest
     } = field
 
-    const mode = 'edit';
     const itemOptions = {
       name, 
       label: label?label:name, 
@@ -86,8 +90,13 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
       }:{}
     }
 
+    const gridItemOptions = {
+      colSpan: layout =='inline'? 4: [12, colSpan, colSpan, colSpan],
+      borderBottom: mode=='read'?'1px solid #dddbda':''
+    }
+
     return (
-      <GridItem colSpan={layout =='inline'? 4: [12, colSpan, colSpan, colSpan]}>
+      <GridItem {...gridItemOptions}>
         <AntForm.Item 
             shouldUpdate 
             style={{marginBottom: 0}}

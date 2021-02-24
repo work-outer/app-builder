@@ -39,6 +39,13 @@ const fields = [{
   colSpan: 3
 }]
 
+export const FormReadOnly = () => (
+  <Form 
+    fields={fields}
+    layout='vertical'
+    mode='read'
+    initialValues={{name:'Hello World'}}/>
+)
 export const FormVertical = () => (
   <Form 
     fields={fields}
