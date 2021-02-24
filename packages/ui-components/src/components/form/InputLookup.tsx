@@ -8,7 +8,6 @@ const Option = Select;
 let timeout:any;
 let currentValue:any;
 const steedosClient = new SteedosClient();
-steedosClient.setUrl("http://localhost:8080/graphql");
 function fetch(value:any, callback:any) {
   if (timeout) {
     clearTimeout(timeout);
@@ -16,7 +15,7 @@ function fetch(value:any, callback:any) {
   }
   
   currentValue = value;
-  console.log('currentValue--', currentValue);
+  //console.log('currentValue--', currentValue);
 
   function fake() {
     steedosClient.graphql.query(`
@@ -29,7 +28,7 @@ function fetch(value:any, callback:any) {
           }
         }
       `).then((res:any) => {
-          console.log('res is ', res);
+          //console.log('res is ', res);
           if (currentValue === value) {
             const data:any = [];
             res.data.objects.forEach((item:any) => {
@@ -56,6 +55,7 @@ export class InputLookup extends React.Component {
   };
   
   componentDidMount = () => {
+    steedosClient.setUrl(this.context.rootUrl);
     this.getQueryDate()
   }
 
@@ -78,13 +78,13 @@ export class InputLookup extends React.Component {
           name: item.name,
           label: item.label
         }));
-        console.log('chi--->', children)
+        //console.log('chi--->', children)
         this.setState({data:children});
       });
   };
 
   handleSearch = (value:any) => {
-    console.log('value--->', value)
+    //console.log('value--->', value)
     if (value) {
       fetch(value, (data:any) => this.setState({ data }));
     } else {
@@ -93,11 +93,11 @@ export class InputLookup extends React.Component {
   };
 
   handleChange = (value:any) => {
-    console.log('value--->', value)
+    //console.log('value--->', value)
     this.setState({ value });
   };
   render() {
-    console.log(this.context)
+    //console.log(this.context)
     //const {style, label, placeholder, ...rest} = this.props;
     const { data, value} = this.state;
     return (

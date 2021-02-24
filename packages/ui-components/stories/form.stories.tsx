@@ -1,4 +1,3 @@
-import { Divider } from "antd"
 import * as React from "react"
 import { 
   RecordEditForm, 
@@ -6,7 +5,8 @@ import {
   FormSection, 
   InputField, 
   OutputField, 
-  InputLookup, 
+  InputLookup,
+  SteedosContextWrap, 
 } from "../src"
 
 export default {
@@ -23,7 +23,11 @@ export const EditForm = () => (
         <InputField fieldName="datetime" type="datetime" label="Datetime"/>
         <InputField fieldName="date" type="date" label="Date"/>
         <InputField fieldName="number" type="number" label="Number"/>
-        <InputLookup />
+        <InputField fieldName="lookup" type="lookup" label="Lookup"/>
+        <SteedosContextWrap 
+          rootUrl='http://localhost:8080/graphql'>  
+          <InputLookup />
+        </SteedosContextWrap>
       </FormSection>
       <FormSection title="Section 2">
         <InputField fieldName="select" type='select' label="Select"/>
