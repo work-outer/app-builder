@@ -1,4 +1,4 @@
-export function getValueType(fieldType:string, defaultValueType?:string) {
+export function getFieldValueType(fieldType:string, defaultValueType?:string) {
 
     switch(fieldType) { 
       case "boolean": return 'checkbox'
@@ -13,5 +13,14 @@ export function getValueType(fieldType:string, defaultValueType?:string) {
       case "date": return 'date'
       case "datetime": return 'dateTime'
       defaut: return defaultValueType?defaultValueType:fieldType?fieldType:'text'
+    }
+}
+
+export function getFieldAllowClear(fieldType: string) {
+    switch(fieldType) { 
+        case "datetime": return false
+        case "date": return false
+        case "lookup": return false
+        defaut: return true
     }
 }

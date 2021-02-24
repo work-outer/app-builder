@@ -5,7 +5,7 @@ import ProField from '@ant-design/pro-field';
 import { Form, Col } from 'antd';
 
 
-import {getValueType} from '..'
+import {getFieldValueType, getFieldAllowClear} from '..'
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
@@ -18,7 +18,7 @@ export class InputField extends React.Component<any> {
 
   render() {
     const {type, label, labelAlign, isWide, tooltip, required, help, mode, valueType:defaultValueType, ...rest} = this.props;
-    const valueType:any = getValueType(type, defaultValueType);
+    const valueType:any = getFieldValueType(type, defaultValueType);
     const colSpan = isWide?{span:24}:{xs:24, sm:24, md:12, lg:12}
 
     const itemOptions = {
@@ -61,7 +61,7 @@ export class InputField extends React.Component<any> {
     return (
       <Col {...colSpan}>
         <Form.Item {...itemOptions}>
-          <ProField mode={mode} valueType={valueType} {...rest}/>
+          <ProField mode={mode} valueType={valueType} {...rest} allowClear={getFieldAllowClear(type)}/>
         </Form.Item>
       </Col>
     )
