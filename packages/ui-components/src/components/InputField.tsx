@@ -18,24 +18,17 @@ export class InputField extends React.Component<any,any> {
 
   constructor(props:any) {
     super(props);
-    // let {value, initialValue, onChange} = props
-    // value = value?value:initialValue?initialValue:null,
-    // this.state = {
-    //   value: value,
-    // }
   }
 
-  // onChange(value:any) {
-  //   this.setState({value: value})
-  //   this.props.onChange(value);
-  // }
 
   render() {
-    const {type, label, labelAlign, isWide, tooltip, required, help, mode, valueType:defaultValueType, ...rest} = this.props;
+    const {type, fieldName, label, labelAlign, isWide, tooltip, required, help, mode, valueType:defaultValueType, ...rest} = this.props;
     const valueType:any = getFieldValueType(type, defaultValueType);
     const colSpan = isWide?{span:24}:{xs:24, sm:24, md:12, lg:12}
 
     const itemOptions = {
+      shouldUpdate: true, 
+      name: fieldName,
       label,
       labelAlign,
       tooltip,
@@ -77,8 +70,6 @@ export class InputField extends React.Component<any,any> {
         <Form.Item {...itemOptions}>
           <ProField 
             mode={mode} 
-            // value={this.state.value}
-            // onChange={this.onChange}
             valueType={valueType} 
             {...rest} 
             allowClear={getFieldAllowClear(type)}/>
