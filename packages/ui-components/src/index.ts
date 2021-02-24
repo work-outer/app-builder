@@ -12,5 +12,4 @@ export * from './components/DataTable';
 export * from './components/SteedosContext';
 
 export * from './components/form/InputLookup';
-export * from './components/form/InputLookupTest';
 export * from './utils/';
