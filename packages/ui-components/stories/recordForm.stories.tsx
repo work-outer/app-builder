@@ -6,7 +6,7 @@ import {
   FormSection, 
   InputField, 
   OutputField, 
-  InputLookup,
+  FieldLookup,
   RecordForm, 
 } from "../src"
 
@@ -38,8 +38,8 @@ export const RecordEditFormWithSection = () => (
         <InputField fieldName="datetime" type="datetime" label="Datetime"/>
         <InputField fieldName="date" type="date" label="Date"/>
         <InputField fieldName="number" type="number" label="Number"/>
-        <InputField fieldName="lookup" type="lookup" label="Lookup"/>
-        <InputLookup name='母公司客户' referenceTo='accounts' enableAdd={true} placeholder="请搜索客户..." />
+        <InputField fieldName="lookup" referenceTo='accounts' type="lookup" enableAdd={true} label="Lookup" placeholder="客户..." />
+        <FieldLookup name='lookup2' referenceTo='accounts' enableAdd={true} placeholder="请搜索客户..." />
       </FormSection>
       <FormSection title="Section 2">
         <InputField fieldName="select" type='select' label="Select"/>

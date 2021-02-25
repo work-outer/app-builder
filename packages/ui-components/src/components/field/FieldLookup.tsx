@@ -27,7 +27,8 @@ async function searchData(steedosClient:any, value:any, referenceTo:any) {
   }));
   return children;
 }
-export class InputLookup extends React.Component<any, any> {
+
+export class FieldLookup extends React.Component<any, any> {
 
   static contextType = SteedosContext
 
@@ -86,13 +87,13 @@ export class InputLookup extends React.Component<any, any> {
       this.setState({ value });
   };
   render() {
+    console.log(this.props)
     const { data, value} = this.state;
-    const { name, referenceTo, enableAdd, placeholder} = this.props;
+    const { name, referenceTo, enableAdd, placeholder, rest} = this.props;
     return (
       <Select
         showSearch
         value={value}
-        style={{ width: '50%' }}
         placeholder={placeholder}
         loading={true}
         defaultActiveFirstOption={false}
@@ -101,6 +102,7 @@ export class InputLookup extends React.Component<any, any> {
         onSearch={this.handleSearch}
         onChange={this.handleChange}
         notFoundContent={null}
+        {...rest}
       >
         {data.map((d:any) => (
             <Option key={d.id}>{d.name}</Option>

@@ -12,6 +12,7 @@ export function getFieldValueType(fieldType:string, defaultValueType?:string) {
       case "currency": return 'money'
       case "date": return 'date'
       case "datetime": return 'datetime'
+      case "lookup": return 'lookup'
       defaut: return defaultValueType?defaultValueType:fieldType?fieldType:'text'
     }
 }

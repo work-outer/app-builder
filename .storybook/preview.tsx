@@ -14,7 +14,7 @@ import IconSettings from '@salesforce/design-system-react/components/icon-settin
 import ProProvider, {zhCNIntl} from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
 
-import {SteedosContextWrap} from '../packages/ui-components/src/components/SteedosContext';
+import {SteedosContextWrap} from '../packages/ui-components/src/';
 
 
 
