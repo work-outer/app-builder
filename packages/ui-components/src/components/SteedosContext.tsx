@@ -4,6 +4,7 @@ import React, {useContext} from "react";
 import ProProvider, {zhCNIntl} from '@ant-design/pro-provider';
 import ProField from '@ant-design/pro-field';
 import { Input, Space, Tag } from 'antd';
+import { SteedosClient }  from '@steedos/client';
 
 
 const valueTypeMap = {
@@ -36,6 +37,8 @@ export class SteedosContextWrap extends React.Component<any, any> {
     rootUrl: null,
   }
 
+  client: any;
+
   constructor(props:any) {
     super(props);
 
@@ -49,6 +52,8 @@ export class SteedosContextWrap extends React.Component<any, any> {
       user: {},
       locale: locale?locale:'zh-CN',
     }
+
+    this.client = new SteedosClient();
   }
 
   componentDidMount() {
@@ -56,8 +61,18 @@ export class SteedosContextWrap extends React.Component<any, any> {
 
 	render() {
     //console.log(this.state)
+    const {rootUrl, userId, authToken} = this.state
+    this.client.setUrl(rootUrl)
+    this.client.setUserId(userId)
+    this.client.setToken(authToken);
+
+    const contextValues = {
+      client: this.client,
+      ...this.state
+    }
+
     return (
-      <SteedosContext.Provider value={this.state}>
+      <SteedosContext.Provider value={contextValues}>
         <ProProvider.Provider value={{
           intl: {
             ...zhCNIntl,
