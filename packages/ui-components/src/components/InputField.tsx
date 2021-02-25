@@ -5,7 +5,7 @@ import ProField from '@ant-design/pro-field';
 import { Form, Col } from 'antd';
 
 
-import {getFieldValueType, getFieldAllowClear} from '..'
+import {getFieldValueType} from '..'
 
 
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
@@ -34,6 +34,7 @@ export class InputField extends React.Component<any,any> {
       tooltip,
       required,
       help,
+      allowClear: false,
       className: mode =='read'? 'slds-form-element slds-form-element_readonly ':'slds-form-element',
       labelCol: {
         xs: {
@@ -72,7 +73,7 @@ export class InputField extends React.Component<any,any> {
             mode={mode} 
             valueType={valueType} 
             {...rest} 
-            allowClear={getFieldAllowClear(type)}/>
+            allowClear={false}/>
         </Form.Item>
       </Col>
     )

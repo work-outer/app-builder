@@ -173,10 +173,18 @@ builderOptions = {
     "@steedos/ui-components/form-section": {
         "component": FormSection,
         "componentPreview": FormSectionPreview,
-        "componentSettings": FormSectionSettings,
+        // "componentSettings": FormSectionSettings,
+        "componentProps": [{
+          name: 
+          valueType:
+          ...
+        }]
         "droppable": ["@steedos/ui-components/form-item"],
     }
   },
+  customValueTypes: {
+
+  }
   componentTree: [{
     "label": "字段",
     "expanded": true,
