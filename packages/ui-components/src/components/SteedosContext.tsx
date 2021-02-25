@@ -13,7 +13,7 @@ import antd_zhTW from 'antd/lib/locale/zh_TW';
 import antd_enUS from 'antd/lib/locale/zh_CN';
 import { SteedosClient }  from '@steedos/client';
 import { IntlType } from "@ant-design/pro-table";
-
+import { en_US, zh_CN } from '@steedos/ui-locale/src/';
 
 function getMessageFromLocaleMap(
   source: Record<string, unknown>,
@@ -53,10 +53,8 @@ const createSteedosIntl = (locale: string, localeMap: Record<string, any>): Intl
   locale,
 });
 
-import zhCN from '../locale/zh_CN';
-import enUS from '../locale/en_US';
-const zhCNIntl = createSteedosIntl('zh_CN', zhCN);
-const enUSIntl = createSteedosIntl('en_US', enUS);
+const zhCNIntl = createSteedosIntl('zh_CN', zh_CN);
+const enUSIntl = createSteedosIntl('en_US', en_US);
 
 const valueTypeMap = {
   href: {
@@ -109,7 +107,7 @@ const getSteedosIntl = (locale: string) => {
 
 export function useIntl(): IntlType {
   const context = useContext(SteedosContext);
-  return context.intl || zhCN;
+  return context.intl || zhCNIntl;
 }
 
 export const SteedosContext = React.createContext<any>(null);
