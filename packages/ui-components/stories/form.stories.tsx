@@ -115,10 +115,7 @@ export const RecordEditFormWithSection = () => (
         <InputField fieldName="date" type="date" label="Date"/>
         <InputField fieldName="number" type="number" label="Number"/>
         <InputField fieldName="lookup" type="lookup" label="Lookup"/>
-        <SteedosContextWrap 
-          rootUrl='http://localhost:8080/graphql'>  
-          <InputLookup />
-        </SteedosContextWrap>
+        <InputLookup />
       </FormSection>
       <FormSection title="Section 2">
         <InputField fieldName="select" type='select' label="Select"/>
