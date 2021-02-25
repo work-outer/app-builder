@@ -130,9 +130,6 @@ const {
 */
 export function SteedosContextWrap(props:any) {
 
-  const antdContext = useContext(AntdConfigProvider.ConfigContext);
-  const proContext = useContext(ProContext);
-
   const {
     rootUrl = STEEDOS_ROOT_URL,
     tenantId = STEEDOS_TENANT_ID,
@@ -168,9 +165,13 @@ export function SteedosContextWrap(props:any) {
     valueTypeMap,
   }
 
+  const antdContextValues = {
+    locale: getAntdLocale(locale)
+  }
+
   return (
     <SteedosContext.Provider value={contextValues}>
-      <AntdConfigProvider locale={getAntdLocale(locale)}>
+      <AntdConfigProvider {...antdContextValues}>
         <ProContext.Provider value={proContextValues}>
           {children}
         </ProContext.Provider>
