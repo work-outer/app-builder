@@ -1,7 +1,6 @@
 
 import React from "react";
 import { SteedosClient }  from '@steedos/client';
-import data from '../../stories/account.json'
 import { InputField } from "..";
 import ProForm from '@ant-design/pro-form';
 const _ =require('underscore');
@@ -27,21 +26,23 @@ export class RecordForm extends React.Component<any> {
           'Content-Type': 'application/json',
       }
     })
-    console.log('res--------', res.fields);
+   
     const fields =  res.fields;
     const keys =  _.keys(fields);
     const datas = [];
     for(const k in keys ){
       const field = fields[keys[k]];
+      if(field.hidden) continue;
+      if(typeof field.sort_no === 'undefined') continue;
       datas.push({
-        id: field._id,
         name: field.name,
         type: field.type,
-        label: field.label
+        label: field.label,
+        sort: field.sort_no
       });
     }
-
-    this.setState({data:datas})
+    const sortedData = datas.sort((a, b) => a.sort >= b.sort ? 1 : -1);
+    this.setState({data:sortedData})
   }
 
   render() {
@@ -49,11 +50,12 @@ export class RecordForm extends React.Component<any> {
     const fields =  this.state.data;
     return (
       <ProForm>
-          {fields.map((d:any) => (
-            <InputField 
-                 key={d.id}
-                 type={d.type}
-                 label={d.label}
+          {fields.map((d:any, index) => (
+            <InputField
+                key={index} 
+                fieldName={d.name}
+                type={d.type}
+                label={d.label}
               />
           ))}
       </ProForm>
