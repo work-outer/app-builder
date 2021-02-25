@@ -34,5 +34,6 @@
   },
   "dependencies": {
     "typescript": "^4.2.2"
-  }
+  },
+  "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-locale"
 }

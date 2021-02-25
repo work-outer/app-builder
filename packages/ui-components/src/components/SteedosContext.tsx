@@ -106,8 +106,9 @@ const getSteedosIntl = (locale: string) => {
 }
 
 export function useIntl(): IntlType {
-  const context = useContext(SteedosContext);
-  return context.intl || zhCNIntl;
+  // const context = useContext(SteedosContext);
+  // return context.intl || zhCNIntl;
+  return zhCNIntl;
 }
 
 export const SteedosContext = React.createContext<any>(null);

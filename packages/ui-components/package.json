@@ -55,7 +55,7 @@
   "devDependencies": {
     "@types/react": "^17.0.2",
     "@types/react-onclickoutside": "^6.7.3",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.2"
   },
   "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-components"
 }

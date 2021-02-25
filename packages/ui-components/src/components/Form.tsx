@@ -70,7 +70,6 @@ export function Form(props:any) {
     columns,
     labelAlign,
     submitter,
-    onEdit,
     ...rest
   }
 
@@ -78,7 +77,11 @@ export function Form(props:any) {
   return <ProForm 
       {...formProps}>
         <Grid templateColumns={`repeat(${columns}, 1fr)`} gap={4}>
-          {renderFields(fields, fieldProps, formProps)}
+          {
+          renderFields(fields, fieldProps, {
+            onEdit,
+            ...formProps  
+          })}
         </Grid>
   </ProForm>
 }
@@ -130,6 +133,7 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
     }
 
     const gridItemOptions = {
+      key: name,
       colSpan: layout =='inline'? 1: [columns, colSpan, colSpan, colSpan],
       borderBottom: mode=='read'?'1px solid #dddbda':''
     }
