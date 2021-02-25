@@ -1,49 +1,30 @@
 import { Select } from 'antd';
 import React from 'react';
-import { SteedosClient }  from '@steedos/client';
 import { SteedosContext } from '../..'
-
+const _ = require('underscore');
 const Option = Select;
 
-let timeout:any;
-let currentValue:any;
-const steedosClient = new SteedosClient();
-function fetch(value:any, callback:any) {
-  if (timeout) {
-    clearTimeout(timeout);
-    timeout = null;
-  }
-  
-  currentValue = value;
-  //console.log('currentValue--', currentValue);
-
-  function fake() {
-    steedosClient.graphql.query(`
-        {
-          objects (filters: [["label", "contains", "${currentValue}"]]){
-            _id
-            label
-            name
-            icon
-          }
+async function searchData(steedosClient:any, value:any, referenceTo:any) {
+  const query = `
+      {
+        ${referenceTo} (filters: [["name", "contains", "${value}"]]){
+          _id
+          name
+          type
+          type__label
         }
-      `).then((res:any) => {
-          //console.log('res is ', res);
-          if (currentValue === value) {
-            const data:any = [];
-            res.data.objects.forEach((item:any) => {
-              data.push({
-                id:item._id,
-                icon: item.icon,
-                name: item.name,
-                label: item.label
-              });
-            });
-            callback(data);
-          }
-        });
-  }
-  timeout = setTimeout(fake, 200);
+      }
+    `; 
+  const res = await steedosClient.graphql.query(query);
+  const objectName = _.keys(res.data);
+  const objects = res.data[objectName[0]];
+  const children = objects.map((item:any) => ({
+    id:item._id,
+    type: item.type,
+    name: item.name,
+    label: item.type__label
+  }));
+  return children;
 }
 export class InputLookup extends React.Component<any, any> {
 
@@ -55,56 +36,59 @@ export class InputLookup extends React.Component<any, any> {
   };
   
   componentDidMount = () => {
-    steedosClient.setUrl(this.context.rootUrl);
-    this.getQueryDate()
+    this.getQueryData()
   }
 
-  getQueryDate =() => {
-    console.log('getQueryDate  start');
+  getQueryData =() => {
+    const steedosClient = this.context.client;
+    const { referenceTo } = this.props;
     steedosClient.graphql.query(`
       {
-        objects {
+        ${referenceTo} {
           _id
-          label
           name
-          icon
+          type
+          type__label
         }
       }
     `).then((res:any) => {
-        console.log('res is ', res);
-        const children = res.data.objects.map((item:any) => ({
+        const objectName = _.keys(res.data);
+        const objects = res.data[objectName[0]];
+        const children = objects.map((item:any) => ({
           id:item._id,
-          icon: item.icon,
+          type: item.type,
           name: item.name,
-          label: item.label
+          label: item.type__label
         }));
-        //console.log('chi--->', children)
         this.setState({data:children});
       });
   };
 
   handleSearch = (value:any) => {
-    //console.log('value--->', value)
+    const steedosClient = this.context.client;
+    const { referenceTo } = this.props;
     if (value) {
-      fetch(value, (data:any) => this.setState({ data }));
+      searchData(steedosClient, value, referenceTo).then((data) => {
+        this.setState({data});
+      });
+      
     } else {
       this.setState({ data: [] });
     }
   };
 
   handleChange = (value:any) => {
-    //console.log('value--->', value)
     this.setState({ value });
   };
   render() {
-    //console.log(this.context)
-    //const {style, label, placeholder, ...rest} = this.props;
     const { data, value} = this.state;
+    const { name, referenceTo, enableAdd, placeholder} = this.props;
     return (
       <Select
         showSearch
         value={value}
-        style={{ width: '100%' }}
+        style={{ width: '50%' }}
+        placeholder={placeholder}
         defaultActiveFirstOption={false}
         showArrow={false}
         filterOption={false}
@@ -113,7 +97,7 @@ export class InputLookup extends React.Component<any, any> {
         notFoundContent={null}
       >
         {data.map((d:any) => (
-            <Option key={d.id}>{d.label}</Option>
+            <Option key={d.id}>{d.name}</Option>
         ))}
       </Select>
     );
