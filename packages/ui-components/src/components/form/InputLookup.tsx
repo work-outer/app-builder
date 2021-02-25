@@ -61,6 +61,9 @@ export class InputLookup extends React.Component<any, any> {
           name: item.name,
           label: item.type__label
         }));
+        if(children.length > 9){
+          children.splice(8);
+        }
         this.setState({data:children});
       });
   };
@@ -105,7 +108,7 @@ export class InputLookup extends React.Component<any, any> {
         {<Option key={'and'} disabled={true}>
           <Button
               type="dashed"
-              style={{ width: '100%', marginTop: '20px' }}
+              style={{ width: '100%' }}
               icon={<PlusOutlined />}
             >
                 Add New Object
