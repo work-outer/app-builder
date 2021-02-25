@@ -1,4 +1,4 @@
-export {Center} from '@chakra-ui/react'
+export * from './components/SteedosContext';
 
 export * from './components/Form';
 export * from './components/Layout';
@@ -10,7 +10,8 @@ export * from './components/RecordViewForm';
 export * from './components/RecordEditForm';
 export * from './components/FormSection';
 export * from './components/DataTable';
-export * from './components/SteedosContext';
 
 export * from './components/form/InputLookup';
 export * from './utils/';
+
+export {Center} from '@chakra-ui/react'
