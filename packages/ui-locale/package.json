@@ -31,5 +31,8 @@
     "test:cov": "yarn test --coverage",
     "lint:src": "eslint src --ext .ts,.tsx --config ../../.eslintrc",
     "lint:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "typescript": "^4.2.2"
   }
 }
