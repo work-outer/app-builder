@@ -3,7 +3,6 @@ import React from "react";
 import ProCard from '@ant-design/pro-card';
 import { Row } from 'antd';
 
-import '@ant-design/pro-card/dist/card.css'
 
 export class FormSection extends React.Component<any> {
   static defaultProps = {

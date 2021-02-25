@@ -6,7 +6,6 @@ import { Form, Table, Tag, Space, Button } from 'antd';
 import ProTable, { EditableProTable } from '@ant-design/pro-table';
 import {InputField, OutputField, getFieldValueType} from '../'
 
-import '@ant-design/pro-table/dist/table.css'
 
 export class DataTable extends React.Component<any> {
   static defaultProps = {
