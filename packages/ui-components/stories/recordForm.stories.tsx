@@ -63,7 +63,7 @@ export const RecordViewFormDefault = () => (
 )
 
 export const RecordObjectForm = () => (
-  <RecordForm objectApiName='accounts' spaceId='wspdRw3z3gqkWBWWF'>
+  <RecordForm objectApiName='users' spaceId='wspdRw3z3gqkWBWWF'>
 
   </RecordForm>
 )

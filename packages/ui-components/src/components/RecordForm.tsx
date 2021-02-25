@@ -24,6 +24,7 @@ export class RecordForm extends React.Component<any, any> {
     })
    
     const fields =  res.fields;
+    console.log('fields--', fields);
     const keys =  _.keys(fields);
     const datas = [];
     for(const k in keys ){
@@ -34,7 +35,8 @@ export class RecordForm extends React.Component<any, any> {
         name: field.name,
         type: field.type,
         label: field.label,
-        sort: field.sort_no
+        sort: field.sort_no,
+        required: field.required
       });
     }
     const sortedData = datas.sort((a, b) => a.sort >= b.sort ? 1 : -1);
@@ -48,7 +50,8 @@ export class RecordForm extends React.Component<any, any> {
       <ProForm>
           {fields.map((d:any, index) => (
             <InputField
-                key={index} 
+                key={index}
+                required={d.required} 
                 fieldName={d.name}
                 type={d.type}
                 label={d.label}
