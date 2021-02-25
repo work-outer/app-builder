@@ -115,7 +115,7 @@ export const RecordEditFormWithSection = () => (
         <InputField fieldName="date" type="date" label="Date"/>
         <InputField fieldName="number" type="number" label="Number"/>
         <InputField fieldName="lookup" type="lookup" label="Lookup"/>
-        <InputLookup name='xxxx' referenceTo='accounts' enableAdd={true}/>
+        <InputLookup name='母公司客户' referenceTo='accounts' enableAdd={true} placeholder="请搜索客户..." />
       </FormSection>
       <FormSection title="Section 2">
         <InputField fieldName="select" type='select' label="Select"/>
