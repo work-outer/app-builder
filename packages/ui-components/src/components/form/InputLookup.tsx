@@ -45,7 +45,7 @@ function fetch(value:any, callback:any) {
   }
   timeout = setTimeout(fake, 200);
 }
-export class InputLookup extends React.Component {
+export class InputLookup extends React.Component<any, any> {
 
   static contextType = SteedosContext
 

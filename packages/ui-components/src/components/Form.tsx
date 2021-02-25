@@ -2,8 +2,9 @@
 import React from "react";
 import ProForm from '@ant-design/pro-form';
 import ProField from '@ant-design/pro-field';
-import { Form as AntForm, Affix } from 'antd';
+import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
+import { useIntl } from '..'
 
 // 按照 Ant Design ProForm 的规范，自动生成表单。
 // fields: 字段数组
@@ -37,7 +38,20 @@ export function Form(props:any) {
         return (
           <Affix offsetBottom={10}>
             <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
-              {dom}
+              <Button 
+                key="rest" 
+                onClick={() => {props.form?.resetFields();setMode('read');}}
+              >
+                {useIntl().getMessage('form.cancel', 'Cancel')}
+              </Button>
+              
+              <Button 
+                type="primary" 
+                key="submit" 
+                onClick={() => props.form?.submit?.()}
+              >
+                {useIntl().getMessage('form.save', 'Save')}
+              </Button>
             </Flex>
           </Affix>
         )

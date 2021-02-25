@@ -1,11 +1,62 @@
 
 import React, {useContext} from "react";
 
-import ProProvider, {zhCNIntl} from '@ant-design/pro-provider';
+import ProContext, {createIntl, 
+    zhCNIntl as pro_zhCN, 
+    zhTWIntl as pro_zhTW, 
+    enUSIntl as pro_enUS
+  } from '@ant-design/pro-provider';
 import ProField from '@ant-design/pro-field';
-import { Input, Space, Tag } from 'antd';
+import { ConfigProvider as AntdConfigProvider } from 'antd';
+import antd_zhCN from 'antd/lib/locale/zh_CN';
+import antd_zhTW from 'antd/lib/locale/zh_TW';
+import antd_enUS from 'antd/lib/locale/zh_CN';
 import { SteedosClient }  from '@steedos/client';
+import { IntlType } from "@ant-design/pro-table";
 
+
+function getMessageFromLocaleMap(
+  source: Record<string, unknown>,
+  path: string,
+  defaultValue?: string,
+): string | undefined {
+  // a[3].b -> a.3.b
+  const paths = path.replace(/\[(\d+)\]/g, '.$1').split('.');
+  let result = source;
+  let message = defaultValue;
+  // eslint-disable-next-line no-restricted-syntax
+  for (const p of paths) {
+    message = Object(result)[p];
+    result = Object(result)[p];
+    if (message === undefined) {
+      return defaultValue;
+    }
+  }
+  return message;
+}
+
+/**
+ * 创建一个操作函数
+ *
+ * @param locale
+ * @param localeMap
+ */
+const createSteedosIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
+  getMessage: (id: string, defaultMessage: string) => {
+    let message = getMessageFromLocaleMap(localeMap, id, defaultMessage);
+    if (!message)
+      message = getProLocale(locale).getMessage(id, '');
+      if (!message)
+        message = getMessageFromLocaleMap(getAntdLocale(locale), id);
+    return message || defaultMessage
+  },
+  locale,
+});
+
+import zhCN from '../locale/zh_CN';
+import enUS from '../locale/en_US';
+const zhCNIntl = createSteedosIntl('zh_CN', zhCN);
+const enUSIntl = createSteedosIntl('en_US', enUS);
 
 const valueTypeMap = {
   href: {
@@ -29,60 +80,101 @@ const valueTypeMap = {
   }
 }
 
+const getAntdLocale:any = (locale: string)=> {
+  switch (locale) {
+    case 'en_US': return antd_enUS
+    case 'zh_CN': return antd_zhCN
+    case 'zh_TW': return antd_zhTW
+    default: return antd_zhCN
+  }
+}
+
+const getProLocale = (locale: string)=> {
+  switch (locale) {
+    case 'en_US': return pro_enUS
+    case 'zh_CN': return pro_zhCN
+    case 'zh_TW': return pro_zhTW
+    default: return pro_zhCN
+  }
+}
+
+const getSteedosIntl = (locale: string) => {
+  switch (locale) {
+    case 'en_US': return enUSIntl
+    case 'zh_CN': return zhCNIntl
+    case 'zh_TW': return zhCNIntl
+    default: return zhCNIntl
+  }
+}
+
+export function useIntl(): IntlType {
+  const context = useContext(SteedosContext);
+  return context.intl || zhCN;
+}
+
 export const SteedosContext = React.createContext<any>(null);
 
-export class SteedosContextWrap extends React.Component<any, any> {
 
-  defaultProps = {
-    rootUrl: null,
+const {
+  STEEDOS_ROOT_URL,
+  STEEDOS_TENANT_ID,
+  STEEDOS_USER_ID,
+  STEEDOS_AUTH_TOKEN,
+  STEEDOS_LOCALE = 'zh_CN'
+} = process.env
+
+/*
+参数：
+- locale: zh_CN, en_US, zh_TW  TODO: 和steedos的locale值不一样，获取user之后需要转换。
+
+*/
+export function SteedosContextWrap(props:any) {
+
+  const antdContext = useContext(AntdConfigProvider.ConfigContext);
+  const proContext = useContext(ProContext);
+
+  const {
+    rootUrl = STEEDOS_ROOT_URL,
+    tenantId = STEEDOS_TENANT_ID,
+    userId = STEEDOS_USER_ID,
+    authToken =  STEEDOS_AUTH_TOKEN,
+    user = {},
+    locale = STEEDOS_LOCALE,
+    children,
+  } = props;
+
+  const client = new SteedosClient();
+  
+  client.setUrl(rootUrl)
+  client.setUserId(userId)
+  client.setToken(authToken);
+
+  const intl = getSteedosIntl(locale);
+  const contextValues = {
+    rootUrl,
+    tenantId,
+    userId,
+    authToken,
+    user,
+    locale,
+    intl,
+    client,
   }
 
-  client: any;
-
-  constructor(props:any) {
-    super(props);
-
-    const {rootUrl, tenantId, userId, authToken, locale} = props;
-
-    this.state = {
-      rootUrl: rootUrl?rootUrl:process.env.STEEDOS_ROOT_URL,
-      tenantId: tenantId?userId:process.env.STEEDOS_TENANT_ID,
-      userId: userId?userId:process.env.STEEDOS_USER_ID,
-      authToken: authToken?userId:process.env.STEEDOSAUTH_TOKEN,
-      user: {},
-      locale: locale?locale:'zh-CN',
-    }
-
-    this.client = new SteedosClient();
+  const proContextValues = {
+    intl: {
+      ...getProLocale(locale),
+    },
+    valueTypeMap,
   }
 
-  componentDidMount() {
-  }
-
-	render() {
-    //console.log(this.state)
-    const {rootUrl, userId, authToken} = this.state
-    this.client.setUrl(rootUrl)
-    this.client.setUserId(userId)
-    this.client.setToken(authToken);
-
-    const contextValues = {
-      client: this.client,
-      ...this.state
-    }
-
-    return (
-      <SteedosContext.Provider value={contextValues}>
-        <ProProvider.Provider value={{
-          intl: {
-            ...zhCNIntl,
-            locale: 'default',
-          },
-          valueTypeMap,
-        }}>
-          {this.props.children}
-        </ProProvider.Provider>
-      </SteedosContext.Provider>
-		)
-	}
+  return (
+    <SteedosContext.Provider value={contextValues}>
+      <AntdConfigProvider locale={getAntdLocale(locale)}>
+        <ProContext.Provider value={proContextValues}>
+          {children}
+        </ProContext.Provider>
+        </AntdConfigProvider>
+    </SteedosContext.Provider>
+  )
 }
