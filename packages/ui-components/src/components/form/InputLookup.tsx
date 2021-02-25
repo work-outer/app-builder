@@ -1,4 +1,5 @@
-import { Select } from 'antd';
+import { Button, Select } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import React from 'react';
 import { SteedosContext } from '../..'
 const _ = require('underscore');
@@ -78,7 +79,8 @@ export class InputLookup extends React.Component<any, any> {
   };
 
   handleChange = (value:any) => {
-    this.setState({ value });
+    if(value !== 'and') 
+      this.setState({ value });
   };
   render() {
     const { data, value} = this.state;
@@ -89,6 +91,7 @@ export class InputLookup extends React.Component<any, any> {
         value={value}
         style={{ width: '50%' }}
         placeholder={placeholder}
+        loading={true}
         defaultActiveFirstOption={false}
         showArrow={false}
         filterOption={false}
@@ -99,6 +102,15 @@ export class InputLookup extends React.Component<any, any> {
         {data.map((d:any) => (
             <Option key={d.id}>{d.name}</Option>
         ))}
+        {<Option key={'and'} disabled={true}>
+          <Button
+              type="dashed"
+              style={{ width: '100%', marginTop: '20px' }}
+              icon={<PlusOutlined />}
+            >
+                Add New Object
+          </Button>
+        </Option>}
       </Select>
     );
   

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { InputField } from "..";
 import ProForm from '@ant-design/pro-form';
@@ -13,7 +12,6 @@ export class RecordForm extends React.Component<any, any> {
   };
   componentDidMount = async () => {
     const {objectApiName, spaceId } = this.props;
-    console.log('RecordForm--this.context---', this.context);
     const steedosClient = this.context.client;
     const url = `${this.context.rootUrl}/api/bootstrap/${spaceId}/${objectApiName}`;
     const token = `Bearer C6tdnBaPhEFomAWE7, ${this.context.authToken}`
@@ -44,7 +42,6 @@ export class RecordForm extends React.Component<any, any> {
   }
 
   render() {
-    console.log('this.context--render-', this.context)
     const {objectApiName, recordId, children, ...rest} = this.props
     const fields =  this.state.data;
     return (
