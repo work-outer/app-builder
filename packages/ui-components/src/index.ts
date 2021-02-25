@@ -1,3 +1,5 @@
+import 'antd/dist/antd.css'
+
 export {Center} from '@chakra-ui/react'
 
 export * from './components/Form';
