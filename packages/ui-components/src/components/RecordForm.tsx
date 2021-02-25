@@ -1,24 +1,22 @@
 
 import React from "react";
-import { SteedosClient }  from '@steedos/client';
 import { InputField } from "..";
 import ProForm from '@ant-design/pro-form';
-const _ =require('underscore');
+import { SteedosContext } from '..'
+const _ = require('underscore');
 
-
-// https://developer.salesforce.com/docs/component-library/bundle/lightning-record-form/documentation
-const steedosClient = new SteedosClient();
-export class RecordForm extends React.Component<any> {
-  static defaultProps = {
-    
-  }
+export class RecordForm extends React.Component<any, any> {
+  static contextType = SteedosContext
+  
   state = {
     data: []
   };
   componentDidMount = async () => {
-    const {objectApiName, recordId } = this.props
-    const url = `http://localhost:8080/api/bootstrap/${recordId}/${objectApiName}`;
-    const token = `Bearer C6tdnBaPhEFomAWE7,1d48e7c566307d9a80156811c3cf91cead17e0ef04eb4eba8d752e660bbdd580ce00bd0dbd643d2c25f877`
+    const {objectApiName, spaceId } = this.props;
+    console.log('RecordForm--this.context---', this.context);
+    const steedosClient = this.context.client;
+    const url = `${this.context.rootUrl}/api/bootstrap/${spaceId}/${objectApiName}`;
+    const token = `Bearer C6tdnBaPhEFomAWE7, ${this.context.authToken}`
     const res = await steedosClient.doFetch(url,{
       method: 'GET',
       headers: {
@@ -46,6 +44,7 @@ export class RecordForm extends React.Component<any> {
   }
 
   render() {
+    console.log('this.context--render-', this.context)
     const {objectApiName, recordId, children, ...rest} = this.props
     const fields =  this.state.data;
     return (
