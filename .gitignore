@@ -88,7 +88,6 @@ typings/
 *.tgz
 
 # dotenv environment variables file
-.env
 .env.*
 
 # Mac files

@@ -14,30 +14,41 @@ import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 // layout: horizontal, vertical, inline
 // colSpan: 每一列默认占几栅格，总共12栅格
 // mode: edit, read
-export const Form = (props:any) => {
+export function Form(props:any) {
   const {
     fields, 
     initialValues, 
     layout='horizontal', 
     labelAlign='left',
-    mode='edit',
     columns=2,
     fieldProps = {
     }, 
+    mode: initialMode = 'edit',
     children, 
     ...rest
   } = props
+
+  const [editable, setEditable] = React.useState(true);
+  const [mode, setMode] = React.useState(initialMode);
+
   const submitter = {
     render: ({submit, reset, ...props }:any, dom:any) => {
-      return (
-        <Affix offsetBottom={10}>
-          <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
-            {dom}
-          </Flex>
-        </Affix>
-      )
+      if (mode === 'edit')
+        return (
+          <Affix offsetBottom={10}>
+            <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
+              {dom}
+            </Flex>
+          </Affix>
+        )
     }
   }
+
+  const onEdit = ()=> {
+    if (editable)
+      setMode('edit');
+  } 
+
   const formProps = {
     initialValues,
     layout,
@@ -45,8 +56,11 @@ export const Form = (props:any) => {
     columns,
     labelAlign,
     submitter,
+    onEdit,
     ...rest
   }
+
+
   return <ProForm 
       {...formProps}>
         <Grid templateColumns={`repeat(${columns}, 1fr)`} gap={4}>
@@ -56,6 +70,7 @@ export const Form = (props:any) => {
 }
 
 const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
+
   return fields.map((field:any) => {
     
     const {
@@ -65,7 +80,8 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
     const {
       layout,
       mode,
-      columns
+      columns,
+      onEdit,
     } = formProps
     
     const {
@@ -93,7 +109,10 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
       }:{},
       wrapperCol: layout=='horizontal'?{
         flex: 'auto'
-      }:{}
+      }:{},
+      onClick: () => {
+        onEdit();
+      }
     }
 
     const gridItemOptions = {
