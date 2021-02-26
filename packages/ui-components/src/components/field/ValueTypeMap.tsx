@@ -5,10 +5,10 @@ import React from 'react';
 import { FieldLookup } from '../..';
 
 export const ValueTypeMap = {
-    href: {
-      render: (text:any, props:any) => <a>{text}</a>,
-      renderFormItem: (text:any, props:any) => {return <ProField valueType='text' mode='edit' {...props.fieldProps} allowClear={false} />},
-    },
+    // href: {
+    //   render: (text:any, props:any) => <a>{text}</a>,
+    //   renderFormItem: (text:any, props:any) => {return <ProField valueType='text' mode='edit' {...props.fieldProps} allowClear={false} />},
+    // },
     // checkbox: {
     //   render: (text:any, props:any) => {
     //     if (text) 

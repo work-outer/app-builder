@@ -88,7 +88,6 @@ export class DataTable extends React.Component<any> {
             const {valueType} = item
             const fieldProps = {
               valueType,
-              allowClear: false,
               fieldProps: {
                 allowClear: false,
               },

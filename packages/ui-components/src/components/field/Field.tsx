@@ -33,7 +33,7 @@ import FieldRadio from '@ant-design//pro-field/lib/components//Radio';
 import FieldImage from '@ant-design//pro-field/lib/components//Image';
 
 import {FieldLookup} from './FieldLookup';
-
+import FieldHref from './FieldHref';
 
 const steedosRenderText = (
   text: ProFieldTextType,
@@ -48,6 +48,10 @@ const steedosRenderText = (
 
   if (valueType === 'checkbox') {
     return <ProField text={text as boolean} valueType='switch' {...props}/>
+  }
+
+  if (valueType === 'href') {
+    return <FieldHref text={text as string} {...props} />
   }
 
   if (valueType === 'datetime') {
