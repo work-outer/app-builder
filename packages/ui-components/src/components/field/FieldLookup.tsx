@@ -49,8 +49,6 @@ export class FieldLookup extends React.Component<any, any> {
         ${referenceTo} {
           _id
           name
-          type
-          type__label
         }
       }
     `).then((res:any) => {
@@ -58,9 +56,7 @@ export class FieldLookup extends React.Component<any, any> {
         const objects = res.data[objectName[0]];
         const children = objects.map((item:any) => ({
           id:item._id,
-          type: item.type,
           name: item.name,
-          label: item.type__label
         }));
         if(children.length > 9){
           children.splice(8);
@@ -89,7 +85,7 @@ export class FieldLookup extends React.Component<any, any> {
   render() {
     console.log(this.props)
     const { data, value} = this.state;
-    const { name, referenceTo, enableAdd, placeholder, rest} = this.props;
+    const { name, referenceTo, enableAdd, style, placeholder, rest} = this.props;
     return (
       <Select
         showSearch
@@ -102,6 +98,7 @@ export class FieldLookup extends React.Component<any, any> {
         onSearch={this.handleSearch}
         onChange={this.handleChange}
         notFoundContent={null}
+        style={style}
         {...rest}
       >
         {data.map((d:any) => (
