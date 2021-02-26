@@ -1,7 +1,7 @@
 
 import React from "react";
 
-import ProField from '@ant-design/pro-field';
+import Field from './field/Field';
 import { Form, Col } from 'antd';
 
 
@@ -69,7 +69,7 @@ export class InputField extends React.Component<any,any> {
     return (
       <Col {...colSpan}>
         <Form.Item {...itemOptions}>
-          <ProField 
+          <Field 
             mode={mode} 
             valueType={valueType} 
             {...rest} 

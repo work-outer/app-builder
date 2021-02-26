@@ -5,6 +5,11 @@ import { SteedosContext } from '..'
 import { Col, Space, Divider, Switch} from "antd";
 const _ = require('underscore');
 
+
+/*
+  objectApiName: accounts
+  fields?: ['name', 'created'] 
+*/
 export class RecordForm extends React.Component<any, any> {
   static contextType = SteedosContext
   
@@ -14,10 +19,11 @@ export class RecordForm extends React.Component<any, any> {
     booleanFields:[]
   };
   componentDidMount = async () => {
-    const {objectApiName, spaceId } = this.props;
+    const {objectApiName} = this.props;
+    const spaceId = this.context.tenantId;
     const steedosClient = this.context.client;
     const url = `${this.context.rootUrl}/api/bootstrap/${spaceId}/${objectApiName}`;
-    const token = `Bearer C6tdnBaPhEFomAWE7, ${this.context.authToken}`
+    const token = `Bearer ${spaceId}, ${this.context.authToken}`
     const res = await steedosClient.doFetch(url,{
       method: 'GET',
       headers: {

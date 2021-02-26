@@ -96,10 +96,15 @@ export class DataTable extends React.Component<any> {
             return (<Field {...fieldProps}/>)
           },
           render: (dom:any, record:any, _:any, action:any) => {
-            return <Field inlineIconOpacity={0} text={dom} onEdit={ () => {
+            return <Field inlineIconOpacity={0} text={dom} mode='read' onEdit={ () => {
                 action.startEditable?.(record.id);
             }}/>
-          }}
+          },
+          // renderText: (dom:any, record:any, _:any, action:any) => {
+          //   console.log(dom)
+          //   return (<span>{dom}</span>)
+          // }
+        }
         tableColumns.push(proColumn)
     });
     return tableColumns;
