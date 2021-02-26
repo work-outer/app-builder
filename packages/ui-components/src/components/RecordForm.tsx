@@ -2,7 +2,7 @@ import React from "react";
 import { FieldLookup, InputField } from "..";
 import ProForm from '@ant-design/pro-form';
 import { SteedosContext } from '..'
-import { Col, Space} from "antd";
+import { Col, Space, Divider, Switch} from "antd";
 const _ = require('underscore');
 
 export class RecordForm extends React.Component<any, any> {
@@ -10,7 +10,8 @@ export class RecordForm extends React.Component<any, any> {
   
   state = {
     conmmonFields: [],
-    specialFields:[]
+    lookupFields:[],
+    booleanFields:[]
   };
   componentDidMount = async () => {
     const {objectApiName, spaceId } = this.props;
@@ -28,13 +29,14 @@ export class RecordForm extends React.Component<any, any> {
     const fields =  res.fields;
     const keys =  _.keys(fields);
     const conmmonFields = [];
-    const specialFields = [];
+    const lookupFields = [];
+    const booleanFields = [];
     for(const k in keys ){
       const field = fields[keys[k]];
       if(field.hidden) continue;
-      if(typeof field.sort_no === 'undefined' && field.type !== 'lookup') continue;
+      if(typeof field.sort_no === 'undefined' && field.type === 'text') continue;
       if(field.type === 'lookup'){
-        specialFields.push({
+        lookupFields.push({
           name: field.name,
           type: field.type,
           label: field.label,
@@ -42,6 +44,17 @@ export class RecordForm extends React.Component<any, any> {
           disabled: field.disabled,
           readonly: field.readonly,
           omit: field.omit
+        });
+      }else if(field.type === 'boolean'){
+        let checked = false;
+        if(field.label.includes('已')){
+          checked = true;
+        } 
+        booleanFields.push({
+          name: field.name,
+          type: field.type,
+          label: field.label,
+          checked: checked
         });
       }else{
         conmmonFields.push({
@@ -56,15 +69,15 @@ export class RecordForm extends React.Component<any, any> {
     const sortedConmmonFields = conmmonFields.sort((a, b) => a.sort >= b.sort ? 1 : -1);
     this.setState({
       conmmonFields: sortedConmmonFields,
-      specialFields: specialFields
+      lookupFields: lookupFields,
+      booleanFields: booleanFields
     })
   }
 
   render() {
     const {objectApiName, recordId, children, ...rest} = this.props
     const colSpan = {span:24, xs:24, sm:24, md:12, lg:12};
-    const conmmonFields =  this.state.conmmonFields;
-    const specialFields =  this.state.specialFields;
+    const { conmmonFields, lookupFields, booleanFields} =  this.state;
     return (
       <ProForm>
           {conmmonFields.map((d:any, index) => (
@@ -75,11 +88,10 @@ export class RecordForm extends React.Component<any, any> {
                 type={d.type}
                 label={d.label}
                 labelCol
-              />
-            
+              /> 
           ))}
           <Space direction="vertical" size="large" style={{ width: '75%' }}>
-            {specialFields.map((d:any, index) => ( 
+            {lookupFields.map((d:any, index) => ( 
               <Col {...colSpan} >
                 <FieldLookup 
                   key={index}
@@ -92,6 +104,19 @@ export class RecordForm extends React.Component<any, any> {
                   placeholder={`请搜索${d.name}...`} />
               </Col>
             ))}
+          </Space>
+          <br /><br />
+          <Space split={<Divider type="vertical" />} style={{ width: '75%' }}>
+            {
+              booleanFields.map((d:any, index) => (
+                <Switch 
+                  key={index} 
+                  checkedChildren={`已${d.label.substring(1)}`}
+                  unCheckedChildren={`未${d.label.substring(1)}`} 
+                  defaultChecked={d.checked}
+                />
+              ))
+            }
           </Space>
           <br /><br />
       </ProForm>

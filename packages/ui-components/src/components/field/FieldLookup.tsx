@@ -83,7 +83,6 @@ export class FieldLookup extends React.Component<any, any> {
       this.setState({ value });
   };
   render() {
-    console.log(this.props)
     const { data, value} = this.state;
     const { name, referenceTo, enableAdd, style, placeholder, rest} = this.props;
     return (
