@@ -15,6 +15,7 @@ const fields = [{
   name: 'email',
   label: 'Email',
   valueType: 'email',
+  readonly: true,
   colSpan: 1
 },{
   name: 'website',
@@ -26,7 +27,7 @@ const fields = [{
 },{
   name: 'active',
   label: 'Active',
-  valueType: 'checkbox',
+  valueType: 'checkbox'
 },{
   name: 'created',
   valueType: 'datetime',

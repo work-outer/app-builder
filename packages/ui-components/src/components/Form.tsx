@@ -127,9 +127,6 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
       wrapperCol: layout=='horizontal'?{
         flex: 'auto'
       }:{},
-      onClick: () => {
-        onEdit();
-      }
     }
 
     const gridItemOptions = {
@@ -148,6 +145,7 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
               mode={mode}
               valueType={valueType}
               fieldProps={fieldProps}
+              onEdit={onEdit}
               {...rest}
             />
         </ProForm.Item>

@@ -1,39 +1,44 @@
 
 import React, { useContext } from 'react';
 
+import { Row, Col, Divider } from 'antd';
+import { Flex, Box, Button, IconButton } from "@chakra-ui/react"
+
 import ProField, {defaultRenderText} from '@ant-design/pro-field';
 import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
-import FieldPercent from '@ant-design//pro-field/lib/components//Percent';
-import FieldIndexColumn from '@ant-design//pro-field/lib/components//IndexColumn';
-import FieldProgress from '@ant-design//pro-field/lib/components//Progress';
-import FieldMoney from '@ant-design//pro-field/lib/components//Money';
-import FieldDatePicker from '@ant-design//pro-field/lib/components//DatePicker';
-import FieldFromNow from '@ant-design//pro-field/lib/components//FromNow';
-import FieldRangePicker from '@ant-design//pro-field/lib/components//RangePicker';
-import FieldCode from '@ant-design//pro-field/lib/components//Code';
-import FieldTimePicker, { FieldTimeRangePicker } from '@ant-design//pro-field/lib/components//TimePicker';
-import FieldText from '@ant-design//pro-field/lib/components//Text';
-import FieldTextArea from '@ant-design//pro-field/lib/components//TextArea';
-import FieldPassword from '@ant-design//pro-field/lib/components//Password';
-import FieldStatus from '@ant-design//pro-field/lib/components//Status';
-import FieldOptions from '@ant-design//pro-field/lib/components//Options';
+import FieldPercent from '@ant-design/pro-field/lib/components/Percent';
+import FieldIndexColumn from '@ant-design/pro-field/lib/components/IndexColumn';
+import FieldProgress from '@ant-design/pro-field/lib/components/Progress';
+import FieldMoney from '@ant-design/pro-field/lib/components/Money';
+import FieldDatePicker from '@ant-design/pro-field/lib/components/DatePicker';
+import FieldFromNow from '@ant-design/pro-field/lib/components/FromNow';
+import FieldRangePicker from '@ant-design/pro-field/lib/components/RangePicker';
+import FieldCode from '@ant-design/pro-field/lib/components/Code';
+import FieldTimePicker, { FieldTimeRangePicker } from '@ant-design/pro-field/lib/components/TimePicker';
+import FieldText from '@ant-design/pro-field/lib/components/Text';
+import FieldTextArea from '@ant-design/pro-field/lib/components/TextArea';
+import FieldPassword from '@ant-design/pro-field/lib/components/Password';
+import FieldStatus from '@ant-design/pro-field/lib/components/Status';
+import FieldOptions from '@ant-design/pro-field/lib/components/Options';
 import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
-} from '@ant-design//pro-field/lib/components//Select';
-import FieldCheckbox from '@ant-design//pro-field/lib/components//Checkbox';
-import FieldRate from '@ant-design//pro-field/lib/components//Rate';
-import FieldSwitch from '@ant-design//pro-field/lib/components//Switch';
-import FieldDigit from '@ant-design//pro-field/lib/components//Digit';
-import FieldSecond from '@ant-design//pro-field/lib/components//Second';
+} from '@ant-design/pro-field/lib/components/Select';
+import FieldCheckbox from '@ant-design/pro-field/lib/components/Checkbox';
+import FieldRate from '@ant-design/pro-field/lib/components/Rate';
+import FieldSwitch from '@ant-design/pro-field/lib/components/Switch';
+import FieldDigit from '@ant-design/pro-field/lib/components/Digit';
+import FieldSecond from '@ant-design/pro-field/lib/components/Second';
 
-import FieldRadio from '@ant-design//pro-field/lib/components//Radio';
-import FieldImage from '@ant-design//pro-field/lib/components//Image';
+import FieldRadio from '@ant-design/pro-field/lib/components/Radio';
+import FieldImage from '@ant-design/pro-field/lib/components/Image';
 
 import {FieldLookup} from './FieldLookup';
 import FieldHref from './FieldHref';
+
+import {EditIcon, LockIcon} from '@chakra-ui/icons'
 
 const steedosRenderText = (
   text: ProFieldTextType,
@@ -62,11 +67,14 @@ const steedosRenderText = (
 }
 
 const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text, valueType = 'text', onChange, value, ...rest },
+  { mode = 'read', text, readonly, valueType = 'text', onChange, value, onEdit, ...rest },
   ref,
 ) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
+
+  if (readonly)
+    mode = 'read'
 
   const fieldProps = pickProProps((value || onChange || rest?.fieldProps) && {
     value,
@@ -79,17 +87,38 @@ const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     allowClear: false,
   });
   
-  return steedosRenderText(
+  const dom = steedosRenderText(
     text ?? fieldProps?.value ?? '',
     valueType || 'text',
     {
       ...rest,
-      mode: rest.mode || 'read',
+      mode,
+      readonly,
       ref,
       placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
       fieldProps: pickProProps(fieldProps),
     },
     context.valueTypeMap,
+  )
+
+  const inlineIcon = readonly?
+    <LockIcon color="gray.400" _hover={{color: 'gray.700'}}/>:
+    <EditIcon color="gray.400" _hover={{color: 'gray.700'}} onClick={
+      ()=> {
+        if (onEdit) onEdit()
+      }
+    }/>
+  return mode == 'edit'?dom:(
+    <>
+    <Flex onDoubleClick={
+      ()=> {
+        if (!readonly && onEdit) onEdit()
+      }
+    }>
+      <Box flex="1">{dom}</Box>
+      <Box width="16px">{inlineIcon}</Box>
+    </Flex>
+    </>
   )
 }
 
