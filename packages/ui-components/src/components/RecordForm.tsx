@@ -38,22 +38,32 @@ export class RecordForm extends React.Component<any, any> {
       const field = fields_all[keys[k]];
       if(typeof field === 'undefined') continue;
       if(field.hidden) continue;
-      if(field.type === 'lookup'){
+      const commonAttrs = {
+        name: field.name,
+        type: field.type,
+        label: field.label
+      }
+      
+      if(field.type === 'select'){
+        const valueEnum = {}
+        field.options.map((option:any) => {
+          valueEnum[option.label] = option.value;
+        })
         data.push({
-          name: field.name,
-          type: field.type,
-          label: field.label,
+          ...commonAttrs,
+          valueEnum: valueEnum
+        });
+      }else if(field.type === 'lookup'){
+        data.push({
+          ...commonAttrs,
           referenceTo: field.reference_to,
           disabled: field.disabled,
           readonly: field.readonly,
-          omit: field.omit,
-          placeholder: `请搜索${field.reference_to}...`
+          placeholder: '请搜索...'
         });
       }else{
         data.push({
-          name: field.name,
-          type: field.type,
-          label: field.label,
+          ...commonAttrs,
           required: field.required
         });
       }
@@ -70,7 +80,6 @@ export class RecordForm extends React.Component<any, any> {
   }
 
   render() {
-    const {objectApiName, recordId, children, ...rest} = this.props
     const { data } =  this.state;
     return (
       <ProForm>
@@ -83,6 +92,9 @@ export class RecordForm extends React.Component<any, any> {
                 label={d.label}
                 referenceTo={d.referenceTo}
                 placeholder={d.placeholder}
+                readonly={d.readonly}
+                disabled={d.disabled}
+                valueEnum={d.valueEnum}
               /> 
           ))}
       </ProForm>
