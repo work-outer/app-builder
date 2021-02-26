@@ -1,5 +1,7 @@
 
 import React from "react";
+import _ from 'lodash';
+
 import ProForm from '@ant-design/pro-form';
 import ProField from '@ant-design/pro-field';
 import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
@@ -20,7 +22,7 @@ import FormField, {FormFieldProps} from './form/FormField';
 // mode: edit, read
 export function Form(props:any) {
   const {
-    fields, 
+    fields = [], 
     initialValues, 
     layout='horizontal', 
     labelAlign='left',
@@ -79,7 +81,7 @@ export function Form(props:any) {
     columns,
     onInlineEdit,
   }
-
+  defaultFieldProps.mode = mode
 
   return <ProForm 
       {...formProps}>
@@ -92,24 +94,28 @@ export function Form(props:any) {
 
 const renderFields = (fields:[], defaultFieldProps:any) => {
 
+  const {
+    name,
+    valueType,
+    onInlineEdit,
+    mode,
+    ...rest
+  } = defaultFieldProps
+
   return fields.map((field:FormFieldProps) => {
     
-    const {
-      colSpan: defaultSpan = 1, 
-    } = defaultFieldProps
+    const fieldOptions = _.defaultsDeep(_.cloneDeep(field), rest)
+    console.log(fieldOptions)
 
-    const {
-      colSpan = defaultSpan,
-      formProps,
-      ...rest
-    } = field
-
-    const fieldOptions = {
-      colSpan,
-      ...rest
-    }
-
-    return (<FormField {...fieldOptions} />)
+    return (
+      <FormField 
+        name={name}
+        valueType={valueType}
+        key={name}
+        mode={mode}
+        onInlineEdit={onInlineEdit} {...fieldOptions} 
+      />
+    )
 
   })
 }

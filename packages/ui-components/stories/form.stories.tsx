@@ -63,6 +63,17 @@ const initialValues = {
   website: 'https://www.steedos.com',
   email: 'support@steedos.com',
 }
+
+export const FormWithChildren = () => (
+  <Form 
+    layout='vertical'
+    mode='edit'
+    initialValues={initialValues}>
+      <FormField name='username' valueType='text'/>
+      <FormField name='password' valueType='password'/>
+  </Form>
+)
+
 export const FormReadOnly = () => (
   <Form 
     fields={fields}

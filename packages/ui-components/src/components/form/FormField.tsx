@@ -42,11 +42,12 @@ export default function FormField(props:FormFieldProps) {
     tooltip, 
     fieldProps = {},
     layout = 'vertical',
-    mode = 'read',
+    mode,
     onInlineEdit,
     ...rest
   } = props
 
+  console.log(props)
   
   fieldProps.allowClear = false;
 
