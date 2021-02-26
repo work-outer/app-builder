@@ -31,6 +31,13 @@ const fields = [{
 },{
   name: 'created',
   valueType: 'datetime',
+},{
+  name: 'select',
+  valueType: 'select',
+  valueEnum: {
+    open: '未解决',
+    closed: '已解决',
+  }
 }]
 
 const initialValues = {
