@@ -2,23 +2,21 @@ import React from "react";
 import { FieldLookup, InputField } from "..";
 import ProForm from '@ant-design/pro-form';
 import { SteedosContext } from '..'
-import { Col, Space, Divider, Switch} from "antd";
+import { Col, Space } from "antd";
 const _ = require('underscore');
 
 
-/*
-  objectApiName: accounts
-  fields?: ['name', 'created'] 
-*/
+// 通过调用接口获取对象字段列表，并按照 Ant Design ProForm 的规范，自动生成表单
+// objectApiName：对象的API名称
+// fields: 需要展示的字段数组
 export class RecordForm extends React.Component<any, any> {
   static contextType = SteedosContext
   
   state = {
-    conmmonFields: [],
-    lookupFields:[],
-    booleanFields:[]
+    data: []
   };
-  componentDidMount = async () => {
+
+  getObjectFields = async (fields:any) => {
     const {objectApiName} = this.props;
     const spaceId = this.context.tenantId;
     const steedosClient = this.context.client;
@@ -32,99 +30,61 @@ export class RecordForm extends React.Component<any, any> {
       }
     })
    
-    const fields =  res.fields;
-    const keys =  _.keys(fields);
-    const conmmonFields = [];
-    const lookupFields = [];
-    const booleanFields = [];
+    const fields_all =  res.fields;
+    let keys =  _.keys(fields_all);
+    if(fields) keys = fields; 
+    const data = [];
     for(const k in keys ){
-      const field = fields[keys[k]];
+      const field = fields_all[keys[k]];
+      if(typeof field === 'undefined') continue;
       if(field.hidden) continue;
-      if(typeof field.sort_no === 'undefined' && field.type === 'text') continue;
       if(field.type === 'lookup'){
-        lookupFields.push({
+        data.push({
           name: field.name,
           type: field.type,
           label: field.label,
           referenceTo: field.reference_to,
           disabled: field.disabled,
           readonly: field.readonly,
-          omit: field.omit
-        });
-      }else if(field.type === 'boolean'){
-        let checked = false;
-        if(field.label.includes('已')){
-          checked = true;
-        } 
-        booleanFields.push({
-          name: field.name,
-          type: field.type,
-          label: field.label,
-          checked: checked
+          omit: field.omit,
+          placeholder: `请搜索${field.reference_to}...`
         });
       }else{
-        conmmonFields.push({
+        data.push({
           name: field.name,
           type: field.type,
           label: field.label,
-          sort: field.sort_no,
           required: field.required
         });
       }
     }
-    const sortedConmmonFields = conmmonFields.sort((a, b) => a.sort >= b.sort ? 1 : -1);
+    return data;
+  }
+
+  componentDidMount = async () => {
+    const { fields } = this.props
+    const data = await this.getObjectFields(fields) || []
     this.setState({
-      conmmonFields: sortedConmmonFields,
-      lookupFields: lookupFields,
-      booleanFields: booleanFields
+      data: data
     })
   }
 
   render() {
     const {objectApiName, recordId, children, ...rest} = this.props
-    const colSpan = {span:24, xs:24, sm:24, md:12, lg:12};
-    const { conmmonFields, lookupFields, booleanFields} =  this.state;
+    const { data } =  this.state;
     return (
       <ProForm>
-          {conmmonFields.map((d:any, index) => (
+          {data.map((d:any, index) => (
             <InputField
                 key={index}
                 required={d.required} 
                 fieldName={d.name}
                 type={d.type}
                 label={d.label}
-                labelCol
+                referenceTo={d.referenceTo}
+                placeholder={d.placeholder}
               /> 
           ))}
-          <Space direction="vertical" size="large" style={{ width: '75%' }}>
-            {lookupFields.map((d:any, index) => ( 
-              <Col {...colSpan} >
-                <FieldLookup 
-                  key={index}
-                  name={d.name} 
-                  referenceTo={d.referenceTo}
-                  style={{ width: '100%' }} 
-                  enableAdd={true}
-                  readonly={d.readonly}
-                  disabled={d.disabled}
-                  placeholder={`请搜索${d.name}...`} />
-              </Col>
-            ))}
-          </Space>
-          <br /><br />
-          <Space split={<Divider type="vertical" />} style={{ width: '75%' }}>
-            {
-              booleanFields.map((d:any, index) => (
-                <Switch 
-                  key={index} 
-                  checkedChildren={`已${d.label.substring(1)}`}
-                  unCheckedChildren={`未${d.label.substring(1)}`} 
-                  defaultChecked={d.checked}
-                />
-              ))
-            }
-          </Space>
-          <br /><br />
       </ProForm>
     )
   }

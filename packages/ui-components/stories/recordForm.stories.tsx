@@ -62,8 +62,7 @@ export const RecordViewFormDefault = () => (
   </RecordViewForm>
 )
 
+const fields = ['name', 'type', 'website', 'parent_id']
 export const RecordObjectForm = () => (
-  <RecordForm objectApiName='instances'>
-
-  </RecordForm>
+  <RecordForm objectApiName='accounts' fields={fields}></RecordForm>
 )

@@ -11,8 +11,6 @@ async function searchData(steedosClient:any, value:any, referenceTo:any) {
         ${referenceTo} (filters: [["name", "contains", "${value}"]]){
           _id
           name
-          type
-          type__label
         }
       }
     `; 
@@ -21,9 +19,7 @@ async function searchData(steedosClient:any, value:any, referenceTo:any) {
   const objects = res.data[objectName[0]];
   const children = objects.map((item:any) => ({
     id:item._id,
-    type: item.type,
     name: item.name,
-    label: item.type__label
   }));
   return children;
 }
