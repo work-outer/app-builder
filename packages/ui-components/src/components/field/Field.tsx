@@ -67,13 +67,21 @@ const steedosRenderText = (
 }
 
 const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { mode = 'read', text, readonly, valueType = 'text', onChange, value, onEdit, ...rest },
+  { mode = 'read', 
+    text, readonly, 
+    valueType = 'text', 
+    onChange, 
+    value, 
+    onEdit, 
+    inlineIconOpacity: propsInlineIconOpacity,
+    ...rest 
+  },
   ref,
 ) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
 
-  const fieldProps = pickProProps((value || onChange || rest?.fieldProps) && {
+  const fieldProps = (value || onChange || rest?.fieldProps) && {
     value,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
@@ -82,7 +90,7 @@ const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
       rest?.fieldProps?.onChange?.(...restParams);
     },
     allowClear: false,
-  });
+  };
   
   const dom = steedosRenderText(
     text ?? fieldProps?.value ?? '',
@@ -98,20 +106,20 @@ const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     context.valueTypeMap,
   )
 
+  const inlineIconOpacity = propsInlineIconOpacity != null?propsInlineIconOpacity:0.4
   const inlineIcon = readonly?
-    <LockIcon color="gray.400" _hover={{color: 'gray.700'}}/>:
-    <EditIcon color="gray.400" _hover={{color: 'gray.700'}} onClick={
-      ()=> {
-        if (onEdit) onEdit()
-      }
-    }/>
-  return mode == 'edit'?dom:(
+    <LockIcon color='gray.600' opacity={inlineIconOpacity} _groupHover={{ opacity: 1 }}/>:
+    <EditIcon color='gray.600' opacity={inlineIconOpacity} _groupHover={{ opacity: 1 }} 
+      onClick={()=> {
+          if (onEdit) onEdit()
+      }}
+    />
+  return mode == 'edit'?(dom):(
     <>
-    <Flex onDoubleClick={
-      ()=> {
-        if (!readonly && onEdit) onEdit()
-      }
-    }>
+    <Flex 
+      role="group"
+      onDoubleClick={()=> {if (!readonly && onEdit) onEdit();}}
+    >
       <Box flex="1">{dom}</Box>
       <Box width="16px">{inlineIcon}</Box>
     </Flex>
@@ -120,4 +128,4 @@ const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
 }
 
 
-export default React.forwardRef(Field) as typeof ProField;
+export default React.forwardRef(Field) as typeof Field;

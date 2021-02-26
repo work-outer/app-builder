@@ -15,7 +15,7 @@ module.exports = {
   },
   webpackFinal: async (config) => {
 
-    // Make whatever fine-grained changes you need
+    //Make whatever fine-grained changes you need
     config.module.rules.push({
       test: /\.less$/,
       use: [
