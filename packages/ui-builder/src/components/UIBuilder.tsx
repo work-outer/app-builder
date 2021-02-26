@@ -15,10 +15,12 @@ import useDispatch from '~hooks/useDispatch'
 
 const UIBuilder: React.FC<UIBuilderComponentProps> = ({
   components,
+  customValueTypes = {},
   componentTree
 }) => {
   const dispatch = useDispatch()
   dispatch.types.setComponents(components)
+  dispatch.types.setCustomValueTypes(customValueTypes)
 
   useShortcuts()
 
