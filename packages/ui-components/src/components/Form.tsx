@@ -105,7 +105,6 @@ const renderFields = (fields:[], defaultFieldProps:any) => {
   return fields.map((field:FormFieldProps) => {
     
     const fieldOptions = _.defaultsDeep(_.cloneDeep(field), rest)
-    console.log(fieldOptions)
 
     return (
       <FormField 
