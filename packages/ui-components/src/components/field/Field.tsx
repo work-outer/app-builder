@@ -37,6 +37,7 @@ import FieldImage from '@ant-design/pro-field/lib/components/Image';
 
 import {FieldLookup} from './FieldLookup';
 import FieldHref from './FieldHref';
+import FieldObject from './FieldObject';
 
 import {EditIcon, LockIcon} from '@chakra-ui/icons'
 
@@ -46,6 +47,10 @@ const steedosRenderText = (
   props: RenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
+
+  if (valueType === 'object') {
+    return <FieldObject text={text as object} {...props} />
+  }
 
   if (valueType === 'lookup') {
     return <FieldLookup text={text} valueType={valueType} {...props}/>
@@ -60,7 +65,7 @@ const steedosRenderText = (
   }
 
   if (valueType === 'datetime') {
-    return <FieldDatePicker text={text as string} format="YYYY-MM-DD HH:mm:ss" showTime {...props} />
+    return <FieldDatePicker text={text as string} format="YYYY-MM-DD HH:mm:ss" showTime {...props}/>
   }
 
   return defaultRenderText(text, valueType, props, valueTypeMap)

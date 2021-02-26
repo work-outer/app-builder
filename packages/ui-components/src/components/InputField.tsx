@@ -5,9 +5,6 @@ import Field from './field/Field';
 import { Form, Col } from 'antd';
 
 
-import {getFieldValueType} from '..'
-
-
 // https://developer.salesforce.com/docs/component-library/bundle/lightning-input-field/documentation
 export class InputField extends React.Component<any,any> {
   static defaultProps = {
@@ -23,7 +20,7 @@ export class InputField extends React.Component<any,any> {
 
   render() {
     const {type, fieldName, label, labelAlign, isWide, tooltip, required, help, mode, valueType:defaultValueType, ...rest} = this.props;
-    const valueType:any = getFieldValueType(type, defaultValueType);
+    const valueType = type;
     const colSpan = isWide?{span:24}:{xs:24, sm:24, md:12, lg:12}
 
     const itemOptions = {

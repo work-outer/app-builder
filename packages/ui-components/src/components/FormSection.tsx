@@ -4,7 +4,7 @@ import ProCard from '@ant-design/pro-card';
 import { Row } from 'antd';
 
 
-export class FormSection extends React.Component<any> {
+export default class FormSection extends React.Component<any> {
   static defaultProps = {
     title: 'Section',
   }

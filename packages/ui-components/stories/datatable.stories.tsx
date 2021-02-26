@@ -72,11 +72,11 @@ const loadData = async (params?: {pageSize:number,current:number}, sort?:any, fi
 }
 
 const columns2 = [
-  { label: 'Label', fieldName: 'name', valueType: 'text', editable: true, filters: true },
-  { label: 'Website', fieldName: 'website', valueType: 'href', editable: true },
-  { label: 'Phone', fieldName: 'phone', valueType: 'text', editable: true },
-  { label: 'CloseAt', fieldName: 'closeAt', valueType: 'datetime', editable: true, filters: true },
-  { label: 'Balance', fieldName: 'amount', valueType: 'number', editable: true },
+  { label: 'Label', name: 'name', valueType: 'text', editable: true, filters: true },
+  { label: 'Website', name: 'website', valueType: 'href', editable: true },
+  { label: 'Phone', name: 'phone', valueType: 'text', editable: true },
+  { label: 'CloseAt', name: 'closeAt', valueType: 'datetime', editable: true, filters: true },
+  { label: 'Balance', name: 'amount', valueType: 'number', editable: true },
 ];
 
 export const DataTableAntD = () => {

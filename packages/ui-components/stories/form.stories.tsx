@@ -38,6 +38,18 @@ const fields = [{
     open: '未解决',
     closed: '已解决',
   }
+},{
+  name: 'Object',
+  valueType: 'object',
+  colSpan: 2,
+  fields: [{
+    name: 'active',
+    label: 'Active',
+    valueType: 'checkbox'
+  },{
+    name: 'created',
+    valueType: 'datetime',
+  }]
 }]
 
 const initialValues = {

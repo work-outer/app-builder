@@ -2,9 +2,8 @@ import React, { Key } from "react";
 import _ from 'lodash';
 
 
-import { Form, Table, Tag, Space, Button } from 'antd';
+import { g, Space, Button } from 'antd';
 import ProTable, { EditableProTable, ProColumns } from '@ant-design/pro-table';
-import {InputField, OutputField, getFieldValueType} from '../'
 import Field from './field/Field'
 
 
@@ -77,8 +76,8 @@ export class DataTable extends React.Component<any> {
     _.each(columns, (col:any) => {
         const proColumn: ProColumns = {
           title: col.label,
-          key: col.fieldName,
-          dataIndex: col.fieldName,
+          key: col.name,
+          dataIndex: col.name,
           valueType: col.valueType,
           // ellipsis: true, 
           editable: (text:any, record:any, index:any, ...rest:any) => {

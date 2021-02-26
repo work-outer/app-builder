@@ -2,6 +2,7 @@ import React from 'react';
 import { InputNumber } from 'antd';
 import type { ProFieldFC } from '../../index';
 import { Input } from 'antd';
+import {Form} from '../Form';
 
 export type FieldObjectProps = {
   text: string;
@@ -12,15 +13,25 @@ export type FieldObjectProps = {
  *
  * @param FieldObjectProps {
  *     text: number;
- *     moneySymbol?: string; }
  */
 const FieldObject: ProFieldFC<FieldObjectProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, ...rest },
+  { text, mode: type, render, renderFormItem, fieldProps, fields, ...rest },
   ref,
 ) => {
+  const dom = (
+    <Form 
+      ref={ref}
+      fields={fields}
+      layout='vertical'
+      mode='read'
+      style={{
+        width: '100%',
+      }}
+      {...rest}
+      {...fieldProps}
+      initialValues={text}/>
+  )
   if (type === 'read') {
-    const href = <a href={text}>{text}></a>
-    const dom = <span ref={ref}>{href}</span>;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
@@ -28,14 +39,17 @@ const FieldObject: ProFieldFC<FieldObjectProps> = (
   }
   if (type === 'edit' || type === 'update') {
     const dom = (
-      <Input
+      <Form 
         ref={ref}
+        fields={fields}
+        layout='vertical'
+        mode='edit'
         style={{
-          width: '100%',
+        width: '100%',
         }}
         {...rest}
         {...fieldProps}
-      />
+        initialValues={text}/>
     );
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
