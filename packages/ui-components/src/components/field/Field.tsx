@@ -47,7 +47,6 @@ import FieldImage from '@ant-design/pro-field/lib/components/Image';
 
 import {FieldLookup} from './FieldLookup';
 import FieldHref from './FieldHref';
-import FieldObject from './FieldObject';
 
 import {EditIcon, LockIcon} from '@chakra-ui/icons'
 

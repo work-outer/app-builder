@@ -7,9 +7,9 @@ import ProField from '@ant-design/pro-field';
 import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
-import { useIntl } from '..'
-import Field from './field/Field';
-import FormField, {FormFieldProps} from './form/FormField';
+import { useIntl } from '../..'
+import Field from '../field/Field';
+import FormField, {FormFieldProps} from './FormField';
 
 // 按照 Ant Design ProForm 的规范，自动生成表单。
 // fields: 字段数组
@@ -20,7 +20,7 @@ import FormField, {FormFieldProps} from './form/FormField';
 // layout: horizontal, vertical, inline
 // colSpan: 每一列默认占几栅格，总共12栅格
 // mode: edit, read
-export function Form(props:any) {
+export default function Form(props:any) {
   const {
     fields = [], 
     initialValues, 
@@ -71,7 +71,7 @@ export function Form(props:any) {
     columns,
     labelAlign,
     submitter,
-    onValuesChange: (changeValues:any) => console.log(changeValues),
+    onFinish: (values:any) => console.log(values),
     ...rest
   }
 

@@ -18,12 +18,12 @@ const fields = [{
   valueType: 'object',
   colSpan: 2,
   fields: [{
-    name: 'active',
+    name: 'o1',
     label: 'Active',
-    valueType: 'checkbox'
+    valueType: 'switch'
   },{
-    name: 'created',
-    valueType: 'datetime',
+    name: 'o2',
+    valueType: 'text',
   }]
 },
 {
@@ -62,6 +62,10 @@ const initialValues = {
   birthday: new Date(),
   website: 'https://www.steedos.com',
   email: 'support@steedos.com',
+  object: {
+    o1: true,
+    o2: 'Hello Object.'
+  }
 }
 
 export const FormWithChildren = () => (

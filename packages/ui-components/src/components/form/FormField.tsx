@@ -7,6 +7,7 @@ import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import Field from '../field/Field';
+import FormFieldObject from './FormFieldObject';
 
 type FormProps = {
   layout: string,
@@ -69,20 +70,37 @@ export default function FormField(props:FormFieldProps) {
     borderBottom: mode=='read'?'1px solid #dddbda':''
   }
 
-  return (
-    <GridItem {...gridItemOptions}>
-      <ProForm.Item 
-          style={{marginBottom: 0}}
-          {...itemOptions}>
-        <Field 
+  if (valueType === 'object') {
+    return (
+      <GridItem {...gridItemOptions}>
+        <ProForm.Item 
+          shouldUpdate
+          trigger="onValuesChange"
+          {...itemOptions}
+        >
+          <FormFieldObject
             mode={mode}
-            valueType={valueType}
-            fieldProps={fieldProps}
-            onInlineEdit={onInlineEdit}
             {...rest}
           />
-      </ProForm.Item>
-    </GridItem>
-  )
+        </ProForm.Item>
+      </GridItem>
+    )
+  } else {
+    return (
+      <GridItem {...gridItemOptions}>
+        <ProForm.Item 
+            style={{marginBottom: 0}}
+            {...itemOptions}>
+          <Field 
+              mode={mode}
+              valueType={valueType}
+              fieldProps={fieldProps}
+              onInlineEdit={onInlineEdit}
+              {...rest}
+            />
+        </ProForm.Item>
+      </GridItem>
+    )
+  }
 
 }
