@@ -16,6 +16,9 @@ import { Input, Space, Tag } from 'antd';
 
 import {SteedosContextWrap} from '../packages/ui-components/src/';
 
+import 'antd/dist/antd.css'
+import '@ant-design/pro-table/dist/table.css'
+import '@ant-design/pro-card/dist/card.css'
 
 
 /**
