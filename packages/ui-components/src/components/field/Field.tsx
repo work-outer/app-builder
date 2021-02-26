@@ -73,9 +73,6 @@ const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   const intl = useIntl();
   const context = useContext(ConfigContext);
 
-  if (readonly)
-    mode = 'read'
-
   const fieldProps = pickProProps((value || onChange || rest?.fieldProps) && {
     value,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
@@ -92,7 +89,7 @@ const Field: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     valueType || 'text',
     {
       ...rest,
-      mode,
+      mode: readonly?'read': mode,
       readonly,
       ref,
       placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
