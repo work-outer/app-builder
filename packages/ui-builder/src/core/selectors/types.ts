@@ -34,6 +34,13 @@ export const getSettingsComponent = (type: string) => (
   return t && t["componentSettings"];
 }
 
+export const getComponentProps = (type: string) => (
+  state: RootState,
+) => {
+  const t = getType(type)(state);
+  return t && t["componentProps"];
+}
+
 export const getDroppable = (type: string) => (
   state: RootState,
 ) => {
@@ -54,3 +61,5 @@ export const getComponentDefaultProps = (type: string) => (
   const formDefaultProps:any = DEFAULT_PROPS[type]?.form;
   return { ...componentDefaultProps, ...formDefaultProps, ...typeDefaultProps }
 }
+
+export const getCustomValueTypes = (state: RootState) => state.types.customValueTypes

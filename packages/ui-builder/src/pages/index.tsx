@@ -2,7 +2,7 @@ import React from 'react'
 import { ChangeEvent } from 'react'
 import UIBuilder from '~components/UIBuilder'
 import * as Chakra from '@chakra-ui/react'
-
+// import 'antd/dist/antd.less'
 // const ButtonSettings = () => {
 //   const { setValueFromEvent } = useForm()
 
@@ -102,12 +102,16 @@ const components = {
   "button": {
     "component": Chakra["Button"],
     "componentSettings": ButtonSettings,
+    "componentProps": [{
+      name: "children",
+      valueType: "text"
+    }],
   },
-  "container": {
-    "component": Chakra["Container"],
-    "componentSettings": ButtonSettings,
-    "droppable": ["button"],
-  }
+  // "container": {
+  //   "component": Chakra["Container"],
+  //   "componentSettings": ButtonSettings,
+  //   "droppable": ["button"],
+  // }
 };
 
 const componentTree: Array<UIBuilderComponentsGroupProps> = [{

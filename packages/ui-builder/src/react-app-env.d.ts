@@ -114,9 +114,15 @@ interface ComponentItemProps {
   defaultProps?: any
 }
 
+interface ComponentPropsItemConfig {
+  name: string
+  valueType: string
+}
+
 interface ComponentTypeProps {
   component: string | FunctionComponent<any> | ComponentClass<any, any>,
   componentSettings?: string | FunctionComponent<any> | ComponentClass<any, any>,
+  componentProps?: Array<ComponentPropsItemConfig>,
   droppable?: Array<string> | boolean
 }
 
@@ -134,6 +140,7 @@ interface UIBuilderComponentsGroupProps {
 
 interface UIBuilderComponentProps {
   components: any,//一个json，key为componentTree中children元素中的type，value为ComponentTypeProps类型
+  customValueTypes?: any,//一个json，用于配置components中componentProps属性中配置valueType时希望扩展的自定义的valueType可选项
   componentTree: Array<UIBuilderComponentsGroupProps>
 }
 

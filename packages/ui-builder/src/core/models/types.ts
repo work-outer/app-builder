@@ -7,31 +7,50 @@ import { createModel } from '@rematch/core'
     "@steedos/ui-components/form-section": {
         "component": FormSection,
         "componentPreview": FormSectionPreview,
-        "componentSettings": FormSectionSettings,
+        //"componentSettings": FormSectionSettings,
+        "componentProps": [{
+          name: 
+          valueType:
+          ...
+        }],
         "droppable": ["@steedos/ui-components/form-item"],
     },
     "@steedos/ui-components/form-item": {
         "component": FormItem,
         "componentPreview": FormItemPreview,
-        "componentSettings": FormItemSettings,
+        //"componentSettings": FormItemSettings,
+        "componentProps": [{
+          name: 
+          valueType:
+          ...
+        }],
         "droppable": true,
     }
   }
+ * customValueTypes中是配置components中componentProps属性中配置valueType时希望扩展的自定义的valueType可选项
  */
 
 export type ComponentTypesState = {
-  components: any
+  components: any,
+  customValueTypes: any
 }
 
 const types = createModel({
   state: {
-    components: {}
+    components: {},
+    customValueTypes: {}
   } as ComponentTypesState,
   reducers: {
     setComponents(state: ComponentTypesState, components: any): ComponentTypesState {
       return {
         ...state,
         components: components
+      }
+    },
+    setCustomValueTypes(state: ComponentTypesState, customValueTypes: any): ComponentTypesState {
+      return {
+        ...state,
+        customValueTypes: customValueTypes
       }
     }
   },
