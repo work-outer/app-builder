@@ -2,6 +2,7 @@
 import React from "react";
 import ProForm from '@ant-design/pro-form';
 import ProField from '@ant-design/pro-field';
+import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { useIntl } from '..'
@@ -37,24 +38,22 @@ export function Form(props:any) {
     render: ({submit, reset, ...props }:any, dom:any) => {
       if (mode === 'edit')
         return (
-          <Affix offsetBottom={10}>
-            <Flex align="center" justify="center" pt={4} style={{gap:'16px'}}>
-              <Button 
-                key="rest" 
-                onClick={() => {props.form?.resetFields();setMode('read');}}
-              >
-                {useIntl().getMessage('form.cancel', 'Cancel')}
-              </Button>
-              
-              <Button 
-                type="primary" 
-                key="submit" 
-                onClick={() => props.form?.submit?.()}
-              >
-                {useIntl().getMessage('form.save', 'Save')}
-              </Button>
-            </Flex>
-          </Affix>
+          <FooterToolbar>
+            <Button 
+              key="rest" 
+              onClick={() => {props.form?.resetFields();setMode('read');}}
+            >
+              {useIntl().getMessage('form.cancel', 'Cancel')}
+            </Button>
+            
+            <Button 
+              type="primary" 
+              key="submit" 
+              onClick={() => props.form?.submit?.()}
+            >
+              {useIntl().getMessage('form.save', 'Save')}
+            </Button>
+          </FooterToolbar>
         )
     }
   }

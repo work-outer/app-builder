@@ -3,18 +3,18 @@ import { InputNumber } from 'antd';
 import type { ProFieldFC } from '../../index';
 import { Input } from 'antd';
 
-export type FieldHrefProps = {
+export type FieldObjectProps = {
   text: string;
 };
 
 /**
  * 数字组件
  *
- * @param FieldHrefProps {
+ * @param FieldObjectProps {
  *     text: number;
  *     moneySymbol?: string; }
  */
-const FieldHref: ProFieldFC<FieldHrefProps> = (
+const FieldObject: ProFieldFC<FieldObjectProps> = (
   { text, mode: type, render, renderFormItem, fieldProps, ...rest },
   ref,
 ) => {
@@ -45,4 +45,4 @@ const FieldHref: ProFieldFC<FieldHrefProps> = (
   return null;
 };
 
-export default React.forwardRef(FieldHref);
+export default React.forwardRef(FieldObject);
