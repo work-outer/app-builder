@@ -62,7 +62,7 @@ export const RecordViewFormDefault = () => (
   </RecordViewForm>
 )
 
-const fields = ['name', 'type', 'website', 'parent_id']
+const fields = ['name', 'type', 'website', 'parent_id', 'number_of_employees', 'fax_opt_out']
 export const RecordObjectForm = () => (
   <RecordForm objectApiName='accounts' fields={fields}></RecordForm>
 )

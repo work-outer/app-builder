@@ -37,36 +37,38 @@ export class RecordForm extends React.Component<any, any> {
     for(const k in keys ){
       const field = fields_all[keys[k]];
       if(typeof field === 'undefined') continue;
-      if(field.hidden) continue;
+
       const commonAttrs = {
         name: field.name,
         type: field.type,
-        label: field.label
+        label: field.label,
+        required: field.required
       }
-      
+      let specificAttrs = {}
       if(field.type === 'select'){
         const valueEnum = {}
         field.options.map((option:any) => {
           valueEnum[option.label] = option.value;
         })
-        data.push({
-          ...commonAttrs,
+        specificAttrs = {
           valueEnum: valueEnum
-        });
-      }else if(field.type === 'lookup'){
-        data.push({
-          ...commonAttrs,
+        }
+      }
+      if(field.type === 'boolean'){
+        commonAttrs.type = 'checkbox';
+      }
+      if(field.type === 'lookup'){
+        specificAttrs = {
           referenceTo: field.reference_to,
           disabled: field.disabled,
           readonly: field.readonly,
           placeholder: '请搜索...'
-        });
-      }else{
-        data.push({
-          ...commonAttrs,
-          required: field.required
-        });
+        }
       }
+      data.push({
+        ...commonAttrs,
+        ...specificAttrs
+      });
     }
     return data;
   }
