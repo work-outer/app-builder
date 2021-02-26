@@ -34,7 +34,7 @@ export default function FormFieldObject(props: FormFieldObjectProps) {
       collapsible={true}
       initialValues={value}
       onValuesChange={(changedValues:any, allValues:any)=>{
-        onValuesChange(allValues)
+        if (onValuesChange) onValuesChange(allValues)
       }}
       {...rest}>
         {renderFields(formFields, 
