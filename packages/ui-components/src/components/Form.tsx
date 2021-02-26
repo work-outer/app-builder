@@ -5,6 +5,7 @@ import ProField from '@ant-design/pro-field';
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { useIntl } from '..'
+import Field from './field/Field';
 
 // 按照 Ant Design ProForm 的规范，自动生成表单。
 // fields: 字段数组
@@ -140,17 +141,17 @@ const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
 
     return (
       <GridItem {...gridItemOptions}>
-        <AntForm.Item 
+        <ProForm.Item 
             shouldUpdate 
             style={{marginBottom: 0}}
             {...itemOptions}>
-          <ProField 
+          <Field 
               mode={mode}
               valueType={valueType}
               fieldProps={fieldProps}
               {...rest}
             />
-        </AntForm.Item>
+        </ProForm.Item>
       </GridItem>
     )
   }) 

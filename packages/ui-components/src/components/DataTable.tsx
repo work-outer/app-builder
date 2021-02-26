@@ -3,8 +3,9 @@ import _ from 'lodash';
 
 
 import { Form, Table, Tag, Space, Button } from 'antd';
-import ProTable, { EditableProTable } from '@ant-design/pro-table';
+import ProTable, { EditableProTable, ProColumns } from '@ant-design/pro-table';
 import {InputField, OutputField, getFieldValueType} from '../'
+import Field from './field/Field'
 
 
 export class DataTable extends React.Component<any> {
@@ -74,35 +75,36 @@ export class DataTable extends React.Component<any> {
 
     const tableColumns:any = [];
     _.each(columns, (col:any) => {
-        tableColumns.push({
+        const proColumn: ProColumns = {
           title: col.label,
           key: col.fieldName,
           dataIndex: col.fieldName,
-          valueType: getFieldValueType(col.type, col.valueType),
+          valueType: col.valueType,
           // ellipsis: true, 
           editable: (text:any, record:any, index:any, ...rest:any) => {
             return !!col.editable
           },
-          // renderFormItem: (column: any, form: any, actions: any) => {
-          //   console.log('renderFormItem')
-          //   console.log(column)
-          //   console.log(actions)
-          //   const value = actions.getFieldValue(column.key)
-          //   return <InputField 
-          //       name={col.fieldName} 
-          //       type={col.type}
-          //     />
-          // },
-          // renderFormItem: (_:any, { isEditable }:any) => (isEditable ? <InputField isWide/> : <OutputField isWide/> ),
+          renderFormItem: (item:any, { type, isEditable, defaultRender, ...rest }:any, form) => {
+            const {valueType} = item
+            const fieldProps = {
+              valueType,
+              allowClear: false,
+              fieldProps: {
+                allowClear: false,
+              },
+              mode: isEditable?'edit':'read'
+            }
+            return <Field {...fieldProps}/>
+          },
           render: (dom:any, record:any, _:any, action:any) => {
             const props = {
               onDoubleClick: () => {
                 action.startEditable?.(record.id);
               }
             }
-            return <div {...props}>{dom}</div>
-          }
-        })
+            return <div {...props}><Field text={dom}/></div>
+          }}
+        tableColumns.push(proColumn)
     });
     return tableColumns;
 

@@ -1,4 +1,4 @@
-export function getFieldValueType(fieldType:string, defaultValueType?:string) {
+export function getFieldValueType(fieldType:string, defaultValueType:string='text') {
 
     switch(fieldType) { 
       case "checkbox": return 'switch'
@@ -13,6 +13,6 @@ export function getFieldValueType(fieldType:string, defaultValueType?:string) {
       case "date": return 'date'
       case "datetime": return 'datetime'
       case "lookup": return 'lookup'
-      defaut: return defaultValueType?defaultValueType:fieldType?fieldType:'text'
+      default: return defaultValueType
     }
 }
