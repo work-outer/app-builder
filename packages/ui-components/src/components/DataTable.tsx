@@ -2,7 +2,7 @@ import React, { Key } from "react";
 import _ from 'lodash';
 
 
-import { g, Space, Button } from 'antd';
+import { Space, Button } from 'antd';
 import ProTable, { EditableProTable, ProColumns } from '@ant-design/pro-table';
 import Field from './field/Field'
 
@@ -84,18 +84,19 @@ export class DataTable extends React.Component<any> {
             return !!col.editable
           },
           renderFormItem: (item:any, { type, isEditable, defaultRender, ...rest }:any, form) => {
-            const {valueType} = item
+            const {valueType} = item;
+            const mode = isEditable?'edit':'read'
             const fieldProps = {
               valueType,
               fieldProps: {
                 allowClear: false,
               },
-              mode: isEditable?'edit':'read'
-            }
-            return (<Field {...fieldProps}/>)
+            };
+            
+            return (<Field mode={mode} {...fieldProps}/>)
           },
           render: (dom:any, record:any, _:any, action:any) => {
-            return <Field inlineIconOpacity={0} text={dom} mode='read' onEdit={ () => {
+            return <Field inlineIconOpacity={0} text={dom} mode='read' onInlineEdit={ () => {
                 action.startEditable?.(record.id);
             }}/>
           },

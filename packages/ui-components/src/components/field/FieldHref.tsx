@@ -1,6 +1,5 @@
 import React from 'react';
-import { InputNumber } from 'antd';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '@ant-design/pro-field';
 import { Input } from 'antd';
 
 export type FieldHrefProps = {

@@ -7,6 +7,7 @@ import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { useIntl } from '..'
 import Field from './field/Field';
+import FormField, {FormFieldProps} from './form/FormField';
 
 // 按照 Ant Design ProForm 的规范，自动生成表单。
 // fields: 字段数组
@@ -24,8 +25,6 @@ export function Form(props:any) {
     layout='horizontal', 
     labelAlign='left',
     columns=2,
-    fieldProps = {
-    }, 
     mode: initialMode = 'edit',
     children, 
     ...rest
@@ -49,7 +48,7 @@ export function Form(props:any) {
             <Button 
               type="primary" 
               key="submit" 
-              onClick={() => props.form?.submit?.()}
+              onClick={() => {props.form?.submit?.()}}
             >
               {useIntl().getMessage('form.save', 'Save')}
             </Button>
@@ -58,7 +57,7 @@ export function Form(props:any) {
     }
   }
 
-  const onEdit = ()=> {
+  const onInlineEdit = ()=> {
     if (editable)
       setMode('edit');
   } 
@@ -70,86 +69,47 @@ export function Form(props:any) {
     columns,
     labelAlign,
     submitter,
+    onValuesChange: (changeValues:any) => console.log(changeValues),
     ...rest
+  }
+
+  const defaultFieldProps = {
+    layout,
+    mode,
+    columns,
+    onInlineEdit,
   }
 
 
   return <ProForm 
       {...formProps}>
-        <Grid templateColumns={`repeat(${columns}, 1fr)`} gap={4}>
-          {
-          renderFields(fields, fieldProps, {
-            onEdit,
-            ...formProps  
-          })}
+        <Grid templateColumns={[`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`]} gap={4}>
+          {renderFields(fields, defaultFieldProps)}
+          {children}
         </Grid>
   </ProForm>
 }
 
-const renderFields = (fields:[], defaultFieldProps:any, formProps:any) => {
+const renderFields = (fields:[], defaultFieldProps:any) => {
 
-  return fields.map((field:any) => {
+  return fields.map((field:FormFieldProps) => {
     
     const {
       colSpan: defaultSpan = 1, 
     } = defaultFieldProps
 
     const {
-      layout,
-      mode,
-      columns,
-      onEdit,
-    } = formProps
-    
-    const {
-      name, 
-      valueType, 
-      required, 
       colSpan = defaultSpan,
-      label, 
-      help, 
-      tooltip, 
-      fieldProps = {},
+      formProps,
       ...rest
     } = field
 
-    fieldProps.allowClear = false;
-
-    const itemOptions = {
-      name, 
-      label: label?label:name, 
-      help,
-      tooltip,
-      required,
-      labelCol: layout=='horizontal'?{
-        flex: '120px'
-      }:{},
-      wrapperCol: layout=='horizontal'?{
-        flex: 'auto'
-      }:{},
+    const fieldOptions = {
+      colSpan,
+      ...rest
     }
 
-    const gridItemOptions = {
-      key: name,
-      colSpan: layout =='inline'? 1: [columns, colSpan, colSpan, colSpan],
-      borderBottom: mode=='read'?'1px solid #dddbda':''
-    }
+    return (<FormField {...fieldOptions} />)
 
-    return (
-      <GridItem {...gridItemOptions}>
-        <ProForm.Item 
-            shouldUpdate 
-            style={{marginBottom: 0}}
-            {...itemOptions}>
-          <Field 
-              mode={mode}
-              valueType={valueType}
-              fieldProps={fieldProps}
-              onEdit={onEdit}
-              {...rest}
-            />
-        </ProForm.Item>
-      </GridItem>
-    )
-  }) 
+  })
 }

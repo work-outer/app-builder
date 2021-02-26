@@ -75,7 +75,7 @@ const columns2 = [
   { label: 'Label', name: 'name', valueType: 'text', editable: true, filters: true },
   { label: 'Website', name: 'website', valueType: 'href', editable: true },
   { label: 'Phone', name: 'phone', valueType: 'text', editable: true },
-  { label: 'CloseAt', name: 'closeAt', valueType: 'datetime', editable: true, filters: true },
+  { label: 'CloseAt', name: 'closeAt', valueType: 'dateTime', editable: true, filters: true },
   { label: 'Balance', name: 'amount', valueType: 'number', editable: true },
 ];
 

@@ -1,11 +1,15 @@
 import React from 'react';
+import _ from 'lodash';
+
 import { InputNumber } from 'antd';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '@ant-design/pro-field';
 import { Input } from 'antd';
 import {Form} from '../Form';
 
 export type FieldObjectProps = {
-  text: string;
+  id: string,
+  text: string,
+  fields: string[],
 };
 
 /**
@@ -15,13 +19,19 @@ export type FieldObjectProps = {
  *     text: number;
  */
 const FieldObject: ProFieldFC<FieldObjectProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, fields, ...rest },
+  { id, text, mode: type, render, renderFormItem, fieldProps, fields, ...rest },
   ref,
 ) => {
+  const formFields = fields.map((field:any) => {
+    // const f = _.cloneDeep(field)
+    // f.name = `${id}.${field.name}`
+    // return f
+    return field
+  });
   const dom = (
     <Form 
       ref={ref}
-      fields={fields}
+      fields={formFields}
       layout='vertical'
       mode='read'
       style={{
@@ -41,7 +51,7 @@ const FieldObject: ProFieldFC<FieldObjectProps> = (
     const dom = (
       <Form 
         ref={ref}
-        fields={fields}
+        fields={formFields}
         layout='vertical'
         mode='edit'
         style={{

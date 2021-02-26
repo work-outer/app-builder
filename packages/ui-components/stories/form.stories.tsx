@@ -2,6 +2,7 @@ import * as React from "react"
 import { 
   Form,
 } from "../src"
+import FormField from "../src/components/form/FormField"
 
 export default {
   title: "Form",
@@ -11,7 +12,21 @@ const fields = [{
   name: 'name',
   valueType: 'text',
   colSpan: 2
-},{
+},
+{
+  name: 'object',
+  valueType: 'object',
+  colSpan: 2,
+  fields: [{
+    name: 'active',
+    label: 'Active',
+    valueType: 'checkbox'
+  },{
+    name: 'created',
+    valueType: 'datetime',
+  }]
+},
+{
   name: 'email',
   label: 'Email',
   valueType: 'email',
@@ -30,7 +45,7 @@ const fields = [{
   valueType: 'checkbox'
 },{
   name: 'created',
-  valueType: 'datetime',
+  valueType: 'dateTime',
 },{
   name: 'select',
   valueType: 'select',
@@ -38,18 +53,6 @@ const fields = [{
     open: '未解决',
     closed: '已解决',
   }
-},{
-  name: 'Object',
-  valueType: 'object',
-  colSpan: 2,
-  fields: [{
-    name: 'active',
-    label: 'Active',
-    valueType: 'checkbox'
-  },{
-    name: 'created',
-    valueType: 'datetime',
-  }]
 }]
 
 const initialValues = {
@@ -65,7 +68,9 @@ export const FormReadOnly = () => (
     fields={fields}
     layout='vertical'
     mode='read'
-    initialValues={initialValues}/>
+    initialValues={initialValues}>
+      <FormField name='testChild' valueType='text'/>
+  </Form>
 )
 export const FormVertical = () => (
   <Form 
