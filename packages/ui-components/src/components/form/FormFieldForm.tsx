@@ -46,6 +46,7 @@ export default function FormFieldForm(props: FormFieldFormProps) {
       form={form}
       mode={mode}
       initialValues={value}
+      component={false} //子表单不创建 html form tag
       onValuesChange={(changedValues:any, allValues:any)=>{
         if (onValuesChange) onValuesChange(allValues)
       }}
