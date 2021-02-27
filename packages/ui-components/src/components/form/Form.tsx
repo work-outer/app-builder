@@ -8,7 +8,7 @@ import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
-import { useIntl } from '../..'
+import { useIntl } from './FormProvider'
 import Field from '../field/Field';
 import { FormField, FormFieldProps } from './FormField';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
@@ -36,6 +36,25 @@ export type FormProps<T = Record<string, any>>  = {
 // colSpan: 每一列默认占几栅格，总共12栅格
 // mode: edit, read
 export function Form<T = Record<string, any>>(props: FormProps<T>) {
+  
+  const defaultSubmitter = {
+    searchConfig: {
+      resetText: useIntl().getMessage('form.cancel', 'Cancel'),
+      submitText: useIntl().getMessage('form.save', 'Save'),
+    },
+    resetButtonProps: {
+      onClick: () => {props.form?.resetFields();setModeState('read');},
+    },
+    render: ({submit, reset, ...props }:any, dom:any) => {
+      if (modeState === 'edit' && editableState)
+        return (
+          <FooterToolbar>
+            {dom}
+          </FooterToolbar>
+        )
+    }
+  }
+
   const {
     fields = [], 
     columns = 2,
@@ -47,6 +66,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     fieldProps = {
       allowClear: false,
     },
+    submitter = defaultSubmitter,
     formFieldProps,
     // onInlineEdit = ()=> {
     //   if (editableState)
@@ -56,32 +76,9 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     ...rest
   } = props
 
+  const [form] = AntForm.useForm();
   const [editableState, setEditableState] = React.useState(editable);
   const [modeState, setModeState] = React.useState(mode);
-
-  const submitter = {
-    render: ({submit, reset, ...props }:any, dom:any) => {
-      if (modeState === 'edit' && editableState)
-        return (
-          <FooterToolbar>
-            <Button 
-              key="rest" 
-              onClick={() => {props.form?.resetFields();setModeState('read');}}
-            >
-              {useIntl().getMessage('form.cancel', 'Cancel')}
-            </Button>
-            
-            <Button 
-              type="primary" 
-              key="submit" 
-              onClick={() => {props.form?.submit?.()}}
-            >
-              {useIntl().getMessage('form.save', 'Save')}
-            </Button>
-          </FooterToolbar>
-        )
-    }
-  }
 
   const onInlineEdit = ()=> {
     if (editableState)
@@ -91,6 +88,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
   // fieldProps.mode = modeState,
 
   const proFormProps = {
+    form,
     initialValues, 
     layout, 
     labelAlign,
