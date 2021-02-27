@@ -3,8 +3,9 @@ import React, {useContext} from "react";
 
 import ProField from '@ant-design/pro-field';
 import { SteedosClient }  from '@steedos/client';
-import {SteedosContext} from '..';
+import { SteedosContext } from '..';
 import { FormProvider } from "./form/FormProvider";
+import { ObjectProvider } from "./object/ObjectProvider";
 
 const {
   STEEDOS_ROOT_URL,
@@ -37,7 +38,7 @@ export function SteedosProvider(props:any) {
   client.setUserId(userId)
   client.setToken(authToken);
 
-  const contextValues = {
+  const steedosContextValues = {
     rootUrl,
     tenantId,
     userId,
@@ -47,11 +48,20 @@ export function SteedosProvider(props:any) {
     client,
   }
 
+  const objectProviderProps = {
+    requestObject: async (objectName:string)=> {
+      console.log(objectName);
+      return {}
+    }
+  }
+
   return (
-    <SteedosContext.Provider value={contextValues}>
-      <FormProvider locale={locale}>
-        {children}
-      </FormProvider>
+    <SteedosContext.Provider value={steedosContextValues}>
+      <ObjectProvider {...objectProviderProps}>
+        <FormProvider locale={locale}>
+          {children}
+        </FormProvider>
+      </ObjectProvider>
     </SteedosContext.Provider>
   )
 }
