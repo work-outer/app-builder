@@ -10,7 +10,7 @@ import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { useIntl } from '../..'
 import Field from '../field/Field';
-import FormItem, {FormItemProps} from './FormItem';
+import { FormItem, FormItemProps } from './FormItem';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
 
 export type FormProps<T = Record<string, any>>  = {
@@ -33,7 +33,7 @@ export type FormProps<T = Record<string, any>>  = {
 // layout: horizontal, vertical, inline
 // colSpan: 每一列默认占几栅格，总共12栅格
 // mode: edit, read
-export default function Form<T = Record<string, any>>(props: FormProps<T>) {
+export function Form<T = Record<string, any>>(props: FormProps<T>) {
   const {
     fields = [], 
     columns = 2,

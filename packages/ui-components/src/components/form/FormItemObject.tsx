@@ -5,9 +5,9 @@ import { Form as AntForm, InputNumber } from 'antd';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import type { ProFieldFC } from '@ant-design/pro-field';
 import { Input } from 'antd';
-import Form, { createFormItem } from './Form';
+import { Form, createFormItem } from './Form';
 import { ProFormGroup } from '@ant-design/pro-form';
-import FormItem, { FormItemProps } from './FormItem';
+import { FormItem, FormItemProps } from './FormItem';
 
 export type FormItemObjectProps = {
   mode?: ProFieldFCMode,
@@ -21,7 +21,7 @@ export type FormItemObjectProps = {
  *
  * @param FormItemObjectProps 
  */
-export default function FormItemObject(props: FormItemObjectProps) {
+export function FormItemObject(props: FormItemObjectProps) {
 
   const { 
     value, 

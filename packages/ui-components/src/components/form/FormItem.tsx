@@ -7,7 +7,7 @@ import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layou
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import Field from '../field/Field';
-import FormItemObject from './FormItemObject';
+import { FormItemObject } from './FormItemObject';
 import { FormProps } from "./Form";
 
 export type FormItemProps = {
@@ -25,7 +25,7 @@ export type FormItemProps = {
   onInlineEdit?: Function,
 };
 
-export default function FormItem(props:FormItemProps) {
+export function FormItem(props:FormItemProps) {
 
   const {
     name, 

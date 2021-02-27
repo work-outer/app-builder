@@ -22,7 +22,7 @@ export type FormSectionProps<T = Record<string, any>>  = {
 }
 
 
-export default class FormSection extends React.Component<any> {
+export class FormSection extends React.Component<any> {
   static defaultProps = {
     title: 'Section',
   }

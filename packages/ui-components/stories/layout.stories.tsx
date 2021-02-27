@@ -1,5 +1,8 @@
 import * as React from "react"
-import { Layout, Center, LayoutItem } from "../src"
+import { Layout, LayoutItem } from "../src"
+
+
+import {Center} from '@chakra-ui/react'
 
 export default {
   title: "Layout",

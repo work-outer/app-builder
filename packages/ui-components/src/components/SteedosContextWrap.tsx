@@ -14,7 +14,7 @@ import antd_enUS from 'antd/lib/locale/zh_CN';
 import { SteedosClient }  from '@steedos/client';
 import { IntlType } from "@ant-design/pro-table";
 import { en_US, zh_CN } from '@steedos/ui-locale/src/';
-import {SteedosContext, ValueTypeMap} from '../';
+import {SteedosContext} from '../';
 
 function getMessageFromLocaleMap(
   source: Record<string, unknown>,
@@ -138,7 +138,7 @@ export function SteedosContextWrap(props:any) {
     intl: {
       ...getProLocale(locale),
     },
-    valueTypeMap: ValueTypeMap,
+    valueTypeMap: {},
   }
 
   const antdContextValues = {

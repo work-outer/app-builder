@@ -1,8 +1,8 @@
 import * as React from "react"
 import { 
   Form,
+  FormItem
 } from "../src"
-import FormField from "../src/components/form/FormItem"
 
 export default {
   title: "Form",
@@ -74,8 +74,8 @@ export const FormWithChildren = () => (
     layout='vertical'
     mode='edit'
     initialValues={initialValues}>
-      <FormField name='username' valueType='text'/>
-      <FormField name='password' valueType='password'/>
+      <FormItem name='username' valueType='text'/>
+      <FormItem name='password' valueType='password'/>
   </Form>
 )
 
@@ -85,7 +85,7 @@ export const FormReadOnly = () => (
     layout='vertical'
     mode='read'
     initialValues={initialValues}>
-      <FormField name='testChild' valueType='text'/>
+      <FormItem name='testChild' valueType='text'/>
   </Form>
 )
 export const FormVertical = () => (
