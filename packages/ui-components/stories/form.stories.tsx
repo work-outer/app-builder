@@ -17,6 +17,7 @@ const fields = [{
   name: 'object',
   valueType: 'form',
   colSpan: 2,
+  columns: 4,
   fields: [{
     name: 'o1',
     label: 'Active',
