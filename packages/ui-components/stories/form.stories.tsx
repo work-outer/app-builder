@@ -1,7 +1,7 @@
 import * as React from "react"
 import { 
   Form,
-  FormItem
+  FormField
 } from "../src"
 
 export default {
@@ -73,8 +73,8 @@ export const FormWithChildren = () => (
     layout='vertical'
     mode='edit'
     initialValues={initialValues}>
-      <FormItem name='username' valueType='text'/>
-      <FormItem name='password' valueType='password'/>
+      <FormField name='username' valueType='text'/>
+      <FormField name='password' valueType='password'/>
   </Form>
 )
 
@@ -84,7 +84,7 @@ export const FormReadOnly = () => (
     layout='vertical'
     mode='read'
     initialValues={initialValues}>
-      <FormItem name='testChild' valueType='text'/>
+      <FormField name='testChild' valueType='text'/>
   </Form>
 )
 export const FormVertical = () => (

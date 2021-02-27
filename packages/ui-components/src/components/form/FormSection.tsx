@@ -10,12 +10,12 @@ import {
 import {
   Box
 } from "@chakra-ui/layout";
-import { FormItemProps } from "./FormItem";
-import { createFormItem } from "./Form";
+import { FormFieldProps } from "./FormField";
+import { createFormField } from "./Form";
 import { Grid } from "@chakra-ui/react";
 
 export type FormSectionProps<T = Record<string, any>>  = {
-  fields?: FormItemProps[],
+  fields?: FormFieldProps[],
   columns?:number,
   formProps?: any,
   children?: any,
@@ -49,8 +49,8 @@ export class FormSection extends React.Component<any> {
           <AccordionPanel py={2} px={0}>
           <Grid templateColumns={[`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`]} gap={4}>
             {
-              fields.map((field:FormItemProps) => {
-                return createFormItem(field, formProps)
+              fields.map((field:FormFieldProps) => {
+                return createFormField(field, formProps)
               })
             }
             {children}

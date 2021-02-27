@@ -5,8 +5,8 @@ export {default as Field} from './components/field/Field';
 export * from './components/field/FieldLookup';
 
 export * from './components/form/Form';
-export * from './components/form/FormItem';
-export * from './components/form/FormItemObject';
+export * from './components/form/FormField';
+export * from './components/form/FormFieldObject';
 export * from './components/form/FormSection';
 
 export * from './components/Layout';

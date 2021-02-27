@@ -10,16 +10,17 @@ import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { useIntl } from '../..'
 import Field from '../field/Field';
-import { FormItem, FormItemProps } from './FormItem';
+import { FormField, FormFieldProps } from './FormField';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
 
 export type FormProps<T = Record<string, any>>  = {
   mode?: ProFieldFCMode,
   layout?: 'vertical' | 'horizontal'
   editable?: boolean,
-  fields?: FormItemProps[],
+  fields?: FormFieldProps[],
   columns?:number,
   onInlineEdit?: Function, //用户点击了控件上的编辑按钮，启动表单进入编辑状态。
+  formFieldProps?: FormFieldProps,
   fieldProps?: any,
   children?: any,
 } & BaseFormProps
@@ -46,7 +47,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     fieldProps = {
       allowClear: false,
     },
-    formItemProps,
+    formFieldProps,
     // onInlineEdit = ()=> {
     //   if (editableState)
     //     setModeState('edit');
@@ -94,7 +95,6 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     layout, 
     labelAlign,
     fieldProps,
-    formItemProps,
     submitter,
     ...rest
   }
@@ -110,12 +110,12 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     >
         <Grid {...boxOptions}>
           {
-            fields.map((field:FormItemProps) => {
-              return createFormItem(field, {
+            fields.map((field:FormFieldProps) => {
+              return createFormField(field, {
                 columns,
                 layout,
                 fieldProps,
-                formItemProps,
+                formFieldProps,
                 ...rest,
                 onInlineEdit,
                 mode: modeState,
@@ -128,7 +128,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
   )
 }
 
-export function createFormItem(field:FormItemProps, formProps:any = {}) {
+export function createFormField(field:FormFieldProps, formProps:any = {}) {
   const {
     name,
     valueType,
@@ -136,9 +136,11 @@ export function createFormItem(field:FormItemProps, formProps:any = {}) {
   } = field
   const {
     mode,
+    formFieldProps,
     fieldProps,
   } = formProps
-  return <FormItem 
+  return <FormField 
+      {...formFieldProps}
       {...rest} 
       mode={mode}
       name={name}

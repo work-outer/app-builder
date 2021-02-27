@@ -7,10 +7,10 @@ import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layou
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import Field from '../field/Field';
-import { FormItemObject } from './FormItemObject';
+import { FormFieldObject } from './FormFieldObject';
 import { FormProps } from "./Form";
 
-export type FormItemProps = {
+export type FormFieldProps = {
   name: string,
   valueType: any,
   mode?: ProFieldFCMode,
@@ -25,7 +25,7 @@ export type FormItemProps = {
   onInlineEdit?: Function,
 };
 
-export function FormItem(props:FormItemProps) {
+export function FormField(props:FormFieldProps) {
 
   const {
     name, 
@@ -70,7 +70,7 @@ export function FormItem(props:FormItemProps) {
           trigger="onValuesChange"
           {...itemOptions}
         >
-          <FormItemObject
+          <FormFieldObject
             name={name}
             valueType='object'
             mode={mode}
