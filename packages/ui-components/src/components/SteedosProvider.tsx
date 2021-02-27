@@ -3,7 +3,7 @@ import React, {useContext} from "react";
 
 import ProField from '@ant-design/pro-field';
 import { SteedosClient }  from '@steedos/client';
-import {SteedosContext} from '../';
+import {SteedosContext} from '..';
 import { FormProvider } from "./form/FormProvider";
 
 const {
@@ -19,7 +19,7 @@ const {
 - locale: zh_CN, en_US, zh_TW  TODO: 和steedos的locale值不一样，获取user之后需要转换。
 
 */
-export function SteedosContextWrap(props:any) {
+export function SteedosProvider(props:any) {
 
   const {
     rootUrl = STEEDOS_ROOT_URL,

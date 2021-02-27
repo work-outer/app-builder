@@ -14,7 +14,7 @@ import IconSettings from '@salesforce/design-system-react/components/icon-settin
 import ProProvider, {zhCNIntl} from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
 
-import {SteedosContextWrap} from '../packages/ui-components/src/';
+import {SteedosProvider} from '../packages/ui-components/src/';
 
 import '../packages/ui-components/src/styles.less';
 
@@ -101,9 +101,9 @@ const withAntDesignPro = (StoryFn: Function, context: StoryContext) => {
 
 const withSteedos = (StoryFn: Function, context: StoryContext) => {
   return (
-    <SteedosContextWrap>
+    <SteedosProvider>
       <StoryFn />
-    </SteedosContextWrap>
+    </SteedosProvider>
   )
 }
 

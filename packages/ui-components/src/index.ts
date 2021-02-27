@@ -1,5 +1,5 @@
 export * from './components/SteedosContext';
-export * from './components/SteedosContextWrap';
+export * from './components/SteedosProvider';
 
 export {default as Field} from './components/field/Field';
 export * from './components/field/FieldLookup';
