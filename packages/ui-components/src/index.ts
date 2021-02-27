@@ -2,7 +2,7 @@ export * from './components/SteedosContext';
 export * from './components/SteedosContextWrap';
 
 export {default as Form} from './components/form/Form';
-export {default as FormSection} from './components/FormSection';
+export {default as FormSection} from './components/form/FormSection';
 export * from './components/Layout';
 export * from './components/LayoutItem';
 export * from './components/InputField';

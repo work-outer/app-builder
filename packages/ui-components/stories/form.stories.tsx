@@ -15,7 +15,7 @@ const fields = [{
 },
 {
   name: 'object',
-  valueType: 'object',
+  valueType: 'form',
   colSpan: 2,
   fields: [{
     name: 'o1',
