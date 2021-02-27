@@ -60,7 +60,7 @@ export default function FormItem(props:FormItemProps) {
   const gridItemOptions = {
     key: name,
     colSpan: formProps && formProps.layout =='inline'? 1: [1, colSpan, colSpan, colSpan],
-    borderBottom: formProps && formProps.mode=='read'?'1px solid #dddbda':''
+    borderBottom: valueType !== 'form' && valueType !== 'table' && formProps && formProps.mode=='read'?'1px solid #dddbda':''
   }
 
   if (valueType === 'form') {
