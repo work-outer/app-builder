@@ -15,6 +15,7 @@ import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
 
 export type FormProps<T = Record<string, any>>  = {
   mode?: ProFieldFCMode,
+  layout?: 'vertical' | 'horizontal'
   editable?: boolean,
   fields?: FormItemProps[],
   columns?:number,
@@ -42,7 +43,9 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     initialValues = {}, 
     layout='horizontal', 
     labelAlign='left',
-    fieldProps,
+    fieldProps = {
+      allowClear: false,
+    },
     formItemProps,
     // onInlineEdit = ()=> {
     //   if (editableState)
@@ -54,8 +57,6 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
 
   const [editableState, setEditableState] = React.useState(editable);
   const [modeState, setModeState] = React.useState(mode);
-
-  console.log(modeState)
 
   const submitter = {
     render: ({submit, reset, ...props }:any, dom:any) => {
@@ -97,12 +98,17 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     submitter,
     ...rest
   }
+
+  const boxOptions = {
+    templateColumns: [`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`],
+    gap: 4,
+  }
   return (
     <ProForm 
       {...proFormProps}
       onFinish= {async (values:any) => console.log(values)}
     >
-        <Grid templateColumns={[`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`]} gap={4}>
+        <Grid {...boxOptions}>
           {
             fields.map((field:FormItemProps) => {
               return createFormItem(field, {
@@ -133,12 +139,12 @@ export function createFormItem(field:FormItemProps, formProps:any = {}) {
     fieldProps,
   } = formProps
   return <FormItem 
-      {...fieldProps}
       {...rest} 
       mode={mode}
       name={name}
       valueType={valueType}
       key={name}
       formProps={formProps}
+      fieldProps={fieldProps}
     />
 }

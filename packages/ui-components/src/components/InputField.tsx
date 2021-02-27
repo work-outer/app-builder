@@ -31,7 +31,6 @@ export class InputField extends React.Component<any,any> {
       tooltip,
       required,
       help,
-      allowClear: false,
       className: mode =='read'? 'slds-form-element slds-form-element_readonly ':'slds-form-element',
       labelCol: {
         xs: {

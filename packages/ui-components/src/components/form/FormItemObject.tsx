@@ -28,7 +28,9 @@ export function FormItemObject(props: FormItemObjectProps) {
     onValuesChange, 
     fields = [], 
     mode,
-    formProps,
+    formProps = {
+      layout: 'vertical'
+    },
     ...rest 
   } = props;
 
@@ -45,17 +47,18 @@ export function FormItemObject(props: FormItemObjectProps) {
       {...rest}
       form={form}
       mode={mode}
+      layout={formProps.layout}
       initialValues={value}
       component={false} //子表单不创建 html form tag
       onValuesChange={(changedValues:any, allValues:any)=>{
         if (onValuesChange) onValuesChange(allValues)
       }}
-      >
-        {
-            fields.map((field:FormItemProps) => {
-              return createFormItem(field, formProps)
-            })
-          }
-      </Form>
+    >
+      {
+        fields.map((field:FormItemProps) => {
+          return createFormItem(field, formProps)
+        })
+      }
+    </Form>
   )
 };

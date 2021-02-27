@@ -35,13 +35,13 @@ export function FormItem(props:FormItemProps) {
     label, 
     help, 
     tooltip, 
-    fieldProps = {},
+    fieldProps,
     mode = 'edit',
-    formProps,
+    formProps = {
+      layout: 'vertical'
+    },
     ...rest
   } = props
-
-  fieldProps.allowClear = false;
 
   const itemOptions = {
     name, 
@@ -56,16 +56,14 @@ export function FormItem(props:FormItemProps) {
       flex: 'auto'
     }:{},
   }
-
+  let boxOptions:any = {}
+  boxOptions.colSpan = [1, colSpan, colSpan, colSpan]
 
   if (valueType === 'object') {
-    const gridItemOptions = {
-      colSpan: formProps && formProps.layout =='inline'? 1: [1, colSpan, colSpan, colSpan],
-    }
     return (
       <GridItem 
         key={name}
-        {...gridItemOptions}
+        {...boxOptions}
       >
         <ProForm.Item 
           shouldUpdate
@@ -85,14 +83,10 @@ export function FormItem(props:FormItemProps) {
     )
   } else {
 
-    const gridItemOptions = {
-      colSpan: formProps && formProps.layout =='inline'? 1: [1, colSpan, colSpan, colSpan],
-      borderBottom: formProps && formProps.mode=='read'?'1px solid #dddbda':''
-    }
     return (
       <GridItem 
         key={name}
-        {...gridItemOptions}
+        {...boxOptions}
       >
         <ProForm.Item 
             style={{marginBottom: 0}}

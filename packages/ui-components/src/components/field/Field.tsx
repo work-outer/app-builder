@@ -107,7 +107,7 @@ const Field: React.ForwardRefRenderFunction<any, SteedosFieldPropsType> = (
   const { 
     mode = 'read', 
     text, 
-    readonly, 
+    readOnly, 
     valueType = 'text', 
     onChange, 
     value, 
@@ -126,7 +126,7 @@ const Field: React.ForwardRefRenderFunction<any, SteedosFieldPropsType> = (
       onChange?.(...restParams);
       rest?.fieldProps?.onChange?.(...restParams);
     },
-    allowClear: false,
+    // allowClear: false,
   };
   
   const dom = steedosRenderText(
@@ -134,8 +134,8 @@ const Field: React.ForwardRefRenderFunction<any, SteedosFieldPropsType> = (
     valueType || 'text',
     {
       ...rest,
-      mode: readonly?'read': mode,
-      readonly,
+      mode: readOnly?'read': mode,
+      readOnly,
       ref,
       placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
       fieldProps: pickProProps(fieldProps),
@@ -144,7 +144,7 @@ const Field: React.ForwardRefRenderFunction<any, SteedosFieldPropsType> = (
   )
 
   const inlineIconOpacity = propsInlineIconOpacity != null?propsInlineIconOpacity:0.4
-  const inlineIcon = readonly?
+  const inlineIcon = readOnly?
     <LockIcon color='gray.600' opacity={inlineIconOpacity} _groupHover={{ opacity: 1 }}/>:
     <EditIcon color='gray.600' opacity={inlineIconOpacity} _groupHover={{ opacity: 1 }} 
       onClick={()=> {
@@ -152,14 +152,25 @@ const Field: React.ForwardRefRenderFunction<any, SteedosFieldPropsType> = (
       }}
     />
 
+  
+  const containerOptions = {
+    borderBottom: (mode=='read')?'1px solid #dddbda':'',
+    pb: 1,
+  }
+
   if (mode == 'edit')
-    return (<React.Fragment>{dom}</React.Fragment>)
+    return (
+    <React.Fragment>
+      <Box {...containerOptions}>{dom}
+      </Box>
+    </React.Fragment>)
   else 
     return (
       <React.Fragment>
         <Flex 
+          {...containerOptions}
           role="group"
-          onDoubleClick={()=> {if (!readonly && onInlineEdit) onInlineEdit();}}
+          onDoubleClick={()=> {if (!readOnly && onInlineEdit) onInlineEdit();}}
         >
           <Box flex="1">{dom}</Box>
           <Box width="16px">{inlineIcon}</Box>

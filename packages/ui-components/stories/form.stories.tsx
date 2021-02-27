@@ -20,7 +20,6 @@ const fields = [{
   columns: 4,
   fields: [{
     name: 'o1',
-    label: 'Active',
     valueType: 'switch'
   },{
     name: 'o2',
@@ -31,7 +30,7 @@ const fields = [{
   name: 'email',
   label: 'Email',
   valueType: 'email',
-  readonly: true,
+  readOnly: true,
   colSpan: 1
 },{
   name: 'website',
@@ -43,7 +42,7 @@ const fields = [{
 },{
   name: 'active',
   label: 'Active',
-  valueType: 'checkbox'
+  valueType: 'switch'
 },{
   name: 'created',
   valueType: 'dateTime',
@@ -64,7 +63,7 @@ const initialValues = {
   website: 'https://www.steedos.com',
   email: 'support@steedos.com',
   object: {
-    o1: true,
+    o1: false,
     o2: 'Hello Object.'
   }
 }
@@ -102,13 +101,6 @@ export const FormHorizontal = () => (
     initialValues={initialValues}/>
 )
 
-export const FormInline = () => (
-  <Form 
-    fields={fields}
-    layout='inline'
-    initialValues={initialValues}/>
-)
-
 export const FormFourColumn = () => (
   <Form 
     fields={fields}
@@ -116,6 +108,7 @@ export const FormFourColumn = () => (
     columns={4}
     initialValues={initialValues}/>
 )
+
 export const FormNoSubmit = () => (
   <Form 
     fields={fields}
