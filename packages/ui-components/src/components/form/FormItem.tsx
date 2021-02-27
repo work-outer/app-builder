@@ -7,7 +7,7 @@ import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layou
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import Field from '../field/Field';
-import FormItemForm from './FormItemForm';
+import FormItemObject from './FormItemObject';
 import { FormProps } from "./Form";
 
 export type FormItemProps = {
@@ -57,23 +57,24 @@ export default function FormItem(props:FormItemProps) {
     }:{},
   }
 
-  const gridItemOptions = {
-    key: name,
-    colSpan: formProps && formProps.layout =='inline'? 1: [1, colSpan, colSpan, colSpan],
-    borderBottom: valueType !== 'form' && valueType !== 'table' && formProps && formProps.mode=='read'?'1px solid #dddbda':''
-  }
 
-  if (valueType === 'form') {
+  if (valueType === 'object') {
+    const gridItemOptions = {
+      colSpan: formProps && formProps.layout =='inline'? 1: [1, colSpan, colSpan, colSpan],
+    }
     return (
-      <GridItem {...gridItemOptions}>
+      <GridItem 
+        key={name}
+        {...gridItemOptions}
+      >
         <ProForm.Item 
           shouldUpdate
           trigger="onValuesChange"
           {...itemOptions}
         >
-          <FormItemForm
+          <FormItemObject
             name={name}
-            valueType='form'
+            valueType='object'
             mode={mode}
             formProps={formProps}
             onInlineEdit={formProps && formProps.onInlineEdit}
@@ -83,8 +84,16 @@ export default function FormItem(props:FormItemProps) {
       </GridItem>
     )
   } else {
+
+    const gridItemOptions = {
+      colSpan: formProps && formProps.layout =='inline'? 1: [1, colSpan, colSpan, colSpan],
+      borderBottom: formProps && formProps.mode=='read'?'1px solid #dddbda':''
+    }
     return (
-      <GridItem {...gridItemOptions}>
+      <GridItem 
+        key={name}
+        {...gridItemOptions}
+      >
         <ProForm.Item 
             style={{marginBottom: 0}}
             {...itemOptions}>

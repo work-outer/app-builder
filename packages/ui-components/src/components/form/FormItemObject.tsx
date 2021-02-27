@@ -9,7 +9,7 @@ import Form, { createFormItem } from './Form';
 import { ProFormGroup } from '@ant-design/pro-form';
 import FormItem, { FormItemProps } from './FormItem';
 
-export type FormItemFormProps = {
+export type FormItemObjectProps = {
   mode?: ProFieldFCMode,
   fields?: FormItemProps[],
   value?: object,
@@ -19,9 +19,9 @@ export type FormItemFormProps = {
 /**
  * 子表单，子表单中的数据以对象格式保存到此字段中。
  *
- * @param FormItemFormProps 
+ * @param FormItemObjectProps 
  */
-export default function FormItemForm(props: FormItemFormProps) {
+export default function FormItemObject(props: FormItemObjectProps) {
 
   const { 
     value, 
