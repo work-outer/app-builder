@@ -5,23 +5,23 @@ import { Form as AntForm, InputNumber } from 'antd';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import type { ProFieldFC } from '@ant-design/pro-field';
 import { Input } from 'antd';
-import Form, { createFormField } from './Form';
+import Form, { createFormItem } from './Form';
 import { ProFormGroup } from '@ant-design/pro-form';
-import FormField, { FormFieldProps } from './FormField';
+import FormItem, { FormItemProps } from './FormItem';
 
-export type FormFieldFormProps = {
+export type FormItemFormProps = {
   mode?: ProFieldFCMode,
-  fields?: FormFieldProps[],
+  fields?: FormItemProps[],
   value?: object,
   onValuesChange?: Function,
-} & FormFieldProps //& Omit<FormFieldProps, 'mode'>;
+} & FormItemProps //& Omit<FormItemProps, 'mode'>;
 
 /**
  * 子表单，子表单中的数据以对象格式保存到此字段中。
  *
- * @param FormFieldFormProps 
+ * @param FormItemFormProps 
  */
-export default function FormFieldForm(props: FormFieldFormProps) {
+export default function FormItemForm(props: FormItemFormProps) {
 
   const { 
     value, 
@@ -34,7 +34,7 @@ export default function FormFieldForm(props: FormFieldFormProps) {
 
   const [form] = AntForm.useForm();
 
-  const formFields:any = _.forEach(fields, (field:any) => {
+  const FormItems:any = _.forEach(fields, (field:any) => {
     const f = _.cloneDeep(field)
     f.key = f.name
     return f
@@ -52,8 +52,8 @@ export default function FormFieldForm(props: FormFieldFormProps) {
       }}
       >
         {
-            fields.map((field:FormFieldProps) => {
-              return createFormField(field, formProps)
+            fields.map((field:FormItemProps) => {
+              return createFormItem(field, formProps)
             })
           }
       </Form>

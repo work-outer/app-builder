@@ -10,13 +10,13 @@ import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { useIntl } from '../..'
 import Field from '../field/Field';
-import FormField, {FormFieldProps} from './FormField';
+import FormItem, {FormItemProps} from './FormItem';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
 
 export type FormProps<T = Record<string, any>>  = {
   mode?: ProFieldFCMode,
   editable?: boolean,
-  fields?: FormFieldProps[],
+  fields?: FormItemProps[],
   columns?:number,
   onInlineEdit?: Function, //用户点击了控件上的编辑按钮，启动表单进入编辑状态。
   fieldProps?: any,
@@ -104,8 +104,8 @@ export default function Form<T = Record<string, any>>(props: FormProps<T>) {
     >
         <Grid templateColumns={[`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`]} gap={4}>
           {
-            fields.map((field:FormFieldProps) => {
-              return createFormField(field, {
+            fields.map((field:FormItemProps) => {
+              return createFormItem(field, {
                 columns,
                 layout,
                 fieldProps,
@@ -122,7 +122,7 @@ export default function Form<T = Record<string, any>>(props: FormProps<T>) {
   )
 }
 
-export function createFormField(field:FormFieldProps, formProps:any = {}) {
+export function createFormItem(field:FormItemProps, formProps:any = {}) {
   const {
     name,
     valueType,
@@ -132,7 +132,7 @@ export function createFormField(field:FormFieldProps, formProps:any = {}) {
     mode,
     fieldProps,
   } = formProps
-  return <FormField 
+  return <FormItem 
       {...fieldProps}
       {...rest} 
       mode={mode}

@@ -2,7 +2,7 @@ import * as React from "react"
 import { 
   Form,
 } from "../src"
-import FormField from "../src/components/form/FormField"
+import FormField from "../src/components/form/FormItem"
 
 export default {
   title: "Form",
