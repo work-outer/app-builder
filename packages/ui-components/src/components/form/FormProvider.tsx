@@ -16,6 +16,47 @@ import { IntlType } from "@ant-design/pro-table";
 
 import { en_US, zh_CN } from '@steedos/ui-locale';
 
+/* 通过 valueTypeMap，支持给Form传入第三方自定义控件 */
+type FormProviderProps = {
+  locale: string,
+  valueTypeMap?: object,
+  children: any,
+}
+
+export function FormProvider(props: FormProviderProps) {
+  const {
+    locale,
+    valueTypeMap,
+    children,
+  } = props
+
+  const proContextValues = {
+    intl: {
+      ...getProLocale(locale),
+    },
+    valueTypeMap: {},
+  }
+
+  const antdContextValues = {
+    locale: getAntdLocale(locale)
+  }
+
+  const intl = getSteedosIntl(locale)
+  return (
+    <FormContext.Provider value={{
+      intl,
+      valueTypeMap
+    }}>
+      <AntdConfigProvider {...antdContextValues}>
+        <ProContext.Provider value={proContextValues}>
+          {children}
+        </ProContext.Provider>
+      </AntdConfigProvider>
+    </FormContext.Provider>
+  )
+}
+
+
 export const getAntdLocale:any = (locale: string)=> {
   switch (locale) {
     case 'en_US': return antd_enUS
@@ -87,43 +128,4 @@ const getSteedosIntl = (locale: string) => {
 export function useIntl(): IntlType {
   const context = useContext(FormContext);
   return context.intl || zhCNIntl;
-}
-
-type FormProviderProps = {
-  locale: string,
-  valueTypeMap?: object,
-  children: any,
-}
-
-export function FormProvider(props: FormProviderProps) {
-  const {
-    locale,
-    valueTypeMap,
-    children,
-  } = props
-
-  const proContextValues = {
-    intl: {
-      ...getProLocale(locale),
-    },
-    valueTypeMap: {},
-  }
-
-  const antdContextValues = {
-    locale: getAntdLocale(locale)
-  }
-
-  const intl = getSteedosIntl(locale)
-  return (
-    <FormContext.Provider value={{
-      intl,
-      valueTypeMap
-    }}>
-      <AntdConfigProvider {...antdContextValues}>
-        <ProContext.Provider value={proContextValues}>
-          {children}
-        </ProContext.Provider>
-      </AntdConfigProvider>
-    </FormContext.Provider>
-  )
 }
