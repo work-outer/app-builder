@@ -1,8 +1,7 @@
 import React from "react";
-import { ObjectContext, ObjectContextValueType } from "./ObjectContext";
+import { ObjectContext, ObjectContextValueType, RecordQueryRequestParams } from "./ObjectContext";
 
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
- const queryClient = new QueryClient()
+import DataLoader from 'dataloader';
 
 /* 通过 valueTypeMap，支持给Form传入第三方自定义控件 */
 type ObjectProviderProps = ObjectContextValueType & {
@@ -12,19 +11,15 @@ type ObjectProviderProps = ObjectContextValueType & {
 export function ObjectProvider(props: ObjectProviderProps) {
 
   const {
-    queryOptions,
-    requestObject,
-    setObject,
-    getObject,
+    objectQueryRequest,
+    recordQueryRequest,
     children,
   } = props;
 
   return (
     <ObjectContext.Provider value={{
-      queryOptions,
-      requestObject,
-      setObject,
-      getObject,
+      objectQueryRequest,
+      recordQueryRequest,
     }}>
       {children}
     </ObjectContext.Provider>

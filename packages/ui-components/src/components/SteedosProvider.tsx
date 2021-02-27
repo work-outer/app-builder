@@ -6,6 +6,7 @@ import { SteedosClient }  from '@steedos/client';
 import { SteedosContext } from '..';
 import { FormProvider } from "./form/FormProvider";
 import { ObjectProvider } from "./object/ObjectProvider";
+import { RecordQueryRequestParams } from "./object/ObjectContext";
 
 const {
   STEEDOS_ROOT_URL,
@@ -49,9 +50,11 @@ export function SteedosProvider(props:any) {
   }
 
   const objectProviderProps = {
-    requestObject: async (objectName:string)=> {
-      console.log(objectName);
-      return {}
+    objectQueryRequest: async (keys: readonly string[]) =>{
+      throw new Error(`objectQueryRequest ${keys} failed, you should impl this function in SteedosProvider.`)
+    },
+    recordQueryRequest: async ( objectApiName:string, params: RecordQueryRequestParams ) =>{
+      throw new Error(`recordQueryRequest ${objectApiName} failed, you should impl this function in SteedosProvider.`)
     }
   }
 

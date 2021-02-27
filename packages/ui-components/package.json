@@ -48,6 +48,7 @@
     "@salesforce/design-system-react": "^0.10.29",
     "@steedos/client": "^1.23.20",
     "antd": "^4.12.3",
+    "dataloader": "^2.0.0",
     "framer-motion": "^3.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
