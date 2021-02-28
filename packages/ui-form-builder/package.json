@@ -1,7 +1,45 @@
 {
   "name": "@steedos/ui-form-builder",
-  "version": "0.0.1",
-  "main": "index.js",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Builder.io example with React",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/builderio/builder.git"
+  },
+  "keywords": [
+    "builder.io",
+    "react"
+  ],
+  "author": "Steve Sewell",
   "license": "MIT",
-  "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-form-builder"
+  "bugs": {
+    "url": "https://github.com/builderio/builder/issues"
+  },
+  "homepage": "https://github.com/builderio/builder#readme",
+  "main": "src/index.js",
+  "dependencies": {
+    "@builder.io/editor": "^1.0.41",
+    "@builder.io/react": "^1.1.36",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "webcomponents-in-react": "^1.0.1"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
