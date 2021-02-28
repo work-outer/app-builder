@@ -21,6 +21,7 @@ export type FormProps<T = Record<string, any>>  = {
   columns?:number,
   onInlineEdit?: Function, //用户点击了控件上的编辑按钮，启动表单进入编辑状态。
   formFieldProps?: FormFieldProps,
+  formFieldComponent?: any,
   fieldProps?: any,
   children?: any,
 } & BaseFormProps
@@ -68,10 +69,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     },
     submitter = defaultSubmitter,
     formFieldProps,
-    // onInlineEdit = ()=> {
-    //   if (editableState)
-    //     setModeState('edit');
-    // },
+    formFieldComponent = FormField,
     children, 
     ...rest
   } = props
@@ -114,6 +112,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
                 layout,
                 fieldProps,
                 formFieldProps,
+                formFieldComponent,
                 ...rest,
                 onInlineEdit,
                 mode: modeState,
@@ -136,15 +135,16 @@ export function createFormField(field:FormFieldProps, formProps:any = {}) {
     mode,
     formFieldProps,
     fieldProps,
+    formFieldComponent = FormField,
   } = formProps
-  return <FormField 
-      {...formFieldProps}
-      {...rest} 
-      mode={mode}
-      name={name}
-      valueType={valueType}
-      key={name}
-      formProps={formProps}
-      fieldProps={fieldProps}
-    />
+  return React.createElement(formFieldComponent, {
+      ...formFieldProps,
+      ...rest,
+      mode,
+      name,
+      valueType,
+      key: name,
+      formProps,
+      fieldProps,
+  })
 }

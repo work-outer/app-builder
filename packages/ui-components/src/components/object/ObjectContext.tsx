@@ -8,20 +8,21 @@ export type RecordQueryRequestParams = {
   filter: any
 }
 
-const defaultObjectQueryRequest = async (keys: readonly string[]) =>{
-  throw new Error(`objectQueryRequest ${keys} failed, you should impl this function in ObjectProvider.`)
+const defaultRequestObject = async ( objectApiName:string) =>{
+  throw new Error(`requestObject ${objectApiName} failed, you should impl this function in ObjectProvider.`)
 }
 
-const defaultRecordQueryRequest = async ( objectApiName:string, params: RecordQueryRequestParams ) =>{
-  throw new Error(`recordQueryRequest ${objectApiName} failed, you should impl this function in ObjectProvider.`)
+const defaultRequestRecords = async ( objectApiName:string, params: RecordQueryRequestParams ) =>{
+  throw new Error(`requestRecords ${objectApiName} failed, you should impl this function in ObjectProvider.`)
 }
 
 export type ObjectContextValueType = {
-  objectQueryRequest: ( keys: readonly string[] ) => Promise<ArrayLike<object | Error>>
-  recordQueryRequest: ( objectApiName:string, params: RecordQueryRequestParams ) => Promise<ArrayLike<object | Error>>
+  queryClient?: any,
+  requestObject: ( objectApiName:string) => Promise<object | Error>
+  requestRecords: ( objectApiName:string, params: RecordQueryRequestParams ) => Promise<ArrayLike<object | Error>>
 }
 
 export const ObjectContext = React.createContext<ObjectContextValueType>({
-  objectQueryRequest: defaultObjectQueryRequest,
-  recordQueryRequest: defaultRecordQueryRequest
+  requestObject: defaultRequestObject,
+  requestRecords: defaultRequestRecords
 });

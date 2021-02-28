@@ -50,11 +50,11 @@ export function SteedosProvider(props:any) {
   }
 
   const objectProviderProps = {
-    objectQueryRequest: async (keys: readonly string[]) =>{
-      throw new Error(`objectQueryRequest ${keys} failed, you should impl this function in SteedosProvider.`)
+    requestObject: async ( objectApiName:string ) =>{
+      throw new Error(`requestObject ${objectApiName} failed, you should impl this function in SteedosProvider.`)
     },
-    recordQueryRequest: async ( objectApiName:string, params: RecordQueryRequestParams ) =>{
-      throw new Error(`recordQueryRequest ${objectApiName} failed, you should impl this function in SteedosProvider.`)
+    requestRecords: async ( objectApiName:string, params: RecordQueryRequestParams ) =>{
+      throw new Error(`requestRecords ${objectApiName} failed, you should impl this function in SteedosProvider.`)
     }
   }
 
