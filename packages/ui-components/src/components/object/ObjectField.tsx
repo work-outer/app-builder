@@ -18,6 +18,10 @@ export function ObjectField(props:ObjectFieldProps) {
     valueType: type
   }
 
+  if (type == 'boolean') {
+    fieldProps.valueType = 'switch'
+  }
+
   return (
     <FormField 
       {...rest}
