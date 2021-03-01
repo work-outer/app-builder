@@ -8,19 +8,18 @@ export type ObjectFieldProps = {
   type: string,
   isRequired: boolean,
   isReadOnly: boolean,
-  options: []
+  options: [],
+  reference_to: any
 } &  FormFieldProps
 
 export function ObjectField(props:ObjectFieldProps) {
 
-  const { objectApiName, fieldName, type, ...rest} = props
-  
+  const { objectApiName, fieldName, type, reference_to, ...rest} = props
   // 从对象定义中生成字段信息。
   const formFieldProps:FormFieldProps = {
     name: fieldName,
-    valueType: type,
+    valueType: type
   }
-  console.log('this field--', props);
   if (type === 'url') {
     formFieldProps.valueType = 'href';
   }
@@ -41,6 +40,10 @@ export function ObjectField(props:ObjectFieldProps) {
     formFieldProps.valueEnum = valueEnum;
   }
 
+  if (type === 'lookup') {
+    formFieldProps.referenceTo = reference_to;
+    
+  }
   return (
     <FormField 
       {...rest}
