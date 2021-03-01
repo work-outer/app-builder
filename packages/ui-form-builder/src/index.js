@@ -47,7 +47,7 @@ const Admin = () => {
   const builderOptions = {
      useDefaultStyles: false,
      hideAnimateTab: true,
-     previewUrl: 'http://localhost:3002/content',
+     previewUrl: 'http://localhost:3000/content',
   };
   const builderData = {}
   return (

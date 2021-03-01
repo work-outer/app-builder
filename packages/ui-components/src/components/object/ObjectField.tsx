@@ -6,6 +6,8 @@ export type ObjectFieldProps = {
   objectApiName: string,
   fieldName: string,
   type: string,
+  isRequired: boolean,
+  isReadOnly: boolean,
 } &  FormFieldProps
 
 export function ObjectField(props:ObjectFieldProps) {
@@ -13,19 +15,19 @@ export function ObjectField(props:ObjectFieldProps) {
   const { objectApiName, fieldName, type, ...rest} = props
 
   // 从对象定义中生成字段信息。
-  const fieldProps:FormFieldProps = {
+  const formFieldProps:FormFieldProps = {
     name: fieldName,
-    valueType: type
+    valueType: type,
   }
 
   if (type == 'boolean') {
-    fieldProps.valueType = 'switch'
+    formFieldProps.valueType = 'switch'
   }
 
   return (
     <FormField 
       {...rest}
-      {...fieldProps} 
+      {...formFieldProps} 
     />
   )
 }

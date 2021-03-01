@@ -17,6 +17,8 @@ const defaultRequestRecords = async ( objectApiName:string, params: RecordQueryR
 }
 
 export type ObjectContextValueType = {
+  currentObjectApiName?: string,
+  currentRecordId?: string,
   queryClient?: any,
   requestObject: ( objectApiName:string) => Promise<object | Error>
   requestRecords: ( objectApiName:string, params: RecordQueryRequestParams ) => Promise<ArrayLike<object | Error>>
