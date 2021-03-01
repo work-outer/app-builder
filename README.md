@@ -10,8 +10,6 @@ Steedos App Builder
   "blocks":[
     {
       "@type":"@builder.io/sdk:Element",
-      "@version":2,
-      "id":"builder-ee480423fc424372984d8a0a424870f0",
       "component":{
         "name":"Text",
         "options":{"text":"Hello Steedos ..."}
@@ -37,8 +35,6 @@ Steedos App Builder
   "blocks":[
     {
       "@type":"@builder.io/sdk:Element",
-      "@version":2,
-      "id":"builder-ee480423fc424372984d8a0a424870f0",
       "component":{
         "name":"Text",
         "options":{"text":"Hello Steedos ..."}
