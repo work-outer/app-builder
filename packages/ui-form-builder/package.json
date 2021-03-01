@@ -3,10 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Builder.io example with React",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/builderio/builder.git"
-  },
+  "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-form-builder",
   "keywords": [
     "builder.io",
     "react"
@@ -14,21 +11,21 @@
   "author": "Steve Sewell",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/builderio/builder/issues"
+    "url": "https://github.com/steedos/app-builder/issues"
   },
-  "homepage": "https://github.com/builderio/builder#readme",
+  "homepage": "https://github.com/steedos/app-builder/#readme",
   "main": "src/index.js",
   "dependencies": {
     "@builder.io/editor": "^1.0.41",
     "@builder.io/react": "^1.1.36",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "4.0.3",
     "webcomponents-in-react": "^1.0.1"
   },
   "devDependencies": {
-    "typescript": "3.3.3"
+    "typescript": "^4.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
