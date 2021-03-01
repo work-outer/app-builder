@@ -37,7 +37,8 @@ export function ObjectForm(props:ObjectFormProps) {
 
   const fields:any = []
   _.forEach(objectSchema.fields, (field, fieldName)=>{
-    fields.push(field)
+    if(!field.hidden)
+      fields.push(field)
   })
   const formProps = {
     fields: fields
