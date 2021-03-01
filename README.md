@@ -1,8 +1,7 @@
 Steedos App Builder 
 ===
 
-基于Ant Design的控件，使用Json文件定义组件、页面，甚至App，并可以利用Builder.IO进行可视化页面设计。定义的组件可以在 React、VUE 等各种项目中引用。
-
+使用Json文件定义组件、表单、页面，甚至App，并可以利用Builder.IO进行可视化页面设计。生成的组件可以在 React, VUE 等各种开发环境中调用。
 
 ## 定义组件
 ```json
