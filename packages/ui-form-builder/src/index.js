@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, Route, BrowserRouter, Link } from 'react-router-dom';
-import { BuilderComponent } from '@builder.io/react';
+import { BuilderComponent, builder } from '@builder.io/react';
 
 import { adapt } from "webcomponents-in-react";
 import editor from '@builder.io/editor';
 const BuilderEditor = adapt("builder-editor");
+
+builder.init('10196eab9300457b93b5693342aa792f')
 
 const initialData = {
   "data":{
@@ -45,9 +47,9 @@ const Home = () =>  {
 
 const Admin = () => {
   const builderOptions = {
-     useDefaultStyles: false,
-     hideAnimateTab: true,
-     previewUrl: 'http://localhost:3000/content',
+    useDefaultStyles: false,
+    hideAnimateTab: true,
+    previewUrl: 'http://localhost:3000/content',
   };
   const builderData = {}
   return (
