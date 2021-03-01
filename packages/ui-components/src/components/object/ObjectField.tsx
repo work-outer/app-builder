@@ -20,8 +20,18 @@ export function ObjectField(props:ObjectFieldProps) {
     name: fieldName,
     valueType: type
   }
+  console.log('test__c object field---', props);
+
   if (type === 'url') {
     formFieldProps.valueType = 'href';
+  }
+
+  if (type === 'currency') {
+    formFieldProps.valueType = 'money';
+  }
+
+  if (type === 'autonumber') {
+    formFieldProps.valueType = 'index';
   }
 
   if (type === 'datetime') {

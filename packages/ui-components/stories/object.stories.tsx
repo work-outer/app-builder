@@ -10,18 +10,18 @@ export default {
 }
 
 const requestObject = async () => {
-  return require('./account.json')
+  return require('./test__c.json')
 }
 
 const requestRecords = async () => {
-  return require('./account_records.json')
+  return require('./test__c_records.json')
 }
 
 
 export const AccountForm = () => (
   <ObjectProvider requestObject={requestObject} requestRecords={requestRecords}>
     <ObjectForm 
-      objectApiName='accounts'
+      objectApiName='test__c'
       layout='vertical'
       mode='read'>
         <FormField name='testChild' valueType='text'/>
