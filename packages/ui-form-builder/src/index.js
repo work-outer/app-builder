@@ -5,6 +5,9 @@ import { BuilderComponent, builder } from '@builder.io/react';
 
 import { adapt } from "webcomponents-in-react";
 import editor from '@builder.io/editor';
+import './index.css';
+
+
 const BuilderEditor = adapt("builder-editor");
 
 builder.init('10196eab9300457b93b5693342aa792f')
@@ -54,12 +57,13 @@ const Admin = () => {
   const builderData = {}
   return (
     <BuilderEditor
-        onChange={(e) => {
-          console.log(e)
-        }}
-        data={{}}
-        env='production'
-        options={builderOptions}/>
+      class="builder-editor-container"
+      onChange={(e) => {
+        console.log(e)
+      }}
+      data={{}}
+      env='production'
+      options={builderOptions}/>
   ) 
 };
 
