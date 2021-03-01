@@ -9,11 +9,11 @@ export default {
   title: "Object",
 }
 
-const requestObject = async (objectName) => {
+const requestObject = async () => {
   return require('./account.json')
 }
 
-const requestRecords = async (objectName) => {
+const requestRecords = async () => {
   return require('./account_records.json')
 }
 
