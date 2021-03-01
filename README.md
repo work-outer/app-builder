@@ -60,8 +60,7 @@ Steedos App Builder
   "menuPosition": "top",
   "menus":[{
     "title": "Home",
-    "route": "/",
-    "component": "@my-project/HomePage"
+    "route": "/"
   }]
 }
 ```
