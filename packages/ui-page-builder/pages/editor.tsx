@@ -5,13 +5,13 @@ import builderConfig from '@config/builder'
 // import editor from '@builder.io/editor';
 import { Builder, BuilderComponent } from "@builder.io/react";
 
-const BuilderEditor = adapt("builder-fiddle");
+const BuilderEditor = adapt("builder-editor");
 
 export default function Admin(){
   const builderOptions = {
      useDefaultStyles: false,
      hideAnimateTab: true,
-     previewUrl: 'http://localhost:3000/page',
+     previewUrl: 'http://localhost:3000/',
   };
   const builderData = {}
   return (

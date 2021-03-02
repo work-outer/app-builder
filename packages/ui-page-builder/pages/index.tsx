@@ -1,10 +1,26 @@
 
 import { builder, withChildren } from '@builder.io/react'
+
+import { Builder, BuilderComponent } from '@builder.io/react';
+
 import builderConfig from '@config/builder'
 import dynamic from 'next/dynamic';
 
  
 builder.init(builderConfig.apiKey)
+
+Builder.register('editor.settings', {
+  hideStyleTab: true,      // Hide the style tab
+  hideMainTabs: true,      // Hide all main tabs
+  hideDataTab: true ,      // Hide the data tab
+  hideOptionsTab: true,    // Hide the options tab
+  hideToolbar: true,       // Hide the main toolbar
+  hideHeatMap: true,       // Hide the heatmap button
+  hidePageUrlEditor: false, // Hide the page URL editor
+  hideAnimateTab: true,    // Hide the animate tab
+  hideInsertTab: false,     // Hide the insert tab
+  hideTargeting: false,     // Hide the targeting UI
+})
 
 const Form:any = dynamic(
   () => import('@steedos/ui-components').then((mod:any) => {return mod.Form}),
@@ -48,8 +64,6 @@ Builder.registerComponent(Heading, {
   name: 'Heading',
   inputs: [{ name: 'title', type: 'text' }]
 })
-
-import { Builder, BuilderComponent } from '@builder.io/react';
 
 const initialData = {
   "data":{

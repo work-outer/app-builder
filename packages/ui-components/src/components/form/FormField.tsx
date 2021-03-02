@@ -105,3 +105,14 @@ export function FormField(props:FormFieldProps) {
   }
 
 }
+
+
+export const FormFieldSettings = {
+  name: 'Steedos:FormField',
+  inputs: [
+    { name: 'name', type: 'text' },
+    { name: 'label', type: 'text' },
+    { name: 'valueType', type: 'text' }
+  ],
+  canHaveChildren: false
+}
