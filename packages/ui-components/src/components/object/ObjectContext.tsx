@@ -8,7 +8,6 @@ export type RecordQueryRequestParams = {
   filter: any
 }
 
-//TODO 通过接口获取对象信息 /api/bootstrap/:spaceId/:objectName
 const defaultRequestObject = async ( objectApiName:string) =>{
   throw new Error(`requestObject ${objectApiName} failed, you should impl this function in ObjectProvider.`)
 }
