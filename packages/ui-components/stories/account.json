@@ -975,6 +975,41 @@
             "omit": true,
             "hidden": true,
             "name": "_table._code"
+        },
+        "summary__c": {
+            "object": "accounts",
+            "label": "累计汇总",
+            "_name": "summary",
+            "type": "summary",
+            "precision": 18,
+            "scale": 2,
+            "summary_object": "contacts",
+            "summary_type": "count",
+            "sort_no": 480,
+            "is_name": false,
+            "required": false,
+            "is_wide": false,
+            "readonly": false,
+            "hidden": false,
+            "omit": false,
+            "index": false,
+            "sortable": false,
+            "searchable": false,
+            "filterable": false,
+            "space": "wspdRw3z3gqkWBWWF",
+            "formula_blank_value": "zeroes",
+            "owner": "5ff3fc3d521ab003d0293acf",
+            "_id": "PmZPNLND5srL423nh",
+            "created": "2021-03-02T09:14:07.193Z",
+            "modified": "2021-03-02T09:14:07.193Z",
+            "created_by": "5ff3fc3d521ab003d0293acf",
+            "modified_by": "5ff3fc3d521ab003d0293acf",
+            "company_id": "3TyAbA3xYadmNgDtd",
+            "company_ids": [
+                "3TyAbA3xYadmNgDtd"
+            ],
+            "name": "summary__c",
+            "data_type": "number"
         }
     },
     "actions": {
@@ -1307,7 +1342,7 @@
             ]
         }
     },
-    "fields_serial_number": 480,
+    "fields_serial_number": 490,
     "permissions": {
         "allowCreate": true,
         "allowDelete": true,

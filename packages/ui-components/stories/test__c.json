@@ -183,6 +183,64 @@
             ],
             "name": "num__c"
         },
+        "fn__c": {
+            "_id": "56jnj8iRkPzfxrDgr",
+            "object": "test__c",
+            "label": "公式",
+            "_name": "fn",
+            "type": "formula",
+            "formula": "TODAY() + 1",
+            "data_type": "date",
+            "formula_blank_value": "zeroes",
+            "sort_no": 170,
+            "is_name": false,
+            "required": false,
+            "is_wide": false,
+            "readonly": false,
+            "hidden": false,
+            "omit": false,
+            "index": false,
+            "sortable": false,
+            "searchable": false,
+            "filterable": false,
+            "space": "wspdRw3z3gqkWBWWF",
+            "precision": 18,
+            "scale": 2,
+            "company_id": "3TyAbA3xYadmNgDtd",
+            "company_ids": [
+                "3TyAbA3xYadmNgDtd"
+            ],
+            "name": "fn__c"
+        },
+        "linker__c": {
+            "_id": "wdNQ2CyWuch7skkgi",
+            "object": "test__c",
+            "label": "主子表",
+            "_name": "linker",
+            "type": "master_detail",
+            "reference_to": "contacts",
+            "write_requires_master_read": false,
+            "sort_no": 180,
+            "is_name": false,
+            "required": false,
+            "is_wide": false,
+            "readonly": false,
+            "hidden": false,
+            "omit": false,
+            "index": false,
+            "sortable": false,
+            "searchable": false,
+            "filterable": false,
+            "space": "wspdRw3z3gqkWBWWF",
+            "precision": 18,
+            "scale": 2,
+            "formula_blank_value": "zeroes",
+            "company_id": "3TyAbA3xYadmNgDtd",
+            "company_ids": [
+                "3TyAbA3xYadmNgDtd"
+            ],
+            "name": "linker__c"
+        },
         "space": {
             "type": "text",
             "label": "所属工作区",
@@ -598,7 +656,7 @@
     "company_ids": [
         "3TyAbA3xYadmNgDtd"
     ],
-    "fields_serial_number": 170,
+    "fields_serial_number": 190,
     "custom": true,
     "app_unique_id": null,
     "app_version": null,
