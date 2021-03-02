@@ -34,7 +34,9 @@ export function ObjectForm(props:ObjectFormProps) {
 
   if (!objectSchema) 
     return (<div>Loading...</div>)
-
+  
+  //TODO  fields['name', 'type']不为空
+  
   const fields:any = []
   _.forEach(objectSchema.fields, (field, fieldName)=>{
     if(!field.hidden)

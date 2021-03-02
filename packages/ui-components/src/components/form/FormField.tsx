@@ -23,8 +23,7 @@ export type FormFieldProps = {
   fieldProps?: any,
   formProps?: FormProps,
   onInlineEdit?: Function,
-  valueEnum?: any,
-  referenceTo?: string
+  valueEnum?: any
 };
 
 export function FormField(props:FormFieldProps) {
