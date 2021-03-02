@@ -49,10 +49,25 @@ export function SteedosProvider(props:any) {
     client,
   }
 
+  const requestObject = async(objectApiName:string) => {
+    //TODO 通过接口获取对象信息 /api/bootstrap/:spaceId/:objectName
+    const url = `${rootUrl}/api/bootstrap/${tenantId}/${objectApiName}`;
+    const token = `Bearer ${tenantId}, ${authToken}`
+    const res = await client.doFetch(url,{
+      method: 'GET',
+      headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+      }   
+    })
+    if (res) {
+      return res;
+    }
+  }
   const objectProviderProps = {
-    requestObject: async ( objectApiName:string ) =>{
-      throw new Error(`requestObject ${objectApiName} failed, you should impl this function in SteedosProvider.`)
-    },
+    
+    requestObject: requestObject,
+    
     requestRecords: async ( objectApiName:string, params: RecordQueryRequestParams ) =>{
       throw new Error(`requestRecords ${objectApiName} failed, you should impl this function in SteedosProvider.`)
     }

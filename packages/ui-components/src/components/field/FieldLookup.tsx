@@ -88,7 +88,7 @@ export class FieldLookup extends React.Component<any, any> {
         placeholder={placeholder}
         loading={true}
         defaultActiveFirstOption={false}
-        showArrow={false}
+        showArrow={true}
         filterOption={false}
         onSearch={this.handleSearch}
         onChange={this.handleChange}

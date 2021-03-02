@@ -29,7 +29,6 @@ export function ObjectForm(props:ObjectFormProps) {
   } = useQuery(objectApiName, async () => {
     return await objectContext.requestObject(objectApiName);
   });
-
   const objectSchema:any = data
 
   if (!objectSchema) 

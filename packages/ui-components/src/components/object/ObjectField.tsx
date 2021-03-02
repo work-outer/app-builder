@@ -3,6 +3,7 @@ import { FormField, FormFieldProps } from "../form/FormField";
 import { ObjectFieldLookup } from "./ObjectFieldLookup";
 
 export type ObjectFieldProps = {
+  label: string,
   objectApiName: string,
   fieldName: string,
   type: string,
@@ -39,6 +40,10 @@ export function ObjectField(props:ObjectFieldProps) {
     case 'boolean':
       formFieldProps.valueType = 'switch';
       break;
+    // case 'formula':
+    
+    // case 'master_detail':
+
     case 'select':{
       const valueEnum = {}
       props.options.map((option:any) => {
@@ -53,7 +58,8 @@ export function ObjectField(props:ObjectFieldProps) {
     return (
       <ObjectFieldLookup
         {...rest}
-        fieldName={fieldName}
+        label={props.label}
+        name={fieldName}
         referenceTo={reference_to}
         enableAdd={true}
         placeholder={`请搜索${props.label}...`}
