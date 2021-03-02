@@ -10,12 +10,13 @@ export type ObjectFieldProps = {
   isReadOnly: boolean,
   options: [],
   reference_to: string,
-  enableAdd: boolean
+  enableAdd: boolean,
+  readonly: boolean
 } &  FormFieldProps
 
 export function ObjectField(props:ObjectFieldProps) {
 
-  const { objectApiName, fieldName, reference_to, type, ...rest} = props
+  const { objectApiName, fieldName, reference_to, type, readonly, ...rest} = props
   // 从对象定义中生成字段信息。
   const formFieldProps:FormFieldProps = {
     name: fieldName,
@@ -56,6 +57,7 @@ export function ObjectField(props:ObjectFieldProps) {
         referenceTo={reference_to}
         enableAdd={true}
         placeholder={`请搜索${props.label}...`}
+        readonly={readonly}
       />
     )
   } else {

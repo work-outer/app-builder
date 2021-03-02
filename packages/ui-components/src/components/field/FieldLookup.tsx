@@ -80,7 +80,7 @@ export class FieldLookup extends React.Component<any, any> {
   };
   render() {
     const { data, value} = this.state;
-    const { name, referenceTo, enableAdd, style, placeholder, rest} = this.props;
+    const { name, referenceTo, enableAdd, style, placeholder, readonly,rest} = this.props;
     return (
       <Select
         showSearch
@@ -94,13 +94,15 @@ export class FieldLookup extends React.Component<any, any> {
         onChange={this.handleChange}
         notFoundContent={null}
         style={style}
+        disabled={readonly}
         {...rest}
       >
         {data.map((d:any) => (
             <Option key={d.id}>{d.name}</Option>
         ))}
-        {<Option key={'and'} disabled={true}>
+        {<Option key={'and'} disabled={true} >
           <Button
+              hidden={!enableAdd}
               type="dashed"
               style={{ width: '100%' }}
               icon={<PlusOutlined />}
