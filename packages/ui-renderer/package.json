@@ -1,7 +1,0 @@
-{
-  "name": "@steedos/ui-renderer",
-  "version": "0.0.1",
-  "main": "index.js",
-  "license": "MIT",
-  "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-renderer"
-}
