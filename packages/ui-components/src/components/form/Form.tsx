@@ -148,3 +148,13 @@ export function createFormField(field:FormFieldProps, formProps:any = {}) {
       fieldProps,
   })
 }
+
+export const FormSettings = { 
+  name: 'Steedos:Form',
+  inputs: [
+    { name: 'columns', type: 'number', defaultValue:'2' },
+    { name: 'layout', type: 'text', defaultValue:'vertical' },
+    { name: 'mode', type: 'text', defaultValue: 'read' },
+  ],
+  canHaveChildren: true
+}

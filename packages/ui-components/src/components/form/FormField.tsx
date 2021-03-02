@@ -110,9 +110,9 @@ export function FormField(props:FormFieldProps) {
 export const FormFieldSettings = {
   name: 'Steedos:FormField',
   inputs: [
-    { name: 'name', type: 'text' },
+    { name: 'name', type: 'text', defaultValue:'NewField'  },
     { name: 'label', type: 'text' },
-    { name: 'valueType', type: 'text' }
+    { name: 'valueType', type: 'text', defaultValue:'text' }
   ],
   canHaveChildren: false
 }
