@@ -1,15 +1,41 @@
 Steedos App Builder 
 ===
 
-Steedos Low-Code App Builder , use JSON file to define apps, including components, forms, tables, pages, layout and routes. 
+Steedos Low-Code App Builder, an alterative to Salesforce App Builder. use JSON file to define apps, including components, forms, tables, pages, layout and routes. 
 
 You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page design.
 
-## Component
+## Build In Components
+
+### Standard Components
+
+Provide standard components to working on all projects, based on [Ant Design ProComponents](https://procomponents.ant.design/en-US_ .
+
+- [Form](https://procomponents.ant.design/en-US/components/form) 
+- [FormField](https://procomponents.ant.design/en-US/components/field-set)
+- [Layout](https://procomponents.ant.design/en-US/components/layout)
+- [Editable DataTable](https://procomponents.ant.design/en-US/components/editable-table)
+
+### Steedos Business Object Components
+
+Provide components to query [Steedos Objects](https://github.com/steedos/steedos-platform)
+
+- Object Form
+- Object DataTables
+
+## Design App with Builder.IO
+
+You can use [Builder.IO Fiddle](https://builder.io/fiddle) as an no-code editor to design you app.
+
+## Design App with json
+
+You can write json file to design your app.
+
+### Page Section
 
 ```json
 {
-  "@type": "@steedos/builder-sdk:Component",
+  "@type": "@steedos/builder-sdk:Section",
   "blocks":[
     {
       "@type":"@builder.io/sdk:Element",
@@ -28,7 +54,7 @@ You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page desig
 ```
 
 
-## Page
+### Page
 
 ```json
 {
@@ -52,7 +78,7 @@ You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page desig
 }
 ```
 
-## Layout
+### Layout
 
 ```json
 {
@@ -68,7 +94,7 @@ You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page desig
 }
 ```
 
-## App
+### App
 
 ```json
 {
