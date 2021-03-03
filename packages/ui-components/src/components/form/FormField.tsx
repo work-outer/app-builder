@@ -146,6 +146,12 @@ export const FormFieldSettings = {
           type: 'string'
         }
       ],
+    },
+    { 
+      name: 'filtersFunction',
+      friendlyName: "过滤器函数",
+      type: 'javascript',
+      showIf: 'options.get("valueType") === "select"'
     }
   ],
   canHaveChildren: false
