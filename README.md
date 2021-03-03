@@ -41,11 +41,54 @@ Provide standard components to working on all projects, based on [Ant Design Pro
 Provide components to query [Steedos Objects](https://github.com/steedos/steedos-platform)
 
 - Object Form
-- Object DataTables
+- Object DataTable
 
 ## Design App with Builder.IO
 
 You can use [Builder.IO Fiddle](https://builder.io/fiddle) as an no-code editor to design you app.
+
+### Standard Components For Design
+
+#### Form
+
+name: Steedos:Form
+props:
+
+- layout, horizontal | vertical | inline, defaultValue: horizontal
+- columns, number, defaultValue: 2
+- mode, read | edit | update, defaultValue: read
+- initialValues, object, a json
+- onValuesChange, text, a function string
+- onSubmit, text, a function string
+
+childrens: FormField
+
+#### FormField
+
+name: Steedos:FormField
+
+props:
+
+- name, the field name
+- label, the field label
+- valueType, the field value type, [ProFieldValueType](https://github.com/ant-design/pro-components/blob/2a99e27ea8f5d9d24b646f96ccd11967c059159e/packages/utils/src/typing.ts#L17) | [ProFieldValueObjectType](https://github.com/ant-design/pro-components/blob/2a99e27ea8f5d9d24b646f96ccd11967c059159e/packages/utils/src/typing.ts#L65), defaultValue: text
+- mode, read | edit | update, defaultValue: read
+- required, boolean, defaultValue: false
+- colSpan, number, defaultValue: 1
+- help, ReactNode
+- tooltip, ReactNode | [TooltipProps & { icon: ReactNode }](https://ant.design/components/tooltip-cn/#API)
+- valueEnum, {[key:string|number]:any}, only valid for the `select` valueType, see [ProFormSelect](https://procomponents.ant.design/components/field-set#proformselect) for detail.
+
+### Steedos Business Object Components For Design
+
+#### Object Form
+
+name: Steedos:ObjectForm
+
+#### Object DataTable
+
+name: Steedos:ObjectDataTable
+
 
 ## Design App with json
 
