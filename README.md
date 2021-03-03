@@ -1,7 +1,7 @@
 Steedos App Builder 
 ===
 
-Steedos Low-Code App Builder, an alterative to Salesforce App Builder. use metadata to define apps, including components, forms, tables, pages, layout and routes. 
+Steedos Low-Code App Builder, an alternative to Salesforce App Builder. use metadata to define apps, including components, forms, tables, pages, layout and routes. 
 
 You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page design.
 
