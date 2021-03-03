@@ -29,7 +29,7 @@ You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page desig
 
 ### Standard Components
 
-Provide standard components to working on all projects, based on [Ant Design ProComponents](https://procomponents.ant.design/en-US_ .
+Provide standard components to working on all projects, based on [Ant Design ProComponents](https://procomponents.ant.design/en-US) .
 
 - [Form](https://procomponents.ant.design/en-US/components/form) 
 - [FormField](https://procomponents.ant.design/en-US/components/field-set)
