@@ -1,8 +1,9 @@
 Steedos App Builder 
 ===
 
-Use JSON file to define components, forms, tables, pages, and app, and you can use Builder.IO for visual page design. The generated components can be called in various development environments such as React and VUE.
+Steedos Low-Code App Builder , use JSON file to define apps, including components, forms, tables, pages, layout and routes. 
 
+You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page design.
 
 ## Component
 
