@@ -1,9 +1,29 @@
-Steedos App Builder 
-===
+<p align="center">
+  <a href="https://www.steedos.org">
+    <img alt="Steedos" src="https://steedos.github.io/assets/logo.png" width="80" />
+  </a>
+</p>
+<h1 align="center">
+  Steedos App Builder 
+</h1>
+
+<p align="center">
+<a href="https://github.com/steedos/steedos-platform/">Steedos Platform</a>
+<a href="http://www.steedos.org/docs/overview"> · Docs</a>
+<a href="https://github.com/steedos/steedos-platform/issues/"> · Report a bug</a>
+<a href="https://github.com/steedos/steedos-platform/discussions"> · Discussions</a>
+</p>
+
+<p align="center">
 
 Steedos Low-Code App Builder, an alternative to Salesforce App Builder. use metadata to define apps, including components, forms, tables, pages, layout and routes. 
 
 You can use [Builder.IO Fiddle](https://builder.io/fiddle) for visual page design.
+
+<h3 align="center">
+ 🤖 🎨 🚀
+</h3>
+
 
 ## Build In Components
 
