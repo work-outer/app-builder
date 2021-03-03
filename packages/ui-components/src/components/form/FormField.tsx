@@ -110,9 +110,43 @@ export function FormField(props:FormFieldProps) {
 export const FormFieldSettings = {
   name: 'Steedos:FormField',
   inputs: [
-    { name: 'name', type: 'text', defaultValue:'NewField'  },
+    { name: 'name', type: 'text', defaultValue: 'NewField' },
     { name: 'label', type: 'text' },
-    { name: 'valueType', type: 'text', defaultValue:'text' }
+    { 
+      name: 'valueType', 
+      type: 'text', 
+      defaultValue: 'text',
+      enum: [{
+        label: "文本",
+        value: "text"
+      },{
+        label: "选择框",
+        value: "select"
+      }],
+      required: true
+    },
+    { 
+      name: 'options',
+      friendlyName: "选择项",
+      type: 'list',
+      showIf: 'options.get("valueType") === "select"',
+      subFields: [
+        {
+          name: 'label',
+          type: 'string',
+          required: true
+        },
+        {
+          name: 'value',
+          type: 'string',
+          required: true
+        },
+        {
+          name: 'color',
+          type: 'string'
+        }
+      ],
+    }
   ],
   canHaveChildren: false
 }
