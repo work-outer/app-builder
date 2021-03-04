@@ -20,6 +20,8 @@ export type FormProps<T = Record<string, any>>  = {
   fields?: FormFieldProps[],
   columns?:number,
   onInlineEdit?: Function, //用户点击了控件上的编辑按钮，启动表单进入编辑状态。
+  onFinish?: Function
+  onFinishString?: string, 
   formFieldProps?: FormFieldProps,
   formFieldComponent?: any,
   fieldProps?: any,
@@ -56,7 +58,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     }
   }
 
-  const {
+  let {
     fields = [], 
     columns = 2,
     mode = 'edit',
@@ -67,6 +69,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
     fieldProps = {
       allowClear: false,
     },
+    onFinish,
     submitter = defaultSubmitter,
     formFieldProps,
     formFieldComponent = FormField,
@@ -81,8 +84,13 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
   const onInlineEdit = ()=> {
     if (editableState)
       setModeState('edit');
-  } 
-
+  }
+  let onFinishString:any = props.onFinishString;
+  if(!onFinish && onFinishString){
+    onFinish = async (values: any)=>{
+      eval(onFinishString);
+    }
+  }
   // fieldProps.mode = modeState,
 
   const proFormProps = {
@@ -102,7 +110,7 @@ export function Form<T = Record<string, any>>(props: FormProps<T>) {
   return (
     <ProForm 
       {...proFormProps}
-      onFinish= {async (values:any) => console.log(values)}
+      onFinish= {onFinish}
     >
         <Grid {...boxOptions}>
           {

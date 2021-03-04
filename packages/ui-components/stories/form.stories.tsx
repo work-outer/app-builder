@@ -115,3 +115,11 @@ export const FormNoSubmit = () => (
     submitter={false}
     initialValues={initialValues}/>
 )
+
+export const FormFunctionString = () => (
+  <Form 
+    fields={fields}
+    layout='horizontal'
+    initialValues={initialValues}
+    onFinishString="console.log(JSON.stringify(values))"/>
+)
