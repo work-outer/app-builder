@@ -1,11 +1,11 @@
 import React from "react"
-import { FormField } from "../form/FormField"
+import { FormField, FormFieldProps } from "../form/FormField"
 
 
 export type FieldSelectProps = {
   name: string,
   valueEnum: any
-}
+}& FormFieldProps
 
 export function FieldSelect(props:FieldSelectProps) {
   const {name, valueEnum, ...rest} = props;

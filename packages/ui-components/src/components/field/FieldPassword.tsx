@@ -1,12 +1,12 @@
 import React from 'react'
-import { FormField } from '../form/FormField'
+import { FormField, FormFieldProps } from '../form/FormField'
 
 
 
 export type FieldPasswordProps = {
     name: string,
     placeholder: string
-}
+} & FormFieldProps
 
 export function FieldPassword(props:FieldPasswordProps ) {
 

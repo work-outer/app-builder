@@ -1,5 +1,9 @@
+
+
+import { ProFormSelect } from "@ant-design/pro-form"
 import * as React from "react"
 import { 
+  FieldSelect,
   Form,
   FormField
 } from "../src"
@@ -68,6 +72,13 @@ const initialValues = {
   }
 }
 
+const options=[
+  { label: '全部', value: 'all' },
+  { label: '未解决', value: 'open' },
+  { label: '已解决', value: 'closed' },
+  { label: '解决中', value: 'processing' }
+]
+
 export const FormWithChildren = () => (
   <Form 
     layout='vertical'
@@ -75,6 +86,7 @@ export const FormWithChildren = () => (
     initialValues={initialValues}>
       <FormField name='username' valueType='text'/>
       <FormField name='password' valueType='password'/>
+      <FieldSelect name='select' valueType='select' valueEnum={options}  />
   </Form>
 )
 
