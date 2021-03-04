@@ -11,7 +11,7 @@ export function FieldDateTimePicker(props:FieldDateTimePickerProps ) {
     return <FormField 
         {...res}
         name={name}
-        valueType='datetime'
+        valueType='dateTime'
     />
 }
 
