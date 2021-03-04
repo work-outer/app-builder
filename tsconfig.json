@@ -21,7 +21,7 @@
       "allowSyntheticDefaultImports": true,
       "downlevelIteration": true,
       "paths": {
-        "@steedos/builder-pro-form": ["packages/builder-pro-form/src/index.tsx"]
+        "@steedos/builder-form": ["/packages/builder-form/src/index.tsx"]
       }
     },
     "include": ["packages", "scripts", "tooling"],

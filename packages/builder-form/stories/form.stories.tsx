@@ -50,10 +50,10 @@ export const Preview = () => {
     hideTargeting: false, // Hide the targeting UI
   });
 
-  require('../src/builder-pro-form.tsx');
+  require('../src');
 
   return (
-      <BuilderComponent /> 
+      <BuilderComponent data={{}} /> 
     )
 }
 

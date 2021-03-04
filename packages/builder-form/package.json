@@ -2,36 +2,32 @@
   "name": "@steedos/builder-pro-form",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "dist/builder-widgets.cjs.js",
-  "module": "dist/builder-widgets.es5.js",
-  "unpkg": "dist/builder-widgets.browser.js",
-  "typings": "dist/types/builder-widgets.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "scripts": {
-    "_unlink": "npm unlink *",
-    "_install": "npm install && npm-install-peers",
-    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "rollup": "rollup -c rollup.config.ts",
-    "build": "tsc --module commonjs",
-    "build:docs": "typedoc --out docs --target es6 --theme minimal --mode file src",
-    "start": "rollup -c rollup.config.ts -w",
-    "test:watch": "jest --watch",
-    "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
-    "deploy-docs": "ts-node tools/gh-pages-publish",
-    "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "commit": "git-cz",
-    "release": "npm run build && ALLOW_PUBLISH=true npm publish",
-    "release:patch": "npm run build && npm version patch && ALLOW_PUBLISH=true npm publish",
-    "release:nightly": "npm run build && npm version prerelease --no-git-tag-version && ALLOW_PUBLISH=true npm publish --tag nightly",
-    "release:dev": "npm run build && npm version prerelease --no-git-tag-version && ALLOW_PUBLISH=true npm publish --tag dev",
-    "semantic-release": "semantic-release",
-    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit": "lint-staged",
-    "prepublishOnly": "block-publish"
+    "start": "nodemon --watch src --exec yarn build -e ts,tsx",
+    "build": "concurrently yarn:build:*",
+    "test": "jest --env=jsdom --passWithNoTests",
+    "lint": "concurrently yarn:lint:*",
+    "version": "yarn build",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "test:cov": "yarn test --coverage",
+    "lint:src": "eslint src --ext .ts,.tsx --config ../../.eslintrc",
+    "lint:types": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/core": ">=10",
