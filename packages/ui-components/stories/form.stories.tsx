@@ -86,7 +86,7 @@ export const FormWithChildren = () => (
     initialValues={initialValues}>
       <FormField name='username' valueType='text'/>
       <FormField name='password' valueType='password'/>
-      <FieldSelect name='select' valueType='select' valueEnum={options}  />
+      <FieldSelect name='select' valueType='select' options={options}  />
   </Form>
 )
 

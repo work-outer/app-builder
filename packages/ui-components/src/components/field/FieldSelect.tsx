@@ -4,29 +4,29 @@ import { FormField, FormFieldProps } from "../form/FormField"
 
 export type FieldSelectProps = {
   name: string,
-  valueEnum: any
+  options: any
 }& FormFieldProps
 
 export function FieldSelect(props:FieldSelectProps) {
-  const {name, valueEnum, ...rest} = props;
-  const options = {};
-  if(valueEnum){
-    valueEnum.map((option:any) =>{
-      options[option.value] = option.label;
+  const {name, options, ...rest} = props;
+  const valueEnum = {};
+  if(options){
+    options.map((option:any) =>{
+      valueEnum[option.value] = option.label;
     })
   }
   return <FormField 
     {...rest}
     name={name} 
     valueType='select'
-    valueEnum={options}
+    valueEnum={valueEnum}
     />
 }
 
 export const FieldSelectSettings = {
   name: 'Steedos:FieldSelect',
   inputs: [
-    { name: 'name', type: 'string', defaultValue:'NewField'  },
+    { name: 'name', type: 'string', defaultValue:'NewFieldSelect'  },
     { name: 'required', type: 'boolean' },
     { name: 'colSpan', type: 'number', defaultValue:'1'},
     { name: 'help', type: 'string' },
@@ -34,7 +34,7 @@ export const FieldSelectSettings = {
     { name: 'label', type: 'string' },
     { name: 'placeholder', type: 'string' },
     // { name: 'layout', type: 'string', enum: ['horizontal', 'vertical']},
-    { name: 'valueEnum',  type: 'list', subFields: [
+    { name: 'options',  type: 'list', subFields: [
       { name: 'label', type: 'string' },
       { name: 'value', type: 'string' }
     ]},
