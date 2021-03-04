@@ -4,8 +4,8 @@ import {
   FormSettings,
   FormField,
   FormFieldSettings,
-  FormFieldSelect,
-  FormFieldSelectSettings,
+  FieldSelect,
+  FieldSelectSettings,
 } from "../src"
 import { builder, withChildren } from '@builder.io/react'
 
@@ -34,7 +34,7 @@ Builder.register('editor.settings', {
 
 Builder.registerComponent(withChildren(Form), FormSettings)
 Builder.registerComponent(FormField, FormFieldSettings)
-Builder.registerComponent(FormFieldSelect, FormFieldSelectSettings)
+Builder.registerComponent(FieldSelect, FieldSelectSettings)
 
 
 // Register our heading component for use in 

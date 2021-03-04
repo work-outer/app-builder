@@ -2,11 +2,11 @@ import React from "react"
 import { FormField } from "../form/FormField"
 
 
-export type FormFieldSelectProps = {
+export type FieldSelectProps = {
   name: string,
 }
 
-export function FormFieldSelect(props:FormFieldSelectProps) {
+export function FieldSelect(props:FieldSelectProps) {
   const {name, ...rest} = props;
   return <FormField 
     {...rest}
@@ -15,7 +15,7 @@ export function FormFieldSelect(props:FormFieldSelectProps) {
     />
 }
 
-export const FormFieldSelectSettings = {
+export const FieldSelectSettings = {
   name: 'Steedos:FieldSelect',
   inputs: [
     { name: 'name', type: 'text', defaultValue:'NewField'  },
