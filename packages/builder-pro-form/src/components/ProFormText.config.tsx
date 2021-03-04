@@ -1,6 +1,6 @@
 import ProForm from '@ant-design/pro-form';
 
-export const ProFormTextConfig = {
+export const configProFormText = {
   name: 'ProComponents:FormText',
-  inputs: [{ name: 'title', type: 'text' }],
+  inputs: [{ name: 'label', type: 'text' }],
 };
