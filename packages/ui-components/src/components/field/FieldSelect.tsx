@@ -10,9 +10,11 @@ export type FieldSelectProps = {
 export function FieldSelect(props:FieldSelectProps) {
   const {name, valueEnum, ...rest} = props;
   const options = {};
-  valueEnum.map((option:any) =>{
-    options[option.label] = option.value;
-  })
+  if(valueEnum){
+    valueEnum.map((option:any) =>{
+      options[option.label] = option.value;
+    })
+  }
   return <FormField 
     {...rest}
     name={name} 
