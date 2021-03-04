@@ -4,14 +4,20 @@ import { FormField } from "../form/FormField"
 
 export type FieldSelectProps = {
   name: string,
+  valueEnum: any
 }
 
 export function FieldSelect(props:FieldSelectProps) {
-  const {name, ...rest} = props;
+  const {name, valueEnum, ...rest} = props;
+  const options = {};
+  valueEnum.map((option:any) =>{
+    options[option.label] = option.value;
+  })
   return <FormField 
     {...rest}
     name={name} 
     valueType='select'
+    valueEnum={options}
     />
 }
 
