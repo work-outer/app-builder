@@ -43,13 +43,16 @@ export const FieldSelectSettings = {
     // { name: 'autoFocus', type: 'boolean', defaultValue: false },  // 默认获取焦点
     { name: 'bordered', type: 'boolean', defaultValue: true },  // 是否有边框
     // { name: 'defaultActiveFirstOption', type: 'boolean', defaultValue: true },  // 是否默认高亮第一个选项
-    // { name: 'defaultOpen', type: 'boolean' },  // 是否默认展开下拉菜单
+    { name: 'defaultOpen', type: 'boolean', defaultValue: false },  // 是否默认展开下拉菜单
     // { name: 'defaultValue', type: 'list' },  // 指定默认选中的条目
     // { name: 'disabled', type: 'boolean' },  // 是否禁用
     // { name: 'dropdownClassName', type: 'string' },  // 下拉菜单的 className 属性
     // 下拉菜单和选择器同宽。默认将设置 min-width，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动
     // { name: 'dropdownMatchSelectWidth', type: 'string' },  
+    // 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 string 变为 { value: string, label: ReactNode } 的格式
+    { name: 'labelInValue', type: 'boolean', defaultValue: false },  
     // { name: 'virtual', type: 'boolean', defaultValue: true },  // 设置 false 时关闭虚拟滚动
+    // { name: 'listHeight', type: 'number', defaultValue: 256 },  // 设置弹窗滚动高度
   ],
   canHaveChildren: false
 }
