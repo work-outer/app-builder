@@ -12,7 +12,7 @@ export function FieldSelect(props:FieldSelectProps) {
   const options = {};
   if(valueEnum){
     valueEnum.map((option:any) =>{
-      options[option.label] = option.value;
+      options[option.value] = option.label;
     })
   }
   return <FormField 
