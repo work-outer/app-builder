@@ -18,7 +18,7 @@ export function FieldSelect(props:FieldSelectProps) {
 export const FieldSelectSettings = {
   name: 'Steedos:FieldSelect',
   inputs: [
-    { name: 'name', type: 'text', defaultValue:'NewField'  },
+    { name: 'name', type: 'text', defaultValue:'NewFieldSelect'  },
     { name: 'label', type: 'text' },
   ],
   canHaveChildren: false

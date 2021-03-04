@@ -12,10 +12,10 @@ export function FieldText(props:FieldTextProps){
     const {name, placeholder, ...rest}  = props;
 
     return <FormField
+        {...rest}
         name={name}
         valueType='text'
-        placeholder={placeholder}
-        {...rest}
+        placeholder={placeholder}        
     />
 }
 

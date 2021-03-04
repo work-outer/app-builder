@@ -7,7 +7,9 @@ import {
   FieldSelect,
   FieldSelectSettings,
   FieldTextSettings,
-  FieldText
+  FieldText,
+  FieldPasswordSettings,
+  FieldPassword
   
 } from "../src"
 import { builder, withChildren } from '@builder.io/react'
@@ -39,6 +41,7 @@ Builder.registerComponent(withChildren(Form), FormSettings)
 Builder.registerComponent(FormField, FormFieldSettings)
 Builder.registerComponent(FieldSelect, FieldSelectSettings)
 Builder.registerComponent(FieldText, FieldTextSettings)
+Builder.registerComponent(FieldPassword, FieldPasswordSettings)
 
 
 // Register our heading component for use in 
