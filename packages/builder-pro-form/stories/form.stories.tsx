@@ -2,7 +2,6 @@ import * as React from "react"
 import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@ant-design/pro-form';
 
 import { adapt } from "webcomponents-in-react";
-import editor from '@builder.io/editor';
 
 import { Builder, BuilderComponent, builder, withChildren } from '@builder.io/react';
 
