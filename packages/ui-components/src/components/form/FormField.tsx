@@ -1,12 +1,11 @@
 
 import React from "react";
 import ProForm from '@ant-design/pro-form';
-import ProField from '@ant-design/pro-field';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
-import Field from '../field/Field';
+import ProField from '../field/ProField';
 import { FormFieldObject } from './FormFieldObject';
 import { FormProps } from "./Form";
 
@@ -92,7 +91,7 @@ export function FormField(props:FormFieldProps) {
         <ProForm.Item 
             style={{marginBottom: 0}}
             {...itemOptions}>
-          <Field 
+          <ProField 
               mode={mode}
               valueType={valueType}
               fieldProps={fieldProps}

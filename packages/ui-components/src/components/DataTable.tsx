@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import { Space, Button } from 'antd';
 import ProTable, { EditableProTable, ProColumns } from '@ant-design/pro-table';
-import Field from './field/Field'
+import ProField from './field/ProField'
 
 
 export class DataTable extends React.Component<any> {
@@ -93,10 +93,10 @@ export class DataTable extends React.Component<any> {
               },
             };
             
-            return (<Field mode={mode} {...fieldProps}/>)
+            return (<ProField mode={mode} {...fieldProps}/>)
           },
           render: (dom:any, record:any, _:any, action:any) => {
-            return <Field inlineIconOpacity={0} text={dom} mode='read' onInlineEdit={ () => {
+            return <ProField inlineIconOpacity={0} text={dom} mode='read' onInlineEdit={ () => {
                 action.startEditable?.(record.id);
             }}/>
           },
