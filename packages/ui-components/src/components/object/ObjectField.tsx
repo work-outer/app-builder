@@ -47,7 +47,7 @@ export function ObjectField(props:ObjectFieldProps) {
     case 'select':{
       const valueEnum = {}
       props.options.map((option:any) => {
-        valueEnum[option.label] = option.value;
+        valueEnum[option.value] = option.label;
       })
       formFieldProps.valueEnum = valueEnum;
       break;
