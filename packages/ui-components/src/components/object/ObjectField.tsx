@@ -40,6 +40,9 @@ export function ObjectField(props:ObjectFieldProps) {
     case 'boolean':
       formFieldProps.valueType = 'switch';
       break;
+    case 'number':
+      formFieldProps.valueType = 'digit';
+      break;
     // case 'formula':
     
     // case 'master_detail':

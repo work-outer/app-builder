@@ -1,9 +1,9 @@
 import React from 'react'
-import { FormField } from '../form/FormField'
+import { FormField, FormFieldProps } from '../form/FormField'
 
 export type FieldDatePickerProps = {
     name: string
-}
+}& FormFieldProps
 
 export function FieldDatePicker(props:FieldDatePickerProps ) {
 

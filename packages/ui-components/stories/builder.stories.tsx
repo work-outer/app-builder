@@ -11,7 +11,9 @@ import {
   FieldPasswordSettings,
   FieldPassword,
   FieldDatePickerSettings,
-  FieldDatePicker
+  FieldDatePicker,
+  FieldDateTimePickerSettings,
+  FieldDateTimePicker
   
 } from "../src"
 import { builder, withChildren } from '@builder.io/react'
@@ -47,6 +49,7 @@ export const FormBuilder = () => {
   Builder.registerComponent(FieldText, FieldTextSettings)
   Builder.registerComponent(FieldPassword, FieldPasswordSettings)
   Builder.registerComponent(FieldDatePicker, FieldDatePickerSettings)
+  Builder.registerComponent(FieldDateTimePicker, FieldDateTimePickerSettings)
 
   return (
     <BuilderComponent /> 
