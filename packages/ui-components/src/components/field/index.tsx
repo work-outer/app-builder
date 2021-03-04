@@ -7,3 +7,4 @@ export * from './FieldPassword';
 export * from './FieldDatePicker';
 export * from './FieldDateTimePicker';
 export * from './FieldDateRangePicker';
+export * from './FieldTimePicker';
