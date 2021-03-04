@@ -1,4 +1,4 @@
 export const ProFormSettings = {
-  name: 'ProForm',
+  name: 'ProComponents:Form',
   inputs: [{ name: 'title', type: 'text' }],
 };

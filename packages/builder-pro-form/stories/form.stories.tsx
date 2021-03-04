@@ -3,10 +3,36 @@ import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@an
 
 import { ProFormSettings } from '../src';
 
+import { adapt } from "webcomponents-in-react";
+import editor from '@builder.io/editor';
+
 import { Builder, BuilderComponent, builder, withChildren } from '@builder.io/react';
 
 export default {
   title: "Pro Form",
+}
+
+
+
+export const Editor = () => {
+
+  const BuilderEditor = adapt("builder-editor");
+  const builderOptions = {
+    useDefaultStyles: false,
+    hideAnimateTab: true,
+    previewUrl: 'http://localhost:6006/iframe.html?id=pro-form--preview&viewMode=story',
+  };
+  const builderData = {}
+  return (
+    <BuilderEditor
+      class="absolute top-0 right-0 bottom-0 left-0 width-full"
+      onChange={(e:any) => {
+        console.log(e)
+      }}
+      data={{}}
+      env='production'
+      options={builderOptions}/>
+  ) 
 }
 
 
@@ -19,7 +45,7 @@ export const Preview = () => {
     hideMainTabs: true, // Hide all main tabs
     hideDataTab: true, // Hide the data tab
     hideOptionsTab: true, // Hide the options tab
-    hideToolbar: true, // Hide the main toolbar
+    hideToolbar: false, // Hide the main toolbar
     hideHeatMap: true, // Hide the heatmap button
     hidePageUrlEditor: false, // Hide the page URL editor
     hideAnimateTab: true, // Hide the animate tab
@@ -32,4 +58,5 @@ export const Preview = () => {
   return (
       <BuilderComponent /> 
     )
-  }
+}
+
