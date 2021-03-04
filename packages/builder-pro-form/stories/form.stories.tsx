@@ -1,8 +1,6 @@
 import * as React from "react"
 import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@ant-design/pro-form';
 
-import { ProFormSettings } from '../src';
-
 import { adapt } from "webcomponents-in-react";
 import editor from '@builder.io/editor';
 
@@ -53,7 +51,7 @@ export const Preview = () => {
     hideTargeting: false, // Hide the targeting UI
   });
 
-  Builder.registerComponent(withChildren(ProForm), ProFormSettings);
+  require('../src/builder-pro-form.tsx');
 
   return (
       <BuilderComponent /> 
