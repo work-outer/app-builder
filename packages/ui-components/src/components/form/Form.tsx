@@ -155,6 +155,7 @@ export const FormSettings = {
     { name: 'columns', type: 'number', defaultValue:'2' },
     { name: 'layout', type: 'text', defaultValue:'vertical' },
     { name: 'mode', type: 'text', defaultValue: 'read' },
+    { name: 'onSubmit', type: 'javascript', code:true, advanced: true},
   ],
   canHaveChildren: true
 }

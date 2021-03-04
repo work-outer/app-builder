@@ -1,5 +1,5 @@
 import React from "react"
-import { FormField } from "./FormField"
+import { FormField } from "../form/FormField"
 
 
 export type FormFieldSelectProps = {
@@ -15,9 +15,8 @@ export function FormFieldSelect(props:FormFieldSelectProps) {
     />
 }
 
-
 export const FormFieldSelectSettings = {
-  name: 'Steedos:FormFieldSelect',
+  name: 'Steedos:FieldSelect',
   inputs: [
     { name: 'name', type: 'text', defaultValue:'NewField'  },
     { name: 'label', type: 'text' },

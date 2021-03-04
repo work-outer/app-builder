@@ -112,6 +112,7 @@ export const FormFieldSettings = {
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'NewField' },
     { name: 'label', type: 'text' },
+    { name: 'required', type: 'boolean' },
     { 
       name: 'valueType', 
       type: 'text', 
