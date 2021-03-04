@@ -64,13 +64,18 @@ export function SteedosProvider(props:any) {
       return res;
     }
   }
+
+  const requestRecords = async( objectApiName:string, filters:any, fields:any , options:any) => {
+    const records = await client.sobject(objectApiName).find(filters, fields);
+    return records;
+
+  }
+
   const objectProviderProps = {
     
     requestObject: requestObject,
     
-    requestRecords: async ( objectApiName:string, params: RecordQueryRequestParams ) =>{
-      throw new Error(`requestRecords ${objectApiName} failed, you should impl this function in SteedosProvider.`)
-    }
+    requestRecords: requestRecords
   }
 
   return (
