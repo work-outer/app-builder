@@ -8,7 +8,7 @@ export function withFunctions(Component:any, functionNames: string[]) {
       if (typeof props[name] === 'string'){
         try {
           newProps[name] = eval(props[name])
-        } catch(e) {}
+        } catch(e) {console.log(e)}
       }
     })
 

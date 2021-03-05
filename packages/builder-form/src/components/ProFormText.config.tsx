@@ -5,7 +5,13 @@ export const configProFormText = {
     { name: 'readonly', type: 'boolean', defaultValue: false, enum:[true, false]},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'label', type: 'text', defaultValue: 'Text Field'},
-    { name: 'placeholder', type: 'string'}
+    { name: 'placeholder', type: 'string'},
+    { name: 'initialValue', type: 'string' },
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: 0,
+  },
+  noWrap: false,
   canHaveChildren: false
 };
