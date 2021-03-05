@@ -2,6 +2,7 @@ export const configProFormSwitch = {
   name: 'Steedos:FormSwitch',
   inputs: [
     { name: 'name', type: 'string', defaultValue: 'switch'},
+    { name: 'readonly', type: 'boolean', defaultValue: false, enum:[true, false]},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'label', type: 'string', defaultValue: 'Switch'},
     { name: 'className', type: 'string'},
