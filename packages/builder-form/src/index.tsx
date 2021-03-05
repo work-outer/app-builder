@@ -2,7 +2,7 @@ import { Builder, withChildren } from '@builder.io/react';
 import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
-    ProFormSlider, ProFormSelect, ProFormDigit } from '@ant-design/pro-form';
+    ProFormSlider, ProFormSelect, ProFormDigit, ProFormCheckbox } from '@ant-design/pro-form';
 import ProTable from '@ant-design/pro-table';
 import { configProForm } from './components/ProForm.config';
 import { configProFormText } from './components/ProFormText.config';
@@ -21,6 +21,7 @@ import { configProFormUploadDragger } from './components/ProFormUploadDragger.co
 import { configProFormSlider } from './components/ProFormSlider.config';
 import { configProFormRate } from './components/ProFormRate.config';
 import { configProFormSwitch } from './components/ProFormSwitch.config';
+import { configProFormCheckbox } from './components/ProFormCheckbox.config';
 
 Builder.registerComponent(withChildren(ProForm), configProForm);
 Builder.registerComponent(ProFormText, configProFormText);
@@ -31,6 +32,7 @@ Builder.registerComponent(ProFormTimePicker, configProFormTimePicker);
 Builder.registerComponent(ProFormDateTimePicker, configProFormDateTimePicker);
 Builder.registerComponent(ProFormDateRangePicker, configProFormDateRangePicker);
 Builder.registerComponent(ProFormDateTimeRangePicker, configProFormDateTimeRangePicker);
+Builder.registerComponent(ProFormCheckbox, configProFormCheckbox);
 Builder.registerComponent(ProFormSwitch, configProFormSwitch);
 Builder.registerComponent(ProFormRate, configProFormRate);
 Builder.registerComponent(ProFormSlider, configProFormSlider);
