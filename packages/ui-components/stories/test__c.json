@@ -19,7 +19,18 @@
             "company_ids": [
                 "3TyAbA3xYadmNgDtd"
             ],
-            "name": "name"
+            "name": "name",
+            "defaultValue": null,
+            "description": null,
+            "filterable": false,
+            "group": null,
+            "hidden": false,
+            "inlineHelpText": null,
+            "is_name": true,
+            "is_wide": false,
+            "omit": false,
+            "readonly": false,
+            "sortable": false
         },
         "owner": {
             "_id": "TXJ5QnWAgfBrAYmj8",
@@ -662,6 +673,7 @@
     "app_version": null,
     "description": "",
     "form": null,
+    "reload_time": "2021-03-03T06:26:52.233Z",
     "_id": "3K84itWTok9LDwevD",
     "relatedList": [],
     "list_views": {},
