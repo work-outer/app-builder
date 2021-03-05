@@ -1,10 +1,10 @@
 import { Builder, withChildren } from '@builder.io/react';
-import ProForm from './components/ProForm';
-import {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
+import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
     ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox } from '@ant-design/pro-form';
 import ProTable from '@ant-design/pro-table';
+import { withFunctions } from './components/withFunctions'
 import { configProForm } from './components/ProForm.config';
 import { configProFormText } from './components/ProFormText.config';
 import { configProTable } from './components/ProTable.config';
@@ -26,7 +26,8 @@ import { configProFormCheckbox } from './components/ProFormCheckbox.config';
 import { configProFormRadio } from './components/ProFormRadio.config';
 import { configProFormTimeRangePicker } from './components/ProFormTimeRangePicker.config';
 
-Builder.registerComponent(withChildren(ProForm), configProForm);
+const ProFormWrap = withFunctions(ProForm, ['onValuesChange', 'initialValues', 'onFinish']);
+Builder.registerComponent(withChildren(ProFormWrap), configProForm);
 Builder.registerComponent(ProFormText, configProFormText);
 Builder.registerComponent(ProFormText.Password, configProFormPassword);
 Builder.registerComponent(ProFormTextArea, configProFormTextArea);
