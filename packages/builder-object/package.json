@@ -1,0 +1,6 @@
+{
+  "name": "@steedos/builder-object",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
