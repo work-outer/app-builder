@@ -57,11 +57,13 @@ export function ObjectForm(props:ObjectFormProps) {
   )
 }
 
-// export const ObjectFormSettings = { 
-//   name: 'ObjectForm',
-//   inputs: [
-//     { name: 'objectApiName', type: 'text' },
-//     { name: 'columns', type: 'number' },
-//     { name: 'onSubmit', type: 'text' }
-//   ]
-// };
+export const configObjectForm = {
+  name: 'Steedos:ObjectForm',
+  inputs: [
+    { name: 'objectApiName', type: 'text', friendlyName: "对象名" },
+    { name: 'recordId', type: 'text', friendlyName: "记录ID" },
+    { name: 'mode', type: 'text', friendlyName: "Mode" }, 
+    { name: 'editable', type: 'text', friendlyName: "Editable" }
+  ],
+  canHaveChildren: true
+};

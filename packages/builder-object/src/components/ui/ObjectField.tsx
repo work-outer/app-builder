@@ -70,3 +70,14 @@ export function ObjectField(props: ObjectFieldProps) {
     )
   }
 }
+
+export const configObjectField = {
+  name: 'Steedos:ObjectField',
+  inputs: [
+    { name: 'objectApiName', type: 'text', friendlyName: "对象名" },
+    { name: 'fieldName', type: 'text', friendlyName: "字段名" },
+    { name: 'required', type: 'boolean', friendlyName: "必须" }, 
+    { name: 'readonly', type: 'boolean', friendlyName: "只读" }
+  ],
+  canHaveChildren: false
+};

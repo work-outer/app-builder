@@ -4,9 +4,8 @@ import React, {useContext} from "react";
 import ProField from '@ant-design/pro-field';
 import { SteedosClient }  from '@steedos/client';
 import { SteedosContext } from '..';
-import { FormProvider } from "./form/FormProvider";
-import { ObjectProvider } from "./object/ObjectProvider";
-import { RecordQueryRequestParams } from "./object/ObjectContext";
+import { ObjectProvider } from "./ObjectProvider";
+import { FormProvider } from "./FormProvider";
 
 const {
   STEEDOS_ROOT_URL,
