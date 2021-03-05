@@ -1,5 +1,5 @@
 import { Builder, withChildren } from '@builder.io/react';
-import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
+import {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
     ProFormSlider, ProFormSelect, ProFormDigit, ProFormCheckbox, ProFormRadio } from '@ant-design/pro-form';
@@ -23,6 +23,7 @@ import { configProFormRate } from './components/ProFormRate.config';
 import { configProFormSwitch } from './components/ProFormSwitch.config';
 import { configProFormCheckbox } from './components/ProFormCheckbox.config';
 import { configProFormRadio } from './components/ProFormRadio.config';
+import ProForm from './components/ProForm';
 
 Builder.registerComponent(withChildren(ProForm), configProForm);
 Builder.registerComponent(ProFormText, configProFormText);

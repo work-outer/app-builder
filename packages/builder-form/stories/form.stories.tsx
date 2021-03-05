@@ -9,14 +9,17 @@ export default {
   title: "Pro Form",
 }
 
-
+const apiKey = 'e9ada5daeb6a4627bc2560d29916c080';
 
 export const Editor = () => {
 
-  const script = document.createElement("script");
-  script.src = "https://cdn.builder.io/js/editor";
-  script.async = true;
-  document.body.appendChild(script);
+  if (!window.hasEditor) {
+    const script = document.createElement("script");
+    script.src = "https://cdn.builder.io/js/editor";
+    script.async = true;
+    document.body.appendChild(script);
+    window.hasEditor = true;
+  }
 
   const BuilderEditor = adapt("builder-editor");
   const builderOptions = {
@@ -24,14 +27,29 @@ export const Editor = () => {
     // hideAnimateTab: true,
     previewUrl: 'http://localhost:6006/iframe.html?id=pro-form--preview&viewMode=story',
   };
-  const builderData = {}
+
+  const initialContent = {
+    data: {
+      blocks: [{
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-0e6f5d94e39e41f0bc39bd42b55cd457",
+        "component": {
+          "name": "Text",
+          "options": {
+            "text": "<p>Steedos App Builder</p>"
+          }
+        },
+      }]
+    }
+  }
   return (
     <BuilderEditor
       class="absolute top-0 right-0 bottom-0 left-0 width-full"
       onChange={(e:any) => {
         console.log(e)
       }}
-      data={{}}
+      data={initialContent}
       env='production'
       options={builderOptions}/>
   ) 
@@ -39,10 +57,13 @@ export const Editor = () => {
 
 export const Fiddle = () => {
 
-  const script = document.createElement("script");
-  script.src = "https://cdn.builder.io/js/fiddle";
-  script.async = true;
-  document.body.appendChild(script);
+  if (!window.hasFiddle) {
+    const script = document.createElement("script");
+    script.src = "https://cdn.builder.io/js/fiddle";
+    script.async = true;
+    document.body.appendChild(script);
+    window.hasFiddle = true;
+  }
 
   const BuilderFiddle = adapt("builder-fiddle");
   const builderOptions = {
@@ -66,7 +87,7 @@ export const Fiddle = () => {
 
 export const Preview = () => {
 
-  builder.init('e9ada5daeb6a4627bc2560d29916c080');
+  builder.init(apiKey);
 
   // Builder.register('editor.settings', {
   //   hideStyleTab: false, // Hide the style tab
@@ -84,7 +105,9 @@ export const Preview = () => {
   require('../src');
 
   return (
-      <BuilderComponent data={{}} /> 
+      <BuilderComponent apiKey={apiKey}>
+
+      </BuilderComponent> 
     )
 }
 
