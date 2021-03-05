@@ -8,7 +8,6 @@ export const configProFormDigit = {
     { name: 'min', type: 'number' },  // 
     { name: 'max', type: 'number' },  // 
     { name: 'fieldProps', type: 'object', subFields: [
-      { name: 'bordered', type: 'boolean', defaultValue: true },
       { name: 'decimalSeparator', type: 'string' },
       { name: 'defaultValue', type: 'number' },
       { name: 'disabled', type: 'boolean', defaultValue: false },

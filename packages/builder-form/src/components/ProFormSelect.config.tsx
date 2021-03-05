@@ -13,7 +13,6 @@ export const configProFormSelect = {
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: false },
       { name: 'autoClearSearchValue', type: 'boolean', defaultValue: true },
-      { name: 'bordered', type: 'boolean', defaultValue: true },
       { name: 'defaultActiveFirstOption', type: 'boolean', defaultValue: true },
       { name: 'defaultOpen', type: 'boolean', defaultValue: false },
       // { name: 'defaultValue', type: 'list', subFields:[

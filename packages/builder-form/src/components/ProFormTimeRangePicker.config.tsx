@@ -9,7 +9,6 @@ export const configProFormTimeRangePicker = {
       { name: 'allowClear', type: 'boolean', defaultValue: true},
       { name: 'size', type: 'string', defaultValue:'middle', enum: ['large', 'middle', 'small']},
       { name: 'autoFocus', type: 'boolean', defaultValue: false},
-      { name: 'bordered', type: 'boolean', defaultValue: true},
       { name: 'inputReadOnly', type: 'boolean', defaultValue: false}
     ]}
   ],
