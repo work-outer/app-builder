@@ -8,4 +8,5 @@ export const configProFormSwitch = {
     { name: 'disabled', type: 'boolean'},
     { name: 'size', type: 'string', enum: ['default', 'small']}
   ],
+  canHaveChildren: false
 };

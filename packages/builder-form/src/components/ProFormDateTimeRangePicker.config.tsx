@@ -4,4 +4,5 @@ export const configProFormDateTimeRangePicker = {
     { name: 'name', type: 'text', defaultValue: 'dateTimeRange'},
     { name: 'label', type: 'text', defaultValue: 'DateTimeRange Picker'}
   ],
+  canHaveChildren: false
 };

@@ -8,4 +8,5 @@ export const configProFormSlider = {
       { name: 'value', type: 'number' }
     ]},
   ],
+  canHaveChildren: false
 };

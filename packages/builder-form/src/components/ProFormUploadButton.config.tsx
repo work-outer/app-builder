@@ -4,4 +4,5 @@ export const configProFormUploadButton = {
     { name: 'name', type: 'text', defaultValue: 'upload'},
     { name: 'label', type: 'text', defaultValue: 'Upload Button'},
   ],
+  canHaveChildren: false
 };

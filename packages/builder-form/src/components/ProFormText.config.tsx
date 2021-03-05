@@ -5,4 +5,5 @@ export const configProFormText = {
     { name: 'label', type: 'text', defaultValue: 'Text Field'},
     { name: 'placeholder', type: 'string'}
   ],
+  canHaveChildren: false
 };

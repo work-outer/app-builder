@@ -6,4 +6,5 @@ export const configProFormDigit = {
     { name: 'min', type: 'number' },  // 
     { name: 'max', type: 'number' },  // 
   ],
+  canHaveChildren: false
 };

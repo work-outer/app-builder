@@ -4,4 +4,5 @@ export const configProFormTimePicker = {
     { name: 'name', type: 'text', defaultValue: 'time'},
     { name: 'label', type: 'text', defaultValue: 'Time Picker'}
   ],
+  canHaveChildren: false
 };

@@ -4,4 +4,5 @@ export const configProFormRate = {
     { name: 'name', type: 'text', defaultValue: 'rate'},
     { name: 'label', type: 'text', defaultValue: 'Rate'},
   ],
+  canHaveChildren: false
 };

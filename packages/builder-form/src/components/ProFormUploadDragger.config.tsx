@@ -4,4 +4,5 @@ export const configProFormUploadDragger = {
     { name: 'name', type: 'text', defaultValue: 'dragger'},
     { name: 'label', type: 'text', defaultValue: 'Dragger'},
   ],
+  canHaveChildren: false
 };

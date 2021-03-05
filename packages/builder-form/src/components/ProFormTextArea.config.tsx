@@ -5,4 +5,5 @@ export const configProFormTextArea = {
     { name: 'label', type: 'text', defaultValue: 'TextArea'},
     { name: 'placeholder', type: 'string'}
   ],
+  canHaveChildren: false
 };

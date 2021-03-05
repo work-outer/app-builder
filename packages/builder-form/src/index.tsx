@@ -2,7 +2,7 @@ import { Builder, withChildren } from '@builder.io/react';
 import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
-    ProFormSlider, ProFormSelect, ProFormDigit, ProFormCheckbox, ProFormRadio } from '@ant-design/pro-form';
+    ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox } from '@ant-design/pro-form';
 import ProTable from '@ant-design/pro-table';
 import { configProForm } from './components/ProForm.config';
 import { configProFormText } from './components/ProFormText.config';
@@ -30,6 +30,7 @@ Builder.registerComponent(ProFormText.Password, configProFormTextPassword);
 Builder.registerComponent(ProFormTextArea, configProFormTextArea);
 Builder.registerComponent(ProFormDatePicker, configProFormDatePicker);
 Builder.registerComponent(ProFormTimePicker, configProFormTimePicker);
+Builder.registerComponent(ProFormTimePicker.RangePicker, configProFormDateRangePicker);
 Builder.registerComponent(ProFormDateTimePicker, configProFormDateTimePicker);
 Builder.registerComponent(ProFormDateRangePicker, configProFormDateRangePicker);
 Builder.registerComponent(ProFormDateTimeRangePicker, configProFormDateTimeRangePicker);

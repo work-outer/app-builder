@@ -9,4 +9,5 @@ export const configProFormRadio = {
       { name: 'value', type: 'string' }
     ]}
   ],
+  canHaveChildren: false
 };

@@ -9,4 +9,5 @@ export const configProFormSelect = {
       { name: 'value', type: 'string' }
     ]},
   ],
+  canHaveChildren: false
 };
