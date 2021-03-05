@@ -3,10 +3,7 @@ export const configProFormRadio = {
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'radio'},
     { name: 'label', type: 'text', defaultValue: 'Radio'},
-    { name: 'radioType', type: 'list', 
-      defaultValue: 'radio', 
-      enum:['button','radio']
-    },
+    { name: 'radioType', type: 'string', defaultValue: 'radio', enum:['radio', 'button']},
     { name: 'options',  type: 'list', subFields: [
       { name: 'label', type: 'string' },
       { name: 'value', type: 'string' }
