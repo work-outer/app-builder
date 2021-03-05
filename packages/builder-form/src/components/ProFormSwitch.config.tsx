@@ -3,12 +3,7 @@ export const configProFormSwitch = {
   inputs: [
     { name: 'name', type: 'string', defaultValue: 'switch'},
     { name: 'readonly', type: 'boolean', defaultValue: false, enum:[true, false]},
-    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'label', type: 'string', defaultValue: 'Switch'},
-    { name: 'className', type: 'string'},
-    { name: 'defaultChecked', type: 'boolean'},
-    { name: 'disabled', type: 'boolean'},
-    { name: 'size', type: 'string', enum: ['default', 'small']}
+    { name: 'label', type: 'string', defaultValue: 'Switch'}
   ],
   canHaveChildren: false
 };
