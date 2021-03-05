@@ -6,21 +6,17 @@ export default {
   title: "JSX Lite",
 }
 
-export const WebComponentSource = () => {
-
-  const json = require('./test.lite.json');
-  const template = componentToCustomElement(json);
- 
-  return (template)
-}
-
 
 export const WebComponentRender = () => {
 
   const json = require('./test.lite.json');
   const template = componentToCustomElement(json);
- 
-  eval(template)
+  console.log(template)
+
+  if (!window.hasJSX) {
+    eval(template)
+    window.hasJSX=true
+  }
   return (<my-jsx-component/>)
 }
 
