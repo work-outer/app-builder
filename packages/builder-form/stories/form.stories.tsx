@@ -13,6 +13,11 @@ export default {
 
 export const Editor = () => {
 
+  const script = document.createElement("script");
+  script.src = "https://cdn.builder.io/js/editor";
+  script.async = true;
+  document.body.appendChild(script);
+
   const BuilderEditor = adapt("builder-editor");
   const builderOptions = {
     // useDefaultStyles: true,
@@ -22,6 +27,32 @@ export const Editor = () => {
   const builderData = {}
   return (
     <BuilderEditor
+      class="absolute top-0 right-0 bottom-0 left-0 width-full"
+      onChange={(e:any) => {
+        console.log(e)
+      }}
+      data={{}}
+      env='production'
+      options={builderOptions}/>
+  ) 
+}
+
+export const Fiddle = () => {
+
+  const script = document.createElement("script");
+  script.src = "https://cdn.builder.io/js/fiddle";
+  script.async = true;
+  document.body.appendChild(script);
+
+  const BuilderFiddle = adapt("builder-fiddle");
+  const builderOptions = {
+    // useDefaultStyles: true,
+    // hideAnimateTab: true,
+    previewUrl: 'http://localhost:6006/iframe.html?id=pro-form--preview&viewMode=story',
+  };
+  const builderData = {}
+  return (
+    <BuilderFiddle
       class="absolute top-0 right-0 bottom-0 left-0 width-full"
       onChange={(e:any) => {
         console.log(e)
