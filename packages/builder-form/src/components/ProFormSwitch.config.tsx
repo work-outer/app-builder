@@ -2,10 +2,8 @@ export const configProFormSwitch = {
   name: 'Steedos:FormSwitch',
   inputs: [
     { name: 'name', type: 'string', defaultValue: 'switch'},
-    { name: 'label', type: 'string', defaultValue: 'Switch'},
-    { name: 'className', type: 'string'},
-    { name: 'defaultChecked', type: 'boolean'},
-    { name: 'disabled', type: 'boolean'},
-    { name: 'size', type: 'string', enum: ['default', 'small']}
+    { name: 'readonly', type: 'boolean', defaultValue: false, enum:[true, false]},
+    { name: 'label', type: 'string', defaultValue: 'Switch'}
   ],
+  canHaveChildren: false
 };

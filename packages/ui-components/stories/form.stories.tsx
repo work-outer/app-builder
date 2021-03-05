@@ -1,6 +1,6 @@
 
 
-import { ProFormSelect } from "@ant-design/pro-form"
+import { ProFormCheckbox, ProFormSelect, ProFormText } from "@ant-design/pro-form"
 import * as React from "react"
 import { 
   FieldSelect,
@@ -87,6 +87,12 @@ export const FormWithChildren = () => (
       <FormField name='username' valueType='text'/>
       <FormField name='password' valueType='password'/>
       <FieldSelect name='select' valueType='select' options={options}  />
+      <ProFormCheckbox.Group 
+        name="checkbox"
+        layout="vertical"
+        label="行业分布"
+        options={['农业', '制造业', '互联网']} />
+      <ProFormText name="text" label="名称" placeholder="请输入名称" />
   </Form>
 )
 

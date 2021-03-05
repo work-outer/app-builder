@@ -1,10 +1,10 @@
-export const configProFormTextArea = {
-  name: 'Steedos:FormTextArea',
+export const configProFormPassword = {
+  name: 'Steedos:FormPassword',
   inputs: [
-    { name: 'name', type: 'text', defaultValue: 'textarea'},
+    { name: 'name', type: 'text', defaultValue: 'password'},
     { name: 'readonly', type: 'boolean', defaultValue: false, enum:[true, false]},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'label', type: 'text', defaultValue: 'TextArea'},
+    { name: 'label', type: 'text', defaultValue: 'Password'},
     { name: 'placeholder', type: 'string'}
   ],
   canHaveChildren: false

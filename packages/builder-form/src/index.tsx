@@ -1,8 +1,9 @@
 import { Builder, withChildren } from '@builder.io/react';
+import ProForm from './components/ProForm';
 import {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
-    ProFormSlider, ProFormSelect, ProFormDigit, ProFormCheckbox, ProFormRadio } from '@ant-design/pro-form';
+    ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox } from '@ant-design/pro-form';
 import ProTable from '@ant-design/pro-table';
 import { configProForm } from './components/ProForm.config';
 import { configProFormText } from './components/ProFormText.config';
@@ -11,7 +12,7 @@ import { configProFormDatePicker } from './components/ProFormDatePicker.config';
 import { configProFormDateTimePicker } from './components/ProFormDateTimePicker.config';
 import { configProFormDateRangePicker } from './components/ProFormDateRangePicker.config';
 import { configProFormDateTimeRangePicker } from './components/ProFormDateTimeRangePicker.config';
-import { configProFormTextPassword } from './components/ProFormText.Password.config';
+import { configProFormPassword } from './components/ProFormPassword.config';
 import { configProFormTimePicker } from './components/ProFormTimePicker.config';
 import { configProFormTextArea } from './components/ProFormTextArea.config';
 import { configProFormDigit } from './components/ProFormDigit.config';
@@ -23,14 +24,15 @@ import { configProFormRate } from './components/ProFormRate.config';
 import { configProFormSwitch } from './components/ProFormSwitch.config';
 import { configProFormCheckbox } from './components/ProFormCheckbox.config';
 import { configProFormRadio } from './components/ProFormRadio.config';
-import ProForm from './components/ProForm';
+import { configProFormTimeRangePicker } from './components/ProFormTimeRangePicker.config';
 
 Builder.registerComponent(withChildren(ProForm), configProForm);
 Builder.registerComponent(ProFormText, configProFormText);
-Builder.registerComponent(ProFormText.Password, configProFormTextPassword);
+Builder.registerComponent(ProFormText.Password, configProFormPassword);
 Builder.registerComponent(ProFormTextArea, configProFormTextArea);
 Builder.registerComponent(ProFormDatePicker, configProFormDatePicker);
 Builder.registerComponent(ProFormTimePicker, configProFormTimePicker);
+Builder.registerComponent(ProFormTimePicker.RangePicker, configProFormTimeRangePicker);
 Builder.registerComponent(ProFormDateTimePicker, configProFormDateTimePicker);
 Builder.registerComponent(ProFormDateRangePicker, configProFormDateRangePicker);
 Builder.registerComponent(ProFormDateTimeRangePicker, configProFormDateTimeRangePicker);
