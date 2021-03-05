@@ -23,6 +23,7 @@ import { configProFormRate } from './components/ProFormRate.config';
 import { configProFormSwitch } from './components/ProFormSwitch.config';
 import { configProFormCheckbox } from './components/ProFormCheckbox.config';
 import { configProFormRadio } from './components/ProFormRadio.config';
+import { configProFormTimeRangePicker } from './components/ProFormTimeRangePicker.config';
 
 Builder.registerComponent(withChildren(ProForm), configProForm);
 Builder.registerComponent(ProFormText, configProFormText);
@@ -30,7 +31,7 @@ Builder.registerComponent(ProFormText.Password, configProFormPassword);
 Builder.registerComponent(ProFormTextArea, configProFormTextArea);
 Builder.registerComponent(ProFormDatePicker, configProFormDatePicker);
 Builder.registerComponent(ProFormTimePicker, configProFormTimePicker);
-Builder.registerComponent(ProFormTimePicker.RangePicker, configProFormDateRangePicker);
+Builder.registerComponent(ProFormTimePicker.RangePicker, configProFormTimeRangePicker);
 Builder.registerComponent(ProFormDateTimePicker, configProFormDateTimePicker);
 Builder.registerComponent(ProFormDateRangePicker, configProFormDateRangePicker);
 Builder.registerComponent(ProFormDateTimeRangePicker, configProFormDateTimeRangePicker);
