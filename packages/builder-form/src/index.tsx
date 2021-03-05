@@ -1,8 +1,8 @@
 import { Builder, withChildren } from '@builder.io/react';
 import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
-    ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton,
-     ProFormSlider, ProFormSelect, ProFormDigit} from '@ant-design/pro-form';
+    ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
+    ProFormSlider, ProFormSelect, ProFormDigit } from '@ant-design/pro-form';
 import ProTable from '@ant-design/pro-table';
 import { configProForm } from './components/ProForm.config';
 import { configProFormText } from './components/ProFormText.config';
