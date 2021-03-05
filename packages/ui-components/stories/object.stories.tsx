@@ -36,7 +36,7 @@ export const AccountForm = () => (
 export const SteedosObjectForm = () => (
   <SteedosProvider >
     <ObjectForm 
-      objectApiName='test__c'
+      objectApiName='accounts'
       layout='vertical'
       mode='read'>
         <FormField name='testChild' valueType='text'/>
