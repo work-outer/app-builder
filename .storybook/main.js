@@ -42,14 +42,25 @@ module.exports = {
       // include: path.resolve(__dirname, '../node_modules/')
     });
 
-    config.module.rules.push({
-        test: /\.jsx?$/,
-        loaders: ['babel-loader'],
-        include: [
-            path.join(__dirname, '../node_modules/@salesforce/design-system-react'),
-        ]
-    })
-
+    // config.module.rules.push({
+    //     test: /\.jsx?$/,
+    //     loaders: ['babel-loader'],
+    //     include: [
+    //         path.join(__dirname, '../node_modules/@salesforce/design-system-react'),
+    //     ]
+    // })
+    console.log(config)
+    config.node = {
+      module: 'empty',
+      dgram: 'empty',
+      // path: 'mock',
+      dns: 'mock',
+      fs: 'empty',
+      http2: 'empty',
+      net: 'empty',
+      tls: 'empty',
+      child_process: 'empty',
+    };
     return {
       ...config,
       resolve: {
