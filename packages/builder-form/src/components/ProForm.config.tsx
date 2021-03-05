@@ -4,7 +4,7 @@ export const configProForm = {
     { name: 'title', type: 'text' },
     { name: 'initialValues', type: 'code', language: 'javascript'},
     { name: 'onValuesChange', type: 'code', language: 'javascript'},
-    { name: 'onFinish', type: 'code', language: 'javascript'},
+    { name: 'onFinish', type: 'code', language: 'javascript', defaultValue: "(values) => { console.log(values) }"},
   ],
   canHaveChildren: true
 };
