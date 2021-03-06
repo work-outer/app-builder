@@ -36,7 +36,7 @@ export function ObjectForm(props:ObjectFormProps) {
   console.log("==requestObject==data===", data);
 
   if (!objectSchema) 
-    return (<div>Loading...</div>)
+    return (<div>Object Loading...</div>)
   
   //TODO  fields['name', 'type']不为空
   

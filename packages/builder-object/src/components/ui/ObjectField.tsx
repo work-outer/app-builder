@@ -39,7 +39,7 @@ export function ObjectField(props: ObjectFieldProps) {
   console.log("==requestObject==data===", data);
 
   if (!objectSchema)
-    return (<div>Loading...</div>)
+    return (<div>Field Loading...</div>)
 
   //TODO  fields['name', 'type']不为空
 
