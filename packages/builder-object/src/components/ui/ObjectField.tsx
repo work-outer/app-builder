@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProField from '@ant-design/pro-field';
+import _ from 'lodash';
+import { useQuery } from "react-query";
+import { ObjectContext } from "../";
 
 export type ObjectFieldProps = {
   objectApiName: string,
@@ -9,16 +12,49 @@ export type ObjectFieldProps = {
 }
 
 export function ObjectField(props: ObjectFieldProps) {
+  const objectContext = useContext(ObjectContext);
 
   const { objectApiName, fieldName, required, readonly } = props
-  // 从对象定义中生成字段信息。
-  const type: any = "";//根据objectApiName及fieldName算出type值
-  let formFieldProps: any = {
-    name: fieldName,
-    valueType: type
+  
+  if (!objectApiName || !fieldName) 
+    return (<div>请输入对象名和字段名</div>)
+
+  console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
+  const { 
+    isLoading, 
+    error, 
+    data, 
+    isFetching 
+  } = useQuery(objectApiName, async () => {
+    return await objectContext.requestObject(objectApiName);
+  });
+
+  const objectSchema:any = data
+  console.log("==requestObject==data===", data);
+
+  if (!objectSchema) 
+    return (<div>Loading...</div>)
+  
+  //TODO  fields['name', 'type']不为空
+  
+  const field:any = _.find(objectSchema.fields, (field, key)=>{
+    return fieldName === key;
+  })
+  console.log("==requestObject==field===", field);
+  if(!field){
+    return (<div>{`对象${objectApiName}上未定义字段${fieldName}`}</div>)
   }
 
-  switch (type) {
+  // 从对象定义中生成字段信息。
+  const fieldType: string = field.type;//根据objectApiName及fieldName算出type值
+  let formFieldProps: any = {
+    name: fieldName, 
+    mode: "edit",
+    label:"名称",
+    placeholder:"aa"
+  }
+
+  switch (fieldType) {
     case 'url':
       formFieldProps.valueType = 'href';
       break;
@@ -48,8 +84,10 @@ export function ObjectField(props: ObjectFieldProps) {
     //   })
     //   formFieldProps.valueEnum = valueEnum;
     //   break;
+    default:
+      formFieldProps.valueType = fieldType;
   }
-  if (type === 'lookup') {
+  if (fieldType === 'lookup') {
     return (
       <div></div>
       // <ObjectFieldLookup
