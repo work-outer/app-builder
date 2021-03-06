@@ -56,8 +56,8 @@ export function ObjectField(props: ObjectFieldProps) {
   let formFieldProps: any = {
     name: fieldName,
     mode: "edit",
-    label: "名称",
-    placeholder: "aa"
+    label: field.label,
+    placeholder: field.help
   }
 
   switch (fieldType) {
