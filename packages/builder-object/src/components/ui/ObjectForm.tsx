@@ -23,7 +23,7 @@ export function ObjectForm(props:ObjectFormProps) {
   const objectContext = useContext(ObjectContext);
 
   const { objectApiName, recordId, mode, editable,  ...rest} = props
-
+  console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
   const { 
     isLoading, 
     error, 
@@ -33,6 +33,7 @@ export function ObjectForm(props:ObjectFormProps) {
     return await objectContext.requestObject(objectApiName);
   });
   const objectSchema:any = data
+  console.log("==requestObject==data===", data);
 
   if (!objectSchema) 
     return (<div>Loading...</div>)

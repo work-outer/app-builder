@@ -28,3 +28,27 @@ export function ObjectProvider(props: ObjectProviderProps) {
     </ObjectContext.Provider>
   )
 }
+
+export const configObjectProvider = {
+  name: 'Steedos:ObjectProvider',
+  inputs: [{ 
+    name: 'requestObject', 
+    type: 'code', 
+    language: 'javascript', 
+    helperText:'请提供从服务端抓取对象配置的函数',
+    defaultValue: `async (objectApiName) => {
+  //objectApiName:对象api名称
+}` 
+  },{ 
+    name: 'requestRecords', 
+    type: 'code', 
+    language: 'javascript', 
+    helperText:'请提供从服务端抓取对象记录的函数',
+    defaultValue: `async (objectApiName, filters, fields , options) => {
+  //objectApiName:对象api名称
+  //filters: 过滤条件
+  //fields: 要返回的字段
+}` 
+  }],
+  canHaveChildren: true
+};
