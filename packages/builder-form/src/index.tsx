@@ -25,9 +25,11 @@ import { configProFormSwitch } from './components/ProFormSwitch.config';
 import { configProFormCheckbox } from './components/ProFormCheckbox.config';
 import { configProFormRadio } from './components/ProFormRadio.config';
 import { configProFormTimeRangePicker } from './components/ProFormTimeRangePicker.config';
+import { configProFormGroup } from './components/ProForm.Group.cofig';
 
 const ProFormWrap = withFunctions(ProForm, ['onValuesChange', 'initialValues', 'onFinish']);
 Builder.registerComponent(withChildren(ProFormWrap), configProForm);
+Builder.registerComponent(withChildren(ProForm.Group), configProFormGroup);
 Builder.registerComponent(ProFormText, configProFormText);
 Builder.registerComponent(ProFormText.Password, configProFormPassword);
 Builder.registerComponent(ProFormTextArea, configProFormTextArea);

@@ -12,5 +12,9 @@ export const configProFormPassword = {
       { name: 'maxLength', type: 'number'},
     ]}
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };

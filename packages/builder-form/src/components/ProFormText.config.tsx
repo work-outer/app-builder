@@ -14,7 +14,7 @@ export const configProFormText = {
   ],
   defaultStyles: {
     display: 'block',
-    marginTop: 0,
+    marginTop: '0',
   },
   noWrap: false,
   canHaveChildren: false
