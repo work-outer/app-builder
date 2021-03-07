@@ -1,6 +1,8 @@
 import _ from 'lodash'
+import React from 'react'
+
 export function withFunctions(Component:any, functionNames: string[]) {
-  return (props) => {
+  return (props:any) => {
     let {initialValues, onFinish, onValuesChange, children, ...rest} = props
     let newProps = _.cloneDeep(props)
 

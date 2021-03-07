@@ -4,7 +4,7 @@ import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicke
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
     ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox } from '@ant-design/pro-form';
 import ProTable from '@ant-design/pro-table';
-import { withFunctions } from './components/withFunctions'
+import { withFunctions } from './functions/withFunctions'
 import { configProForm } from './components/ProForm.config';
 import { configProFormText } from './components/ProFormText.config';
 import { configProTable } from './components/ProTable.config';
