@@ -49,7 +49,6 @@ module.exports = {
     //         path.join(__dirname, '../node_modules/@salesforce/design-system-react'),
     //     ]
     // })
-    console.log(config)
     config.node = {
       module: 'empty',
       dgram: 'empty',
