@@ -2,7 +2,7 @@ export const configProFormSlider = {
   name: 'Steedos:FormSlider',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'slider'},
-    { name: 'readonly', type: 'boolean', defaultValue: false, enum:[true, false]},
+    { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'label', type: 'text', defaultValue: 'Slider'},
     { name: 'min', type: 'number', defaultValue: 0 },
