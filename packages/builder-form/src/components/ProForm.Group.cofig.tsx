@@ -5,6 +5,11 @@ export const configProFormGroup = {
   inputs: [
     { name: 'title', type: 'text', defaultValue: 'Form Section' },
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+    minHeight: '50px',
+  },
   canHaveChildren: true,
   requiresParent: {
     message: 'This block must be inside a "Form"  block',
