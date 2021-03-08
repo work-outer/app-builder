@@ -10,8 +10,8 @@ export const configProFormSlider = {
     { name: 'max', type: 'number', defaultValue: 100 },
     { name: 'step', type: 'number', defaultValue: 1 },
     { name: 'marks',  type: 'list', subFields: [
-      { name: 'label', type: 'string' },
-      { name: 'value', type: 'number' }
+      { name: 'value', type: 'number' },
+      { name: 'label', type: 'string' }
     ]},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: false },

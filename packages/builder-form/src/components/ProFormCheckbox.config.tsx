@@ -4,8 +4,8 @@ export const configProFormCheckbox = {
     { name: 'name', type: 'text', defaultValue: 'checkbox', required: true},
     { name: 'label', type: 'text', defaultValue: 'Checkbox', required: true},
     { name: 'options',  type: 'list', required: true, subFields: [
-      { name: 'label', type: 'string', defaultValue: 'label' },
-      { name: 'value', type: 'string', defaultValue: 'value' }  // value没有默认值会出错
+      { name: 'value', type: 'string', defaultValue: 'value' },
+      { name: 'label', type: 'string', defaultValue: 'label' }        // value没有默认值会出错
     ]},
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'disabled', type: 'boolean', defaultValue:false},
