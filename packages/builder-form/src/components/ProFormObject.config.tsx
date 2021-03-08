@@ -8,7 +8,8 @@ export const configProFormObject = {
   ],
   defaultStyles: {
     display: 'block',
-    minHeight: '50px'
+    minHeight: '50px',
+    marginTop: '0',
   },
   noWrap: false,
   canHaveChildren: true,
