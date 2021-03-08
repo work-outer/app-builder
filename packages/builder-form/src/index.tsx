@@ -32,11 +32,14 @@ import { configProFormGroup } from './components/ProForm.Group.cofig';
 import { configProFormField } from './components/ProFormField.config';
 import { Form } from './components/Form';
 import { configProFormList } from './components/ProFormList.config';
+import { configProFormObject } from './components/ProFormObject.config';
+import { ProFormObject } from './components/ProFormObject';
 
 const ProFormWrap = withFunctions(Form, ['onValuesChange', 'initialValues', 'onFinish']);
 Builder.registerComponent(withChildren(ProFormWrap), configProForm);
 Builder.registerComponent(withChildren(ProForm.Group), configProFormGroup);
 Builder.registerComponent(withChildren(ProFormList), configProFormList);
+Builder.registerComponent(withChildren(ProFormObject), configProFormObject);
 Builder.registerComponent(ProFormField, configProFormField);
 Builder.registerComponent(ProFormText, configProFormText);
 Builder.registerComponent(ProFormText.Password, configProFormPassword);
