@@ -8,11 +8,11 @@ export const configProFormDigit = {
     { name: 'min', type: 'number' },
     { name: 'max', type: 'number' },
     { name: 'disabled', type: 'boolean', defaultValue:false},
+    { name: 'initialValue', type: 'number', defaultValue: 0},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'precision', type: 'number', defaultValue: 0, required: true}, // 保留小数位数
       { name: 'size', type: 'string', enum: ['large', 'middle', 'small']},
       { name: 'decimalSeparator', type: 'string' },
-      { name: 'defaultValue', type: 'number', defaultValue: 0},
       { name: 'keyboard', type: 'boolean', defaultValue: false },
       { name: 'step', type: 'number', defaultValue: 1 },
       // { name: 'stringMode', type: 'boolean', defaultValue: false },
