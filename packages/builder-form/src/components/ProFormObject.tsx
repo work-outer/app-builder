@@ -10,7 +10,8 @@ import ProForm, { ProFormGroup } from '@ant-design/pro-form';
 
 export type ProFormObjectProps = {
   name: string,
-  initialValues?: object,
+  label: string,
+  value?: object,
   children: any,
   onValuesChange?: Function,
 }  //& Omit<FormFieldProps, 'mode'>;
@@ -24,7 +25,37 @@ export function ProFormObject(props: ProFormObjectProps) {
 
   const { 
     name,
-    initialValues, 
+    label,
+    value, 
+    onValuesChange, 
+    children,
+    ...rest 
+  } = props;
+
+
+  const formItemProps = {
+    name,
+    label,
+  }
+  return (
+    <ProForm.Item 
+      shouldUpdate
+      trigger="onValuesChange"
+      {...formItemProps}
+    >
+      <ProFormFieldObject>
+        {children}
+      </ProFormFieldObject>
+    </ProForm.Item>
+  )
+};
+
+function ProFormFieldObject(props:any){
+
+  const { 
+    name,
+    label,
+    value, 
     onValuesChange, 
     children,
     ...rest 
@@ -36,18 +67,19 @@ export function ProFormObject(props: ProFormObjectProps) {
     ...rest,
     name,
     form,
-    initialValues,
+    initialValues: value,
     onValuesChange: (changedValues:any, allValues:any)=>{
       if (onValuesChange) onValuesChange(allValues)
     }
   }
+
   return (
     <ProForm 
       component={false}  //子表单不创建 html form tag
       submitter={false}  //子表单不创建 html form tag
       {...proFormProps}
     >
-     {children}
+      {children}
     </ProForm>
   )
-};
+}
