@@ -34,6 +34,7 @@
     "@emotion/core": ">=10",
     "@emotion/styled": "^11.1.5",
     "@jsx-lite/core": "^0.0.17",
+    "classnames": "^2.2.6",
     "fs-extra-promise": "^1.0.1",
     "lodash-es": "^4.17.10",
     "next": "^10.0.5",
@@ -47,6 +48,7 @@
   "devDependencies": {
     "@builder.io/block-publish": "^1.1.2",
     "@builder.io/react": "^1.1.36",
+    "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.19",
     "@types/lodash-es": "^4.17.1",
     "@types/node": "^14.14.19",
