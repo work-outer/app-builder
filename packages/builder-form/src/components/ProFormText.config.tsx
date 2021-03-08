@@ -19,5 +19,11 @@ export const configProFormText = {
     marginTop: '0',
   },
   noWrap: false,
-  canHaveChildren: false
+  canHaveChildren: false,
+  requiresParent: {
+    message: 'This block must be inside a "Form" or "Form Section" block',
+    query: {
+      'component.name': { $in: ['@steedos/builder-form:Form', '@steedos/builder-form:FormSection'] }
+    }
+  }
 };
