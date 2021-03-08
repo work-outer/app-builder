@@ -7,6 +7,7 @@ export const configProFormText = {
     { name: 'label', type: 'text', defaultValue: 'Text Field', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'placeholder', type: 'string'},
+    { name: 'tooltip', type: 'string'},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'initialValue', type: 'string' },
     { name: 'fieldProps', type: 'object', subFields: [
