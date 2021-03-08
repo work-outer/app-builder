@@ -15,7 +15,11 @@ export const configProFormDigit = {
       { name: 'keyboard', type: 'boolean', defaultValue: false, helperText: '是否启用键盘快捷行为' },
       { name: 'step', type: 'number', defaultValue: 1, helperText: '每次改变步数，可以为小数' },
       // { name: 'stringMode', type: 'boolean', defaultValue: false, helperText: '字符值模式，开启后支持高精度小数' },
-    ]}
+    ]},
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please input number' }
+    ], helperText: '控制组件是否必填和校验信息'},
   ],
   defaultStyles: {
     display: 'block',

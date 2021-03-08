@@ -6,6 +6,10 @@ export const configProFormTimePicker = {
     { name: 'readonly', type: 'boolean', defaultValue: false },
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl'] },
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please select time' }
+    ], helperText: '控制组件是否必填和校验信息'},
     {
       name: 'fieldProps', type: 'object', subFields: [
         { name: 'allowClear', type: 'boolean', defaultValue: true, helperText: '是否显示清除按钮' },

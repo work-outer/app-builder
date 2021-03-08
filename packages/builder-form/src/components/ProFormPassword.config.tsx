@@ -11,7 +11,11 @@ export const configProFormPassword = {
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: false, helperText: '可以点击清除图标删除内容' },
       { name: 'maxLength', type: 'number', helperText: '最大长度' },
-    ]}
+    ]},
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please input password' }
+    ], helperText: '控制组件是否必填和校验信息'},
   ],
   defaultStyles: {
     display: 'block',

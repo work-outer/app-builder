@@ -11,6 +11,10 @@ export const configProFormCheckbox = {
     { name: 'disabled', type: 'boolean', defaultValue:false, helperText: '禁用' },
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical'], helperText: '配置 checkbox 的样子' },
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please select...' }
+    ], helperText: '控制组件是否必填和校验信息'},
   ],
   defaultStyles: {
     display: 'block',

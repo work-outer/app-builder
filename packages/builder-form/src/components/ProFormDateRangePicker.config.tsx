@@ -12,7 +12,11 @@ export const configProFormDateRangePicker = {
         { name: 'autoFocus', type: 'boolean', defaultValue: false, helperText: '自动获取焦点' },
         { name: 'inputReadOnly', type: 'boolean', defaultValue: false, helperText: '设置输入框为只读（避免在移动设备上打开虚拟键盘）' }
       ]
-    }
+    },
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please select date' }
+    ], helperText: '控制组件是否必填和校验信息'},
   ],
   defaultStyles: {
     display: 'block',

@@ -11,6 +11,10 @@ export const configProFormText = {
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl'] },
     { name: 'initialValue', type: 'string' },
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please input...' }
+    ], helperText: '控制组件是否必填和校验信息'},
     {
       name: 'fieldProps', type: 'object', subFields: [
         { name: 'allowClear', type: 'boolean', defaultValue: false, helperText: '可以点击清除图标删除内容' }

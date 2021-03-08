@@ -8,6 +8,10 @@ export const configProFormSlider = {
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
     { name: 'min', type: 'number', defaultValue: 0, helperText: '最小值' },
     { name: 'max', type: 'number', defaultValue: 100, helperText: '最大值' },
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please slider...' }
+    ], helperText: '控制组件是否必填和校验信息'},
     {
       name: 'step', type: 'number', defaultValue: 1,
       helperText: '步长，取值必须大于 0，并且可被 (max - min) 整除。当 marks 不为空对象时，可以设置 step 为 null，此时 Slider 的可选值仅有 marks 标出来的部分'

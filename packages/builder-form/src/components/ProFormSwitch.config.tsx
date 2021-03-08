@@ -5,6 +5,10 @@ export const configProFormSwitch = {
     { name: 'label', type: 'string', defaultValue: 'Switch', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'disabled', type: 'boolean', defaultValue:false, helperText: '禁用' },
+    { name: 'rules',  type: 'list', subFields: [
+      { name: 'required', type: 'boolean', defaultValue: false },
+      { name: 'message', type: 'string', defaultValue: 'Please switch' }
+    ], helperText: '控制组件是否必填和校验信息'},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'defaultChecked', type: 'boolean', defaultValue: false, required: true, helperText: '初始是否选中' },
     ]}
