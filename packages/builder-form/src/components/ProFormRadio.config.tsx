@@ -8,10 +8,10 @@ export const configProFormRadio = {
       { name: 'value', type: 'string' },
       { name: 'label', type: 'string' }
     ]},
-    { name: 'disabled', type: 'boolean', defaultValue:false},
-    { name: 'initialValue', type: 'string'},
-    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'radioType', type: 'string', defaultValue: 'radio', enum:['radio', 'button']}
+    { name: 'disabled', type: 'boolean', defaultValue:false, helperText: '禁用' },
+    { name: 'initialValue', type: 'string' },
+    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl'] },
+    { name: 'radioType', type: 'string', defaultValue: 'radio', enum:['radio', 'button'], helperText: '设置是按钮模式还是 radio 模式' }
   ],
   defaultStyles: {
     display: 'block',

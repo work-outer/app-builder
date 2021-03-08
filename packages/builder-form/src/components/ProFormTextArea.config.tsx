@@ -6,7 +6,7 @@ export const configProFormTextArea = {
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'placeholder', type: 'string'},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'disabled', type: 'boolean', defaultValue:false},
+    { name: 'disabled', type: 'boolean', defaultValue:false , helperText: '禁用' },
   ],
   defaultStyles: {
     display: 'block',

@@ -8,9 +8,9 @@ export const configProFormCheckbox = {
       { name: 'label', type: 'string', defaultValue: 'label' }        // value没有默认值会出错
     ]},
     { name: 'readonly', type: 'boolean', defaultValue: false},
-    { name: 'disabled', type: 'boolean', defaultValue:false},
+    { name: 'disabled', type: 'boolean', defaultValue:false, helperText: '禁用' },
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical']},
+    { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical'], helperText: '配置 checkbox 的样子' },
   ],
   defaultStyles: {
     display: 'block',

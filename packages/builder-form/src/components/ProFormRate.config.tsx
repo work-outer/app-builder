@@ -5,7 +5,7 @@ export const configProFormRate = {
     { name: 'label', type: 'text', defaultValue: 'Rate', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'disabled', type: 'boolean', defaultValue:false},
+    { name: 'disabled', type: 'boolean', defaultValue:false, helperText: '禁用' },
   ],
   defaultStyles: {
     display: 'block',
