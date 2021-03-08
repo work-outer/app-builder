@@ -9,6 +9,7 @@ export const configProFormList = {
   defaultStyles: {
     display: 'block',
     marginTop: '0',
+    minHeight: '50px',
   },
   noWrap: false,
   canHaveChildren: true,
