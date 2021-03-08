@@ -1,5 +1,5 @@
 export const configProFormSwitch = {
-  name: 'Steedos:FormSwitch',
+  name: '@steedos/builder-form:Switch',
   inputs: [
     { name: 'name', type: 'string', defaultValue: 'switch'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

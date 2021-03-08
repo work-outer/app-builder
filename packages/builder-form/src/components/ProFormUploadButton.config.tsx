@@ -1,5 +1,5 @@
 export const configProFormUploadButton = {
-  name: 'Steedos:FormUploadButton',
+  name: '@steedos/builder-form:UploadButton',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'upload'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

@@ -1,5 +1,5 @@
 export const configProFormPassword = {
-  name: 'Steedos:FormPassword',
+  name: '@steedos/builder-form:Password',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'password'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

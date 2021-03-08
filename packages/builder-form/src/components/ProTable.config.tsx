@@ -1,5 +1,5 @@
 export const configProTable = {
-  name: 'Steedos:Table',
+  name: '@steedos/builder-form:Table',
   inputs: [{ name: 'title', type: 'text' }],
   canHaveChildren: true
 }

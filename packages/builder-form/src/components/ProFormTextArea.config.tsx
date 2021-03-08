@@ -1,5 +1,5 @@
 export const configProFormTextArea = {
-  name: 'Steedos:FormTextArea',
+  name: '@steedos/builder-form:Textarea',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'textarea'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

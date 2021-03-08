@@ -1,5 +1,5 @@
 export const configProFormTimeRangePicker = {
-  name: 'Steedos:FormTimeRangePicker',
+  name: '@steedos/builder-form:TimeRangePicker',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'timeRange'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

@@ -1,5 +1,5 @@
 export const configProFormRate = {
-  name: 'Steedos:FormRate',
+  name: '@steedos/builder-form:Rate',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'rate'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

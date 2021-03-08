@@ -1,5 +1,5 @@
 export const configProFormSlider = {
-  name: 'Steedos:FormSlider',
+  name: '@steedos/builder-form:Slider',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'slider'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

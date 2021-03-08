@@ -1,5 +1,5 @@
 export const configProFormUploadDragger = {
-  name: 'Steedos:FormUploadDragger',
+  name: '@steedos/builder-form:UploadDragger',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'dragger'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

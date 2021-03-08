@@ -1,5 +1,5 @@
 export const configProFormRadio = {
-  name: 'Steedos:FormRadio',
+  name: '@steedos/builder-form:Radio',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'radio'},
     { name: 'readonly', type: 'boolean', defaultValue: false},

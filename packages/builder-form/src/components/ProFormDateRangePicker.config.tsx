@@ -1,10 +1,10 @@
 export const configProFormDateRangePicker = {
-  name: 'Steedos:FormDateRangePicker',
+  name: '@steedos/builder-form:DateRangePicker',
   inputs: [
-    { name: 'name', type: 'text', defaultValue: 'dateRange'},
+    { name: 'name', type: 'text', defaultValue: 'dateRange', required: true},
+    { name: 'label', type: 'text', defaultValue: 'DateRange Picker', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'label', type: 'text', defaultValue: 'DateRange Picker'},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: true},
       { name: 'size', type: 'string', defaultValue:'middle', enum: ['large', 'middle', 'small']},

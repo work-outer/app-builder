@@ -1,5 +1,5 @@
 export const configProFormTimePicker = {
-  name: 'Steedos:FormTimePicker',
+  name: '@steedos/builder-form:TimePicker',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'time'},
     { name: 'readonly', type: 'boolean', defaultValue: false},
