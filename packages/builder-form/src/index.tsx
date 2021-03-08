@@ -3,8 +3,11 @@ import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicke
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
     ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox } from '@ant-design/pro-form';
+import ProField from '@ant-design/pro-field';
+
 import ProTable from '@ant-design/pro-table';
 import { withFunctions } from './functions/withFunctions'
+import { configProField } from './components/ProField.config';
 import { configProForm } from './components/ProForm.config';
 import { configProFormText } from './components/ProFormText.config';
 import { configProTable } from './components/ProTable.config';
@@ -48,4 +51,5 @@ Builder.registerComponent(ProFormUploadDragger, configProFormUploadDragger);
 Builder.registerComponent(ProFormUploadButton, configProFormUploadButton);
 Builder.registerComponent(ProFormSelect, configProFormSelect);
 Builder.registerComponent(ProFormDigit, configProFormDigit);
+Builder.registerComponent(ProField, configProField);
 Builder.registerComponent(withChildren(ProTable), configProTable);
