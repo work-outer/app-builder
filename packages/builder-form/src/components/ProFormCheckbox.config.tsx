@@ -8,6 +8,7 @@ export const configProFormCheckbox = {
       { name: 'value', type: 'string', defaultValue: 'value' }  // value没有默认值会出错
     ]},
     { name: 'readonly', type: 'boolean', defaultValue: false},
+    { name: 'disabled', type: 'boolean', defaultValue:false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical']},
   ],

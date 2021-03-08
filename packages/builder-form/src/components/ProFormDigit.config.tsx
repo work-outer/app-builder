@@ -7,6 +7,7 @@ export const configProFormDigit = {
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'min', type: 'number' },
     { name: 'max', type: 'number' },
+    { name: 'disabled', type: 'boolean', defaultValue:false},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'precision', type: 'number', defaultValue: 0, required: true}, // 保留小数位数
       { name: 'size', type: 'string', enum: ['large', 'middle', 'small']},

@@ -4,7 +4,8 @@ export const configProFormUploadButton = {
     { name: 'name', type: 'text', defaultValue: 'upload', required: true},
     { name: 'label', type: 'text', defaultValue: 'Upload Button', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
-    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']}
+    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
+    { name: 'disabled', type: 'boolean', defaultValue:false},
   ],
   defaultStyles: {
     display: 'block',

@@ -5,6 +5,7 @@ export const configProFormSlider = {
     { name: 'label', type: 'text', defaultValue: 'Slider', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
+    { name: 'disabled', type: 'boolean', defaultValue:false},
     { name: 'min', type: 'number', defaultValue: 0 },
     { name: 'max', type: 'number', defaultValue: 100 },
     { name: 'step', type: 'number', defaultValue: 1 },

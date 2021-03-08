@@ -9,24 +9,17 @@ export const configProFormSelect = {
       { name: 'label', type: 'string' },
       { name: 'value', type: 'string' }
     ]},
+    { name: 'disabled', type: 'boolean', defaultValue:false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl'] },
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: false },
       { name: 'autoClearSearchValue', type: 'boolean', defaultValue: true },
       { name: 'defaultActiveFirstOption', type: 'boolean', defaultValue: true },
       { name: 'defaultOpen', type: 'boolean', defaultValue: false },
-      // { name: 'defaultValue', type: 'list', subFields:[
-      //   { type: 'string' },
-      // ]},
-      { name: 'disabled', type: 'boolean', defaultValue: false },
       { name: 'dropdownClassName', type: 'string' },
       { name: 'dropdownMatchSelectWidth', type: 'boolean', defaultValue: true },
       { name: 'listHeight', type: 'number', defaultValue: 256 },
       { name: 'mode', type: 'string', enum: ['multiple', 'tags'] },
-      { name: 'placeholder', type: 'string' },
-      // { name: 'tokenSeparators', type: 'list', subFields:[
-      //   { type: 'string' },
-      // ]},
       { name: 'virtual', type: 'boolean', defaultValue: false },
     ]}
   ],

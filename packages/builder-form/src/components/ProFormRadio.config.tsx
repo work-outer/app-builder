@@ -8,6 +8,7 @@ export const configProFormRadio = {
       { name: 'label', type: 'string' },
       { name: 'value', type: 'string' }
     ]},
+    { name: 'disabled', type: 'boolean', defaultValue:false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'radioType', type: 'string', defaultValue: 'radio', enum:['radio', 'button']}
   ],
