@@ -11,7 +11,6 @@ export const configProFormDigit = {
     { name: 'initialValue', type: 'number', defaultValue: 0},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'precision', type: 'number', defaultValue: 0, required: true, helperText: '数值精度' },
-      { name: 'size', type: 'string', enum: ['large', 'middle', 'small'], helperText: '输入框大小' },
       { name: 'decimalSeparator', type: 'string', helperText: '小数点' },
       { name: 'keyboard', type: 'boolean', defaultValue: false, helperText: '是否启用键盘快捷行为' },
       { name: 'step', type: 'number', defaultValue: 1, helperText: '每次改变步数，可以为小数' },

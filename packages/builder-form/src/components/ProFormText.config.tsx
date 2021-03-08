@@ -13,11 +13,7 @@ export const configProFormText = {
     { name: 'initialValue', type: 'string' },
     {
       name: 'fieldProps', type: 'object', subFields: [
-        { name: 'allowClear', type: 'boolean', defaultValue: false, helperText: '可以点击清除图标删除内容' },
-        {
-          name: 'size', type: 'string', defaultValue: 'middle',
-          enum: ['large', 'middle', 'small'], helperText: '控件大小。注：标准表单内的输入框大小限制为 large'
-        }
+        { name: 'allowClear', type: 'boolean', defaultValue: false, helperText: '可以点击清除图标删除内容' }
       ]
     }
   ],
