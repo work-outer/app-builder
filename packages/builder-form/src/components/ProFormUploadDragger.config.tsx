@@ -6,5 +6,9 @@ export const configProFormUploadDragger = {
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'label', type: 'text', defaultValue: 'Dragger'},
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };

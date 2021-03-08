@@ -7,5 +7,9 @@ export const configProFormTextArea = {
     { name: 'label', type: 'text', defaultValue: 'TextArea'},
     { name: 'placeholder', type: 'string'}
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };

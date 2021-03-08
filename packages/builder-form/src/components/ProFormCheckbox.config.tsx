@@ -9,7 +9,11 @@ export const configProFormCheckbox = {
     ]},
     { name: 'readonly', type: 'boolean', defaultValue: false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical']}
+    { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical']},
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };

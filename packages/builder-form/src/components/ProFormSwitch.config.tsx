@@ -8,5 +8,9 @@ export const configProFormSwitch = {
       { name: 'defaultChecked', type: 'boolean', defaultValue: false, required: true},
     ]}
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };

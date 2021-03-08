@@ -11,5 +11,9 @@ export const configProFormRadio = {
       { name: 'value', type: 'string' }
     ]}
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };

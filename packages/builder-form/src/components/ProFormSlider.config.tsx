@@ -20,5 +20,9 @@ export const configProFormSlider = {
       { name: 'range', type: 'boolean', defaultValue: false },
     ]}
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };

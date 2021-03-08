@@ -12,5 +12,9 @@ export const configProFormTimePicker = {
       { name: 'inputReadOnly', type: 'boolean', defaultValue: false}
     ]}
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+  },
   canHaveChildren: false
 };
