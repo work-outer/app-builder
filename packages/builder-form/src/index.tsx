@@ -2,7 +2,7 @@ import { Builder, withChildren } from '@builder.io/react';
 import ProForm, {ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker, 
     ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker, 
     ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton, 
-    ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox } from '@ant-design/pro-form';
+    ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox, ProFormField, ProFormList } from '@ant-design/pro-form';
 import ProField from '@ant-design/pro-field';
 
 import ProTable from '@ant-design/pro-table';
@@ -29,13 +29,15 @@ import { configProFormCheckbox } from './components/ProFormCheckbox.config';
 import { configProFormRadio } from './components/ProFormRadio.config';
 import { configProFormTimeRangePicker } from './components/ProFormTimeRangePicker.config';
 import { configProFormGroup } from './components/ProForm.Group.cofig';
-import { FormField } from './components/FormField';
-import { configFormField } from './components/FormField.config';
+import { configProFormField } from './components/ProFormField.config';
+import { Form } from './components/Form';
+import { configProFormList } from './components/ProFormList.config';
 
-const ProFormWrap = withFunctions(ProForm, ['onValuesChange', 'initialValues', 'onFinish']);
+const ProFormWrap = withFunctions(Form, ['onValuesChange', 'initialValues', 'onFinish']);
 Builder.registerComponent(withChildren(ProFormWrap), configProForm);
 Builder.registerComponent(withChildren(ProForm.Group), configProFormGroup);
-Builder.registerComponent(FormField, configFormField);
+Builder.registerComponent(withChildren(ProFormList), configProFormList);
+Builder.registerComponent(ProFormField, configProFormField);
 Builder.registerComponent(ProFormText, configProFormText);
 Builder.registerComponent(ProFormText.Password, configProFormPassword);
 Builder.registerComponent(ProFormTextArea, configProFormTextArea);
