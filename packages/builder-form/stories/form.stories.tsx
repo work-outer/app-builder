@@ -111,3 +111,15 @@ export const Preview = () => {
     )
 }
 
+
+export const ContractForm = () => {
+
+  builder.init(apiKey);
+
+  const content = require('./contract.form.builder.json');
+  return (
+      <BuilderComponent apiKey={apiKey} content={content}>
+      </BuilderComponent> 
+    )
+}
+
