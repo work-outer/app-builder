@@ -1,11 +1,11 @@
 export const configProFormPassword = {
   name: '@steedos/builder-form:Password',
   inputs: [
-    { name: 'name', type: 'text', defaultValue: 'password'},
+    { name: 'name', type: 'text', defaultValue: 'password', required: true},
+    { name: 'label', type: 'text', defaultValue: 'Password', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
-    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'label', type: 'text', defaultValue: 'Password'},
     { name: 'placeholder', type: 'string'},
+    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: false},
       { name: 'size', type: 'string', defaultValue:'middle', enum: ['large', 'middle', 'small']},

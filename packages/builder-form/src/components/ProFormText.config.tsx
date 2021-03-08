@@ -3,11 +3,11 @@ export const configProFormText = {
   image:
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2Fad6f37889d9e40bbbbc72cdb5875d6ca',
   inputs: [
-    { name: 'name', type: 'text', defaultValue: 'text'},
+    { name: 'name', type: 'text', defaultValue: 'text', required: true},
+    { name: 'label', type: 'text', defaultValue: 'Text Field', required: true},
     { name: 'readonly', type: 'boolean', defaultValue: false},
-    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
-    { name: 'label', type: 'text', defaultValue: 'Text Field'},
     { name: 'placeholder', type: 'string'},
+    { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl']},
     { name: 'initialValue', type: 'string' },
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: false},
