@@ -1,5 +1,7 @@
 export const configProFormText = {
-  name: 'Steedos:FormText',
+  name: '@steedos/builder-form:Text',
+  image:
+    'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2Fad6f37889d9e40bbbbc72cdb5875d6ca',
   inputs: [
     { name: 'name', type: 'text', defaultValue: 'text'},
     { name: 'readonly', type: 'boolean', defaultValue: false},
