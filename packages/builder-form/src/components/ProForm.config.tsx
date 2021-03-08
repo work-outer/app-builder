@@ -5,7 +5,7 @@ export const configProForm = {
   inputs: [
     { name: 'name', type: 'string', helperText: '表单名称，会作为表单字段 id 前缀使用' },
     { name: 'columns', type: 'number', defaultValue: 2 },
-    { name: 'layout', type: 'string', defaultValue: 'horizontal', enum: ['horizontal', 'vertical', 'inline'], helperText: '表单布局' },
+    { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical', 'inline'], helperText: '表单布局' },
     { name: 'labelAlign', type: 'string', enum: ['left', 'right'], defaultValue: 'right', helperText: 'label 标签的文本对齐方式' },
     { name: 'size', type: 'string', enum: ['small', 'middle', 'large'], defaultValue: 'middle', helperText: '设置字段组件的尺寸' },
     { name: 'initialValues', type: 'code', language: 'javascript', defaultValue: "({})", helperText: '表单默认值，只有初始化以及重置时生效。' },
