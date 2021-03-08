@@ -11,6 +11,7 @@ export const configProFormSelect = {
     ]},
     { name: 'disabled', type: 'boolean', defaultValue:false},
     { name: 'width', type: 'string', defaultValue: 'md', enum: ['xs', 'sm', 'md', 'lg', 'xl'] },
+    { name: 'initialValue', type: 'string'},
     { name: 'fieldProps', type: 'object', subFields: [
       { name: 'allowClear', type: 'boolean', defaultValue: false },
       { name: 'autoClearSearchValue', type: 'boolean', defaultValue: true },
