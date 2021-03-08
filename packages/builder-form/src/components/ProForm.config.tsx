@@ -4,10 +4,10 @@ export const configProForm = {
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2Fef36d2a846134910b64b88e6d18c5ca5',
   inputs: [
     { name: 'name', type: 'string', helperText: '表单名称，会作为表单字段 id 前缀使用' },
-    { name: 'columns', type: 'number', defaultValue: 2 },
+    { name: 'columns', type: 'number', defaultValue: 2 , helperText: '表单列数'},
     { name: 'layout', type: 'string', defaultValue: 'vertical', enum: ['horizontal', 'vertical', 'inline'], helperText: '表单布局' },
-    { name: 'labelAlign', type: 'string', enum: ['left', 'right'], defaultValue: 'right', helperText: 'label 标签的文本对齐方式' },
     { name: 'size', type: 'string', enum: ['small', 'middle', 'large'], defaultValue: 'middle', helperText: '设置字段组件的尺寸' },
+    { name: 'labelAlign', type: 'string', enum: ['left', 'right'], defaultValue: 'right', helperText: 'label 标签的文本对齐方式' },
     { name: 'initialValues', type: 'code', language: 'javascript', defaultValue: "({})", helperText: '表单默认值，只有初始化以及重置时生效。' },
     { name: 'onValuesChange', type: 'code', language: 'javascript', defaultValue: "(values) => {  }", helperText: '字段值更新时触发回调事件' },
     { name: 'onFinish', type: 'code', language: 'javascript', defaultValue: "(values) => {  }", helperText: '提交表单且数据验证成功后回调事件' },
