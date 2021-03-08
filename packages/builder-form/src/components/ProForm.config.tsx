@@ -17,6 +17,11 @@ export const configProForm = {
     { name: 'dateFormatter', type: 'string', enum: ['string', 'number', 'false'], defaultValue: 'string'},  // 自动格式数据,主要是 moment 的表单
     // ProForm 会自动清空 null 和 undefined 的数数据，如果你约定了 nil 代表某种数据，可以设置为 false 关闭此功能
     { name: 'omitNil', type: 'boolean', defaultValue: 'true' },
+    { name: 'labelCol', type: 'object', subFields: [
+      { name: 'span', type: 'number' },
+      { name: 'offset', type: 'number' }
+    ]},
+
   ],
   canHaveChildren: true
 };
