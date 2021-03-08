@@ -7,6 +7,7 @@ const _ = require('underscore');
 export default class SObject {
     client: any;
     objectName: string;
+    config: any;
     constructor(client, objectName){
         this.client = client;
         this.objectName = objectName;
@@ -37,6 +38,14 @@ export default class SObject {
             params.$select = $select
         }
         return params;
+    }
+
+    async getConfig(){
+        if(!this.config){
+            const url = `${this.client.getBootstrapRoute()}/${this.objectName}`;
+            this.config = await this.client.doFetch(url, {method: 'get'});
+        }
+        return this.config;
     }
 
     /**

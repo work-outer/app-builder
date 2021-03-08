@@ -1,7 +1,10 @@
 import * as React from "react"
 import { adapt } from "webcomponents-in-react";
-
 import { BuilderComponent, builder } from '@builder.io/react';
+
+import {
+  SteedosProvider
+} from "../src"
 
 export default {
   title: "Steedos Object",
@@ -26,13 +29,13 @@ export const Editor = () => {
   return (
     <BuilderEditor
       class="absolute top-0 right-0 bottom-0 left-0 width-full"
-      onChange={(e:any) => {
+      onChange={(e: any) => {
         console.log(e)
       }}
       data={{}}
       env='production'
-      options={builderOptions}/>
-  ) 
+      options={builderOptions} />
+  )
 }
 
 export const Fiddle = () => {
@@ -52,13 +55,13 @@ export const Fiddle = () => {
   return (
     <BuilderFiddle
       class="absolute top-0 right-0 bottom-0 left-0 width-full"
-      onChange={(e:any) => {
+      onChange={(e: any) => {
         console.log(e)
       }}
       data={{}}
       env='production'
-      options={builderOptions}/>
-  ) 
+      options={builderOptions} />
+  )
 }
 
 
@@ -82,7 +85,10 @@ export const Preview = () => {
   require('../src');
 
   return (
-      <BuilderComponent data={{}} /> 
-    )
+    <SteedosProvider >
+      <BuilderComponent data={{}} />
+      <br /><br /><br />
+    </SteedosProvider>
+  )
 }
 

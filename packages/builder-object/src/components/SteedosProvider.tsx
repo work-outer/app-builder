@@ -1,7 +1,6 @@
 
-import React, {useContext} from "react";
+import React from "react";
 
-import ProField from '@ant-design/pro-field';
 import { SteedosClient }  from '@steedos/client';
 import { SteedosContext } from '..';
 import { ObjectProvider } from "./ObjectProvider";
@@ -37,6 +36,7 @@ export function SteedosProvider(props:any) {
   client.setUrl(rootUrl)
   client.setUserId(userId)
   client.setToken(authToken);
+  client.setSpaceId(tenantId);
 
   const steedosContextValues = {
     rootUrl,
@@ -49,23 +49,12 @@ export function SteedosProvider(props:any) {
   }
 
   const requestObject = async(objectApiName:string) => {
-    console.log("===requestObject==", objectApiName);
+    console.log("===requestObject===objectApiName==", objectApiName);
     //TODO 通过接口获取对象信息 /api/bootstrap/:spaceId/:objectName
     if(!objectApiName){
       return;
     }
-    const url = `${rootUrl}/api/bootstrap/${tenantId}/${objectApiName}`;
-    const token = `Bearer ${tenantId}, ${authToken}`
-    const res = await client.doFetch(url,{
-      method: 'GET',
-      headers: {
-          Authorization: token,
-          'Content-Type': 'application/json',
-      }   
-    })
-    if (res) {
-      return res;
-    }
+    return await client.sobject(objectApiName).getConfig();
   }
 
   const requestRecords = async( objectApiName:string, filters:any, fields:any , options:any) => {

@@ -158,6 +158,10 @@ export default class SteedosClient {
         return `${this.getBaseRoute()}/accounts`;
     }
 
+    getBootstrapRoute() {
+        return `${this.getUrl()}/api/bootstrap/${this.getSpaceId()}`;
+    }
+
     getCSRFFromCookie() {
         if (typeof document !== 'undefined' && typeof document.cookie !== 'undefined') {
             const cookies = document.cookie.split(';');
