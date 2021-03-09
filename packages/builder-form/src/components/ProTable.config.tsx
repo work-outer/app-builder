@@ -17,6 +17,15 @@ export const configProTable = {
     },
 
     {
+      name: 'options', type: 'object', subFields: [
+        { name: 'fullScreen', type: 'boolean', defaultValue: true },
+        { name: 'reload', type: 'boolean', defaultValue: true },
+        { name: 'setting', type: 'boolean', defaultValue: true },
+        { name: 'density', type: 'boolean' },
+      ], helperText: 'table 工具栏按钮'
+    },
+
+    {
       name: 'search', type: 'object', subFields: [
         {
           name: 'filterType', type: 'string', enum: ['query', 'light'],
