@@ -51,6 +51,36 @@ export const configProTable = {
       ], helperText: '搜索表单的配置'
     },
 
+    { name: 'bordered', type: 'boolean', defaultValue:true },
+    { name: 'loading', type: 'boolean', defaultValue:true },
+
+    { name: 'columns', type: 'object',helperText: '列配置', subFields: [
+      { name: 'title', type: 'string', helperText: '标题' },
+      { name: 'key', type: 'string', helperText: '标题key'},
+      // { name: 'dataIndex', type: ''},
+      { name: 'valueType', type: 'stirng', 
+        enum: [
+                'password','money','textarea','option','date',
+                'dateWeek','dateMonth','dateQuarter','dateYear',
+                'dateRange','dateTimeRange','dateTime','time',
+                'timeRange','text','select','checkbox','rate',
+                'radio','radioButton','index','indexBorder',
+                'progress','percent','digit','second','avatar',
+                'code','switch', 'fromNow','image', 'jsonCode',
+              ]
+      },
+      { name: 'filters', type: 'boolean', defaultValue:false, helperText:'过滤' },
+      { name: 'onFilter', type: 'boolean', defaultValue:false, helperText:'' },
+      { name: 'valueEnum', type: 'object', helperText:'排序数据枚举', subFields: [
+        { name: 'key', type: 'obejct', subFields: [
+          { name: 'key', type: 'string'},
+          { name: 'value', type: 'string'}
+        ] }
+      ] },
+      { name: 'sorter', type: 'boolean', defaultValue:false, helperText: '排序' }
+   
+    ],
+    },
   ],
   canHaveChildren: true
 }
