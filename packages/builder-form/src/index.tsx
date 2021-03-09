@@ -60,3 +60,6 @@ Builder.registerComponent(ProFormUploadButton, configProFormUploadButton);
 Builder.registerComponent(ProFormSelect, configProFormSelect);
 Builder.registerComponent(ProFormDigit, configProFormDigit);
 Builder.registerComponent(withChildren(ProTable), configProTable);
+
+export * from './providers/FormContext';
+export * from './providers/FormProvider';

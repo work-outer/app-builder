@@ -4,7 +4,7 @@ import React from "react";
 import { SteedosClient }  from '@steedos/client';
 import { SteedosContext } from '..';
 import { ObjectProvider } from "@steedos/builder-object/src/index";
-import { FormProvider } from "@steedos/builder-object/src/index";
+import { FormProvider } from "@steedos/builder-form/src/index";
 
 const {
   STEEDOS_ROOT_URL,
