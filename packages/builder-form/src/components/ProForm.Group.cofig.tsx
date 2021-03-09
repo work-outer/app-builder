@@ -4,6 +4,7 @@ export const configProFormGroup = {
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2F682efef23ace49afac61748dd305c70a',
   inputs: [
     { name: 'title', type: 'text', defaultValue: 'Form Section' },
+    { name: 'collapsible', type: 'boolean', defaultValue: true },
   ],
   defaultStyles: {
     display: 'block',
