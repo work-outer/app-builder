@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import ProForm from '@ant-design/pro-form';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
+import { registerObjectFieldComponent } from "./ObjectField";
 
 export type FormProps<T = Record<string, any>>  = {
   mode?: ProFieldFCMode,
@@ -39,6 +40,8 @@ export function ObjectForm(props:ObjectFormProps) {
 
   if (!objectSchema) 
     return (<div>Object Loading...</div>)
+
+  registerObjectFieldComponent(_.keys(objectSchema.fields));
   
   //TODO  fields['name', 'type']不为空
   
