@@ -5,12 +5,53 @@
       {
         "@type": "@builder.io/sdk:Element",
         "@version": 2,
+        "id": "builder-bd5501e357fb486b8af88f748e4040cf",
+        "children": [
+          {
+            "@type": "@builder.io/sdk:Element",
+            "@version": 2,
+            "id": "builder-908f32eeb70b4f14ab0157f996970815",
+            "component": {
+              "name": "Text",
+              "options": {
+                "text": "Enter some text..."
+              }
+            },
+            "responsiveStyles": {
+              "large": {
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "20px",
+                "lineHeight": "normal",
+                "height": "auto",
+                "textAlign": "center"
+              }
+            }
+          }
+        ],
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "stretch",
+            "position": "relative",
+            "marginTop": "20px",
+            "height": "auto",
+            "paddingBottom": "30px"
+          }
+        }
+      },
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
         "id": "builder-78d2bb14cbe2410aaff34caf74d63852",
         "component": {
           "name": "@steedos/builder-form:Form",
           "options": {
             "layout": "vertical",
-            "initialValues": "({})",
+            "initialValues": "({name:'initial'})",
             "onValuesChange": "(values) => {  }",
             "onFinish": "(values) => { console.log(values) }"
           }
@@ -367,7 +408,7 @@
                 "component": {
                   "name": "@steedos/builder-form:Select",
                   "options": {
-                    "name": "useMode",
+                    "name": "priceMode",
                     "label": "金额类型",
                     "width": "sm",
                     "options": [
@@ -433,7 +474,6 @@
                     "width": "md",
                     "fieldProps": {
                       "precision": 0,
-                      "defaultValue": 5,
                       "size": "large"
                     },
                     "min": 0,

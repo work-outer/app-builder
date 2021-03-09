@@ -89,37 +89,60 @@ export const Preview = () => {
 
   builder.init(apiKey);
 
-  // Builder.register('editor.settings', {
-  //   hideStyleTab: false, // Hide the style tab
-  //   hideMainTabs: true, // Hide all main tabs
-  //   hideDataTab: false, // Hide the data tab
-  //   hideOptionsTab: true, // Hide the options tab
-  //   hideToolbar: false, // Hide the main toolbar
-  //   hideHeatMap: true, // Hide the heatmap button
-  //   hidePageUrlEditor: false, // Hide the page URL editor
-  //   hideAnimateTab: true, // Hide the animate tab
-  //   hideInsertTab: false, // Hide the insert tab
-  //   hideTargeting: false, // Hide the targeting UI
-  // });
+  import ('../src');
 
-  require('../src');
-
+  const context = {hello: 'context'}
+  const data =  {
+    initialValues: {name: 'Hello World!'},
+    columns: 3,
+  }
+  const content = {} //require('./contract.form.builder.json');
+  const bcProps = {
+    apiKey,
+    // content,
+    context,
+    data,
+    onStateChange: (newData: any) => {
+      console.log(newData)
+    }
+  }
   return (
-      <BuilderComponent apiKey={apiKey}>
-
+      <BuilderComponent {...bcProps}>
       </BuilderComponent> 
-    )
+  )
 }
 
 
 export const ContractForm = () => {
 
+  import ('../src');
+
   builder.init(apiKey);
 
+  const context = {
+    formOptions: {
+      columns: 1,
+      initialValues: {name: 'Hello World!'},
+      onFinish: (values) => {
+        // console.log('onFinish 2')
+        // console.log(values)
+      },
+    }
+  }
+  const data =  {
+  }
   const content = require('./contract.form.builder.json');
+  const bcProps = {
+    apiKey,
+    content,
+    context,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
   return (
-      <BuilderComponent apiKey={apiKey} content={content}>
-      </BuilderComponent> 
-    )
+    <BuilderComponent {...bcProps}>
+    </BuilderComponent> 
+  )
 }
 
