@@ -54,7 +54,7 @@ export const configProTable = {
     { name: 'bordered', type: 'boolean', defaultValue:true },
     { name: 'loading', type: 'boolean', defaultValue:true },
 
-    { name: 'columns', type: 'object',helperText: '列配置', subFields: [
+    { name: 'columns', type: 'list',helperText: '列配置', subFields: [
       { name: 'title', type: 'string', helperText: '标题' },
       { name: 'key', type: 'string', helperText: '标题key'},
       // { name: 'dataIndex', type: ''},
