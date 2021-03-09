@@ -24,6 +24,8 @@ export function ObjectForm(props:ObjectFormProps) {
 
   const { objectApiName, recordId, mode, editable,  ...rest} = props
   console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
+  objectContext.currentObjectApiName = objectApiName;
+  objectContext.currentRecordId = recordId;
   const { 
     isLoading, 
     error, 

@@ -11,7 +11,6 @@ import { useQuery } from "react-query";
 import { ObjectContext } from "../";
 
 export type ObjectFieldProps = {
-  objectApiName: string,
   fieldName: string,
   required: boolean,
   readonly: boolean
@@ -19,11 +18,11 @@ export type ObjectFieldProps = {
 
 export function ObjectField(props: ObjectFieldProps) {
   const objectContext = useContext(ObjectContext);
-
-  const { objectApiName, fieldName, required, readonly } = props
-
+  const objectApiName = objectContext.currentObjectApiName;
+  const { fieldName, required, readonly } = props
+  
   if (!objectApiName || !fieldName)
-    return (<div>请输入对象名和字段名</div>)
+    return (<div>请输入字段名</div>)
 
   console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
   const {
@@ -163,7 +162,6 @@ export function ObjectField(props: ObjectFieldProps) {
 export const configObjectField = {
   name: 'Steedos:ObjectField',
   inputs: [
-    { name: 'objectApiName', type: 'text', friendlyName: "对象名" },
     { name: 'fieldName', type: 'text', friendlyName: "字段名" },
     { name: 'required', type: 'boolean', friendlyName: "必须" },
     { name: 'readonly', type: 'boolean', friendlyName: "只读" }

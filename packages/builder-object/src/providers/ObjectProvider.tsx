@@ -10,6 +10,8 @@ type ObjectProviderProps = ObjectContextValueType & {
 export function ObjectProvider(props: ObjectProviderProps) {
 
   const {
+    currentObjectApiName,
+    currentRecordId,
     requestObject,
     requestRecords,
     queryClient = new QueryClient(),
@@ -18,6 +20,8 @@ export function ObjectProvider(props: ObjectProviderProps) {
 
   return (
     <ObjectContext.Provider value={{
+      currentObjectApiName,
+      currentRecordId,
       queryClient,
       requestObject,
       requestRecords,
