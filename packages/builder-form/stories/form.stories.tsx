@@ -147,3 +147,21 @@ export const ContractForm = () => {
   )
 }
 
+
+export const FieldSection = () => {
+
+  const data =  {
+  }
+  const content = require('./field-section.builder.json');
+  const bcProps = {
+    apiKey,
+    content,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
+  return (
+    <BuilderComponent {...bcProps}>
+    </BuilderComponent> 
+  )
+}
