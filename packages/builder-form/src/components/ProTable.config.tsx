@@ -57,6 +57,8 @@ export const configProTable = {
     { name: 'columns', type: 'list',helperText: '列配置', subFields: [
       { name: 'title', type: 'string', helperText: '标题' },
       { name: 'key', type: 'string', helperText: '标题key'},
+      { name: 'width', type: 'number', defaultValue: 60 , helperText: '列宽'},
+      { name: 'align', type: 'string', defaultValue: 'left' , helperText: '对齐方式', enum: ['left', 'right', 'center']},
       // { name: 'dataIndex', type: ''},
       { name: 'valueType', type: 'stirng', 
         enum: [
@@ -77,7 +79,8 @@ export const configProTable = {
       //     { name: 'value', type: 'string'}
       //   ] }
       // ] },
-      { name: 'sorter', type: 'boolean', defaultValue:false, helperText: '排序' }
+      { name: 'sorter', type: 'boolean', defaultValue:false, helperText: '排序' },
+      { name: 'search', type: 'boolean', defaultValue:false, helperText: '搜索' },
    
     ],
     },
