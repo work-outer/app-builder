@@ -10,7 +10,7 @@ import {
 import _ from 'lodash';
 
 export function FieldSection(props: any) {
-  const { title, columns = 2, gap = '0rem 1rem', children } = props
+  const { attributes, title, columns = 2, gap = '0rem 1rem', children } = props
   
   const boxOptions = {
     templateColumns: [`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`],
@@ -27,7 +27,7 @@ export function FieldSection(props: any) {
   }
 
   return (
-    <Accordion defaultIndex={[0]} allowMultiple colorScheme='gray' pb={2}>
+    <Accordion defaultIndex={[0]} allowMultiple colorScheme='gray' pb={2} {...attributes}>
       <AccordionItem borderBottom={0} borderTop={0}>
         <Box background='gray.100' borderRadius={2}>
           <AccordionButton>

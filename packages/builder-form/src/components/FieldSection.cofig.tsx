@@ -10,11 +10,12 @@ export const configFieldSection = {
     marginTop: '0',
     minHeight: '100px',
   },
+  noWrap: true,
   canHaveChildren: true,
-  requiresParent: {
-    message: 'This block must be inside a "Form"  block',
-    query: {
-      'component.name': { $in: ['@steedos/builder-form:Form'] }
-    }
-  }
+  // requiresParent: {
+  //   message: 'This block must be inside a "Form"  block',
+  //   query: {
+  //     'component.name': { $in: ['@steedos/builder-form:Form'] }
+  //   }
+  // }
 };
