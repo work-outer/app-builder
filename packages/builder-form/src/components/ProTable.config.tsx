@@ -17,6 +17,17 @@ export const configProTable = {
     },
 
     {
+      name: 'expandable', type: 'object', subFields: [
+        { name: 'childrenColumnName', type: 'string', defaultValue: 'children', helperText: '指定树形结构的列名' },
+        { name: 'columnWidth', type: 'number',helperText: '自定义展开列宽度' },
+        { name: 'defaultExpandAllRows', type: 'boolean', defaultValue: false, helperText: '初始时，是否展开所有行' },
+        { name: 'expandIconColumnIndex', type: 'number', helperText: '自定义展开按钮的列顺序，-1 时不展示' },
+        { name: 'expandRowByClick', type: 'boolean', defaultValue: false, helperText: '通过点击行来展开子行' },
+        { name: 'indentSize', type: 'number', helperText: '展示树形数据时，每层缩进的宽度，以 px 为单位' },
+      ], helperText: '展开功能的配置'
+    },
+    
+    {
       name: 'options', type: 'object', subFields: [
         { name: 'fullScreen', type: 'boolean', defaultValue: true },
         { name: 'reload', type: 'boolean', defaultValue: true },
