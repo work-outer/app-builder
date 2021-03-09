@@ -10,7 +10,7 @@ import {
 import _ from 'lodash';
 
 export function FieldSection(props: any) {
-  const { attributes, title, columns = 3, gap = '0rem 2rem', children } = props
+  const { attributes, title, columns = 3, gap = '0.5rem 2rem', children } = props
   
   const boxOptions = {
     templateColumns: [`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`],
