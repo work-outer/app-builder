@@ -1,7 +1,7 @@
 export const configProTable = {
   name: '@steedos/builder-form:Table',
   inputs: [
-    { name: 'title', type: 'string' },
+    { name: 'headerTitle', type: 'string', helperText: '表格名称'},
     { name: 'size', type: 'string', defaultValue: 'default', enum: ['default', 'middle', 'small']},
     {
       name: 'dateFormatter', type: 'string',
