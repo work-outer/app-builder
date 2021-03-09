@@ -18,8 +18,8 @@ export function Form(props:any) {
     gap: 4,
   }
 
-  const GridComponent = columns==9?Grid:React.Fragment
-  const {formOptions} = store.context
+  const GridComponent = columns?Grid:React.Fragment
+  const { formOptions } = store.context
   const proFormProps = {
     form,
     ...rest,
@@ -28,9 +28,9 @@ export function Form(props:any) {
 
   return (
       <ProForm {...proFormProps}>
-        <Grid {...boxOptions}>
+        <GridComponent {...boxOptions}>
           {children}
-        </Grid>
+        </GridComponent>
       </ProForm>
   )
 }
