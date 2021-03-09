@@ -71,12 +71,12 @@ export const configProTable = {
       },
       { name: 'filters', type: 'boolean', defaultValue:false, helperText:'过滤' },
       { name: 'onFilter', type: 'boolean', defaultValue:false, helperText:'' },
-      { name: 'valueEnum', type: 'object', helperText:'排序数据枚举', subFields: [
-        { name: 'key', type: 'obejct', subFields: [
-          { name: 'key', type: 'string'},
-          { name: 'value', type: 'string'}
-        ] }
-      ] },
+      // { name: 'valueEnum', type: 'object', helperText:'排序数据枚举', subFields: [
+      //   { name: 'key', type: 'obejct', subFields: [
+      //     { name: 'key', type: 'string'},
+      //     { name: 'value', type: 'string'}
+      //   ] }
+      // ] },
       { name: 'sorter', type: 'boolean', defaultValue:false, helperText: '排序' }
    
     ],
