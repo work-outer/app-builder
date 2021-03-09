@@ -2,6 +2,7 @@ export const configProTable = {
   name: '@steedos/builder-form:Table',
   inputs: [
     { name: 'title', type: 'string' },
+    { name: 'size', type: 'string', defaultValue: 'default', enum: ['default', 'middle', 'small']},
     {
       name: 'dateFormatter', type: 'string',
       enum: ['string', 'number', 'false'], helperText: '转化 moment 格式数据为特定类型，false 不做转化'
