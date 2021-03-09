@@ -6,7 +6,7 @@ import { adapt } from "webcomponents-in-react";
 import { Builder, BuilderComponent, builder, withChildren } from '@builder.io/react';
 
 export default {
-  title: "Builder Form",
+  title: "Ant Design",
 }
 
 declare var window;
@@ -114,17 +114,48 @@ export const Preview = () => {
 }
 
 
-
-
-export const FormFieldSection = () => {
+export const FormContract = () => {
 
   require('../src/builder-widgets');
 
   builder.init(apiKey);
 
-  const fieldSectionContent = require('./form-field-section.builder.json');
+  const context = {
+    formOptions: {
+      columns: 1,
+      initialValues: {name: 'Hello World!'},
+      onFinish: (values) => {
+        // console.log('onFinish 2')
+        // console.log(values)
+      },
+    }
+  }
   const data =  {
-    formMode: 'read',
+  }
+  const content = require('./form-contract.builder.json');
+  const bcProps = {
+    apiKey,
+    content,
+    context,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
+  return (
+    <BuilderComponent {...bcProps}>
+    </BuilderComponent> 
+  )
+}
+
+
+export const TableSimple = () => {
+
+  require('../src/builder-widgets');
+
+  builder.init(apiKey);
+
+  const fieldSectionContent = require('./table-simple.builder.json');
+  const data =  {
   }
   const bcProps = {
     apiKey,
@@ -135,10 +166,7 @@ export const FormFieldSection = () => {
   }
 
   return (
-    <ProForm initialValues={{text: 'Hello World'}}>
-      <BuilderComponent {...bcProps}>
-      </BuilderComponent> 
-    </ProForm>
+    <BuilderComponent {...bcProps}>
+    </BuilderComponent> 
   )
 }
-
