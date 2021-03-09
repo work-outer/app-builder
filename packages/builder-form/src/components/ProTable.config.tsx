@@ -55,34 +55,32 @@ export const configProTable = {
     { name: 'loading', type: 'boolean', defaultValue:true },
 
     { name: 'columns', type: 'list',helperText: '列配置', subFields: [
-      { name: 'title', type: 'string', helperText: '标题' },
-      { name: 'key', type: 'string', helperText: '标题key'},
-      { name: 'width', type: 'number', defaultValue: 60 , helperText: '列宽'},
-      { name: 'align', type: 'string', defaultValue: 'left' , helperText: '对齐方式', enum: ['left', 'right', 'center']},
-      // { name: 'dataIndex', type: ''},
-      { name: 'valueType', type: 'stirng', 
-        enum: [
-                'password','money','textarea','option','date',
-                'dateWeek','dateMonth','dateQuarter','dateYear',
-                'dateRange','dateTimeRange','dateTime','time',
-                'timeRange','text','select','checkbox','rate',
-                'radio','radioButton','index','indexBorder',
-                'progress','percent','digit','second','avatar',
-                'code','switch', 'fromNow','image', 'jsonCode',
-              ]
-      },
-      { name: 'filters', type: 'boolean', defaultValue:false, helperText:'过滤' },
-      { name: 'onFilter', type: 'boolean', defaultValue:false, helperText:'' },
-      // { name: 'valueEnum', type: 'object', helperText:'排序数据枚举', subFields: [
-      //   { name: 'key', type: 'obejct', subFields: [
-      //     { name: 'key', type: 'string'},
-      //     { name: 'value', type: 'string'}
-      //   ] }
-      // ] },
-      { name: 'sorter', type: 'boolean', defaultValue:false, helperText: '排序' },
-      { name: 'search', type: 'boolean', defaultValue:false, helperText: '搜索' },
-   
-    ],
+        { name: 'title', type: 'string', helperText: '标题' },
+        { name: 'dataIndex', type: 'string', helperText: '列数据在数据项中对应的路径'},
+        { name: 'key', type: 'string', helperText: 'React 需要的 key，如果已经设置了唯一的 dataIndex，可以忽略这个属性'},
+        { name: 'width', type: 'number', defaultValue: 60 , helperText: '列宽'},
+        { name: 'align', type: 'string', defaultValue: 'left' , helperText: '对齐方式', enum: ['left', 'right', 'center']},
+        { name: 'valueType', type: 'stirng', 
+          enum: [
+                  'password','money','textarea','option','date',
+                  'dateWeek','dateMonth','dateQuarter','dateYear',
+                  'dateRange','dateTimeRange','dateTime','time',
+                  'timeRange','text','select','checkbox','rate',
+                  'radio','radioButton','index','indexBorder',
+                  'progress','percent','digit','second','avatar',
+                  'code','switch', 'fromNow','image', 'jsonCode',
+                ]
+        },
+        { name: 'sorter', type: 'boolean', defaultValue:false, helperText: '排序' },
+        { name: 'search', type: 'boolean', defaultValue:false, helperText: '搜索' },
+        { name: 'ellipsis', type: 'boolean', defaultValue:false, helperText: '超过宽度将自动省略，暂不支持和排序筛选一起使用' },
+        { name: 'copyable', type: 'boolean', defaultValue:false, helperText: '复制按钮' },
+        { name: 'filters', type: 'list', subFields: [
+            { name: 'text', type: 'string'},
+            { name: 'value', type: 'string'}
+          ], helperText: '表头的筛选菜单项'
+        }
+      ],
     },
   ],
   canHaveChildren: true
