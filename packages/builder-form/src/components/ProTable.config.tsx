@@ -84,11 +84,6 @@ export const configProTable = {
         { name: 'tip', type: 'string', helperText: '提示语'},
         { name: 'formItemProps', type: 'object', subFields: [
           { name: 'required', type: 'boolean', defaultValue: false },
-          { name: 'message', type: 'string', defaultValue: 'Please input...' }
-            // { name: 'rules',  type: 'list', subFields: [
-            //   ], 
-            //   helperText: '是否必填和校验信息'
-            // }
           ], helperText: '控制标题对应的输入框'
         } 
       ],
