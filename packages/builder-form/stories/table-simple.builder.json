@@ -1,0 +1,126 @@
+{
+  "data": {
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-dc1dad8745cc4721b9e46c7a05cb3438",
+        "component": {
+          "name": "@steedos/builder-form:Table",
+          "options": {
+            "title": "",
+            "dateFormatter": "number",
+            "defaultData": [
+              {
+                "col1": "a1",
+                "col2": "b1",
+                "col3": "c1"
+              },
+              {
+                "col1": "a2",
+                "col2": "b2",
+                "col3": "c2"
+              },
+              {
+                "col1": "a3",
+                "col2": "b3",
+                "col3": "c3"
+              }
+            ],
+            "expandable": {
+              "defaultExpandAllRows": false,
+              "columnWidth": null
+            },
+            "columns": [
+              {
+                "title": "Title",
+                "key": "",
+                "valueType": "text",
+                "filters": [],
+                "onFilter": false,
+                "sorter": true,
+                "width": 200,
+                "align": "center",
+                "dataIndex": "col1",
+                "tip": "标题过长会自动收缩",
+                "formItemProps": {
+                  "rules": [
+                    {
+                      "message": "Please input...",
+                      "required": true
+                    }
+                  ]
+                },
+                "ellipsis": false
+              },
+              {
+                "title": "Name",
+                "key": "",
+                "valueType": "text",
+                "filters": [
+                  {
+                    "text": "C",
+                    "value": "c"
+                  },
+                  {
+                    "text": "D",
+                    "value": "d"
+                  }
+                ],
+                "onFilter": false,
+                "sorter": true,
+                "width": 220,
+                "align": "left",
+                "search": true,
+                "dataIndex": "col2",
+                "copyable": true,
+                "formItemProps": {
+                  "rules": [
+                    {
+                      "message": "Please input...",
+                      "required": false
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "Class",
+                "key": "",
+                "valueType": "text",
+                "filters": false,
+                "onFilter": false,
+                "sorter": true,
+                "width": 200,
+                "align": "center",
+                "search": false,
+                "copyable": false,
+                "dataIndex": "col3"
+              }
+            ],
+            "bordered": false,
+            "loading": false,
+            "size": "default",
+            "options": {
+              "density": true,
+              "setting": true,
+              "fullScreen": true
+            },
+            "search": {
+              "filterType": "query"
+            }
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "stretch",
+            "position": "relative",
+            "marginTop": "20px",
+            "marginBottom": "80px"
+          }
+        }
+      }
+    ]
+  }
+}

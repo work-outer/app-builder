@@ -5,38 +5,26 @@
       {
         "@type": "@builder.io/sdk:Element",
         "@version": 2,
-        "id": "builder-c1e53533e766433f98b8749b25f381f2",
-        "responsiveStyles": {
-          "large": {
-            "display": "flex",
-            "flexDirection": "column",
-            "alignItems": "stretch",
-            "position": "relative",
-            "marginTop": "20px"
-          }
-        }
-      },
-      {
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
         "id": "builder-78d2bb14cbe2410aaff34caf74d63852",
         "component": {
           "name": "@steedos/builder-form:Form",
           "options": {
             "layout": "vertical",
-            "initialValues": "({name: 'hello 222 333 444'})",
+            "initialValues": "({})",
             "onValuesChange": "(values) => {  }",
-            "onFinish": "(values) => { console.log(values) }"
+            "onFinish": "(values) => {  }",
+            "size": "middle",
+            "columns": null,
+            "width": "lg"
           }
         },
         "children": [
           {
             "@type": "@builder.io/sdk:Element",
             "@version": 2,
-            "layerName": "FieldSection",
             "id": "builder-68c6102c7700470c9ced06b266d5052a",
             "component": {
-              "name": "@steedos/builder-form:FieldSection",
+              "name": "@steedos/builder-form:FormSection",
               "options": {
                 "title": ""
               }
@@ -54,7 +42,13 @@
                     "width": "md",
                     "tooltip": "最长为24位",
                     "placeholder": "请输入名称",
-                    "disabled": false
+                    "disabled": false,
+                    "rules": [
+                      {
+                        "message": "Please input name",
+                        "required": true
+                      }
+                    ]
                   }
                 },
                 "responsiveStyles": {
@@ -90,11 +84,33 @@
                     "marginTop": "0"
                   }
                 }
-              },
+              }
+            ],
+            "responsiveStyles": {
+              "large": {
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "20px"
+              }
+            }
+          },
+          {
+            "@type": "@builder.io/sdk:Element",
+            "@version": 2,
+            "id": "builder-d08d2211daf44defb9fc4196a0deef42",
+            "component": {
+              "name": "@steedos/builder-form:FormSection",
+              "options": {
+                "title": ""
+              }
+            },
+            "children": [
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-ad1a928dab4b4ff095771b95ed5ce9f7",
+                "id": "builder-346050115b194597abceb985aab46015",
                 "component": {
                   "name": "@steedos/builder-form:Text",
                   "options": {
@@ -117,7 +133,7 @@
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-b3cef6ba51bb4df0b71232c804db7607",
+                "id": "builder-7d891a2dcfa749d995498fd193643b59",
                 "component": {
                   "name": "@steedos/builder-form:Password",
                   "options": {
@@ -125,7 +141,13 @@
                     "label": "密码",
                     "width": "md",
                     "placeholder": "请输入密码",
-                    "tooltip": "大于8个字符，包括字母、数字"
+                    "tooltip": "大于8个字符，包括字母、数字",
+                    "rules": [
+                      {
+                        "message": "Please input password",
+                        "required": true
+                      }
+                    ]
                   }
                 },
                 "responsiveStyles": {
@@ -137,11 +159,33 @@
                     "marginTop": "0"
                   }
                 }
-              },
+              }
+            ],
+            "responsiveStyles": {
+              "large": {
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "20px"
+              }
+            }
+          },
+          {
+            "@type": "@builder.io/sdk:Element",
+            "@version": 2,
+            "id": "builder-84cc0979ed7647338a1ccb1d117da2f6",
+            "component": {
+              "name": "@steedos/builder-form:FormSection",
+              "options": {
+                "title": ""
+              }
+            },
+            "children": [
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-815ade493bff4703bff95623354130a5",
+                "id": "builder-205dd504f64d451aae91daee339549e5",
                 "component": {
                   "name": "@steedos/builder-form:Select",
                   "options": {
@@ -158,7 +202,13 @@
                     "fieldProps": {
                       "defaultActiveFirstOption": false
                     },
-                    "disabled": true
+                    "disabled": false,
+                    "rules": [
+                      {
+                        "message": "Please select...",
+                        "required": true
+                      }
+                    ]
                   }
                 },
                 "responsiveStyles": {
@@ -174,30 +224,7 @@
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-d7ea2d512b0047d2b6a198ee573c84d1",
-                "component": {
-                  "name": "@steedos/builder-form:DatetimePicker",
-                  "options": {
-                    "name": "startDatetime",
-                    "label": "开始日期",
-                    "width": "md",
-                    "disabled": false
-                  }
-                },
-                "responsiveStyles": {
-                  "large": {
-                    "display": "block",
-                    "flexDirection": "column",
-                    "alignItems": "stretch",
-                    "position": "relative",
-                    "marginTop": "0"
-                  }
-                }
-              },
-              {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-69fca19654074e81ab8302cbd4604a98",
+                "id": "builder-882a6205f06b42d391df7107d6b36cff",
                 "component": {
                   "name": "@steedos/builder-form:Select",
                   "options": {
@@ -221,29 +248,124 @@
                     "marginTop": "0"
                   }
                 }
-              },
+              }
+            ],
+            "responsiveStyles": {
+              "large": {
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "20px"
+              }
+            }
+          },
+          {
+            "@type": "@builder.io/sdk:Element",
+            "@version": 2,
+            "id": "builder-04367bd0b727467d84619d7b3b7d4667",
+            "component": {
+              "name": "@steedos/builder-form:FormSection",
+              "options": {
+                "title": ""
+              }
+            },
+            "children": [
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-c6c26112a6ce4e32b0752013d467d6e6",
+                "id": "builder-6c3cd1abd6b2405f80fce18797a942cb",
                 "component": {
-                  "name": "@steedos/builder-form:DatetimePicker",
+                  "name": "Columns",
                   "options": {
-                    "name": "endDateTime",
-                    "label": "结束日期",
-                    "width": "md"
-                  }
-                },
-                "responsiveStyles": {
-                  "large": {
-                    "display": "block",
-                    "flexDirection": "column",
-                    "alignItems": "stretch",
-                    "position": "relative",
-                    "marginTop": "0"
+                    "space": 30,
+                    "columns": [
+                      {
+                        "blocks": [
+                          {
+                            "@type": "@builder.io/sdk:Element",
+                            "@version": 2,
+                            "id": "builder-46ebecc52daf409fa87c004791d833d1",
+                            "component": {
+                              "name": "@steedos/builder-form:DatetimePicker",
+                              "options": {
+                                "name": "startDatetime",
+                                "label": "开始日期",
+                                "width": "md",
+                                "disabled": false,
+                                "rules": [
+                                  {
+                                    "message": "Please select datetime",
+                                    "required": true
+                                  }
+                                ]
+                              }
+                            },
+                            "responsiveStyles": {
+                              "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "blocks": [
+                          {
+                            "@type": "@builder.io/sdk:Element",
+                            "@version": 2,
+                            "id": "builder-c6c26112a6ce4e32b0752013d467d6e6",
+                            "component": {
+                              "name": "@steedos/builder-form:DatetimePicker",
+                              "options": {
+                                "name": "endDateTime",
+                                "label": "结束日期",
+                                "width": "md"
+                              }
+                            },
+                            "responsiveStyles": {
+                              "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "stackColumnsAt": "tablet"
                   }
                 }
-              },
+              }
+            ],
+            "responsiveStyles": {
+              "large": {
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "20px"
+              }
+            }
+          },
+          {
+            "@type": "@builder.io/sdk:Element",
+            "@version": 2,
+            "id": "builder-11a8860f938e470b8f650ab04f6fbb8c",
+            "component": {
+              "name": "@steedos/builder-form:FormSection",
+              "options": {
+                "title": ""
+              }
+            },
+            "children": [
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
@@ -275,7 +397,13 @@
                   "options": {
                     "name": "createTime",
                     "label": "合同生效时间",
-                    "width": "md"
+                    "width": "md",
+                    "rules": [
+                      {
+                        "message": "Please select date",
+                        "required": true
+                      }
+                    ]
                   }
                 },
                 "responsiveStyles": {
@@ -288,15 +416,23 @@
                   }
                 }
               }
-            ]
+            ],
+            "responsiveStyles": {
+              "large": {
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "20px"
+              }
+            }
           },
           {
             "@type": "@builder.io/sdk:Element",
             "@version": 2,
-            "layerName": "Group",
             "id": "builder-7d999e8d22fe400c8b8b6df1a51f36bc",
             "component": {
-              "name": "@steedos/builder-form:FieldSection",
+              "name": "@steedos/builder-form:FormSection",
               "options": {
                 "title": ""
               }
@@ -309,7 +445,7 @@
                 "component": {
                   "name": "@steedos/builder-form:Select",
                   "options": {
-                    "name": "priceMode",
+                    "name": "useMode",
                     "label": "金额类型",
                     "width": "sm",
                     "options": [
@@ -375,6 +511,7 @@
                     "width": "md",
                     "fieldProps": {
                       "precision": 0,
+                      "defaultValue": 5,
                       "size": "large"
                     },
                     "min": 0,
@@ -392,7 +529,16 @@
                   }
                 }
               }
-            ]
+            ],
+            "responsiveStyles": {
+              "large": {
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "20px"
+              }
+            }
           },
           {
             "@type": "@builder.io/sdk:Element",
@@ -419,8 +565,14 @@
                     "value": "3"
                   }
                 ],
-                "initialValue": "2",
-                "layout": "horizontal"
+                "initialValue": "",
+                "layout": "horizontal",
+                "rules": [
+                  {
+                    "message": "Please select...",
+                    "required": true
+                  }
+                ]
               }
             },
             "responsiveStyles": {
@@ -436,10 +588,9 @@
           {
             "@type": "@builder.io/sdk:Element",
             "@version": 2,
-            "layerName": "Group",
             "id": "builder-9ed36a78efc74593bf802f123e283340",
             "component": {
-              "name": "@steedos/builder-form:FieldSection",
+              "name": "@steedos/builder-form:FormSection",
               "options": {
                 "title": ""
               }
@@ -456,7 +607,13 @@
                     "label": "倒签报备附件",
                     "width": "lg",
                     "title": "上传文件",
-                    "extra": "支持扩展名：.jpg .zip .doc .wps"
+                    "extra": "支持扩展名：.jpg .zip .doc .wps",
+                    "rules": [
+                      {
+                        "message": "Please select file",
+                        "required": true
+                      }
+                    ]
                   }
                 },
                 "responsiveStyles": {
@@ -489,7 +646,7 @@
               "options": {
                 "name": "project",
                 "label": "项目名称",
-                "width": "lg",
+                "width": "xl",
                 "initialValue": "xxxx项目",
                 "disabled": true
               }
@@ -514,7 +671,88 @@
                 "name": "remark",
                 "label": "合同备注说明",
                 "width": "xl",
-                "disabled": false
+                "disabled": false,
+                "rules": [
+                  {
+                    "message": "Please input...",
+                    "required": true
+                  }
+                ]
+              }
+            },
+            "responsiveStyles": {
+              "large": {
+                "display": "block",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "0"
+              }
+            }
+          },
+          {
+            "@type": "@builder.io/sdk:Element",
+            "@version": 2,
+            "id": "builder-97bc1e02128f4733beefd33ce6efe359",
+            "component": {
+              "name": "@steedos/builder-form:Checkbox",
+              "options": {
+                "name": "checkbox",
+                "label": "多选框",
+                "width": "md",
+                "layout": "horizontal",
+                "rules": [
+                  {
+                    "message": "Please select...",
+                    "required": true
+                  }
+                ],
+                "options": [
+                  {
+                    "value": "1",
+                    "label": "A"
+                  },
+                  {
+                    "value": "2",
+                    "label": "B"
+                  },
+                  {
+                    "value": "3",
+                    "label": "C"
+                  },
+                  {
+                    "value": "4",
+                    "label": "D"
+                  }
+                ]
+              }
+            },
+            "responsiveStyles": {
+              "large": {
+                "display": "block",
+                "flexDirection": "column",
+                "alignItems": "stretch",
+                "position": "relative",
+                "marginTop": "0"
+              }
+            }
+          },
+          {
+            "@type": "@builder.io/sdk:Element",
+            "@version": 2,
+            "id": "builder-aa603039595148edb88f2118373082cc",
+            "component": {
+              "name": "@steedos/builder-form:DatePicker",
+              "options": {
+                "name": "date",
+                "label": "Date Picker",
+                "width": "md",
+                "rules": [
+                  {
+                    "message": "Please select date",
+                    "required": true
+                  }
+                ]
               }
             },
             "responsiveStyles": {
@@ -530,10 +768,18 @@
         ],
         "responsiveStyles": {
           "large": {
-            "paddingTop": "20px",
-            "paddingLeft": "20px",
-            "paddingRight": "20px",
-            "paddingBottom": "20px"
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "stretch",
+            "position": "relative",
+            "marginTop": "20px",
+            "backgroundColor": "rgba(252, 252, 252, 1)",
+            "marginLeft": "0px",
+            "marginRight": "0px",
+            "paddingLeft": "10px",
+            "paddingRight": "10px",
+            "marginBottom": "80px",
+            "paddingBottom": "30px"
           }
         }
       }

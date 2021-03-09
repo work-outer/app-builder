@@ -114,7 +114,7 @@ export const Preview = () => {
 }
 
 
-export const ContractForm = () => {
+export const FormContract = () => {
 
   require('../src/builder-widgets');
 
@@ -132,7 +132,7 @@ export const ContractForm = () => {
   }
   const data =  {
   }
-  const content = require('./contract.form.builder.json');
+  const content = require('./form-contract.builder.json');
   const bcProps = {
     apiKey,
     content,
@@ -148,13 +148,13 @@ export const ContractForm = () => {
 }
 
 
-export const FieldSection = () => {
+export const FormFieldSection = () => {
 
   require('../src/builder-widgets');
 
   builder.init(apiKey);
 
-  const fieldSectionContent = require('./field-section.builder.json');
+  const fieldSectionContent = require('./form-field-section.builder.json');
   const data =  {
     formMode: 'read',
   }
@@ -171,5 +171,29 @@ export const FieldSection = () => {
       <BuilderComponent {...bcProps}>
       </BuilderComponent> 
     </ProForm>
+  )
+}
+
+
+export const TableSimple = () => {
+
+  require('../src/builder-widgets');
+
+  builder.init(apiKey);
+
+  const fieldSectionContent = require('./table-simple.builder.json');
+  const data =  {
+  }
+  const bcProps = {
+    apiKey,
+    content: fieldSectionContent,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
+
+  return (
+    <BuilderComponent {...bcProps}>
+    </BuilderComponent> 
   )
 }
