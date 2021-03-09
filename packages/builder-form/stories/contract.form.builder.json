@@ -5,41 +5,14 @@
       {
         "@type": "@builder.io/sdk:Element",
         "@version": 2,
-        "id": "builder-bd5501e357fb486b8af88f748e4040cf",
-        "children": [
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-908f32eeb70b4f14ab0157f996970815",
-            "component": {
-              "name": "Text",
-              "options": {
-                "text": "Enter some text..."
-              }
-            },
-            "responsiveStyles": {
-              "large": {
-                "display": "flex",
-                "flexDirection": "column",
-                "alignItems": "stretch",
-                "position": "relative",
-                "marginTop": "20px",
-                "lineHeight": "normal",
-                "height": "auto",
-                "textAlign": "center"
-              }
-            }
-          }
-        ],
+        "id": "builder-c1e53533e766433f98b8749b25f381f2",
         "responsiveStyles": {
           "large": {
             "display": "flex",
             "flexDirection": "column",
             "alignItems": "stretch",
             "position": "relative",
-            "marginTop": "20px",
-            "height": "auto",
-            "paddingBottom": "30px"
+            "marginTop": "20px"
           }
         }
       },
@@ -51,7 +24,7 @@
           "name": "@steedos/builder-form:Form",
           "options": {
             "layout": "vertical",
-            "initialValues": "({name:'initial'})",
+            "initialValues": "({name: 'hello 222 333 444'})",
             "onValuesChange": "(values) => {  }",
             "onFinish": "(values) => { console.log(values) }"
           }
@@ -60,9 +33,10 @@
           {
             "@type": "@builder.io/sdk:Element",
             "@version": 2,
+            "layerName": "FieldSection",
             "id": "builder-68c6102c7700470c9ced06b266d5052a",
             "component": {
-              "name": "@steedos/builder-form:FormSection",
+              "name": "@steedos/builder-form:FieldSection",
               "options": {
                 "title": ""
               }
@@ -116,24 +90,11 @@
                     "marginTop": "0"
                   }
                 }
-              }
-            ]
-          },
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-d08d2211daf44defb9fc4196a0deef42",
-            "component": {
-              "name": "@steedos/builder-form:FormSection",
-              "options": {
-                "title": ""
-              }
-            },
-            "children": [
+              },
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-346050115b194597abceb985aab46015",
+                "id": "builder-ad1a928dab4b4ff095771b95ed5ce9f7",
                 "component": {
                   "name": "@steedos/builder-form:Text",
                   "options": {
@@ -156,7 +117,7 @@
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-7d891a2dcfa749d995498fd193643b59",
+                "id": "builder-b3cef6ba51bb4df0b71232c804db7607",
                 "component": {
                   "name": "@steedos/builder-form:Password",
                   "options": {
@@ -176,24 +137,11 @@
                     "marginTop": "0"
                   }
                 }
-              }
-            ]
-          },
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-84cc0979ed7647338a1ccb1d117da2f6",
-            "component": {
-              "name": "@steedos/builder-form:FormSection",
-              "options": {
-                "title": ""
-              }
-            },
-            "children": [
+              },
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-205dd504f64d451aae91daee339549e5",
+                "id": "builder-815ade493bff4703bff95623354130a5",
                 "component": {
                   "name": "@steedos/builder-form:Select",
                   "options": {
@@ -226,7 +174,30 @@
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-882a6205f06b42d391df7107d6b36cff",
+                "id": "builder-d7ea2d512b0047d2b6a198ee573c84d1",
+                "component": {
+                  "name": "@steedos/builder-form:DatetimePicker",
+                  "options": {
+                    "name": "startDatetime",
+                    "label": "开始日期",
+                    "width": "md",
+                    "disabled": false
+                  }
+                },
+                "responsiveStyles": {
+                  "large": {
+                    "display": "block",
+                    "flexDirection": "column",
+                    "alignItems": "stretch",
+                    "position": "relative",
+                    "marginTop": "0"
+                  }
+                }
+              },
+              {
+                "@type": "@builder.io/sdk:Element",
+                "@version": 2,
+                "id": "builder-69fca19654074e81ab8302cbd4604a98",
                 "component": {
                   "name": "@steedos/builder-form:Select",
                   "options": {
@@ -250,100 +221,29 @@
                     "marginTop": "0"
                   }
                 }
-              }
-            ]
-          },
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-04367bd0b727467d84619d7b3b7d4667",
-            "component": {
-              "name": "@steedos/builder-form:FormSection",
-              "options": {
-                "title": ""
-              }
-            },
-            "children": [
+              },
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-6c3cd1abd6b2405f80fce18797a942cb",
+                "id": "builder-c6c26112a6ce4e32b0752013d467d6e6",
                 "component": {
-                  "name": "Columns",
+                  "name": "@steedos/builder-form:DatetimePicker",
                   "options": {
-                    "space": 30,
-                    "columns": [
-                      {
-                        "blocks": [
-                          {
-                            "@type": "@builder.io/sdk:Element",
-                            "@version": 2,
-                            "id": "builder-46ebecc52daf409fa87c004791d833d1",
-                            "component": {
-                              "name": "@steedos/builder-form:DatetimePicker",
-                              "options": {
-                                "name": "startDatetime",
-                                "label": "开始日期",
-                                "width": "md",
-                                "disabled": false
-                              }
-                            },
-                            "responsiveStyles": {
-                              "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0"
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "blocks": [
-                          {
-                            "@type": "@builder.io/sdk:Element",
-                            "@version": 2,
-                            "id": "builder-c6c26112a6ce4e32b0752013d467d6e6",
-                            "component": {
-                              "name": "@steedos/builder-form:DatetimePicker",
-                              "options": {
-                                "name": "endDateTime",
-                                "label": "结束日期",
-                                "width": "md"
-                              }
-                            },
-                            "responsiveStyles": {
-                              "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0"
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    ],
-                    "stackColumnsAt": "tablet"
+                    "name": "endDateTime",
+                    "label": "结束日期",
+                    "width": "md"
+                  }
+                },
+                "responsiveStyles": {
+                  "large": {
+                    "display": "block",
+                    "flexDirection": "column",
+                    "alignItems": "stretch",
+                    "position": "relative",
+                    "marginTop": "0"
                   }
                 }
-              }
-            ]
-          },
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-11a8860f938e470b8f650ab04f6fbb8c",
-            "component": {
-              "name": "@steedos/builder-form:FormSection",
-              "options": {
-                "title": ""
-              }
-            },
-            "children": [
+              },
               {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
@@ -393,9 +293,10 @@
           {
             "@type": "@builder.io/sdk:Element",
             "@version": 2,
+            "layerName": "Group",
             "id": "builder-7d999e8d22fe400c8b8b6df1a51f36bc",
             "component": {
-              "name": "@steedos/builder-form:FormSection",
+              "name": "@steedos/builder-form:FieldSection",
               "options": {
                 "title": ""
               }
@@ -535,9 +436,10 @@
           {
             "@type": "@builder.io/sdk:Element",
             "@version": 2,
+            "layerName": "Group",
             "id": "builder-9ed36a78efc74593bf802f123e283340",
             "component": {
-              "name": "@steedos/builder-form:FormSection",
+              "name": "@steedos/builder-form:FieldSection",
               "options": {
                 "title": ""
               }

@@ -1,5 +1,5 @@
-export const configProFormField = {
-  name: '@steedos/builder-form:FormField',
+export const configField = {
+  name: '@steedos/builder-form:Field',
   image:
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2Fad6f37889d9e40bbbbc72cdb5875d6ca',
   inputs: [
@@ -10,13 +10,14 @@ export const configProFormField = {
   defaultStyles: {
     display: 'block',
     marginTop: '0',
+    marginBottom: '0',
   },
-  noWrap: false,
+  noWrap: true,
   canHaveChildren: false,
   requiresParent: {
-    message: 'This block must be inside a "Form" or "Form Section" block',
+    message: 'This block must be inside a "Field Section" block',
     query: {
-      'component.name': { $in: ['@steedos/builder-form:Form', '@steedos/builder-form:FormSection'] }
+      'component.name': { $in: ['@steedos/builder-form:FieldSection'] }
     }
   }
 };

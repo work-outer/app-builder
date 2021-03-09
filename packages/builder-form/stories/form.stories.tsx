@@ -105,7 +105,6 @@ export const Preview = () => {
     context,
     data,
     onStateChange: (newData: any) => {
-      console.log(newData)
     }
   }
   return (

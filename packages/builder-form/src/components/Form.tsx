@@ -10,15 +10,10 @@ import { BuilderStoreContext } from '@builder.io/react';
 
 export function Form(props:any) {
   const store = useContext(BuilderStoreContext)
-  const {columns, mode, children, ...rest} = props
+  const {mode, children, ...rest} = props
   const [form] = AntForm.useForm();
 
-  const boxOptions = {
-    templateColumns: [`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`],
-    gap: 4,
-  }
 
-  const GridComponent = columns?Grid:React.Fragment
   const { formOptions } = store.context
   const proFormProps = {
     form,
@@ -28,9 +23,7 @@ export function Form(props:any) {
 
   return (
       <ProForm {...proFormProps}>
-        <GridComponent {...boxOptions}>
           {children}
-        </GridComponent>
       </ProForm>
   )
 }
