@@ -80,7 +80,7 @@ export const Preview = () => {
   //   hideTargeting: false, // Hide the targeting UI
   // });
 
-  require('../src');
+  require('@steedos/builder-object/src/builder-widgets');
 
   return (
     <SteedosProvider >
