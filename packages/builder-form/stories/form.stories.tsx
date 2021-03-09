@@ -89,7 +89,7 @@ export const Preview = () => {
 
   builder.init(apiKey);
 
-  import ('../src');
+  import ('../src/builder-widgets');
 
   const context = {hello: 'context'}
   const data =  {
@@ -115,7 +115,7 @@ export const Preview = () => {
 
 export const ContractForm = () => {
 
-  import ('../src');
+  import ('../src/builder-widgets');
 
   builder.init(apiKey);
 

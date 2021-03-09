@@ -4,7 +4,7 @@ import { BuilderComponent, builder } from '@builder.io/react';
 
 import {
   ObjectProvider
-} from "../src/index"
+} from "../src/providers/ObjectProvider"
 
 export default {
   title: "Object Form",
@@ -82,7 +82,7 @@ export const Preview = () => {
   //   hideTargeting: false, // Hide the targeting UI
   // });
 
-  require('../src');
+  require('../src/builder-widgets');
 
   return (
     <ObjectProvider
