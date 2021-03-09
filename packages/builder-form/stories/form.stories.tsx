@@ -91,7 +91,7 @@ export const Preview = () => {
 
   builder.init(apiKey);
 
-  import ('../src/builder-widgets');
+  require('../src/builder-widgets');
 
   const context = {hello: 'context'}
   const data =  {
@@ -116,7 +116,7 @@ export const Preview = () => {
 
 export const ContractForm = () => {
 
-  import ('../src/builder-widgets');
+  require('../src/builder-widgets');
 
   builder.init(apiKey);
 
@@ -150,19 +150,26 @@ export const ContractForm = () => {
 
 export const FieldSection = () => {
 
+  require('../src/builder-widgets');
+
+  builder.init(apiKey);
+
+  const fieldSectionContent = require('./field-section.builder.json');
   const data =  {
     formMode: 'read',
   }
-  const content = require('./field-section.builder.json');
   const bcProps = {
     apiKey,
-    content,
+    content: fieldSectionContent,
     data,
     onStateChange: (newData: any) => {
     }
   }
+
   return (
-    <BuilderComponent {...bcProps}>
-    </BuilderComponent> 
+    <ProForm initialValues={{text: 'Hello World'}}>
+      <BuilderComponent {...bcProps}>
+      </BuilderComponent> 
+    </ProForm>
   )
 }
