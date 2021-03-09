@@ -9,6 +9,8 @@ export default {
   title: "Pro Form",
 }
 
+declare var window;
+
 const apiKey = 'e9ada5daeb6a4627bc2560d29916c080';
 
 export const Editor = () => {
