@@ -4,6 +4,7 @@
   "version": "1.23.20",
   "description": "client lib for steedos",
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "watch": "tsc --watch",
     "compile": "tsc",

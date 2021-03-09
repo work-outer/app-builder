@@ -1,6 +1,6 @@
 
 
-import { ProFormCheckbox, ProFormSelect, ProFormText } from "@ant-design/pro-form"
+import ProForm, { ProFormCheckbox, ProFormSelect, ProFormText } from "@ant-design/pro-form"
 import * as React from "react"
 import { 
   FieldSelect,
@@ -140,4 +140,24 @@ export const FormFunctionString = () => (
     layout='horizontal'
     initialValues={initialValues}
     onFinishString="console.log(JSON.stringify(values))"/>
+)
+
+export const TestProField = () => (
+  <ProFormText
+    width="md"
+    name="name"
+    label="签约客户名称"
+    tooltip="最长为 24 位"
+    placeholder="请输入名称"
+  />
+)
+
+export const TestProForm = () => (
+  <ProForm
+  >
+    <ProFormText
+      name="name"
+      label="签约客户名称"
+    />
+  </ProForm>
 )

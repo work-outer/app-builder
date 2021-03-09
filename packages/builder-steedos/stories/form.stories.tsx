@@ -2,12 +2,10 @@ import * as React from "react"
 import { adapt } from "webcomponents-in-react";
 import { BuilderComponent, builder } from '@builder.io/react';
 
-import {
-  ObjectProvider
-} from "../src/index"
+import { SteedosProvider } from "../src/index"
 
 export default {
-  title: "Object Form",
+  title: "Steedos Form",
 }
 
 
@@ -23,7 +21,7 @@ export const Editor = () => {
   const builderOptions = {
     // useDefaultStyles: true,
     // hideAnimateTab: true,
-    previewUrl: 'http://localhost:6006/iframe.html?id=object-form--preview&viewMode=story',
+    previewUrl: 'http://localhost:6006/iframe.html?id=steedos-form--preview&viewMode=story',
   };
   const builderData = {}
   return (
@@ -49,7 +47,7 @@ export const Fiddle = () => {
   const builderOptions = {
     // useDefaultStyles: true,
     // hideAnimateTab: true,
-    previewUrl: 'http://localhost:6006/iframe.html?id=object-form--preview&viewMode=story',
+    previewUrl: 'http://localhost:6006/iframe.html?id=steedos-form--preview&viewMode=story',
   };
   const builderData = {}
   return (
@@ -85,46 +83,10 @@ export const Preview = () => {
   require('../src');
 
   return (
-    <ObjectProvider
-      requestObject = {async (objectApiName) => {
-        //objectApiName:对象api名称
-        console.log("==in function==",objectApiName);
-        return {
-          "name": "accounts",
-          "fields": {
-            "name": {
-              "label": "客户名",
-              "type": "text",
-              "searchable": true,
-              "required": true,
-              "sortable": true,
-              "index": true,
-              "name": "name",
-              "sort_no": 10,
-              "help": "请输入客户名"
-            },
-            "is_supplier": {
-              "type": "boolean",
-              "label": "供应商",
-              "hidden": true,
-              "omit": true,
-              "sort_no": 30,
-              "name": "is_supplier",
-              "help": "是否供应商客户"
-            }
-          }
-        }
-      }}
-      requestRecords = {async (objectApiName, filters, fields , options) => {
-        //objectApiName:对象api名称
-        //filters: 过滤条件
-        //fields: 要返回的字段
-        return []
-      }}
-    >
+    <SteedosProvider >
       <BuilderComponent data={{}} />
       <br /><br /><br />
-    </ObjectProvider>
+    </SteedosProvider>
   )
 }
 

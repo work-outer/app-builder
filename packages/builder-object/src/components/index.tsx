@@ -11,8 +11,8 @@ Builder.registerComponent(withChildren(ObjectProviderWrap), configObjectProvider
 Builder.registerComponent(withChildren(ObjectForm), configObjectForm);
 Builder.registerComponent(ObjectField, configObjectField);
 
-export * from './SteedosContext';
-export * from './SteedosProvider';
+// export * from './SteedosContext';
+// export * from './SteedosProvider';
 export * from './ObjectContext';
 export * from './ObjectProvider';
 export * from './FormContext';
