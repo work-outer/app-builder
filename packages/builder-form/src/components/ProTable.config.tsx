@@ -82,15 +82,15 @@ export const configProTable = {
           ], helperText: '表头的筛选菜单项'
         },
         { name: 'tip', type: 'string', helperText: '提示语'},
-        { name: 'formItemProps', type: 'object', subFields: [
-            { name: 'rules',  type: 'list', subFields: [
-              { name: 'required', type: 'boolean', defaultValue: false },
-              { name: 'message', type: 'string', defaultValue: 'Please input...' }
-              ], 
-              helperText: '是否必填和校验信息'
-            }
-          ], helperText: '控制标题对应的输入框'
-        }
+        // { name: 'formItemProps', type: 'object', subFields: [
+        //     { name: 'rules',  type: 'list', subFields: [
+        //       { name: 'required', type: 'boolean', defaultValue: false },
+        //       { name: 'message', type: 'string', defaultValue: 'Please input...' }
+        //       ], 
+        //       helperText: '是否必填和校验信息'
+        //     }
+        //   ], helperText: '控制标题对应的输入框'
+        // } 暂时无效
       ],
     },
   ],
