@@ -6,7 +6,7 @@ import { adapt } from "webcomponents-in-react";
 import { Builder, BuilderComponent, builder, withChildren } from '@builder.io/react';
 
 export default {
-  title: "Builder Form",
+  title: "Pro Form",
 }
 
 declare var window;
@@ -151,6 +151,7 @@ export const ContractForm = () => {
 export const FieldSection = () => {
 
   const data =  {
+    formMode: 'read',
   }
   const content = require('./field-section.builder.json');
   const bcProps = {
