@@ -8,7 +8,7 @@ import { useQuery } from "react-query";
 import ProForm from '@ant-design/pro-form';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
-import { registerObjectFieldComponent } from "./ObjectField";
+import { registerObjectFieldComponent } from "..";
 
 export type FormProps<T = Record<string, any>>  = {
   mode?: ProFieldFCMode,
@@ -71,14 +71,3 @@ export function ObjectForm(props:ObjectFormProps) {
     />
   )
 }
-
-export const configObjectForm = {
-  name: 'Steedos:ObjectForm',
-  inputs: [
-    { name: 'objectApiName', type: 'text', friendlyName: "对象名" },
-    { name: 'recordId', type: 'text', friendlyName: "记录ID" },
-    { name: 'mode', type: 'text', friendlyName: "Mode" }, 
-    { name: 'editable', type: 'text', friendlyName: "Editable" }
-  ],
-  canHaveChildren: true
-};
