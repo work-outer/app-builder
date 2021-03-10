@@ -15,7 +15,7 @@ export type FormProps<T = Record<string, any>>  = {
 } & BaseFormProps
 
 export type ObjectFormProps = {
-  objectApiName: string,
+  objectApiName?: string,
   recordId?: string,
 } & FormProps
 
@@ -23,17 +23,21 @@ export function ObjectForm(props:ObjectFormProps) {
 
   const objectContext = useContext(ObjectContext);
 
-  const { objectApiName, recordId, mode, editable,  ...rest} = props
+  let { objectApiName, recordId, mode, editable,  ...rest} = props
   console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
-  objectContext.currentObjectApiName = objectApiName;
-  objectContext.currentRecordId = recordId;
+  if(!objectApiName){
+    objectApiName = objectContext.currentObjectApiName as string;
+  }
+  if(!recordId){
+    recordId = objectContext.currentRecordId as string;
+  }
   const { 
     isLoading, 
     error, 
     data, 
     isFetching 
   } = useQuery(objectApiName, async () => {
-    return await objectContext.requestObject(objectApiName);
+    return await objectContext.requestObject(objectApiName as string);
   });
   const objectSchema:any = data
   console.log("==requestObject==data===", data);

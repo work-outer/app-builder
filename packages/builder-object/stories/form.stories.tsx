@@ -3,8 +3,9 @@ import { adapt } from "webcomponents-in-react";
 import { BuilderComponent, builder } from '@builder.io/react';
 
 import {
-  ObjectProvider
-} from "../src/providers/ObjectProvider"
+  ObjectProvider,
+  ObjectForm
+} from "../src/index"
 
 export default {
   title: "Object Form",
@@ -86,6 +87,7 @@ export const Preview = () => {
 
   return (
     <ObjectProvider
+      currentObjectApiName = "accounts"
       requestObject = {async (objectApiName) => {
         //objectApiName:对象api名称
         console.log("==in function==",objectApiName);
@@ -122,7 +124,9 @@ export const Preview = () => {
         return []
       }}
     >
-      <BuilderComponent data={{}} />
+      <ObjectForm>
+        <BuilderComponent data={{}} />
+      </ObjectForm>
       <br /><br /><br />
     </ObjectProvider>
   )
