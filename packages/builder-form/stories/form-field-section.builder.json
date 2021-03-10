@@ -1,122 +1,355 @@
 {
   "data": {
-    "blocks": [
-      {
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
-        "layerName": "FieldSection",
-        "id": "builder-311c27d0b7874cd8965e07709582559b",
-        "component": {
-          "name": "Steedos:FieldSection",
-          "options": {
-            "title": "Field Section"
+      "blocks": [
+          {
+              "@type": "@builder.io/sdk:Element",
+              "@version": 2,
+              "id": "builder-400d8f237547444bba68ba2669a35640",
+              "component": {
+                  "name": "Steedos:FieldSection",
+                  "options": {
+                      "title": "基本控件"
+                  }
+              },
+              "children": [
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-2c61684b16b847abbe6e3930e9e2b37c",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "密码",
+                              "valueType": "password",
+                              "readonly": false
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-bd744e9592af40ba93ae270aaea4e334",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "用户名",
+                              "valueType": "text"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-cbf10fb95df041ceb142492419e263ae",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "开始日期",
+                              "valueType": "date"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-29f6f5ee2b354aeb854e3fe1cf736df9",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "项目开启日期时间",
+                              "valueType": "dateTime"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-248f53c33744492b94d39064bf216d9e",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "日期区间",
+                              "valueType": "dateRange"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-caec210be70c43e787b00afa60ec8a15",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "日期时间区间",
+                              "valueType": "dateTimeRange"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-bcd5e2ed21d440d8a97e83fa38201985",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "时间",
+                              "valueType": "time"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-9d06d4c70bf34cba9c4fc356f2a9046f",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "时间区间",
+                              "valueType": "timeRange"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-951593b617ef4ce3a371f19a08dee479",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "日期—年",
+                              "valueType": "dateYear"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-b06bf000eb664000b3da37d94e6e7ba3",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "日期—月",
+                              "valueType": "dateMonth"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-04f450d30c3b49e2ae161602a73f440b",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "日期—季度",
+                              "valueType": "dateQuarter"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-2dcd47f0a40d4d0a8ddc5656d50cfe71",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "日期—周",
+                              "valueType": "dateWeek"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-c521cfdf9d364ab883b6336241d9f30f",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "Label",
+                              "valueType": "index"
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  },
+                  {
+                      "@type": "@builder.io/sdk:Element",
+                      "@version": 2,
+                      "id": "builder-1944b660a2054209ac7ce0308eeb106f",
+                      "component": {
+                          "name": "Steedos:Field",
+                          "options": {
+                              "name": "name",
+                              "label": "项目描述",
+                              "valueType": "textarea",
+                              "placeholder": ""
+                          }
+                      },
+                      "responsiveStyles": {
+                          "large": {
+                              "display": "block",
+                              "flexDirection": "column",
+                              "alignItems": "stretch",
+                              "position": "relative",
+                              "marginTop": "0",
+                              "marginBottom": "0"
+                          }
+                      }
+                  }
+              ],
+              "responsiveStyles": {
+                  "large": {
+                      "display": "block",
+                      "flexDirection": "column",
+                      "alignItems": "stretch",
+                      "position": "relative",
+                      "marginTop": "0",
+                      "minHeight": "100px",
+                      "marginBottom": "80px",
+                      "paddingBottom": "40px"
+                  }
+              }
           }
-        },
-        "children": [
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-5b9dd71c7d444e16b7c8248e6b4e1e37",
-            "component": {
-              "name": "Steedos:Field",
-              "options": {
-                "name": "switch",
-                "label": "Switch",
-                "valueType": "switch"
-              }
-            },
-            "responsiveStyles": {
-              "large": {
-                "display": "block",
-                "flexDirection": "column",
-                "alignItems": "stretch",
-                "position": "relative",
-                "marginTop": "0",
-                "marginBottom": "0"
-              }
-            }
-          },
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-11b3307d7e4a4a2995ecbf232b9fb313",
-            "component": {
-              "name": "Steedos:Field",
-              "options": {
-                "name": "datetime",
-                "label": "DateTime",
-                "valueType": "dateTime"
-              }
-            },
-            "responsiveStyles": {
-              "large": {
-                "display": "block",
-                "flexDirection": "column",
-                "alignItems": "stretch",
-                "position": "relative",
-                "marginTop": "0",
-                "marginBottom": "0"
-              }
-            }
-          },
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-6f7498fe95a2494fb8bede0f712c96e1",
-            "component": {
-              "name": "Steedos:Field",
-              "options": {
-                "name": "text",
-                "label": "Text",
-                "valueType": "text"
-              }
-            },
-            "responsiveStyles": {
-              "large": {
-                "display": "block",
-                "flexDirection": "column",
-                "alignItems": "stretch",
-                "position": "relative",
-                "marginTop": "0",
-                "marginBottom": "0"
-              }
-            }
-          },
-          {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-7b4217e0f7fe43d586f2422adf962921",
-            "component": {
-              "name": "Steedos:Field",
-              "options": {
-                "name": "date",
-                "label": "Date",
-                "valueType": "date"
-              }
-            },
-            "responsiveStyles": {
-              "large": {
-                "display": "block",
-                "flexDirection": "column",
-                "alignItems": "stretch",
-                "position": "relative",
-                "marginTop": "0",
-                "marginBottom": "0"
-              }
-            }
-          }
-        ],
-        "responsiveStyles": {
-          "large": {
-            "display": "block",
-            "flexDirection": "column",
-            "alignItems": "stretch",
-            "position": "relative",
-            "marginTop": "0",
-            "minHeight": "100px"
-          }
-        }
-      }
-    ]
+      ]
   }
 }
