@@ -23,6 +23,7 @@ export function Field(props: any) {
     placeholder,
     required,
     readonly, 
+    disabled,
     valueType, 
     ...rest
   } = props  
@@ -43,6 +44,7 @@ export function Field(props: any) {
     valueType,
     placeholder,
     fieldProps: {
+      disabled,
       allowClear,
       placeholder,
     },
