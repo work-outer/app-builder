@@ -26,7 +26,7 @@ export const configField = {
     { name: 'placeholder', type: 'string' },
     { name: 'tooltip', type: 'string' },
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
-    
+
     { name: 'count', type: 'number', defaultValue: 5, helperText: 'star 总数', showIf: 'options.get("valueType") === "rate"'},
 
     { 
@@ -41,17 +41,9 @@ export const configField = {
       + ' || options.get("valueType") === "digit"'
     },
     
+    { name: 'defaultChecked', type: 'boolean', defaultValue: false, helperText: '初始是否选中', showIf: 'options.get("valueType") === "switch"' },
+    
     { name: 'type', type: 'string', defaultValue:'circle', enum: ['line', 'circle', 'dashboard' ], showIf: 'options.get("valueType") === "progress"'}
-
-    // { name: 'fieldProps', type: 'object', subFields: [
-    //     { name: 'defaultChecked', type: 'boolean', defaultValue: false, required: true, helperText: '初始是否选中' },
-    //   ], showIf: 'options.get("valueType") === "switch"'
-    // },
-
-    // { 
-    //   name: 'value', type: 'number',
-    //   showIf: 'options.get("valueType") === "index" || options.get("valueType") === "indexBorder"'
-    // },
 
     // {
     //   name: 'fieldProps', type: 'object', subFields: [
