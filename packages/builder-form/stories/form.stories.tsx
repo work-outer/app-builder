@@ -5,6 +5,8 @@ import { adapt } from "webcomponents-in-react";
 
 import { Builder, BuilderComponent, builder, withChildren } from '@builder.io/react';
 
+import { Form } from '../src/components/Form'
+
 export default {
   title: "Builder Form",
 }
@@ -135,10 +137,10 @@ export const FormFieldSection = () => {
   }
 
   return (
-    <ProForm initialValues={{name: 'Hello World'}}>
+    <Form initialValues={{name: 'Hello World'}}>
       <BuilderComponent {...bcProps}>
       </BuilderComponent> 
-    </ProForm>
+    </Form>
   )
 }
 
