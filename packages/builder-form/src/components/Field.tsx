@@ -14,16 +14,35 @@ export function Field(props: any) {
   
   const { formMode:mode = 'read' } = state;
 
-  const {attributes, label, valueType, ...rest} = props  
+  const {
+    attributes, 
+    name, 
+    label, 
+    tooltip, 
+    placeholder,
+    required,
+    readonly, 
+    fieldProps,
+    valueType, 
+    ...rest
+  } = props  
 
   const formItemOptions = {
+    name,
     label,
+    tooltip,
+    required,
+    // shouldUpdate: true,
+    valuePropName: 'value',
     ...attributes,
   }
 
   const fieldOptions = {
+    name,
     mode,
     valueType,
+    placeholder,
+    ...fieldProps,
     onInlineEdit: ()=>{
       store.update((state:any) => {
         state.formMode = 'edit'

@@ -3,7 +3,7 @@ export const configField = {
   image:
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2Fad6f37889d9e40bbbbc72cdb5875d6ca',
   inputs: [
-    { name: 'name', type: 'text', defaultValue: 'name', required: true},
+    { name: 'name', type: 'text', required: true},
     { name: 'label', type: 'text', defaultValue: 'Label', required: true}, 
     { name: 'valueType', type: 'string', defaultValue: 'text', required: true,
       enum: [
@@ -34,7 +34,7 @@ export const configField = {
         { name: 'allowClear', type: 'boolean', defaultValue: true, helperText: '是否显示清除按钮' },
         { name: 'autoFocus', type: 'boolean', defaultValue: false, helperText: '自动获取焦点' },
         { name: 'inputReadOnly', type: 'boolean', defaultValue: false, helperText: '设置输入框为只读（避免在移动设备上打开虚拟键盘）' }
-      ], showIf: 'options.get("valueType") === "date" || options.get("valueType") === "dateRange"'
+      ], showIf: 'options.get("valueType") === "text" || options.get("valueType") === "date" || options.get("valueType") === "dateRange"'
               + ' || options.get("valueType") === "time" || options.get("valueType") === "timeRange"'
               + ' || options.get("valueType") === "dateTime" || options.get("valueType") === "dateTimeRange"'
               + ' || options.get("valueType") === "dateWeek" || options.get("valueType") === "dateMonth"'
