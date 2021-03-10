@@ -23,14 +23,10 @@ export function ObjectForm(props:ObjectFormProps) {
 
   const objectContext = useContext(ObjectContext);
 
-  let { objectApiName, recordId, mode, editable,  ...rest} = props
+  const { mode, editable,  ...rest} = props
+  const objectApiName = props.objectApiName ? props.objectApiName : objectContext.currentObjectApiName as string;
+  const recordId = props.recordId ? props.recordId : objectContext.currentRecordId;
   console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
-  if(!objectApiName){
-    objectApiName = objectContext.currentObjectApiName as string;
-  }
-  if(!recordId){
-    recordId = objectContext.currentRecordId as string;
-  }
   const { 
     isLoading, 
     error, 

@@ -66,7 +66,9 @@ export const Editor = () => {
                   "id": "builder-3f418b44743d400ca4293561e5f0106d",
                   "component": {
                       "name": "Steedos:ObjectField",
-                      "options": {}
+                      "options": {
+                        "objectApiName": "accounts"
+                      }
                   },
                   "responsiveStyles": {
                       "large": {

@@ -12,6 +12,7 @@ import { useQuery } from "react-query";
 import { ObjectContext } from "../";
 
 export type ObjectFieldProps = {
+  objectApiName?: string,
   fieldName: string,
   required: boolean,
   readonly: boolean
@@ -19,13 +20,10 @@ export type ObjectFieldProps = {
 
 export function ObjectField(props: ObjectFieldProps) {
   const objectContext = useContext(ObjectContext);
-  const objectApiName = objectContext.currentObjectApiName;
   const { fieldName, required, readonly } = props
-
-  if (!objectApiName || !fieldName)
-    return (<div>请输入字段名</div>)
-
+  const objectApiName = props.objectApiName ? props.objectApiName : objectContext.currentObjectApiName as string;
   console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
+  // 请注意所有的react use函数必须放在最前面，不可以放在if等判断逻辑后面
   const {
     isLoading,
     error,
@@ -34,6 +32,9 @@ export function ObjectField(props: ObjectFieldProps) {
   } = useQuery(objectApiName, async () => {
     return await objectContext.requestObject(objectApiName);
   });
+
+  if (!objectApiName || !fieldName)
+    return (<div>请输入字段名</div>)
 
   const objectSchema: any = data
   console.log("==requestObject==data===", data);
