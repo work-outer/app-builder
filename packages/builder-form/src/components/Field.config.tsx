@@ -26,10 +26,14 @@ export const configField = {
     { name: 'placeholder', type: 'string' },
     { name: 'tooltip', type: 'string' },
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
+    
+    { name: 'count', type: 'number', defaultValue: 5, helperText: 'star 总数', showIf: 'options.get("valueType") === "rate"'},
+
     { 
       name: 'defaultValue', type: 'number', helperText: '初始值', 
       showIf: 'options.get("valueType") === "money" || options.get("valueType") === "progress"' 
       + ' || options.get("valueType") === "digit" || options.get("valueType") === "percent"'
+      + ' || options.get("valueType") === "rate" '
     },
     { 
       name: 'precision', type: 'number', helperText: '数值精度', 

@@ -26,6 +26,8 @@ export function Field(props: any) {
     disabled,
     valueType, 
     type,
+    count,
+    defaultValue,
     ...rest
   } = props  
 
@@ -49,6 +51,8 @@ export function Field(props: any) {
       allowClear,
       placeholder,
       type,
+      count,
+      defaultValue,
     },
     onInlineEdit: ()=>{
       store.update((state:any) => {
