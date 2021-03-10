@@ -12,13 +12,19 @@ export default {
 }
 
 
+declare var window;
+
+const apiKey = 'e9ada5daeb6a4627bc2560d29916c080';
 
 export const Editor = () => {
 
-  const script = document.createElement("script");
-  script.src = "https://cdn.builder.io/js/editor";
-  script.async = true;
-  document.body.appendChild(script);
+  if (!window.hasEditor) {
+    const script = document.createElement("script");
+    script.src = "https://cdn.builder.io/js/editor";
+    script.async = true;
+    document.body.appendChild(script);
+    window.hasEditor = true;
+  }
 
   const BuilderEditor = adapt("builder-editor");
   const builderOptions = {
@@ -26,25 +32,68 @@ export const Editor = () => {
     // hideAnimateTab: true,
     previewUrl: 'http://localhost:6006/iframe.html?id=object-form--preview&viewMode=story',
   };
-  const builderData = {}
+  const initialContent = {
+    data: {
+      blocks: [{
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-0e6f5d94e39e41f0bc39bd42b55cd457",
+        "component": {
+          "name": "Text",
+          "options": {
+            "text": "<p>Steedos App Builder</p>"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "fontSize": "20px"
+          }
+        }
+      },
+      {
+          "@type": "@builder.io/sdk:Element",
+          "@version": 2,
+          "id": "builder-7d8f884ed829464e9b6e88e0a23c556b",
+          "component": {
+              "name": "Steedos:ObjectField",
+              "options": {}
+          },
+          "responsiveStyles": {
+              "large": {
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "position": "relative",
+                  "flexShrink": "0",
+                  "boxSizing": "border-box",
+                  "marginTop": "20px"
+              }
+          }
+      }]
+    }
+  }
   return (
     <BuilderEditor
       class="absolute top-0 right-0 bottom-0 left-0 width-full"
-      onChange={(e: any) => {
+      onChange={(e:any) => {
         console.log(e)
       }}
-      data={{}}
+      data={initialContent}
       env='production'
-      options={builderOptions} />
+      options={builderOptions}/>
   )
 }
 
 export const Fiddle = () => {
 
-  const script = document.createElement("script");
-  script.src = "https://cdn.builder.io/js/fiddle";
-  script.async = true;
-  document.body.appendChild(script);
+  if (!window.hasFiddle) {
+    const script = document.createElement("script");
+    script.src = "https://cdn.builder.io/js/fiddle";
+    script.async = true;
+    document.body.appendChild(script);
+    window.hasFiddle = true;
+  }
 
   const BuilderFiddle = adapt("builder-fiddle");
   const builderOptions = {
@@ -68,7 +117,7 @@ export const Fiddle = () => {
 
 export const Preview = () => {
 
-  builder.init('e9ada5daeb6a4627bc2560d29916c080');
+  builder.init(apiKey);
 
   // Builder.register('editor.settings', {
   //   hideStyleTab: false, // Hide the style tab
@@ -84,6 +133,21 @@ export const Preview = () => {
   // });
 
   require('../src/builder-widgets');
+
+  const context = {hello: 'context'}
+  const data =  {
+    initialValues: {name: 'Hello World!'},
+    columns: 3,
+  }
+  const content = {} //require('./contract.form.builder.json');
+  const bcProps = {
+    apiKey,
+    // content,
+    context,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
 
   return (
     <ObjectProvider
@@ -125,7 +189,8 @@ export const Preview = () => {
       }}
     >
       <ObjectForm>
-        <BuilderComponent data={{}} />
+        <BuilderComponent {...bcProps}>
+        </BuilderComponent> 
       </ObjectForm>
       <br /><br /><br />
     </ObjectProvider>
