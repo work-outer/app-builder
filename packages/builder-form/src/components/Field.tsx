@@ -12,8 +12,6 @@ export function Field(props: any) {
   const store = useContext(BuilderStoreContext)
   const { state } = store;
   
-  const { formMode:mode = 'read' } = state;
-
   const {
     attributes, 
     name, 
@@ -30,6 +28,10 @@ export function Field(props: any) {
     defaultValue,
     ...rest
   } = props  
+
+  const { formMode = 'read' } = state;
+
+  const mode = readonly?'read':formMode;
 
   const formItemOptions = {
     name,
