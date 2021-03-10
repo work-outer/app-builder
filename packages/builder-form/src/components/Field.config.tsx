@@ -26,6 +26,17 @@ export const configField = {
     { name: 'placeholder', type: 'string' },
     { name: 'tooltip', type: 'string' },
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
+    { 
+      name: 'defaultValue', type: 'number', helperText: '初始值', 
+      showIf: 'options.get("valueType") === "money" || options.get("valueType") === "progress"' 
+      + ' || options.get("valueType") === "digit" || options.get("valueType") === "percent"'
+    },
+    { 
+      name: 'precision', type: 'number', helperText: '数值精度', 
+      showIf: 'options.get("valueType") === "money" || options.get("valueType") === "progress"' 
+      + ' || options.get("valueType") === "digit"'
+    },
+    
     { name: 'type', type: 'string', defaultValue:'circle', enum: ['line', 'circle', 'dashboard' ], showIf: 'options.get("valueType") === "progress"'}
 
     // { name: 'fieldProps', type: 'object', subFields: [
