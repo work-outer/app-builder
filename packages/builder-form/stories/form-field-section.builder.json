@@ -30,7 +30,7 @@
                                     }
                                 ],
                                 "required": true,
-                                "disabled": true,
+                                "disabled": false,
                                 "tooltip": "密码长度不少于8个字符",
                                 "placeholder": "请输入密码"
                             }
@@ -111,7 +111,8 @@
                                 "name": "dateTime",
                                 "label": "项目开启日期时间",
                                 "valueType": "dateTime",
-                                "readonly": true
+                                "readonly": false,
+                                "disabled": true
                             }
                         },
                         "responsiveStyles": {
@@ -340,103 +341,6 @@
                     {
                         "@type": "@builder.io/sdk:Element",
                         "@version": 2,
-                        "id": "builder-7dc3b85ea187425d9cf3c90de1662810",
-                        "component": {
-                            "name": "Steedos:Field",
-                            "options": {
-                                "name": "name",
-                                "label": "多选框",
-                                "valueType": "checkbox",
-                                "options": [
-                                    {
-                                        "value": "a",
-                                        "label": "NAME"
-                                    },
-                                    {
-                                        "value": "b",
-                                        "label": "BLUE"
-                                    }
-                                ],
-                                "placeholder": "",
-                                "readonly": false,
-                                "tooltip": "",
-                                "fieldProps": {
-                                    "options": [
-                                        {
-                                            "value": "1",
-                                            "label": "A"
-                                        },
-                                        {
-                                            "value": "2",
-                                            "label": "B"
-                                        }
-                                    ]
-                                }
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "@builder.io/sdk:Element",
-                        "@version": 2,
-                        "id": "builder-75ce9dd8abaa4dfd817de3c1ac3c2436",
-                        "component": {
-                            "name": "Steedos:Field",
-                            "options": {
-                                "name": "rate",
-                                "label": "税率",
-                                "valueType": "select",
-                                "options": [
-                                    {
-                                        "value": "1",
-                                        "label": "10%"
-                                    },
-                                    {
-                                        "value": "2",
-                                        "label": "60%"
-                                    }
-                                ],
-                                "fieldProps": {
-                                    "options": [
-                                        {
-                                            "value": "12",
-                                            "label": "1"
-                                        },
-                                        {
-                                            "value": "14",
-                                            "label": "2"
-                                        }
-                                    ]
-                                },
-                                "readonly": false,
-                                "placeholder": "",
-                                "tooltip": "",
-                                "disabled": false
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "@builder.io/sdk:Element",
-                        "@version": 2,
                         "id": "builder-ff38da6c660642d6ae47c71afce3fd96",
                         "component": {
                             "name": "Steedos:Field",
@@ -457,7 +361,7 @@
                                 "placeholder": "",
                                 "disabled": false,
                                 "tooltip": "",
-                                "readonly": true
+                                "readonly": false
                             }
                         },
                         "responsiveStyles": {
@@ -474,16 +378,32 @@
                     {
                         "@type": "@builder.io/sdk:Element",
                         "@version": 2,
-                        "id": "builder-e87046a5ace641de8d6760f7ee4d0bdd",
+                        "id": "builder-22742ac5599f4797b4f7d3f49dd3116e",
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "label": "评级",
-                                "valueType": "rate",
-                                "name": "rate",
-                                "readonly": false,
-                                "required": false,
-                                "disabled": false
+                                "label": "类型",
+                                "valueType": "select",
+                                "count": 5,
+                                "type": "circle",
+                                "name": "type",
+                                "options": [
+                                    {
+                                        "value": "1",
+                                        "label": "发票"
+                                    },
+                                    {
+                                        "value": "2",
+                                        "label": "普票"
+                                    },
+                                    {
+                                        "value": "3",
+                                        "label": "无票"
+                                    }
+                                ],
+                                "placeholder": "请选择类型",
+                                "allowClear": true,
+                                "required": true
                             }
                         },
                         "responsiveStyles": {
@@ -500,14 +420,65 @@
                     {
                         "@type": "@builder.io/sdk:Element",
                         "@version": 2,
-                        "id": "builder-267b6de44c8248c4adb281b84b62b1b2",
+                        "id": "builder-deb02e269b3449d7959209fa1fa3aad6",
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "label": "进度",
-                                "valueType": "progress",
-                                "name": "progress",
-                                "type": "dashboard"
+                                "label": "多选框",
+                                "valueType": "checkbox",
+                                "count": 5,
+                                "type": "circle",
+                                "name": "checkBox",
+                                "options": [
+                                    {
+                                        "value": "1",
+                                        "label": "A"
+                                    },
+                                    {
+                                        "value": "2",
+                                        "label": "B"
+                                    },
+                                    {
+                                        "value": "3",
+                                        "label": "C"
+                                    }
+                                ],
+                                "tooltip": "多选框"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-d9391943964b46798240c1198e1c00b8",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "label": "Label",
+                                "valueType": "radioButton",
+                                "count": 5,
+                                "type": "circle",
+                                "name": "radioButton",
+                                "options": [
+                                    {
+                                        "value": "1",
+                                        "label": "K"
+                                    },
+                                    {
+                                        "value": "2",
+                                        "label": "O"
+                                    }
+                                ]
                             }
                         },
                         "responsiveStyles": {
@@ -560,7 +531,89 @@
                                 "count": 5,
                                 "type": "circle",
                                 "name": "switch",
-                                "readonly": false
+                                "readonly": false,
+                                "defaultChecked": true
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-5f3373fa2884414399f0cbcd58f9b88a",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "label": "等级",
+                                "valueType": "rate",
+                                "count": 5,
+                                "type": "circle",
+                                "name": "rate",
+                                "required": true,
+                                "allowClear": true,
+                                "defaultValue": 3
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-091de7b5379d494482ff42abf090ce44",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "label": "进度",
+                                "valueType": "progress",
+                                "count": 5,
+                                "type": "circle",
+                                "name": "progress",
+                                "defaultValue": 30,
+                                "precision": 0
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-6ccbdda7d6664ddbb164b469dcb50c4e",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "label": "百分比",
+                                "valueType": "percent",
+                                "count": 5,
+                                "type": "circle",
+                                "name": "percent",
+                                "defaultValue": 50
                             }
                         },
                         "responsiveStyles": {
@@ -587,45 +640,6 @@
                                 "type": "circle",
                                 "name": "fromnow",
                                 "readonly": false
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "@builder.io/sdk:Element",
-                        "@version": 2,
-                        "id": "builder-a15d5c91913b464daeb8798484d3ec4f",
-                        "component": {
-                            "name": "Steedos:Field",
-                            "options": {
-                                "label": "发票类型",
-                                "valueType": "radioButton",
-                                "count": 5,
-                                "type": "circle",
-                                "name": "radioButton",
-                                "options": [
-                                    {
-                                        "value": "1",
-                                        "label": "发票"
-                                    },
-                                    {
-                                        "value": "2",
-                                        "label": "无票"
-                                    }
-                                ],
-                                "readonly": false,
-                                "required": false,
-                                "allowClear": false,
-                                "disabled": false
                             }
                         },
                         "responsiveStyles": {
