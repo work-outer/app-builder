@@ -51,37 +51,36 @@ export const Editor = () => {
             "fontSize": "20px"
           }
         }
-      },
-      {
-          "@type": "@builder.io/sdk:Element",
-          "@version": 2,
-          "id": "builder-7d8f884ed829464e9b6e88e0a23c556b",
-          "component": {
-              "name": "Steedos:ObjectField",
-              "options": {}
-          },
-          "responsiveStyles": {
-              "large": {
-                  "display": "flex",
-                  "flexDirection": "column",
-                  "position": "relative",
-                  "flexShrink": "0",
-                  "boxSizing": "border-box",
-                  "marginTop": "20px"
-              }
+      }, {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-7d8f884ed829464e9b6e88e0a23c556b",
+        "component": {
+          "name": "Steedos:ObjectField",
+          "options": {}
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "position": "relative",
+            "flexShrink": "0",
+            "boxSizing": "border-box",
+            "marginTop": "20px"
           }
+        }
       }]
     }
   }
   return (
     <BuilderEditor
       class="absolute top-0 right-0 bottom-0 left-0 width-full"
-      onChange={(e:any) => {
+      onChange={(e: any) => {
         console.log(e)
       }}
       data={initialContent}
       env='production'
-      options={builderOptions}/>
+      options={builderOptions} />
   )
 }
 
@@ -134,9 +133,12 @@ export const Preview = () => {
 
   require('../src/builder-widgets');
 
-  const context = {hello: 'context'}
-  const data =  {
-    initialValues: {name: 'Hello World!'},
+  const context = {
+    currentObjectApiName: "accounts",
+    currentRecordId: ""
+  };
+  const data = {
+    initialValues: { name: 'Hello World!' },
     columns: 3,
   }
   const content = {} //require('./contract.form.builder.json');
@@ -151,10 +153,10 @@ export const Preview = () => {
 
   return (
     <ObjectProvider
-      currentObjectApiName = "accounts"
-      requestObject = {async (objectApiName) => {
+      currentObjectApiName="accounts"
+      requestObject={async (objectApiName) => {
         //objectApiName:对象api名称
-        console.log("==in function==",objectApiName);
+        console.log("==in function==", objectApiName);
         return {
           "name": "accounts",
           "fields": {
@@ -181,7 +183,7 @@ export const Preview = () => {
           }
         }
       }}
-      requestRecords = {async (objectApiName, filters, fields , options) => {
+      requestRecords={async (objectApiName, filters, fields, options) => {
         //objectApiName:对象api名称
         //filters: 过滤条件
         //fields: 要返回的字段
@@ -190,7 +192,7 @@ export const Preview = () => {
     >
       <ObjectForm>
         <BuilderComponent {...bcProps}>
-        </BuilderComponent> 
+        </BuilderComponent>
       </ObjectForm>
       <br /><br /><br />
     </ObjectProvider>
