@@ -19,7 +19,8 @@ export const configField = {
     { name: 'options',  type: 'list', required: true, subFields: [
       { name: 'value', type: 'string', defaultValue: 'value' },
       { name: 'label', type: 'string', defaultValue: 'label' }
-    ], showIf: 'options.get("valueType") === "checkbox" || options.get("valueType") === "radio" || options.get("valueType") === "select" '},
+    ], showIf: 'options.get("valueType") === "checkbox" || options.get("valueType") === "radio" '
+            + '|| options.get("valueType") === "radioButton" || options.get("valueType") === "select" '},
     { name: 'readonly', type: 'boolean', defaultValue: false },  
     { name: 'required', type: 'boolean', defaultValue: false },
     { name: 'allowClear', type: 'boolean', defaultValue: false },
