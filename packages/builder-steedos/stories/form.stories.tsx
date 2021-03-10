@@ -33,96 +33,96 @@ export const Editor = () => {
     data: {
       blocks: [
         {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-0e6f5d94e39e41f0bc39bd42b55cd457",
-            "component": {
-                "name": "Text",
-                "options": {
-                    "text": "<p>Steedos App Builder</p>"
-                }
-            },
-            "responsiveStyles": {
-                "large": {
-                    "marginLeft": "auto",
-                    "marginRight": "auto",
-                    "fontSize": "20px"
-                }
+          "@type": "@builder.io/sdk:Element",
+          "@version": 2,
+          "id": "builder-0e6f5d94e39e41f0bc39bd42b55cd457",
+          "component": {
+            "name": "Text",
+            "options": {
+              "text": "<p>Steedos App Builder</p>"
             }
+          },
+          "responsiveStyles": {
+            "large": {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "fontSize": "20px"
+            }
+          }
         },
         {
-            "@type": "@builder.io/sdk:Element",
-            "@version": 2,
-            "id": "builder-7618a5cbfea2481e83915ec8e0b6232a",
-            "component": {
-                "name": "Steedos:RecordDetailPage",
+          "@type": "@builder.io/sdk:Element",
+          "@version": 2,
+          "id": "builder-7618a5cbfea2481e83915ec8e0b6232a",
+          "component": {
+            "name": "Steedos:RecordDetailPage",
+            "options": {}
+          },
+          "children": [
+            {
+              "@type": "@builder.io/sdk:Element",
+              "@version": 2,
+              "id": "builder-56e5834326e840d98d3342efc273166d",
+              "component": {
+                "name": "Steedos:ObjectForm",
                 "options": {}
-            },
-            "children": [
+              },
+              "children": [
                 {
-                    "@type": "@builder.io/sdk:Element",
-                    "@version": 2,
-                    "id": "builder-56e5834326e840d98d3342efc273166d",
-                    "component": {
-                        "name": "Steedos:ObjectForm",
-                        "options": {}
-                    },
-                    "children": [
-                        {
-                            "@type": "@builder.io/sdk:Element",
-                            "@version": 2,
-                            "id": "builder-edb5279810d64ebb996a4c40fce60a66",
-                            "component": {
-                                "name": "Steedos:ObjectField",
-                                "options": {}
-                            },
-                            "responsiveStyles": {
-                                "large": {
-                                    "display": "flex",
-                                    "flexDirection": "column",
-                                    "position": "relative",
-                                    "flexShrink": "0",
-                                    "boxSizing": "border-box",
-                                    "marginTop": "20px"
-                                }
-                            }
-                        }
-                    ],
-                    "responsiveStyles": {
-                        "large": {
-                            "display": "flex",
-                            "flexDirection": "column",
-                            "position": "relative",
-                            "flexShrink": "0",
-                            "boxSizing": "border-box",
-                            "marginTop": "20px"
-                        }
+                  "@type": "@builder.io/sdk:Element",
+                  "@version": 2,
+                  "id": "builder-edb5279810d64ebb996a4c40fce60a66",
+                  "component": {
+                    "name": "Steedos:ObjectField",
+                    "options": {}
+                  },
+                  "responsiveStyles": {
+                    "large": {
+                      "display": "flex",
+                      "flexDirection": "column",
+                      "position": "relative",
+                      "flexShrink": "0",
+                      "boxSizing": "border-box",
+                      "marginTop": "20px"
                     }
+                  }
                 }
-            ],
-            "responsiveStyles": {
+              ],
+              "responsiveStyles": {
                 "large": {
-                    "display": "flex",
-                    "flexDirection": "column",
-                    "position": "relative",
-                    "flexShrink": "0",
-                    "boxSizing": "border-box",
-                    "marginTop": "20px"
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "position": "relative",
+                  "flexShrink": "0",
+                  "boxSizing": "border-box",
+                  "marginTop": "20px"
                 }
+              }
             }
+          ],
+          "responsiveStyles": {
+            "large": {
+              "display": "flex",
+              "flexDirection": "column",
+              "position": "relative",
+              "flexShrink": "0",
+              "boxSizing": "border-box",
+              "marginTop": "20px"
+            }
+          }
         }
-    ]
+      ]
     }
   }
   return (
     <BuilderEditor
       class="absolute top-0 right-0 bottom-0 left-0 width-full"
-      onChange={(e:any) => {
+      onChange={(e: any) => {
         console.log(e)
       }}
       data={initialContent}
       env='production'
-      options={builderOptions}/>
+      options={builderOptions} />
   )
 }
 
@@ -179,8 +179,8 @@ export const Preview = () => {
     currentObjectApiName: "accounts",
     currentRecordId: ""
   };
-  const data =  {
-    initialValues: {name: 'Hello World!'},
+  const data = {
+    initialValues: { name: 'Hello World!' },
     columns: 3,
   }
   const content = {} //require('./contract.form.builder.json');
@@ -196,7 +196,7 @@ export const Preview = () => {
   return (
     <SteedosProvider >
       <BuilderComponent {...bcProps}>
-      </BuilderComponent> 
+      </BuilderComponent>
       <br /><br /><br />
     </SteedosProvider>
   )
