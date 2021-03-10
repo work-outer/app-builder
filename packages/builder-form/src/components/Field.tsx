@@ -27,6 +27,7 @@ export function Field(props: any) {
     count,
     defaultValue,
     defaultChecked,
+    options,
     ...rest
   } = props  
 
@@ -58,6 +59,7 @@ export function Field(props: any) {
       count,
       defaultValue,
       defaultChecked,
+      options,
     },
     ...rest,
   }
