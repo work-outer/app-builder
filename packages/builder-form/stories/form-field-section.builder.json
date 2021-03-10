@@ -337,7 +337,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "checkbox",
                                 "label": "多选框",
                                 "valueType": "checkbox",
                                 "options": [

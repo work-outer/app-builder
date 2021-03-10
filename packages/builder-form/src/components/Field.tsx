@@ -41,6 +41,7 @@ export function Field(props: any) {
   const fieldOptions = {
     name,
     mode,
+    readonly,
     valueType,
     placeholder,
     fieldProps: {
@@ -48,17 +49,12 @@ export function Field(props: any) {
       allowClear,
       placeholder,
     },
-    onInlineEdit: ()=>{
-      store.update((state:any) => {
-        state.formMode = 'edit'
-      })
-    },
     ...rest,
   }
 
 
   return (
-    <Form.Item {...formItemOptions}>
+    <Form.Item shouldUpdate {...formItemOptions}>
       {mode === 'read' &&(
         <ProFieldRead {...fieldOptions}/>
       )}
@@ -69,20 +65,26 @@ export function Field(props: any) {
   )
 }
 
-export const ProFieldEdit = (props: any) => {
+export function ProFieldEdit (props: any) {
   const { mode, ...rest } = props
   return <ProField mode='edit' {...rest}/>
 }
 
-export const ProFieldRead = (props:any)=> {
+export function ProFieldRead(props:any) {
 
-  const { readOnly, mode, onInlineEdit, ...rest } = props
+  const store = useContext(BuilderStoreContext)
+  const onInlineEdit = () => {
+    store.update((state:any) => {
+      state.formMode = 'edit'
+    })
+  };
+  const { readonly, mode, ...rest } = props
   const inlineIconOpacity = 0.4
-  const inlineIcon = readOnly?
+  const inlineIcon = readonly?
     <LockIcon color='gray.600' opacity={inlineIconOpacity} _groupHover={{ opacity: 1 }}/>:
     <EditIcon color='gray.600' opacity={inlineIconOpacity} _groupHover={{ opacity: 1 }} 
       onClick={()=> {
-          if (onInlineEdit) onInlineEdit()
+          onInlineEdit()
       }}
     />
 
@@ -96,7 +98,7 @@ export const ProFieldRead = (props:any)=> {
     <Flex 
       {...containerOptions}
       role="group"
-      onDoubleClick={()=> {if (!readOnly && onInlineEdit) onInlineEdit();}}
+      onDoubleClick={()=> {if (!readonly) onInlineEdit();}}
     >
       <Box flex="1"><ProField mode='read' {...props}/></Box>
       <Box width="16px">{inlineIcon}</Box>
