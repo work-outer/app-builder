@@ -22,7 +22,7 @@
                                 "name": "password",
                                 "label": "密码",
                                 "valueType": "password",
-                                "readonly": false,
+                                "readonly": true,
                                 "rules": [
                                     {
                                         "message": "Please select...",
@@ -30,7 +30,9 @@
                                     }
                                 ],
                                 "required": false,
-                                "disabled": false
+                                "disabled": true,
+                                "tooltip": "密码长度不少于8个字符",
+                                "placeholder": "55555"
                             }
                         },
                         "responsiveStyles": {
@@ -53,7 +55,14 @@
                             "options": {
                                 "name": "name",
                                 "label": "用户名",
-                                "valueType": "text"
+                                "valueType": "text",
+                                "readonly": true,
+                                "rules": [
+                                    {
+                                        "message": "Please input...",
+                                        "required": true
+                                    }
+                                ]
                             }
                         },
                         "responsiveStyles": {
@@ -99,7 +108,8 @@
                             "options": {
                                 "name": "dateTime",
                                 "label": "项目开启日期时间",
-                                "valueType": "dateTime"
+                                "valueType": "dateTime",
+                                "readonly": true
                             }
                         },
                         "responsiveStyles": {
@@ -346,7 +356,100 @@
                                 ],
                                 "placeholder": "",
                                 "readonly": false,
-                                "tooltip": "gfjdj"
+                                "tooltip": "",
+                                "fieldProps": {
+                                    "options": [
+                                        {
+                                            "value": "1",
+                                            "label": "A"
+                                        },
+                                        {
+                                            "value": "2",
+                                            "label": "B"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-75ce9dd8abaa4dfd817de3c1ac3c2436",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "name": "rate",
+                                "label": "税率",
+                                "valueType": "select",
+                                "options": [
+                                    {
+                                        "value": "1",
+                                        "label": "10%"
+                                    },
+                                    {
+                                        "value": "2",
+                                        "label": "60%"
+                                    }
+                                ],
+                                "fieldProps": {
+                                    "options": [
+                                        {
+                                            "value": "12",
+                                            "label": "1"
+                                        },
+                                        {
+                                            "value": "14",
+                                            "label": "2"
+                                        }
+                                    ]
+                                },
+                                "readonly": false,
+                                "placeholder": "",
+                                "tooltip": ""
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-ff38da6c660642d6ae47c71afce3fd96",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "label": "发行",
+                                "valueType": "radio",
+                                "name": "publish",
+                                "options": [
+                                    {
+                                        "value": "1",
+                                        "label": "S"
+                                    },
+                                    {
+                                        "value": "2",
+                                        "label": "F"
+                                    }
+                                ]
                             }
                         },
                         "responsiveStyles": {
