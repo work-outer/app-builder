@@ -27,29 +27,28 @@ export const configField = {
     { name: 'tooltip', type: 'string' },
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
 
-    { name: 'fieldProps', type: 'object', subFields: [
-        { name: 'defaultChecked', type: 'boolean', defaultValue: false, required: true, helperText: '初始是否选中' },
-      ], showIf: 'options.get("valueType") === "switch"'
-    },
+    // { name: 'fieldProps', type: 'object', subFields: [
+    //     { name: 'defaultChecked', type: 'boolean', defaultValue: false, required: true, helperText: '初始是否选中' },
+    //   ], showIf: 'options.get("valueType") === "switch"'
+    // },
 
-    { 
-      name: 'value', type: 'number',
-      showIf: 'options.get("valueType") === "index" || options.get("valueType") === "indexBorder"'
-    },
+    // { 
+    //   name: 'value', type: 'number',
+    //   showIf: 'options.get("valueType") === "index" || options.get("valueType") === "indexBorder"'
+    // },
 
-    {
-      name: 'fieldProps', type: 'object', subFields: [
-        { name: 'allowClear', type: 'boolean', defaultValue: true, helperText: '是否显示清除按钮' },
-        { name: 'autoFocus', type: 'boolean', defaultValue: false, helperText: '自动获取焦点' },
-        { name: 'inputReadOnly', type: 'boolean', defaultValue: false, helperText: '设置输入框为只读（避免在移动设备上打开虚拟键盘）' }
-      ], showIf: 'options.get("valueType") === "text" || options.get("valueType") === "fromNow"'
-              + ' || options.get("valueType") === "date" || options.get("valueType") === "dateRange"'
-              + ' || options.get("valueType") === "time" || options.get("valueType") === "timeRange"'
-              + ' || options.get("valueType") === "dateTime" || options.get("valueType") === "dateTimeRange"'
-              + ' || options.get("valueType") === "dateWeek" || options.get("valueType") === "dateMonth"'
-              + ' || options.get("valueType") === "dateQuarter" || options.get("valueType") === "dateYear"'
-              + ' || options.get("valueType") === "progress" || options.get("valueType") === "percent"'
-    },
+    // {
+    //   name: 'fieldProps', type: 'object', subFields: [
+    //     { name: 'autoFocus', type: 'boolean', defaultValue: false, helperText: '自动获取焦点' },
+    //     { name: 'inputReadOnly', type: 'boolean', defaultValue: false, helperText: '设置输入框为只读（避免在移动设备上打开虚拟键盘）' }
+    //   ], showIf: 'options.get("valueType") === "text" || options.get("valueType") === "fromNow"'
+    //           + ' || options.get("valueType") === "date" || options.get("valueType") === "dateRange"'
+    //           + ' || options.get("valueType") === "time" || options.get("valueType") === "timeRange"'
+    //           + ' || options.get("valueType") === "dateTime" || options.get("valueType") === "dateTimeRange"'
+    //           + ' || options.get("valueType") === "dateWeek" || options.get("valueType") === "dateMonth"'
+    //           + ' || options.get("valueType") === "dateQuarter" || options.get("valueType") === "dateYear"'
+    //           + ' || options.get("valueType") === "progress" || options.get("valueType") === "percent"'
+    // },
 
   ],
   defaultStyles: {
