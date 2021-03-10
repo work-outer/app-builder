@@ -12,6 +12,7 @@ import { useQuery } from "react-query";
 import { ObjectContext } from "../";
 
 export type ObjectFieldProps = {
+  objectApiName?: string,
   fieldName: string,
   required: boolean,
   readonly: boolean
@@ -19,8 +20,8 @@ export type ObjectFieldProps = {
 
 export function ObjectField(props: ObjectFieldProps) {
   const objectContext = useContext(ObjectContext);
-  const objectApiName = objectContext.currentObjectApiName;
   const { fieldName, required, readonly } = props
+  const objectApiName = props.objectApiName ? props.objectApiName : objectContext.currentObjectApiName;
 
   if (!objectApiName || !fieldName)
     return (<div>请输入字段名</div>)
