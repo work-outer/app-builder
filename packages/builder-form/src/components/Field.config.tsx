@@ -1,11 +1,11 @@
 export const configField = {
-  name: '@steedos/builder-form:Field',
+  name: 'Steedos:Field',
   image:
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2Fad6f37889d9e40bbbbc72cdb5875d6ca',
   inputs: [
-    { name: 'name', type: 'text', defaultValue: 'name'},
-    { name: 'label', type: 'text', defaultValue: 'Label'}, 
-    { name: 'valueType', type: 'string', 
+    { name: 'name', type: 'text', defaultValue: 'name', required: true},
+    { name: 'label', type: 'text', defaultValue: 'Label', required: true}, 
+    { name: 'valueType', type: 'string', defaultValue: 'text', required: true,
       enum: [
             'password','money','textarea','option','date',
             'dateWeek','dateMonth','dateQuarter','dateYear',
@@ -31,7 +31,7 @@ export const configField = {
   requiresParent: {
     message: 'This block must be inside a "Field Section" block',
     query: {
-      'component.name': { $in: ['@steedos/builder-form:FieldSection'] }
+      'component.name': { $in: ['Steedos:Form','Steedos:FieldSection', 'Steedos:FieldObject'] }
     }
   }
 };

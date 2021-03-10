@@ -1,5 +1,5 @@
 export const configForm = {
-  name: '@steedos/builder-form:Form',
+  name: 'Steedos:Form',
   image:
     'https://cdn.builder.io/api/v1/image/assets%2FIsxPKMo2gPRRKeakUztj1D6uqed2%2Fef36d2a846134910b64b88e6d18c5ca5',
   inputs: [
@@ -30,5 +30,10 @@ export const configForm = {
     },
 
   ],
+  defaultStyles: {
+    display: 'block',
+    marginTop: '0',
+    minHeight: '100px',
+  },
   canHaveChildren: true
 };

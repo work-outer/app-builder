@@ -30,14 +30,11 @@ import { configProFormRadio } from './components/ProFormRadio.config';
 import { configProFormTimeRangePicker } from './components/ProFormTimeRangePicker.config';
 import { configProFormGroup } from './components/ProForm.Group.cofig';
 import { configProFormList } from './components/ProFormList.config';
-import { configProFormObject } from './components/ProFormObject.config';
-import { ProFormObject } from './components/ProFormObject';
 
 const ProFormWrap = withFunctions(ProForm, ['onValuesChange', 'initialValues', 'onFinish']);
 Builder.registerComponent(withChildren(ProFormWrap), configProForm);
 Builder.registerComponent(withChildren(ProForm.Group), configProFormGroup);
 Builder.registerComponent(withChildren(ProFormList), configProFormList);
-Builder.registerComponent(withChildren(ProFormObject), configProFormObject);
 Builder.registerComponent(ProFormText, configProFormText);
 Builder.registerComponent(ProFormText.Password, configProFormPassword);
 Builder.registerComponent(ProFormTextArea, configProFormTextArea);

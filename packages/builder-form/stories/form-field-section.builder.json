@@ -7,7 +7,7 @@
         "layerName": "FieldSection",
         "id": "builder-311c27d0b7874cd8965e07709582559b",
         "component": {
-          "name": "@steedos/builder-form:FieldSection",
+          "name": "Steedos:FieldSection",
           "options": {
             "title": "Field Section"
           }
@@ -18,7 +18,7 @@
             "@version": 2,
             "id": "builder-5b9dd71c7d444e16b7c8248e6b4e1e37",
             "component": {
-              "name": "@steedos/builder-form:Field",
+              "name": "Steedos:Field",
               "options": {
                 "name": "switch",
                 "label": "Switch",
@@ -41,7 +41,7 @@
             "@version": 2,
             "id": "builder-11b3307d7e4a4a2995ecbf232b9fb313",
             "component": {
-              "name": "@steedos/builder-form:Field",
+              "name": "Steedos:Field",
               "options": {
                 "name": "datetime",
                 "label": "DateTime",
@@ -64,7 +64,7 @@
             "@version": 2,
             "id": "builder-6f7498fe95a2494fb8bede0f712c96e1",
             "component": {
-              "name": "@steedos/builder-form:Field",
+              "name": "Steedos:Field",
               "options": {
                 "name": "text",
                 "label": "Text",
@@ -87,7 +87,7 @@
             "@version": 2,
             "id": "builder-7b4217e0f7fe43d586f2422adf962921",
             "component": {
-              "name": "@steedos/builder-form:Field",
+              "name": "Steedos:Field",
               "options": {
                 "name": "date",
                 "label": "Date",

@@ -8,7 +8,7 @@ import { Input } from 'antd';
 // import { Form, createFormField } from './Form';
 import ProForm, { ProFormGroup } from '@ant-design/pro-form';
 
-export type ProFormObjectProps = {
+export type FieldObjectProps = {
   name: string,
   label: string,
   value?: object,
@@ -21,7 +21,7 @@ export type ProFormObjectProps = {
  *
  * @param FormFieldObjectProps 
  */
-export function ProFormObject(props: ProFormObjectProps) {
+export function FieldObject(props: FieldObjectProps) {
 
   const { 
     name,
@@ -43,14 +43,14 @@ export function ProFormObject(props: ProFormObjectProps) {
       trigger="onValuesChange"
       {...formItemProps}
     >
-      <ProFormFieldObject>
+      <FieldObjectForm>
         {children}
-      </ProFormFieldObject>
+      </FieldObjectForm>
     </ProForm.Item>
   )
 };
 
-function ProFormFieldObject(props:any){
+function FieldObjectForm(props:any){
 
   const { 
     name,
