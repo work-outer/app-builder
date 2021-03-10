@@ -19,10 +19,10 @@ export function Field(props: any) {
     name, 
     label, 
     tooltip, 
+    allowClear,
     placeholder,
     required,
     readonly, 
-    fieldProps,
     valueType, 
     ...rest
   } = props  
@@ -42,7 +42,10 @@ export function Field(props: any) {
     mode,
     valueType,
     placeholder,
-    ...fieldProps,
+    fieldProps: {
+      allowClear,
+      placeholder,
+    },
     onInlineEdit: ()=>{
       store.update((state:any) => {
         state.formMode = 'edit'

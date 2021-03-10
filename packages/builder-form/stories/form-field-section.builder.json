@@ -53,7 +53,8 @@
                             "options": {
                                 "name": "name",
                                 "label": "用户名",
-                                "valueType": "text"
+                                "valueType": "text",
+                                "allowClear": true
                             }
                         },
                         "responsiveStyles": {

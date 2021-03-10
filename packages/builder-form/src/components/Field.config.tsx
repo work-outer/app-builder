@@ -20,7 +20,9 @@ export const configField = {
       { name: 'value', type: 'string', defaultValue: 'value' },
       { name: 'label', type: 'string', defaultValue: 'label' }
     ], showIf: 'options.get("valueType") === "checkbox" || options.get("valueType") === "radio" || options.get("valueType") === "select" '},
-    { name: 'readonly', type: 'boolean', defaultValue: false },
+    { name: 'readonly', type: 'boolean', defaultValue: false },  
+    { name: 'required', type: 'boolean', defaultValue: false },
+    { name: 'allowClear', type: 'boolean', defaultValue: false },
     { name: 'placeholder', type: 'string' },
     { name: 'tooltip', type: 'string' },
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
