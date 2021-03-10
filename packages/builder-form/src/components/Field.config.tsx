@@ -31,7 +31,7 @@ export const configField = {
     },
 
     { 
-      name: 'value', type: 'number', defaultValue: -1, required: true,
+      name: 'value', type: 'number',
       showIf: 'options.get("valueType") === "index" || options.get("valueType") === "indexBorder"'
     },
 
