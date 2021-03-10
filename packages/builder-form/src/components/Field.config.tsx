@@ -26,6 +26,7 @@ export const configField = {
     { name: 'placeholder', type: 'string' },
     { name: 'tooltip', type: 'string' },
     { name: 'disabled', type: 'boolean', defaultValue: false, helperText: '禁用' },
+    { name: 'type', type: 'string', defaultValue:'circle', enum: ['line', 'circle', 'dashboard' ], showIf: 'options.get("valueType") === "progress"'}
 
     // { name: 'fieldProps', type: 'object', subFields: [
     //     { name: 'defaultChecked', type: 'boolean', defaultValue: false, required: true, helperText: '初始是否选中' },

@@ -24,6 +24,7 @@ export function Field(props: any) {
     required,
     readonly, 
     valueType, 
+    type,
     ...rest
   } = props  
 
@@ -45,6 +46,7 @@ export function Field(props: any) {
     fieldProps: {
       allowClear,
       placeholder,
+      type,
     },
     onInlineEdit: ()=>{
       store.update((state:any) => {

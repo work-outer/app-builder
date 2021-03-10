@@ -22,17 +22,17 @@
                                 "name": "password",
                                 "label": "密码",
                                 "valueType": "password",
-                                "readonly": true,
+                                "readonly": false,
                                 "rules": [
                                     {
                                         "message": "Please select...",
                                         "required": true
                                     }
                                 ],
-                                "required": false,
+                                "required": true,
                                 "disabled": true,
                                 "tooltip": "密码长度不少于8个字符",
-                                "placeholder": "55555"
+                                "placeholder": "请输入密码"
                             }
                         },
                         "responsiveStyles": {
@@ -56,13 +56,15 @@
                                 "name": "name",
                                 "label": "用户名",
                                 "valueType": "text",
-                                "readonly": true,
+                                "readonly": false,
                                 "rules": [
                                     {
                                         "message": "Please input...",
                                         "required": true
                                     }
-                                ]
+                                ],
+                                "placeholder": "请输入用户名",
+                                "required": true
                             }
                         },
                         "responsiveStyles": {
@@ -449,7 +451,59 @@
                                         "value": "2",
                                         "label": "F"
                                     }
-                                ]
+                                ],
+                                "placeholder": "",
+                                "disabled": false,
+                                "tooltip": ""
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-e87046a5ace641de8d6760f7ee4d0bdd",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "label": "评级",
+                                "valueType": "rate",
+                                "name": "rate",
+                                "readonly": false,
+                                "required": false
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "block",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "0",
+                                "marginBottom": "0"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-267b6de44c8248c4adb281b84b62b1b2",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "label": "进度",
+                                "valueType": "progress",
+                                "name": "progress",
+                                "type": "dashboard"
                             }
                         },
                         "responsiveStyles": {
@@ -473,7 +527,7 @@
                                 "name": "textarea",
                                 "label": "项目描述",
                                 "valueType": "textarea",
-                                "placeholder": "555511"
+                                "placeholder": ""
                             }
                         },
                         "responsiveStyles": {
