@@ -19,7 +19,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "password",
                                 "label": "密码",
                                 "valueType": "password",
                                 "readonly": false,
@@ -74,7 +74,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "startDate",
                                 "label": "开始日期",
                                 "valueType": "date"
                             }
@@ -97,7 +97,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "dateTime",
                                 "label": "项目开启日期时间",
                                 "valueType": "dateTime"
                             }
@@ -120,7 +120,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "dateRange",
                                 "label": "日期区间",
                                 "valueType": "dateRange"
                             }
@@ -143,7 +143,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "dateTimeRange",
                                 "label": "日期时间区间",
                                 "valueType": "dateTimeRange"
                             }
@@ -166,7 +166,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "time",
                                 "label": "时间",
                                 "valueType": "time"
                             }
@@ -189,7 +189,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "timeRange",
                                 "label": "时间区间",
                                 "valueType": "timeRange"
                             }
@@ -212,7 +212,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "dateYear",
                                 "label": "日期—年",
                                 "valueType": "dateYear"
                             }
@@ -235,7 +235,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "dateMonth",
                                 "label": "日期—月",
                                 "valueType": "dateMonth"
                             }
@@ -258,7 +258,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "dateQuarter",
                                 "label": "日期—季度",
                                 "valueType": "dateQuarter"
                             }
@@ -281,7 +281,7 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "dateWeek",
                                 "label": "日期—周",
                                 "valueType": "dateWeek"
                             }
@@ -304,8 +304,8 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
-                                "label": "Label",
+                                "name": "index",
+                                "label": "序号",
                                 "valueType": "index"
                             }
                         },
@@ -333,17 +333,20 @@
                                 "options": [
                                     {
                                         "value": "a",
-                                        "label": "A"
+                                        "label": "NAME"
                                     },
                                     {
                                         "value": "b",
-                                        "label": "B"
+                                        "label": "BLUE"
                                     },
                                     {
                                         "value": "c",
-                                        "label": "C"
+                                        "label": "CLASS"
                                     }
-                                ]
+                                ],
+                                "placeholder": "",
+                                "readonly": false,
+                                "tooltip": "gfjdj"
                             }
                         },
                         "responsiveStyles": {
@@ -364,10 +367,10 @@
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
-                                "name": "name",
+                                "name": "textarea",
                                 "label": "项目描述",
                                 "valueType": "textarea",
-                                "placeholder": ""
+                                "placeholder": "555511"
                             }
                         },
                         "responsiveStyles": {
