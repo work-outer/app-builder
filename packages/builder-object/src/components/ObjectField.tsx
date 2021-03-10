@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Builder } from '@builder.io/react';
+import { BuilderStoreContext } from '@builder.io/react';
 // import ProField from '@ant-design/pro-field';
 import ProForm, {
   ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker,
@@ -19,9 +20,14 @@ export type ObjectFieldProps = {
 }
 
 export function ObjectField(props: ObjectFieldProps) {
+  const store = useContext(BuilderStoreContext);
   const objectContext = useContext(ObjectContext);
+  const { currentObjectApiName } = store.context;
   const { fieldName, required, readonly } = props
-  const objectApiName = props.objectApiName ? props.objectApiName : objectContext.currentObjectApiName as string;
+  let objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
+  if(!objectApiName){
+    objectApiName = objectContext.currentObjectApiName as string;
+  }
   console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
   // 请注意所有的react use函数必须放在最前面，不可以放在if等判断逻辑后面
   const {

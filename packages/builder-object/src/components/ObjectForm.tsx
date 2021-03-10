@@ -1,6 +1,7 @@
 
 import React, { useContext } from "react";
 import _ from 'lodash';
+import { BuilderStoreContext } from '@builder.io/react';
 import { ObjectContext } from "../";
 import { useQuery } from "react-query";
 
@@ -20,12 +21,20 @@ export type ObjectFormProps = {
 } & FormProps
 
 export function ObjectForm(props:ObjectFormProps) {
-
+  const store = useContext(BuilderStoreContext);
+  console.log("=ObjectForm===store===", store);
   const objectContext = useContext(ObjectContext);
+  let { currentObjectApiName, currentRecordId } = store.context;
+  if(!currentObjectApiName){
+    currentObjectApiName = objectContext.currentObjectApiName;
+  }
+  if(!currentRecordId){
+    currentRecordId = objectContext.currentRecordId;
+  }
 
   const { mode, editable,  ...rest} = props
-  const objectApiName = props.objectApiName ? props.objectApiName : objectContext.currentObjectApiName as string;
-  const recordId = props.recordId ? props.recordId : objectContext.currentRecordId;
+  const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
+  const recordId = props.recordId ? props.recordId : currentRecordId;
   console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
   const { 
     isLoading, 
