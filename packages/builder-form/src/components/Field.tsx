@@ -83,22 +83,24 @@ export function Field(props: any) {
   }
 
   const ProFormField = createField<ProFormItemProps<InputProps>>(
-    ({ fieldProps, proFieldProps }: ProFormItemProps<InputProps>) => (
-      <ProFieldWrap mode={mode} valueType={valueType} fieldProps={fieldProps} {...proFieldProps} />
-    ),
+    (props: ProFormItemProps<InputProps>) => { 
+      return (
+        <ProFieldWrap valueType={valueType} fieldProps={props.fieldProps} {...props.proFieldProps} mode={mode} />
+      )
+    },
     {
       valueType,
     },
   );
   
-  return (<ProFormField formItemProps={formItemProps} fieldProps={fieldProps} readonly={readonly} {...rest}/>)
+  return (<ProFormField {...rest} mode={mode} formItemProps={formItemProps} fieldProps={fieldProps} readonly={readonly}/>)
 }
 
 
 export function ProFieldWrap(props:any) {
 
   const { readonly, mode, ...rest } = props
-  if (!readonly && mode == 'edit')
+  if (!readonly && mode === 'edit')
     return <ProField mode='edit' {...props}/>
 
   const store = useContext(BuilderStoreContext)
