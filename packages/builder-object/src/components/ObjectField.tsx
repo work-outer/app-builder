@@ -59,19 +59,21 @@ export function ObjectField(props: ObjectFieldProps) {
     mode: "edit",
     label: field.label,
     placeholder: field.help,
-    hidden: field.hidden,
-    options: field.options,
-    valueType: fieldType
+   // hidden: field.hidden,
+    valueType: fieldType,
+    required: field.required,
+    options: field.options
   }
-  if(formFieldProps.mode == "edit"){
 
-    if(field.omit){
-      formFieldProps.hidden = true
-    }
-  }else if (formFieldProps.mode == "read"){
+  // if(formFieldProps.mode == "edit"){
+
+  //   if(field.omit){
+  //     formFieldProps.hidden = true
+  //   }
+  // }else if (formFieldProps.mode == "read"){
     
-    formFieldProps.readonly = true
-  }
+  //   formFieldProps.readonly = true
+  // }
 
   switch (fieldType) {
     
@@ -88,11 +90,6 @@ export function ObjectField(props: ObjectFieldProps) {
       break;
 
     case 'select':
-      // const valueEnum = {}
-      // field.options.map((option:any) => {
-      //   valueEnum[option.value] = option.label;
-      // })
-      // formFieldProps.valueEnum = valueEnum;
       formFieldProps.valueType='select';
       break;
 
