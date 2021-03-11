@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { BuilderStoreContext } from '@builder.io/react';
 // import ProField from '@ant-design/pro-field';
-import ProForm, {
-  ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker,
-  ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker,
-  ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton,
-  ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox
-} from '@ant-design/pro-form';
+// import ProForm, {
+//   ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker,
+//   ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker,
+//   ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton,
+//   ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox
+// } from '@ant-design/pro-form';
+import { Field } from '@steedos/builder-form/src/index'
 import _ from 'lodash';
 import { useQuery } from "react-query";
 import { ObjectContext } from "../";
@@ -79,7 +80,7 @@ export function ObjectField(props: ObjectFieldProps) {
   switch (fieldType) {
     case 'text':
       return (
-        <ProFormText
+        <Field valueType='text'
           {...formFieldProps}
         />
       )
@@ -104,19 +105,19 @@ export function ObjectField(props: ObjectFieldProps) {
       )
     case 'datetime':
       return (
-        <ProFormDateTimePicker
+        <Field valueType='dateTime'
           {...formFieldProps}
         />
       )
     case 'boolean':
       return (
-        <ProFormSwitch
+        <Field valueType='switch'
           {...formFieldProps}
         />
       )
     case 'number':
       return (
-        <ProFormDigit
+        <Field valueType='digit'
           {...formFieldProps}
         />
       )
@@ -127,7 +128,7 @@ export function ObjectField(props: ObjectFieldProps) {
       })
       formFieldProps.valueEnum = valueEnum;
       return (
-        <ProFormSelect
+        <Field valueType='select't
           {...formFieldProps}
         />
       )
@@ -150,7 +151,7 @@ export function ObjectField(props: ObjectFieldProps) {
   }
   // 默认取ProFormText组件
   return (
-    <ProFormText
+    <Field valueType='text'
       {...formFieldProps}
     />
   )
