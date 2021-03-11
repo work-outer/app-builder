@@ -22,7 +22,7 @@ export function ObjectField(props: ObjectFieldProps) {
   if(!objectApiName){
     objectApiName = objectContext.currentObjectApiName as string;
   }
-  console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
+  //console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
   // 请注意所有的react use函数必须放在最前面，不可以放在if等判断逻辑后面
   const {
     isLoading,
@@ -37,7 +37,7 @@ export function ObjectField(props: ObjectFieldProps) {
     return (<div>请输入字段名</div>)
 
   const objectSchema: any = data
-  console.log("==requestObject==data===", data);
+  //console.log("==requestObject==data===", data);
 
   if (!objectSchema)
     return (<div>Field Loading...</div>)
@@ -60,6 +60,8 @@ export function ObjectField(props: ObjectFieldProps) {
     label: field.label,
     placeholder: field.help,
     hidden: field.hidden,
+    options: field.options,
+    valueType: fieldType
   }
   if(formFieldProps.mode == "edit"){
 
@@ -71,20 +73,18 @@ export function ObjectField(props: ObjectFieldProps) {
     formFieldProps.readonly = true
   }
 
-  let valueType = 'text';
-
   switch (fieldType) {
     
     case 'datetime':
-      valueType='dateTime';
+      formFieldProps.valueType='dateTime';
       break;
 
     case 'boolean':
-      valueType='switch';
+      formFieldProps.valueType='switch';
       break;
 
     case 'number':
-      valueType='digit';
+      formFieldProps.valueType='digit';
       break;
 
     case 'select':
@@ -93,8 +93,7 @@ export function ObjectField(props: ObjectFieldProps) {
       //   valueEnum[option.value] = option.label;
       // })
       // formFieldProps.valueEnum = valueEnum;
-      formFieldProps.options = field.options;
-      valueType='select';
+      formFieldProps.valueType='select';
       break;
 
     case 'url':
@@ -128,7 +127,7 @@ export function ObjectField(props: ObjectFieldProps) {
   }
   // 默认取ProFormText组件
   return (
-    <Field valueType={valueType}
+    <Field
       {...formFieldProps}
     />
   )

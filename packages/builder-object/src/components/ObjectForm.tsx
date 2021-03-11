@@ -22,7 +22,7 @@ export type ObjectFormProps = {
 
 export function ObjectForm(props:ObjectFormProps) {
   const store = useContext(BuilderStoreContext);
-  console.log("=ObjectForm===store===", store);
+  //console.log("=ObjectForm===store===", store);
   const objectContext = useContext(ObjectContext);
   let { currentObjectApiName, currentRecordId } = store.context;
   if(!currentObjectApiName){
@@ -35,7 +35,7 @@ export function ObjectForm(props:ObjectFormProps) {
   const { mode, editable,  ...rest} = props
   const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   const recordId = props.recordId ? props.recordId : currentRecordId;
-  console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
+  //console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
   const { 
     isLoading, 
     error, 
@@ -45,7 +45,7 @@ export function ObjectForm(props:ObjectFormProps) {
     return await objectContext.requestObject(objectApiName as string);
   });
   const objectSchema:any = data
-  console.log("==requestObject==data===", data);
+  //console.log("==requestObject==data===", data);
 
   if (!objectSchema) 
     return (<div>Object Loading...</div>)
