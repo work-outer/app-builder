@@ -1,12 +1,6 @@
 import React, { useContext } from "react";
 import { BuilderStoreContext } from '@builder.io/react';
-// import ProField from '@ant-design/pro-field';
-// import ProForm, {
-//   ProFormDatePicker, ProFormDateRangePicker, ProFormDateTimePicker,
-//   ProFormDateTimeRangePicker, ProFormText, ProFormTextArea, ProFormTimePicker,
-//   ProFormSwitch, ProFormRate, ProFormUploadDragger, ProFormUploadButton,
-//   ProFormSlider, ProFormSelect, ProFormDigit, ProFormRadio, ProFormCheckbox
-// } from '@ant-design/pro-form';
+
 import { Field } from '@steedos/builder-form/src/index'
 import _ from 'lodash';
 import { useQuery } from "react-query";
@@ -77,60 +71,43 @@ export function ObjectField(props: ObjectFieldProps) {
     formFieldProps.readonly = true
   }
 
+  let valueType = 'text';
+
   switch (fieldType) {
-    case 'text':
-      return (
-        <Field valueType='text'
-          {...formFieldProps}
-        />
-      )
+    
+    case 'datetime':
+      valueType='dateTime';
+      break;
+
+    case 'boolean':
+      valueType='switch';
+      break;
+
+    case 'number':
+      valueType='digit';
+      break;
+
+    case 'select':
+      // const valueEnum = {}
+      // field.options.map((option:any) => {
+      //   valueEnum[option.value] = option.label;
+      // })
+      // formFieldProps.valueEnum = valueEnum;
+      formFieldProps.options = field.options;
+      valueType='select';
+      break;
+
     case 'url':
-      // @ant-design/pro-field中并没有url字段组件，需要先参考FieldText实现方式实现一个FieldUrl组件
-      // 然后参考@ant-design的ProFormText控件封装上述实现的FieldUrl组件来实现ProFormUrl组件
-      // 注：ProFormUrl与FieldUrl组件的区别是前者依赖了后者，前者只是在后者的基础上加上了ProForm中的字段label显示而已
       return (
         <div>{`未实现字段类型${fieldType}的组件`}</div>
       )
     case 'currency':
-      // formFieldProps.valueType = 'money';
-      // 需要参考@ant-design其他ProFormXXX字段控件封装@ant-design/pro-field的FieldMoney组件实现ProFormMoney组件
       return (
         <div>{`未实现字段类型${fieldType}的组件`}</div>
       )
     case 'autonumber':
-      // formFieldProps.valueType = 'index';
-      // 需要参考@ant-design其他ProFormXXX字段控件封装@ant-design/pro-field的FieldIndexColumn组件实现ProFormIndexColumn组件
       return (
         <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
-    case 'datetime':
-      return (
-        <Field valueType='dateTime'
-          {...formFieldProps}
-        />
-      )
-    case 'boolean':
-      return (
-        <Field valueType='switch'
-          {...formFieldProps}
-        />
-      )
-    case 'number':
-      return (
-        <Field valueType='digit'
-          {...formFieldProps}
-        />
-      )
-    case 'select':
-      const valueEnum = {}
-      field.options.map((option:any) => {
-        valueEnum[option.value] = option.label;
-      })
-      formFieldProps.valueEnum = valueEnum;
-      return (
-        <Field valueType='select't
-          {...formFieldProps}
-        />
       )
     case 'lookup':
       return (
@@ -151,7 +128,7 @@ export function ObjectField(props: ObjectFieldProps) {
   }
   // 默认取ProFormText组件
   return (
-    <Field valueType='text'
+    <Field valueType={valueType}
       {...formFieldProps}
     />
   )
