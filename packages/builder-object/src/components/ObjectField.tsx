@@ -63,7 +63,7 @@ export function ObjectField(props: ObjectFieldProps) {
     name: fieldName,
     mode: "edit",
     label: field.label,
-    placeholder: field.help
+    placeholder: field.help,
   }
 
   switch (fieldType) {
@@ -111,11 +111,11 @@ export function ObjectField(props: ObjectFieldProps) {
         />
       )
     case 'select':
-      // const valueEnum = {}
-      // props.options.map((option:any) => {
-      //   valueEnum[option.value] = option.label;
-      // })
-      // formFieldProps.valueEnum = valueEnum;
+      const valueEnum = {}
+      field.options.map((option:any) => {
+        valueEnum[option.value] = option.label;
+      })
+      formFieldProps.valueEnum = valueEnum;
       return (
         <ProFormSelect
           {...formFieldProps}
