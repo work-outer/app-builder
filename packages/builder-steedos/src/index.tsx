@@ -1,2 +1,3 @@
-export * from './components/SteedosContext';
-export * from './components/SteedosProvider';
+export * from './components';
+export * from './providers/SteedosContext';
+export * from './providers/SteedosProvider';
