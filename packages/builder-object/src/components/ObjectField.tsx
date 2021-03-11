@@ -88,19 +88,17 @@ export function ObjectField(props: ObjectFieldProps) {
     case 'number':
       formFieldProps.valueType='digit';
       break;
-      
+
     case 'url':
       return (
         <div>{`未实现字段类型${fieldType}的组件`}</div>
       )
     case 'currency':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
+      formFieldProps.valueType='money';
+      break;
     case 'autonumber':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
+      formFieldProps.valueType='index';
+      break;
     case 'lookup':
       return (
         <div>{`未实现字段类型${fieldType}的组件`}</div>
