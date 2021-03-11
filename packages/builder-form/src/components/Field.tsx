@@ -32,7 +32,7 @@ export function Field(props: any) {
     // count,
     // defaultValue,
     // defaultChecked,
-    // options,
+    options,
     ...rest
   } = props  
 
@@ -74,6 +74,13 @@ export function Field(props: any) {
   //   </Form.Item>
   // )
 
+  const formItemProps ={
+    ...attributes
+  }
+
+  const fieldProps ={
+    options
+  }
 
   const ProFormField = createField<ProFormItemProps<InputProps>>(
     ({ fieldProps, proFieldProps }: ProFormItemProps<InputProps>) => (
@@ -84,7 +91,7 @@ export function Field(props: any) {
     },
   );
   
-  return (<ProFormField formItemProps={attributes} {...props}/>)
+  return (<ProFormField formItemProps={formItemProps} fieldProps={fieldProps} readonly={readonly} {...rest}/>)
 }
 
 
