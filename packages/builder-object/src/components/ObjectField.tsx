@@ -88,11 +88,7 @@ export function ObjectField(props: ObjectFieldProps) {
     case 'number':
       formFieldProps.valueType='digit';
       break;
-
-    case 'select':
-      formFieldProps.valueType='select';
-      break;
-
+      
     case 'url':
       return (
         <div>{`未实现字段类型${fieldType}的组件`}</div>
