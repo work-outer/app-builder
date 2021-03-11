@@ -137,7 +137,9 @@ export const FormFieldSection = () => {
   }
 
   return (
-    <Form initialValues={{name: 'Hello World'}}>
+    <Form initialValues={{name: 'Hello World'}} onFinish={(values)=>{
+      console.log(values)
+    }}>
       <BuilderComponent {...bcProps}>
       </BuilderComponent> 
     </Form>

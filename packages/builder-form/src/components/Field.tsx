@@ -1,12 +1,16 @@
 import ProField from "@ant-design/pro-field";
 import { Form } from 'antd';
+import type { InputProps } from 'antd';
 
 import React, { useContext, useState } from "react";
 import { Flex, Box } from "@chakra-ui/layout"
 import {EditIcon, LockIcon} from '@chakra-ui/icons'
 import { FormContext } from "../providers/FormContext";
 import { ProFormDatePicker } from "@ant-design/pro-form";
+import createField from '@ant-design/pro-form/es/BaseForm/createField'
+
 import { BuilderStoreContext } from "@builder.io/react";
+import { ProFormItemProps } from "@ant-design/pro-form/es/interface";
 
 export function Field(props: any) {
   const store = useContext(BuilderStoreContext)
@@ -14,75 +18,81 @@ export function Field(props: any) {
   
   const {
     attributes, 
-    name, 
-    label, 
-    tooltip, 
-    allowClear,
-    placeholder,
-    required,
+    // name, 
+    // label, 
+    // tooltip, 
+    // allowClear,
+    // placeholder,
+    // required,
     readonly, 
-    disabled,
+    // disabled,
+    mode: fieldMode,
     valueType, 
-    type,
-    count,
-    defaultValue,
-    defaultChecked,
-    options,
+    // type,
+    // count,
+    // defaultValue,
+    // defaultChecked,
+    // options,
     ...rest
   } = props  
 
   const { formMode = 'read' } = state;
 
-  const mode = readonly?'read':formMode;
+  const mode = readonly?'read':fieldMode?fieldMode:formMode;
 
-  const formItemOptions = {
-    name,
-    label,
-    tooltip,
-    required,
-    // shouldUpdate: true,
-    valuePropName: 'value',
-    ...attributes,
-  }
+  // const formItemProps = {
+  //   name,
+  //   label,
+  //   tooltip,
+  //   required,
+  //   // shouldUpdate: true,
+  //   valuePropName: 'value',
+  //   ...attributes,
+  // }
 
-  const fieldOptions = {
-    name,
-    mode,
-    readonly,
-    valueType,
-    placeholder,
-    fieldProps: {
-      disabled,
-      allowClear,
-      placeholder,
-      type,
-      count,
-      defaultValue,
-      defaultChecked,
-      options,
+  // const fieldOptions = {
+  //   mode,
+  //   readonly,
+  //   valueType,
+  //   placeholder,
+  //   fieldProps: {
+  //     disabled,
+  //     allowClear,
+  //     placeholder,
+  //     type,
+  //     count,
+  //     defaultValue,
+  //     defaultChecked,
+  //     options,
+  //   },
+  //   ...rest,
+  // }
+
+  // return (
+  //   <Form.Item shouldUpdate {...formItemProps}>
+  //       <ProFieldWrap {...fieldOptions}/>
+  //   </Form.Item>
+  // )
+
+
+  const ProFormField = createField<ProFormItemProps<InputProps>>(
+    ({ fieldProps, proFieldProps }: ProFormItemProps<InputProps>) => (
+      <ProFieldWrap mode={mode} valueType={valueType} fieldProps={fieldProps} {...proFieldProps} />
+    ),
+    {
+      valueType,
     },
-    ...rest,
-  }
-
-
-  return (
-    <Form.Item shouldUpdate {...formItemOptions}>
-      {mode === 'read' &&(
-        <ProFieldRead {...fieldOptions}/>
-      )}
-      {mode === 'edit' &&(
-        <ProFieldEdit {...fieldOptions}/>
-      )}
-    </Form.Item>
-  )
+  );
+  
+  return (<ProFormField formItemProps={attributes} {...props}/>)
 }
 
-export function ProFieldEdit (props: any) {
-  const { mode, ...rest } = props
-  return <ProField mode='edit' {...rest}/>
-}
 
-export function ProFieldRead(props:any) {
+export function ProFieldWrap(props:any) {
+
+  const { readonly, mode, ...rest } = props
+  if (!readonly && mode == 'edit')
+    return <ProField mode='edit' {...props}/>
 
   const store = useContext(BuilderStoreContext)
   const onInlineEdit = () => {
@@ -90,7 +100,6 @@ export function ProFieldRead(props:any) {
       state.formMode = 'edit'
     })
   };
-  const { readonly, mode, ...rest } = props
   const inlineIconOpacity = 0.4
   const inlineIcon = readonly?
     <LockIcon color='gray.600' opacity={inlineIconOpacity} _groupHover={{ opacity: 1 }}/>:
