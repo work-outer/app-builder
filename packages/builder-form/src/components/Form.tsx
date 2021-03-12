@@ -3,25 +3,27 @@ import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { Form as AntForm } from 'antd';
 import BaseForm from '@ant-design/pro-form/es/BaseForm';
 import { BuilderStoreContext } from '@builder.io/react';
+import { observer } from "mobx-react-lite"
+
+import { FormModel, store } from '@steedos/builder-store';
 
 // 在 ProForm的基础上扩展属性
 // colSpan: 每一列默认占几栅格，总共12栅格
 // mode: edit, read
 
-export function Form(props:any) {
-  const store = useContext(BuilderStoreContext)
+export const Form = observer((props:any) => {
+
   const {
+    id = 'default',
     mode = 'read', 
     layout = 'horizontal',
     children, 
     ...rest
   } = props
 
-
-  const { 
-    formMode
-  } = store.context
-
+  if (!store.forms[id])
+    store.forms[id] = FormModel.create({id, mode});
+ 
   const formItemLayout =
     layout === 'horizontal'
       ? {
@@ -31,17 +33,40 @@ export function Form(props:any) {
         }
       : null;
 
+  const submitter = store.forms[id].mode ==='read'? false : {
+    // 配置按钮文本
+    searchConfig: {
+      resetText: '取消',
+      submitText: '提交',
+    },
+    resetButtonProps: {
+      onClick: () => {
+        store.forms[id].setMode('read')
+      },
+    },
+  }
+
+  const contentRender = (items:any, submitter:any) => {
+    return (
+      <>
+        {items}
+        {submitter}
+      </>
+    );
+  }
+
   const formProps = {
-    mode: formMode ? formMode: mode, 
+    mode: store.forms[id].mode, 
     layout,
     ...formItemLayout,
     ...rest,
+    submitter,
+    contentRender,
   }
 
-  console.log(formProps)
   return (
       <BaseForm {...formProps}>
           {children}
       </BaseForm>
   )
-}
+});

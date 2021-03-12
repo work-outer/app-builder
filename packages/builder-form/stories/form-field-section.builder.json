@@ -39,7 +39,7 @@
                     {
                         "@type": "@builder.io/sdk:Element",
                         "@version": 2,
-                        "id": "builder-bd744e9592af40ba93ae270aaea4e334",
+                        "id": "builder-bd744e9592af40ba93ae270aaea4ettt",
                         "component": {
                             "name": "Steedos:Field",
                             "options": {
@@ -54,6 +54,27 @@
                                     }
                                 ],
                                 "placeholder": "请输入用户名",
+                                "required": true
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-bd744e9592af40ba93ae270aaea4e334",
+                        "component": {
+                            "name": "Steedos:Field",
+                            "options": {
+                                "name": "href",
+                                "label": "链接",
+                                "valueType": "href",
+                                "readonly": false,
+                                "rules": [
+                                    {
+                                        "message": "Please input...",
+                                        "required": true
+                                    }
+                                ],
                                 "required": true
                             }
                         }

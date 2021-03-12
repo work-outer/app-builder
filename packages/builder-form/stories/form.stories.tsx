@@ -3,9 +3,10 @@ import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@an
 
 import { adapt } from "webcomponents-in-react";
 
-import { Builder, BuilderComponent, builder, withChildren } from '@builder.io/react';
+import { Builder, BuilderComponent, builder, withChildren, BuilderStoreContext } from '@builder.io/react';
 
 import { Form } from '../src/components/Form'
+import { useContext } from "react";
 
 export default {
   title: "Builder Form",
@@ -168,6 +169,10 @@ export const FormVertical= () => {
   return (
     <Form layout='vertical' initialValues={{name: 'Hello World'}} onFinish={(values)=>{
       console.log(values)
+      const store = useContext(BuilderStoreContext)
+      store.update((state:any) => {
+        state.formMode = 'read'
+      })
     }}>
       <BuilderComponent {...bcProps}>
       </BuilderComponent> 

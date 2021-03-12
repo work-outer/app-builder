@@ -11,12 +11,12 @@ import createField from '@ant-design/pro-form/es/BaseForm/createField'
 
 import { BuilderStoreContext } from "@builder.io/react";
 import { ProFormItemProps } from "@ant-design/pro-form/es/interface";
+import { store } from '@steedos/builder-store';
+import { observer } from "mobx-react-lite"
 
 import './Field.css'
 
-export function Field(props: any) {
-  const store = useContext(BuilderStoreContext)
-  const { state } = store;
+export const Field = observer((props: any) => {
   
   const {
     attributes, 
@@ -38,9 +38,8 @@ export function Field(props: any) {
     ...rest
   } = props  
 
-  const { formMode = 'read' } = state;
-
-  const mode = readonly?'read':fieldMode?fieldMode:formMode;
+  const mode = store.forms['default'].mode
+  console.log(mode)
 
   const formItemProps ={
     ...attributes,
@@ -72,10 +71,10 @@ export function Field(props: any) {
   );
   
   return (<ProFormField {...rest} mode={mode} formItemProps={formItemProps} fieldProps={fieldProps} readonly={readonly}/>)
-}
+})
 
 
-export function ProFieldWrap(props:any) {
+export const ProFieldWrap = observer((props:any) => {
 
   const { readonly, mode, ...rest } = props
   
@@ -88,11 +87,9 @@ export function ProFieldWrap(props:any) {
   if (!readonly && mode === 'edit')
     return <ProField mode='edit' {...proFieldProps}/>
 
-  const store = useContext(BuilderStoreContext)
   const onInlineEdit = () => {
-    store.update((state:any) => {
-      state.formMode = 'edit'
-    })
+    store.forms['default'].setMode('edit')
+    console.log(store)
   };
   const inlineIconOpacity = 0.4
   const inlineIcon = readonly?
@@ -119,4 +116,4 @@ export function ProFieldWrap(props:any) {
       <Box width="16px">{inlineIcon}</Box>
     </Flex>
   )
-}
+})
