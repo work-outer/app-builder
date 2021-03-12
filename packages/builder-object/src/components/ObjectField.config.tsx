@@ -6,8 +6,8 @@ export const configObjectField: any = {
   name: 'Steedos:ObjectField',
   inputs: [
     // { name: 'fieldName', type: 'text', friendlyName: "字段名" },
-    // { name: 'required', type: 'boolean', friendlyName: "必须" },
-    // { name: 'readonly', type: 'boolean', friendlyName: "只读" }
+    { name: 'required', type: 'boolean', friendlyName: "必须" },
+    { name: 'readonly', type: 'boolean', friendlyName: "只读" }
   ],
   canHaveChildren: false
 };

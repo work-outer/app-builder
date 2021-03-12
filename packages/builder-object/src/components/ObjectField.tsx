@@ -9,14 +9,15 @@ import { ObjectContext } from "../";
 export type ObjectFieldProps = {
   objectApiName?: string,
   fieldName: string,
-  text: string
+  required: boolean,
+  readonly: boolean
 }
 
 export function ObjectField(props: ObjectFieldProps) {
   const store = useContext(BuilderStoreContext);
   const objectContext = useContext(ObjectContext);
   const { currentObjectApiName } = store.context;
-  const { fieldName } = props
+  const { fieldName, required, readonly } = props
   let objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   if(!objectApiName){
     objectApiName = objectContext.currentObjectApiName as string;
