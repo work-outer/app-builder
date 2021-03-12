@@ -59,21 +59,21 @@ export function ObjectField(props: ObjectFieldProps) {
     mode: "edit",
     label: field.label,
     placeholder: field.help,
-   // hidden: field.hidden,
+    hidden: field.hidden,
     valueType: fieldType,
     required: field.required,
     options: field.options
   }
 
-  // if(formFieldProps.mode == "edit"){
+  if(formFieldProps.mode == "edit"){
 
-  //   if(field.omit){
-  //     formFieldProps.hidden = true
-  //   }
-  // }else if (formFieldProps.mode == "read"){
+    if(field.omit){
+      formFieldProps.hidden = true
+    }
+  }else if (formFieldProps.mode == "read"){
     
-  //   formFieldProps.readonly = true
-  // }
+    formFieldProps.readonly = true
+  }
 
   switch (fieldType) {
     
