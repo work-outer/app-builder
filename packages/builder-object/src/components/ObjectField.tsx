@@ -9,15 +9,14 @@ import { ObjectContext } from "../";
 export type ObjectFieldProps = {
   objectApiName?: string,
   fieldName: string,
-  required: boolean,
-  readonly: boolean
+  text: string
 }
 
 export function ObjectField(props: ObjectFieldProps) {
   const store = useContext(BuilderStoreContext);
   const objectContext = useContext(ObjectContext);
   const { currentObjectApiName } = store.context;
-  const { fieldName, required, readonly } = props
+  const { fieldName } = props
   let objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   if(!objectApiName){
     objectApiName = objectContext.currentObjectApiName as string;
@@ -62,7 +61,8 @@ export function ObjectField(props: ObjectFieldProps) {
     hidden: field.hidden,
     valueType: fieldType,
     required: field.required,
-    options: field.options
+    options: field.options,
+    wide: field.is_wide
   }
 
   if(formFieldProps.mode == "edit"){
