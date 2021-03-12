@@ -33,5 +33,6 @@
     "mobx": "^6.1.8",
     "mobx-react-lite": "^3.2.0",
     "mobx-state-tree": "^5.0.1"
-  }
+  },
+  "repository": "https://github.com/steedos/app-builder/tree/master/packages/builder-store"
 }
