@@ -55,4 +55,4 @@ Builder.registerComponent(ProFormSelect, configProFormSelect);
 Builder.registerComponent(ProFormDigit, configProFormDigit);
 
 const ProTableWrap = withFunctions(ProTable, ['request']);
-Builder.registerComponent(withChildren(ProTableWrap), configProTable);
+Builder.registerComponent(ProTableWrap, configProTable);
