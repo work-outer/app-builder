@@ -137,7 +137,36 @@ export const FormFieldSection = () => {
   }
   
   return (
-    <Form layout='horizontal' initialValues={{name: 'Hello World'}} onFinish={(values)=>{
+    <Form initialValues={{name: 'Hello World'}} onFinish={(values)=>{
+      console.log(values)
+    }}>
+      <BuilderComponent {...bcProps}>
+      </BuilderComponent> 
+    </Form>
+  )
+}
+
+
+export const FormVertical= () => {
+
+  require('../src/builder-widgets');
+
+  builder.init(apiKey);
+
+  const fieldSectionContent = require('./form-field-section.builder.json');
+  const data =  {
+    formMode: 'read',
+  }
+  const bcProps = {
+    apiKey,
+    content: fieldSectionContent,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
+  
+  return (
+    <Form layout='vertical' initialValues={{name: 'Hello World'}} onFinish={(values)=>{
       console.log(values)
     }}>
       <BuilderComponent {...bcProps}>

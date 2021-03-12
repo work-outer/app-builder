@@ -22,9 +22,19 @@ export function Form(props:any) {
     formMode
   } = store.context
 
+  const formItemLayout =
+    layout === 'horizontal'
+      ? {
+          labelAlign: 'left',
+          labelCol: { span: 8 },
+          wrapperCol: { span: 16 },
+        }
+      : null;
+
   const formProps = {
     mode: formMode ? formMode: mode, 
     layout,
+    ...formItemLayout,
     ...rest,
   }
 

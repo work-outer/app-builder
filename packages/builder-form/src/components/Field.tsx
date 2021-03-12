@@ -12,6 +12,8 @@ import createField from '@ant-design/pro-form/es/BaseForm/createField'
 import { BuilderStoreContext } from "@builder.io/react";
 import { ProFormItemProps } from "@ant-design/pro-form/es/interface";
 
+import './Field.css'
+
 export function Field(props: any) {
   const store = useContext(BuilderStoreContext)
   const { state } = store;
@@ -41,7 +43,8 @@ export function Field(props: any) {
   const mode = readonly?'read':fieldMode?fieldMode:formMode;
 
   const formItemProps ={
-    ...attributes
+    ...attributes,
+    style: { borderBottom: (mode=='read')?'1px solid #dddbda':''},
   }
 
   const fieldProps ={
@@ -102,8 +105,8 @@ export function ProFieldWrap(props:any) {
 
   
   const containerOptions = {
-    borderBottom: (mode=='read')?'1px solid #dddbda':'',
-    pb: 1,
+    // borderBottom: (mode=='read')?'1px solid #dddbda':'',
+    // pb: 1,
   }
 
   return (
