@@ -40,46 +40,21 @@ export function Field(props: any) {
 
   const mode = readonly?'read':fieldMode?fieldMode:formMode;
 
-  // const formItemProps = {
-  //   name,
-  //   label,
-  //   tooltip,
-  //   required,
-  //   // shouldUpdate: true,
-  //   valuePropName: 'value',
-  //   ...attributes,
-  // }
-
-  // const fieldOptions = {
-  //   mode,
-  //   readonly,
-  //   valueType,
-  //   placeholder,
-  //   fieldProps: {
-  //     disabled,
-  //     allowClear,
-  //     placeholder,
-  //     type,
-  //     count,
-  //     defaultValue,
-  //     defaultChecked,
-  //     options,
-  //   },
-  //   ...rest,
-  // }
-
-  // return (
-  //   <Form.Item shouldUpdate {...formItemProps}>
-  //       <ProFieldWrap {...fieldOptions}/>
-  //   </Form.Item>
-  // )
-
   const formItemProps ={
     ...attributes
   }
 
   const fieldProps ={
     options
+  }
+
+  if (valueType == 'select') {
+    fieldProps['showSearch'] = true
+    fieldProps['showArrow'] = true
+  }
+
+  if (valueType != 'switch') {
+    fieldProps['style'] = {width: '100%'}
   }
 
   const ProFormField = createField<ProFormItemProps<InputProps>>(
@@ -100,8 +75,15 @@ export function Field(props: any) {
 export function ProFieldWrap(props:any) {
 
   const { readonly, mode, ...rest } = props
+  
+  const proFieldProps = {
+    readonly,
+    emptyText: '',
+    ...rest
+  }
+
   if (!readonly && mode === 'edit')
-    return <ProField mode='edit' {...props}/>
+    return <ProField mode='edit' {...proFieldProps}/>
 
   const store = useContext(BuilderStoreContext)
   const onInlineEdit = () => {
@@ -130,7 +112,7 @@ export function ProFieldWrap(props:any) {
       role="group"
       onDoubleClick={()=> {if (!readonly) onInlineEdit();}}
     >
-      <Box flex="1"><ProField mode='read' {...props}/></Box>
+      <Box flex="1"><ProField mode='read' {...proFieldProps}/></Box>
       <Box width="16px">{inlineIcon}</Box>
     </Flex>
   )
