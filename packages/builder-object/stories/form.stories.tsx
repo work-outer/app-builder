@@ -141,11 +141,54 @@ export const Preview = () => {
     initialValues: { name: 'Hello World!' },
     columns: 3,
   }
-  const content = require('./object-field-form.builder.json');
+  const content = {}//require('./object-field-form.builder.json');
   const bcProps = {
     apiKey,
-    content,
+    //content,
     context,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
+
+  const accountsJson = require('../../ui-components/stories/account.json')
+  return (
+    <ObjectProvider
+      currentObjectApiName="accounts"
+      requestObject={async (objectApiName) => {
+        //objectApiName:对象api名称
+        console.log("==in function==", objectApiName);
+        return accountsJson;
+      }}
+      requestRecords={async (objectApiName, filters, fields, options) => {
+        //objectApiName:对象api名称
+        //filters: 过滤条件
+        //fields: 要返回的字段
+        return []
+      }}
+    >
+      <ObjectForm>
+        <BuilderComponent {...bcProps}>
+        </BuilderComponent>
+      </ObjectForm>
+      <br /><br /><br />
+    </ObjectProvider>
+  )
+}
+
+export const ObjectFieldForm = () => {
+
+  require('../src/builder-widgets');
+
+  builder.init(apiKey);
+
+  const fieldSectionContent = require('./object-field-form.builder.json');
+  const data =  {
+    formMode: 'read',
+  }
+  const bcProps = {
+    apiKey,
+    content: fieldSectionContent,
     data,
     onStateChange: (newData: any) => {
     }
