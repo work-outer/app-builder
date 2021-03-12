@@ -1,126 +1,85 @@
 {
   "data": {
-    "blocks": [
-      {
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
-        "id": "builder-dc1dad8745cc4721b9e46c7a05cb3438",
-        "component": {
-          "name": "@steedos/builder-form:Table",
-          "options": {
-            "title": "",
-            "dateFormatter": "number",
-            "defaultData": [
-              {
-                "col1": "a1",
-                "col2": "b1",
-                "col3": "c1"
-              },
-              {
-                "col1": "a2",
-                "col2": "b2",
-                "col3": "c2"
-              },
-              {
-                "col1": "a3",
-                "col2": "b3",
-                "col3": "c3"
-              }
-            ],
-            "expandable": {
-              "defaultExpandAllRows": false,
-              "columnWidth": null
-            },
-            "columns": [
-              {
-                "title": "Title",
-                "key": "",
-                "valueType": "text",
-                "filters": [],
-                "onFilter": false,
-                "sorter": true,
-                "width": 200,
-                "align": "center",
-                "dataIndex": "col1",
-                "tip": "标题过长会自动收缩",
-                "formItemProps": {
-                  "rules": [
-                    {
-                      "message": "Please input...",
-                      "required": true
-                    }
-                  ]
-                },
-                "ellipsis": false
-              },
-              {
-                "title": "Name",
-                "key": "",
-                "valueType": "text",
-                "filters": [
-                  {
-                    "text": "C",
-                    "value": "c"
-                  },
-                  {
-                    "text": "D",
-                    "value": "d"
+      "blocks": [
+          {
+              "@type": "@builder.io/sdk:Element",
+              "@version": 2,
+              "id": "builder-cb6c2ab55d6c4232803d0b9f8400ba57",
+              "component": {
+                  "name": "Text",
+                  "options": {
+                      "text": "Enter some text..."
                   }
-                ],
-                "onFilter": false,
-                "sorter": true,
-                "width": 220,
-                "align": "left",
-                "search": true,
-                "dataIndex": "col2",
-                "copyable": true,
-                "formItemProps": {
-                  "rules": [
-                    {
-                      "message": "Please input...",
-                      "required": false
-                    }
-                  ]
-                }
               },
-              {
-                "title": "Class",
-                "key": "",
-                "valueType": "text",
-                "filters": false,
-                "onFilter": false,
-                "sorter": true,
-                "width": 200,
-                "align": "center",
-                "search": false,
-                "copyable": false,
-                "dataIndex": "col3"
+              "responsiveStyles": {
+                  "large": {
+                      "display": "flex",
+                      "flexDirection": "column",
+                      "alignItems": "stretch",
+                      "position": "relative",
+                      "marginTop": "20px",
+                      "lineHeight": "normal",
+                      "height": "auto",
+                      "textAlign": "center"
+                  }
               }
-            ],
-            "bordered": false,
-            "loading": false,
-            "size": "default",
-            "options": {
-              "density": true,
-              "setting": true,
-              "fullScreen": true
-            },
-            "search": {
-              "filterType": "query"
-            }
+          },
+          {
+              "@type": "@builder.io/sdk:Element",
+              "@version": 2,
+              "id": "builder-f0e4f99ad48743a29f35400fdb955a2f",
+              "component": {
+                  "name": "@steedos/builder-form:Table",
+                  "options": {
+                      "size": "default",
+                      "bordered": true,
+                      "headerTitle": "ABC",
+                      "columns": [
+                          {
+                              "width": 60,
+                              "align": "left",
+                              "title": "col1",
+                              "dataIndex": "col1",
+                              "key": "col1",
+                              "valueType": "text"
+                          },
+                          {
+                              "width": 60,
+                              "align": "left",
+                              "title": "col2",
+                              "dataIndex": "col2",
+                              "key": "col2",
+                              "valueType": "text"
+                          },
+                          {
+                              "width": 60,
+                              "align": "left",
+                              "title": "col3",
+                              "dataIndex": "col3",
+                              "key": "col3",
+                              "valueType": "text"
+                          }
+                      ],
+                      "defaultData": [
+                          {
+                              "col1": "a1",
+                              "col2": "b1",
+                              "col3": "c1"
+                          }
+                      ],
+                      "request": "async (params, sorter, filter) => {\n        // 表单搜索项会从 params 传入，传递给后端接口。\n        console.log(\"===Request===\");\n        console.log(params, sorter, filter);\n        return {\n          data: [{\n              key:\"1\",\n              col1:\"1\",\n              col2:\"2\",\n              col3:\"3\"\n          }],\n          success: true,\n        };\n      }"
+                  }
+              },
+              "responsiveStyles": {
+                  "large": {
+                      "display": "flex",
+                      "flexDirection": "column",
+                      "alignItems": "stretch",
+                      "position": "relative",
+                      "marginTop": "20px"
+                  }
+              }
           }
-        },
-        "responsiveStyles": {
-          "large": {
-            "display": "flex",
-            "flexDirection": "column",
-            "alignItems": "stretch",
-            "position": "relative",
-            "marginTop": "20px",
-            "marginBottom": "80px"
-          }
-        }
-      }
-    ]
+      ]
   }
 }

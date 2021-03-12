@@ -34,6 +34,7 @@ export function Field(props: any) {
     // count,
     // defaultValue,
     // defaultChecked,
+    wide,
     options,
     ...rest
   } = props  
@@ -57,7 +58,10 @@ export function Field(props: any) {
   }
 
   if (valueType != 'switch') {
-    fieldProps['style'] = {width: '100%'}
+    if(wide)
+      fieldProps['style'] = {width: '100%'}
+    else
+    fieldProps['style'] = {width: '50%'}
   }
 
   const ProFormField = createField<ProFormItemProps<InputProps>>(
