@@ -47,7 +47,7 @@ export function ObjectField(props: ObjectFieldProps) {
   const field: any = _.find(objectSchema.fields, (field, key) => {
     return fieldName === key;
   })
-  console.log("==requestObject==field===", field);
+  // console.log("==requestObject==field===", field);
   if (!field) {
     return (<div>{`对象${objectApiName}上未定义字段${fieldName}`}</div>)
   }
