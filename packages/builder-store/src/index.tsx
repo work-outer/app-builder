@@ -15,7 +15,7 @@ export const FormModel = types.model({
 }).actions(self => ({
     // note the `({`, we are returning an object literal
     setMode(newMode: string) {
-        self.mode = newMode
+      self.mode = newMode
     }
 }))
 

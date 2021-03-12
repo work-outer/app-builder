@@ -4,6 +4,7 @@ import { Form as AntForm } from 'antd';
 import BaseForm from '@ant-design/pro-form/es/BaseForm';
 import { BuilderStoreContext } from '@builder.io/react';
 import { observer } from "mobx-react-lite"
+import _ from 'lodash'
 
 import { FormModel, store } from '@steedos/builder-store';
 
@@ -14,15 +15,15 @@ import { FormModel, store } from '@steedos/builder-store';
 export const Form = observer((props:any) => {
 
   const {
-    id = 'default',
+    name: formId = 'default',
     mode = 'read', 
     layout = 'horizontal',
     children, 
     ...rest
   } = props
 
-  if (!store.forms[id])
-    store.forms[id] = FormModel.create({id, mode});
+  if (!store.forms[formId])
+    store.forms[formId] = FormModel.create({id: formId, mode});
  
   const formItemLayout =
     layout === 'horizontal'
@@ -33,7 +34,7 @@ export const Form = observer((props:any) => {
         }
       : null;
 
-  const submitter = store.forms[id].mode ==='read'? false : {
+  const submitter = store.forms[formId].mode ==='read'? false : {
     // 配置按钮文本
     searchConfig: {
       resetText: '取消',
@@ -41,7 +42,7 @@ export const Form = observer((props:any) => {
     },
     resetButtonProps: {
       onClick: () => {
-        store.forms[id].setMode('read')
+        store.forms[formId].setMode('read')
       },
     },
   }
@@ -56,7 +57,8 @@ export const Form = observer((props:any) => {
   }
 
   const formProps = {
-    mode: store.forms[id].mode, 
+    name: formId,
+    mode: store.forms[formId].mode, 
     layout,
     ...formItemLayout,
     ...rest,

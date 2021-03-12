@@ -167,7 +167,7 @@ export const FormVertical= () => {
   }
   
   return (
-    <Form layout='vertical' initialValues={{name: 'Hello World'}} onFinish={(values)=>{
+    <Form layout='vertical' name='test' initialValues={{name: 'Hello World'}} onFinish={(values)=>{
       console.log(values)
       const store = useContext(BuilderStoreContext)
       store.update((state:any) => {
