@@ -141,10 +141,10 @@ export const Preview = () => {
     initialValues: { name: 'Hello World!' },
     columns: 3,
   }
-  const content = {} //require('./contract.form.builder.json');
+  const content = require('./object-field-form.builder.json');
   const bcProps = {
     apiKey,
-    // content,
+    content,
     context,
     data,
     onStateChange: (newData: any) => {
@@ -159,31 +159,6 @@ export const Preview = () => {
         //objectApiName:对象api名称
         console.log("==in function==", objectApiName);
         return accountsJson;
-        // return {
-        //   "name": "accounts",
-        //   "fields": {
-        //     "name": {
-        //       "label": "客户名",
-        //       "type": "text",
-        //       "searchable": true,
-        //       "required": true,
-        //       "sortable": true,
-        //       "index": true,
-        //       "name": "name",
-        //       "sort_no": 10,
-        //       "help": "请输入客户名"
-        //     },
-        //     "is_supplier": {
-        //       "type": "boolean",
-        //       "label": "供应商",
-        //       "hidden": true,
-        //       "omit": true,
-        //       "sort_no": 30,
-        //       "name": "is_supplier",
-        //       "help": "是否供应商客户"
-        //     }
-        //   }
-        // }
       }}
       requestRecords={async (objectApiName, filters, fields, options) => {
         //objectApiName:对象api名称
