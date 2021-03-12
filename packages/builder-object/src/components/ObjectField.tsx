@@ -62,7 +62,7 @@ export function ObjectField(props: ObjectFieldProps) {
     valueType: fieldType,
     required: field.required,
     options: field.options,
-    wide: field.is_wide
+    readonly: field.readonly
   }
 
   if(formFieldProps.mode == "edit"){
