@@ -176,13 +176,13 @@ export const Preview = () => {
   )
 }
 
-export const ObjectFieldForm = () => {
+export const ObjectFormSimple = () => {
 
   require('../src/builder-widgets');
 
   builder.init(apiKey);
 
-  const fieldSectionContent = require('./object-field-form.builder.json');
+  const fieldSectionContent = require('./form.builder.json');
   const data =  {
     formMode: 'read',
   }
