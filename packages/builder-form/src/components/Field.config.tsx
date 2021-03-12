@@ -61,9 +61,12 @@ export const configField = {
 
   ],
   defaultStyles: {
-    display: 'block',
+    display: null,
     marginTop: '0',
     marginBottom: '0',
+    flexDirection: null,
+    alignItems: null,
+    position: null,
   },
   noWrap: true,
   canHaveChildren: false,

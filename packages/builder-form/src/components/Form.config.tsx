@@ -33,6 +33,7 @@ export const configForm = {
   defaultStyles: {
     display: 'block',
     marginTop: '0',
+    paddingBottom: '10px',
     minHeight: '100px',
   },
   canHaveChildren: true

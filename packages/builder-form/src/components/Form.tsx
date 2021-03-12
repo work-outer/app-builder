@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { Form as AntForm } from 'antd';
-import ProForm from '@ant-design/pro-form';
+import BaseForm from '@ant-design/pro-form/es/BaseForm';
 import { BuilderStoreContext } from '@builder.io/react';
 
 // 在 ProForm的基础上扩展属性
@@ -10,20 +10,28 @@ import { BuilderStoreContext } from '@builder.io/react';
 
 export function Form(props:any) {
   const store = useContext(BuilderStoreContext)
-  const {mode, children, ...rest} = props
-  const [form] = AntForm.useForm();
+  const {
+    mode = 'read', 
+    layout = 'horizontal',
+    children, 
+    ...rest
+  } = props
 
 
-  const { formOptions } = store.context
-  const proFormProps = {
-    form,
+  const { 
+    formMode
+  } = store.context
+
+  const formProps = {
+    mode: formMode ? formMode: mode, 
+    layout,
     ...rest,
-    ...formOptions,
   }
 
+  console.log(formProps)
   return (
-      <ProForm {...proFormProps}>
+      <BaseForm {...formProps}>
           {children}
-      </ProForm>
+      </BaseForm>
   )
 }

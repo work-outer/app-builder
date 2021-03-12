@@ -8,6 +8,9 @@ export const configFieldSection = {
   defaultStyles: {
     display: 'block',
     marginTop: '0',
+    marginBottom: '0',
+    paddingTop: '0',
+    paddingBottom: '10px',
     minHeight: '100px',
   },
   noWrap: true,

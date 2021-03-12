@@ -10,7 +10,13 @@ import {
 import _ from 'lodash';
 
 export function FieldSection(props: any) {
-  const { attributes, title, columns = 2, gap = '0.5rem 2rem', children } = props
+  const { 
+    attributes, // Builder.io 传过来的参数。
+    title, 
+    columns = 2, 
+    gap = '0.5rem 2rem', 
+    children 
+  } = props
   
   const boxOptions = {
     templateColumns: [`repeat(1, 1fr)`, `repeat(${columns}, 1fr)`],

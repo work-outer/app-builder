@@ -135,9 +135,9 @@ export const FormFieldSection = () => {
     onStateChange: (newData: any) => {
     }
   }
-
+  
   return (
-    <Form initialValues={{name: 'Hello World'}} onFinish={(values)=>{
+    <Form layout='horizontal' initialValues={{name: 'Hello World'}} onFinish={(values)=>{
       console.log(values)
     }}>
       <BuilderComponent {...bcProps}>

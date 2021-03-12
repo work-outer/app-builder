@@ -34,16 +34,6 @@
                                 "tooltip": "密码长度不少于8个字符",
                                 "placeholder": "请输入密码"
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -66,16 +56,6 @@
                                 "placeholder": "请输入用户名",
                                 "required": true
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -88,16 +68,6 @@
                                 "name": "startDate",
                                 "label": "开始日期",
                                 "valueType": "date"
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -114,16 +84,6 @@
                                 "readonly": false,
                                 "disabled": true
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -137,16 +97,6 @@
                                 "label": "日期区间",
                                 "valueType": "dateRange"
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -159,16 +109,6 @@
                                 "name": "dateTimeRange",
                                 "label": "日期时间区间",
                                 "valueType": "dateTimeRange"
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -185,16 +125,6 @@
                                 "disabled": false,
                                 "readonly": false
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -207,16 +137,6 @@
                                 "name": "timeRange",
                                 "label": "时间区间",
                                 "valueType": "timeRange"
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -232,16 +152,6 @@
                                 "valueType": "dateYear",
                                 "disabled": false
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -254,16 +164,6 @@
                                 "name": "dateMonth",
                                 "label": "日期—月",
                                 "valueType": "dateMonth"
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -278,16 +178,6 @@
                                 "label": "日期—季度",
                                 "valueType": "dateQuarter"
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -300,16 +190,6 @@
                                 "name": "dateWeek",
                                 "label": "日期—周",
                                 "valueType": "dateWeek"
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -325,16 +205,6 @@
                                 "valueType": "index",
                                 "disabled": false,
                                 "readonly": false
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -362,16 +232,6 @@
                                 "disabled": false,
                                 "tooltip": "",
                                 "readonly": false
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -405,16 +265,6 @@
                                 "allowClear": true,
                                 "required": true
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -445,16 +295,6 @@
                                 ],
                                 "tooltip": "多选框"
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -480,16 +320,6 @@
                                     }
                                 ]
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -507,16 +337,6 @@
                                 "defaultValue": 0,
                                 "precision": 2
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -533,16 +353,6 @@
                                 "name": "switch",
                                 "readonly": false,
                                 "defaultChecked": true
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -562,16 +372,6 @@
                                 "allowClear": true,
                                 "defaultValue": 3
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -589,16 +389,6 @@
                                 "defaultValue": 30,
                                 "precision": 0
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -615,16 +405,6 @@
                                 "name": "percent",
                                 "defaultValue": 50
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     },
                     {
@@ -640,16 +420,6 @@
                                 "type": "circle",
                                 "name": "fromnow",
                                 "readonly": false
-                            }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
                             }
                         }
                     },
@@ -669,16 +439,6 @@
                                 "readonly": false,
                                 "disabled": false
                             }
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "block",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "0",
-                                "marginBottom": "0"
-                            }
                         }
                     }
                 ],
@@ -690,8 +450,8 @@
                         "position": "relative",
                         "marginTop": "0",
                         "minHeight": "100px",
-                        "marginBottom": "80px",
-                        "paddingBottom": "40px"
+                        "marginBottom": "10px",
+                        "paddingBottom": "0"
                     }
                 }
             }
