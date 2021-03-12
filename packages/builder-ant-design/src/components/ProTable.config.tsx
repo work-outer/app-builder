@@ -9,7 +9,27 @@ export const configProTable = {
     },
     { name: 'columnEmptyText', type: 'string', helperText: '空值时的显示，不设置时显示 -' },
     { name: 'tableClassName', type: 'string', helperText: '封装的 table 的 className' },
-    { //dataSource
+    { name: 'request', type: 'code', language: 'javascript', defaultValue: `async (params, sorter, filter) => {
+  // 第一个参数 params 查询表单和 params 参数的结合
+  // 第一个参数中一定会有 pageSize 和  current ，这两个参数是 antd 的规范
+  // 这里需要返回一个 Promise,在返回之前你可以进行数据转化
+  // 如果需要转化参数可以在这里进行修改
+  /*
+  const msg = await myQuery({
+    page: params.current,
+    pageSize: params.pageSize,
+  });
+  return {
+    data: msg.result,
+    // success 请返回 true，
+    // 不然 table 会停止解析数据，即使有数据
+    success: boolean,
+    // 不传会使用 data 的长度，如果是分页一定要传
+    total: number,
+  };
+  */
+}`, helperText: '获取 dataSource 的方法12' },
+    { //default dataSource
       name: 'defaultData', type: 'list', subFields: [
         { name: 'col1', type: 'string', defaultValue: 'a1' },
         { name: 'col2', type: 'string', defaultValue: 'b1' },
@@ -91,7 +111,7 @@ export const configProTable = {
           ], helperText: '控制标题对应的输入框'
         }
       ],
-    },
+    }
   ],
   canHaveChildren: true
 }

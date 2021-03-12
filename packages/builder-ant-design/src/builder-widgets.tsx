@@ -53,4 +53,6 @@ Builder.registerComponent(ProFormUploadDragger, configProFormUploadDragger);
 Builder.registerComponent(ProFormUploadButton, configProFormUploadButton);
 Builder.registerComponent(ProFormSelect, configProFormSelect);
 Builder.registerComponent(ProFormDigit, configProFormDigit);
-Builder.registerComponent(withChildren(ProTable), configProTable);
+
+const ProTableWrap = withFunctions(ProTable, ['request']);
+Builder.registerComponent(withChildren(ProTableWrap), configProTable);
