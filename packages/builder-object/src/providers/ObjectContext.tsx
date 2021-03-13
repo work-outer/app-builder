@@ -1,11 +1,12 @@
 
 import React from "react";
+import { RequestData } from "@ant-design/pro-table";
 
 export type RecordQueryRequestParams = {
   pageSize: number,
   current: number,
-  sort: any,
-  filter: any
+  sort: any
+  // filter: any
 } 
 
 const defaultRequestObject = async ( objectApiName:string) =>{
@@ -21,7 +22,7 @@ export type ObjectContextValueType = {
   currentRecordId?: string,
   queryClient?: any,
   requestObject: ( objectApiName:string) => Promise<object | Error>
-  requestRecords: ( objectApiName:string, filters:any, fields:any, params?: RecordQueryRequestParams ) => Promise<ArrayLike<object | Error>>
+  requestRecords: <T extends Record<string, any>>( objectApiName:string, filters:any, fields:any, params?: RecordQueryRequestParams ) => Promise<Partial<RequestData<T>>>
 }
 
 export const ObjectContext = React.createContext<ObjectContextValueType>({

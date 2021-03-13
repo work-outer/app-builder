@@ -37,7 +37,7 @@ export type ObjectTableProps<T extends Record<string, any>, U extends ParamsType
 
 export const getObjectTableProColumn = (field: any) => {
   // 把yml中的某个字段field转成ant的ProTable中的columns属性项
-  if (field) {
+  if (!field) {
     return null;
   }
   const fieldType: string = field.type;
@@ -46,6 +46,9 @@ export const getObjectTableProColumn = (field: any) => {
     dataIndex: field.name
   }
   switch (fieldType) {
+    case 'text':
+      proColumnProps.valueType = 'text';
+      break;
     case 'datetime':
       proColumnProps.valueType = 'dateTime';
       break;
@@ -84,12 +87,9 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
   const store = useContext(BuilderStoreContext);
   console.log("=ObjectTable===store===", store);
   const objectContext = useContext(ObjectContext);
-  let { currentObjectApiName, currentRecordId } = store.context;
+  let { currentObjectApiName } = store.context;
   if (!currentObjectApiName) {
     currentObjectApiName = objectContext.currentObjectApiName;
-  }
-  if (!currentRecordId) {
-    currentRecordId = objectContext.currentRecordId;
   }
 
   const { columns, ...rest } = props
@@ -112,6 +112,9 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
   registerObjectTableComponent(_.keys(objectSchema.fields));
 
   const objectFields = objectSchema.fields;
+  // console.log("===table===objectFields===", objectFields);
+  // console.log("===table===columns===", columns);
+
   let proColumns: any = []
   _.forEach(columns, (columnItem: ObjectTableColumnProps) => {
     const proColumn = getObjectTableProColumn(objectFields[columnItem.fieldName]);
@@ -143,14 +146,19 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
       total: number,
     };
     */
-    return {
-      data: [],
-      success: true,
-    }
+    const columnsFields = columns.map((n) => { return n.fieldName });
+    return objectContext.requestRecords(objectApiName, filter, columnsFields, {
+      pageSize: params.pageSize as number,
+      current: params.current as number,
+      sort: sort
+    });
   }
+
+  console.log("===table===proColumns===", proColumns);
 
   return (
     <ProTable
+      rowKey="_id"
       request={request}
       columns={proColumns}
       // formFieldComponent = {ObjectField}

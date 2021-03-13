@@ -144,8 +144,7 @@ export const Preview = () => {
   require('../src/builder-widgets');
 
   const context = {
-    currentObjectApiName: "accounts",
-    currentRecordId: ""
+    currentObjectApiName: "accounts"
   };
   const data = {
     initialValues: { name: 'Hello World!' },
@@ -215,7 +214,17 @@ export const ObjectTableSimple = () => {
         //objectApiName:对象api名称
         //filters: 过滤条件
         //fields: 要返回的字段
-        return []
+        const result: any = [{
+          _id: "1",
+          name: "张三",
+          is_customer: true
+        }];
+        console.log("===request===table===", result);
+        return {
+          data: result,
+          success: true,
+          total: 1
+        }
       }}
     >
       <BuilderComponent {...bcProps}>
