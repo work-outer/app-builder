@@ -12,7 +12,7 @@ export function withFunctions(Component:any, functionNames: string[]) {
     _.forEach(functionNames, (name)=>{
       if (typeof props[name] === 'string'){
         if (Builder.isEditing) {
-          newProps[name] = null
+          newProps[name] = eval(props[name])
         } 
         else {
           try {

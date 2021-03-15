@@ -180,3 +180,29 @@ export const FormVertical= () => {
   )
 }
 
+
+
+export const TableSimple = () => {
+
+  require('../src/builder-widgets');
+
+  builder.init(apiKey);
+
+  const content = require('./table-simple.builder.json');
+  const data =  {
+    formMode: 'read',
+  }
+  const bcProps = {
+    apiKey,
+    content,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
+  
+  return (
+      <BuilderComponent {...bcProps}>
+      </BuilderComponent> 
+  )
+}
+

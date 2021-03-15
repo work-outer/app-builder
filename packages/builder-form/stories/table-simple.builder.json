@@ -1,0 +1,33 @@
+{
+  "data": {
+    "blocks": [
+      {
+        "@type": "@builder.io/sdk:Element",
+        "@version": 2,
+        "id": "builder-9028d3cbd2234546be9676345b7946ed",
+        "component": {
+          "name": "Steedos:Table",
+          "options": {
+            "columns": [
+              {
+                "title": "Name",
+                "dataIndex": "name"
+              }
+            ],
+            "request": "async (params, sorter, filter) => {\n  return {\n    data: [{name: 'Hello World'}],\n    success: true,\n    total: 1,\n  }\n}",
+            "size": "default"
+          }
+        },
+        "responsiveStyles": {
+          "large": {
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "stretch",
+            "position": "relative",
+            "marginTop": "20px"
+          }
+        }
+      }
+    ]
+  }
+}
