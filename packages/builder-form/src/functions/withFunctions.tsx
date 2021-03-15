@@ -12,7 +12,9 @@ export function withFunctions(Component:any, functionNames: string[]) {
     _.forEach(functionNames, (name)=>{
       if (typeof props[name] === 'string'){
         if (Builder.isEditing) {
-          newProps[name] = eval(props[name])
+          try {
+            newProps[name] = eval(props[name])
+          } catch(e) {console.log(e)}
         } 
         else {
           try {
