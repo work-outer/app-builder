@@ -8,14 +8,20 @@
         "component": {
           "name": "Steedos:Table",
           "options": {
-            "columns": [
-              {
-                "title": "Name",
-                "dataIndex": "name"
+            "columns": [{
+                "width": 60,
+                "align": "left",
+                "title": "姓名",
+                "dataIndex": "name",
+                "key": "name",
+                "valueType": "text"
               }
             ],
-            "request": "async (params, sorter, filter) => {\n  return {\n    data: [{name: 'Hello World'}],\n    success: true,\n    total: 1,\n  }\n}",
-            "size": "default"
+            "rowKey": "id",
+            "request": "async (params, sorter, filter) => {\n  return {\n    data: [{id: '1', name: 'Hello World'}],\n    success: true,\n    total: 1,\n  }\n}",
+            "size": "default",
+            "defaultData": [],
+            "loading": false
           }
         },
         "responsiveStyles": {

@@ -17,4 +17,6 @@ Builder.registerComponent(withChildren(FormWrap), configForm);
 Builder.registerComponent(withChildren(FieldSection), configFieldSection);
 Builder.registerComponent(Field, configField);
 Builder.registerComponent(withChildren(FieldObject), configFieldObject);
-Builder.registerComponent(Table, configTable);
+
+const tableWrap = withFunctions(Table, ['request']);
+Builder.registerComponent(tableWrap, configTable);

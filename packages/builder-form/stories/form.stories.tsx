@@ -1,5 +1,7 @@
 import * as React from "react"
 import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@ant-design/pro-form';
+const yaml = require('js-yaml');
+const fs   = require('fs');
 
 import { adapt } from "webcomponents-in-react";
 
@@ -189,6 +191,7 @@ export const TableSimple = () => {
   builder.init(apiKey);
 
   const content = require('./table-simple.builder.json');
+  // const content = yaml.load(fs.readFileSync(__dirname + '/table-simple.builder.yml', 'utf8'));
   const data =  {
     formMode: 'read',
   }

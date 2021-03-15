@@ -42,7 +42,7 @@ export const configTable = {
         dataIndex: 'name',
       }]
     },
-    // { name: 'rowKey', friendlyName: "行Key", type: 'string', required: true, defaultValue: 'key', helperText: '表格行 key 的取值，对于 dataSource 默认将每列数据的 key 属性作为唯一的标识。' },
+    { name: 'rowKey', friendlyName: "行Key", type: 'string', required: true, defaultValue: 'key', helperText: '表格行 key 的取值，对于 dataSource 默认将每列数据的 key 属性作为唯一的标识。' },
     { name: 'request', friendlyName: "数据源", type: 'code', required: true, language: 'javascript', 
       defaultValue: `async (params, sorter, filter) => {
   return {
