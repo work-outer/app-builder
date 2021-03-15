@@ -33,6 +33,24 @@
                             },
                             {
                                 "fieldName": "is_customer"
+                            },
+                            {
+                                "fieldName": "type"
+                            },
+                            {
+                                "fieldName": "description"
+                            },
+                            {
+                                "fieldName": "number_of_employees"
+                            },
+                            {
+                                "fieldName": "annual_revenue"
+                            },
+                            {
+                                "fieldName": "birthdate"
+                            },
+                            {
+                                "fieldName": "created"
                             }
                         ]
                     }

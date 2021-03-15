@@ -65,6 +65,9 @@ export const Editor = () => {
               },
               {
                 "fieldName": "is_customer"
+              },
+              {
+                "fieldName": "type"
               }
             ]
           }
@@ -207,7 +210,7 @@ export const ObjectTableSimple = () => {
       currentObjectApiName="accounts"
       requestObject={async (objectApiName) => {
         //objectApiName:对象api名称
-        console.log("==in function==", objectApiName);
+        //console.log("==in function==", objectApiName);
         return accountsJson;
       }}
       requestRecords={async (objectApiName, filters, fields, options) => {
@@ -217,9 +220,15 @@ export const ObjectTableSimple = () => {
         const result: any = [{
           _id: "1",
           name: "张三",
-          is_customer: true
+          is_customer: true,
+          type: "Analyst",
+          description: "asdbisbvaiufvks kufgksfjbbaigf",
+          number_of_employees: 3,
+          annual_revenue: 562.5,
+          birthdate: '2001-02-25',
+          created: '2021-02-25 05:34:14'
         }];
-        console.log("===request===table===", result);
+        //console.log("===request===table===", result);
         return {
           data: result,
           success: true,

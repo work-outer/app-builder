@@ -49,6 +49,15 @@ export const getObjectTableProColumn = (field: any) => {
     case 'text':
       proColumnProps.valueType = 'text';
       break;
+    case 'select':
+      proColumnProps.valueType = 'select';
+      break;
+    case 'textarea':
+      proColumnProps.valueType = 'textarea';
+      break;
+    case 'date':
+      proColumnProps.valueType = 'date';
+      break;
     case 'datetime':
       proColumnProps.valueType = 'dateTime';
       break;
@@ -85,7 +94,6 @@ export const getObjectTableProColumn = (field: any) => {
 
 export const ObjectTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(props: ObjectTableProps<T, U, ValueType>) => {
   const store = useContext(BuilderStoreContext);
-  console.log("=ObjectTable===store===", store);
   const objectContext = useContext(ObjectContext);
   let { currentObjectApiName } = store.context;
   if (!currentObjectApiName) {
@@ -94,7 +102,6 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
 
   const { columns, ...rest } = props
   const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
-  console.log("=ObjectTable===objectApiName, recordId===", objectApiName);
   const {
     isLoading,
     error,
@@ -104,7 +111,6 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
     return await objectContext.requestObject(objectApiName as string);
   });
   const objectSchema: any = data
-  console.log("=ObjectTable=requestObject==data===", data);
 
   if (!objectSchema)
     return (<div>Object Loading...</div>)
@@ -112,17 +118,14 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
   registerObjectTableComponent(_.keys(objectSchema.fields));
 
   const objectFields = objectSchema.fields;
-  // console.log("===table===objectFields===", objectFields);
-  // console.log("===table===columns===", columns);
-
   let proColumns: any = []
   _.forEach(columns, (columnItem: ObjectTableColumnProps) => {
     const proColumn = getObjectTableProColumn(objectFields[columnItem.fieldName]);
+
     if (proColumn) {
       proColumns.push(proColumn);
     }
   });
-
   const request = async (params: U & {
     pageSize?: number;
     current?: number;
@@ -153,8 +156,6 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
       sort: sort
     });
   }
-
-  console.log("===table===proColumns===", proColumns);
 
   return (
     <ProTable
