@@ -4,720 +4,466 @@
             {
                 "@type": "@builder.io/sdk:Element",
                 "@version": 2,
-                "id": "builder-1dd5e57eee8f4836bd882d7f1e6245a4",
+                "id": "builder-d7db05744f4b423ab23b7b923d692bf5",
                 "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "name"
-                    }
+                    "name": "Steedos:ObjectForm",
+                    "options": {}
                 },
+                "children": [
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-19535415548848c3af9fc9b36659f738",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "auto_num__c"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-b0dd76bc73ec41d7bf0a78b023ee9609",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "name",
+                                "readonly": false
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-dc5ef7e506664e089fb8a1159f96e50a",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "salutation"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-bb8ab8e5855b43d882b1fb899e6f610b",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "type"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-88f99c8f40804df6803b0b831771fc52",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "credit_code"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-ed8dc1399ff341a2afaffa670f502545",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "phone"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-30a335a9e59548a48a2bc99f63324368",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "mobile"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-89f72ae63b664c90a3170b1db7f9223d",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "industry"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-d068b36f7cca4da6b43cc34fd20a5545",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "is_supplier"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-5e0efad24d49449f8ff5063445850b85",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "email"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-cd2c908b31b94ce9871bee80d0c3c80a",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "fax"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-b8db75a8de2645129c500b41a9c7df2e",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "invoice_combinenum"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-34f7e6aca1c842e39efa248f31ee8704",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "number_of_employees"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-b7bd2dc198664d01b4b6919877311ec6",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "state"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-a1bf887664f842c9a7d6bb7be258b6be",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "rating"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-a98070b7a0a54c6683ba0070f2162d64",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "summary__c"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px",
+                                "paddingBottom": "10px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-9ddae250770b4c51ab9204c94317833c",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "description"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-a2cbdaae3d5f4506a8749e269b2badc3",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "invoice_address"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-78bd744e15514858afcbf3b35203d92b",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "invoice_phone"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-cc2572a477734c77b7a211794ec7cd12",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "invoice_bank"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-06648ab4ae184fca811043a37bc9aef1",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "billing_address"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-ec2ad3c07f0240808adf4b5cd4ca554e",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "shipping_address"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    }
+                ],
                 "responsiveStyles": {
                     "large": {
                         "display": "flex",
                         "flexDirection": "column",
                         "alignItems": "stretch",
                         "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-4f4eefa43f1644c7836e5c74c3aeef98",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "is_customer"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-80a05609d0a94acf975ab9a8a42fe6f3",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "type"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-d9c19795e5854a469c24704427a58848",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "credit_code"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-b6fb8e76d9804151b146a69156dd7b74",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "phone"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-cff7b23adaef4414928937c4beefdfff",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "fax"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-b00eddd4ced74963932146ae0d88a069",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "industry"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-d7e82e15eb2742fe946daad64bea3e56",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "created"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-6643122948284025905842a48eabb90d",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "owner"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-8f710dd6b7dc44169075549b69c5290e",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "website"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-6d739c23c0ff4b68a5cb69b2c87993fc",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "number_of_employees"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-5124bbd506d44f7c9544cf4f3182baad",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "state"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-68af5a9af9074e2f9721d8aa367bc04c",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "billing_address"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-c772baf9db8840ffbd811adba318d8d3",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "shipping_address"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-00bfc3ef28d24032b21db04c1f451202",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "rating"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-572d050ee9c14f3ab9e3eb1b95a99c6a",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "invoice_address"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-7f52f042bb284f1c8714837c3cec06ec",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "invoice_phone"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-c3ad72643aed44a5bf75387a390df353",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "invoice_bank"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-5571ace2c6e048b09ca75496c5f62e4d",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "invoice_combinenum"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-edf35193dbe44068933d63da682c77ea",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "department"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-3f5361de97d941bd8475b641fcc59c7e",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "email"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-fd9da744b4304fc3bb295b77cea0a155",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "description"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-b9de03d15e8f42c6bfef85da1b6515ae",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "fax_opt_out"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-b3fe3c090008414084d29842e0169a8c",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "has_opted_out_of_email"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-d3e603d7cb304124a983bff22f0996df",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "do_not_call"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-0f4d58f1971b41f49cd73a65a25633af",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "birthdate"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-159013c9765149c0b37e968949422e67",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "asst_phone"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-ce53b1e2e6b2435ab03cbe0c5081cb81",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "assistant"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-ae8a893395134ba8982b5569abb8da3a",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "partner_account"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-53d451e15e144a0493260e7e9c2e8624",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "account_division"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-00469a68db754e9c84c3403ec6dd4146",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "annual_revenue"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-37ac51abb97d419b96138f1a969d98e1",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "account_source"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-eb880ee4302c4b4aaf15a65f165d115f",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "ownership"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-323dc1c9a7c342d88171722acf7ab2c8",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "account_number"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-16326688093e4e53be2f013dd81d7579",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "site"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
-                    }
-                }
-            },
-            {
-                "@type": "@builder.io/sdk:Element",
-                "@version": 2,
-                "id": "builder-edf5b978ff024b969fc11ebddf9a759f",
-                "component": {
-                    "name": "Steedos:ObjectField",
-                    "options": {
-                        "fieldName": "is_supplier"
-                    }
-                },
-                "responsiveStyles": {
-                    "large": {
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "stretch",
-                        "position": "relative",
-                        "marginTop": "20px"
+                        "marginTop": "20px",
+                        "paddingBottom": "40px",
+                        "marginBottom": "80px",
+                        "marginLeft": "30px",
+                        "marginRight": "30px"
                     }
                 }
             }
