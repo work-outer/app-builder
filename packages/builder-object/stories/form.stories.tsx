@@ -3,8 +3,7 @@ import { adapt } from "webcomponents-in-react";
 import { BuilderComponent, builder } from '@builder.io/react';
 
 import {
-  ObjectProvider,
-  ObjectForm
+  ObjectProvider
 } from "../src/index"
 
 export default {
@@ -33,43 +32,67 @@ export const Editor = () => {
     previewUrl: 'http://localhost:6006/iframe.html?id=object-form--preview&viewMode=story',
   };
   const initialContent = {
-    data: {
-      blocks: [{
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
-        "id": "builder-0e6f5d94e39e41f0bc39bd42b55cd457",
-        "component": {
-          "name": "Text",
-          "options": {
-            "text": "<p>Steedos App Builder</p>"
+    "data": {
+      "blocks": [
+        {
+          "@type": "@builder.io/sdk:Element",
+          "@version": 2,
+          "id": "builder-0e6f5d94e39e41f0bc39bd42b55cd457",
+          "component": {
+            "name": "Text",
+            "options": {
+              "text": "<p>Steedos App Builder</p>"
+            }
+          },
+          "responsiveStyles": {
+            "large": {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "fontSize": "20px"
+            }
           }
         },
-        "responsiveStyles": {
-          "large": {
-            "marginLeft": "auto",
-            "marginRight": "auto",
-            "fontSize": "20px"
+        {
+          "@type": "@builder.io/sdk:Element",
+          "@version": 2,
+          "id": "builder-7d8f884ed829464e9b6e88e0a23c556b",
+          "component": {
+            "name": "Steedos:ObjectForm",
+            "options": {}
+          },
+          "children": [
+            {
+              "@type": "@builder.io/sdk:Element",
+              "@version": 2,
+              "id": "builder-bf7ec9fe2dde409fbd422490900c5aa4",
+              "component": {
+                "name": "Steedos:ObjectField",
+                "options": {}
+              },
+              "responsiveStyles": {
+                "large": {
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "position": "relative",
+                  "flexShrink": "0",
+                  "boxSizing": "border-box",
+                  "marginTop": "20px"
+                }
+              }
+            }
+          ],
+          "responsiveStyles": {
+            "large": {
+              "display": "flex",
+              "flexDirection": "column",
+              "position": "relative",
+              "flexShrink": "0",
+              "boxSizing": "border-box",
+              "marginTop": "20px"
+            }
           }
         }
-      }, {
-        "@type": "@builder.io/sdk:Element",
-        "@version": 2,
-        "id": "builder-7d8f884ed829464e9b6e88e0a23c556b",
-        "component": {
-          "name": "Steedos:ObjectField",
-          "options": {}
-        },
-        "responsiveStyles": {
-          "large": {
-            "display": "flex",
-            "flexDirection": "column",
-            "position": "relative",
-            "flexShrink": "0",
-            "boxSizing": "border-box",
-            "marginTop": "20px"
-          }
-        }
-      }]
+      ]
     }
   }
   return (
@@ -167,10 +190,8 @@ export const Preview = () => {
         return []
       }}
     >
-      <ObjectForm>
-        <BuilderComponent {...bcProps}>
-        </BuilderComponent>
-      </ObjectForm>
+      <BuilderComponent {...bcProps}>
+      </BuilderComponent>
       <br /><br /><br />
     </ObjectProvider>
   )
@@ -183,7 +204,7 @@ export const ObjectFormSimple = () => {
   builder.init(apiKey);
 
   const fieldSectionContent = require('./form.builder.json');
-  const data =  {
+  const data = {
     formMode: 'read',
   }
   const bcProps = {
@@ -210,10 +231,8 @@ export const ObjectFormSimple = () => {
         return []
       }}
     >
-      <ObjectForm>
-        <BuilderComponent {...bcProps}>
-        </BuilderComponent>
-      </ObjectForm>
+      <BuilderComponent {...bcProps}>
+      </BuilderComponent>
       <br /><br /><br />
     </ObjectProvider>
   )
