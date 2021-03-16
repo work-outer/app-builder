@@ -16,6 +16,48 @@ export type ObjectFieldProps = {
   readonly: boolean
 }
 
+export const getFormFieldProps = (formFieldProps:any, fieldType: string, readonly: boolean) =>{
+  switch (fieldType) {
+    
+    case 'datetime':
+      formFieldProps.valueType='dateTime';
+      formFieldProps.readonly = readonly;
+      break;
+
+    case 'boolean':
+      formFieldProps.valueType='switch';
+      formFieldProps.readonly = readonly;
+      break;
+
+    case 'number':
+      formFieldProps.valueType='digit';
+      formFieldProps.readonly = readonly;
+      break;
+
+    case 'currency':
+      formFieldProps.valueType='money';
+      formFieldProps.readonly = readonly;
+      break;
+    case 'autonumber':
+      formFieldProps.valueType='index';
+      formFieldProps.readonly = readonly;
+      break;
+    case 'url':
+      return (
+        <div>{`未实现字段类型${fieldType}的组件`}</div>
+      )
+    case 'lookup':
+      return (
+        <div>{`未实现字段类型${fieldType}的组件`}</div>
+      )
+    case 'master_detail':
+      return (
+        <div>{`未实现字段类型${fieldType}的组件`}</div>
+      )
+  }
+  return formFieldProps;
+}
+
 export const ObjectField = observer((props: any) => {
 // export function ObjectField(props: ObjectFieldProps) {
   // const store = useContext(BuilderStoreContext);
@@ -82,46 +124,13 @@ export const ObjectField = observer((props: any) => {
     formFieldProps.readonly = true
   }
 
-  switch (fieldType) {
-    
-    case 'datetime':
-      formFieldProps.valueType='dateTime';
-      break;
+ 
+  if(fieldType === 'formula' || fieldType === 'summary'){
 
-    case 'boolean':
-      formFieldProps.valueType='switch';
-      break;
+    formFieldProps = getFormFieldProps(formFieldProps, field.data_type, true);
 
-    case 'number':
-      formFieldProps.valueType='digit';
-      break;
-
-    case 'url':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
-    case 'currency':
-      formFieldProps.valueType='money';
-      break;
-    case 'autonumber':
-      formFieldProps.valueType='index';
-      break;
-    case 'lookup':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
-    case 'formula':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
-    case 'summary':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
-    case 'master_detail':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
+  }else{
+    formFieldProps = getFormFieldProps(formFieldProps, fieldType, formFieldProps.readonly);
   }
   // 默认取ProFormText组件
   return (

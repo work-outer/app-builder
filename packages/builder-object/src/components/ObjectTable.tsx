@@ -35,6 +35,79 @@ export type ObjectTableProps<T extends Record<string, any>, U extends ParamsType
   defaultClassName: string;
 }
 
+export const getProColumnProps = (proColumnProps:any, fieldType: string, readonly: boolean, field:any) => {
+  switch (fieldType) {
+    case 'text':
+      proColumnProps.valueType = 'text';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'password':
+      proColumnProps.valueType = 'password';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'email':
+      proColumnProps.valueType = 'email';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'percent':
+      proColumnProps.valueType = 'percent';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'avatar':
+      proColumnProps.valueType = 'avatar';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'select':
+      proColumnProps.valueType = 'select';
+      proColumnProps.fieldProps.options = field.options;
+      proColumnProps.readonly = readonly;
+      break;
+    case 'textarea':
+      proColumnProps.valueType = 'textarea';
+      proColumnProps.hideInSearch = true;
+      proColumnProps.copyable = true;
+      proColumnProps.ellipsis = true;
+      proColumnProps.readonly = readonly;
+      break;
+    case 'date':
+      proColumnProps.valueType = 'date';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'datetime':
+      proColumnProps.valueType = 'dateTime';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'boolean':
+      proColumnProps.valueType = 'switch';
+      proColumnProps.hideInSearch = true;
+      proColumnProps.readonly = readonly;
+      break;
+    case 'number':
+      proColumnProps.valueType = 'digit';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'currency':
+      proColumnProps.valueType = 'money';
+      proColumnProps.readonly = readonly;
+      break;
+    case 'autonumber':
+      proColumnProps.valueType = 'index';
+      proColumnProps.hideInSearch = true;
+      proColumnProps.readonly = readonly;
+      break;
+    case 'url':
+      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
+      break;
+    case 'lookup':
+      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
+      break;
+    case 'master_detail':
+      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
+      break;
+  }
+  return proColumnProps;
+}
+
 export const getObjectTableProColumn = (field: any) => {
   // 把yml中的某个字段field转成ant的ProTable中的columns属性项
   if (!field) {
@@ -56,64 +129,10 @@ export const getObjectTableProColumn = (field: any) => {
     proColumnProps.sorter = true;
   }
 
-  switch (fieldType) {
-    case 'text':
-      proColumnProps.valueType = 'text';
-      break;
-    case 'password':
-      proColumnProps.valueType = 'password';
-      break;
-    case 'percent':
-      proColumnProps.valueType = 'percent';
-      break;
-    case 'avatar':
-      proColumnProps.valueType = 'avatar';
-      break;
-    case 'select':
-      proColumnProps.valueType = 'select';
-      proColumnProps.fieldProps.options = field.options;
-      break;
-    case 'textarea':
-      proColumnProps.valueType = 'textarea';
-      proColumnProps.hideInSearch = true;
-      proColumnProps.copyable = true;
-      proColumnProps.ellipsis = true;
-      break;
-    case 'date':
-      proColumnProps.valueType = 'date';
-      break;
-    case 'datetime':
-      proColumnProps.valueType = 'dateTime';
-      break;
-    case 'boolean':
-      proColumnProps.valueType = 'switch';
-      proColumnProps.hideInSearch = true;
-      break;
-    case 'number':
-      proColumnProps.valueType = 'digit';
-      break;
-    case 'url':
-      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
-      break;
-    case 'currency':
-      proColumnProps.valueType = 'money';
-      break;
-    case 'autonumber':
-      proColumnProps.valueType = 'index';
-      proColumnProps.hideInSearch = true;
-      break;
-    case 'lookup':
-      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
-      break;
-    case 'formula':
-      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
-      break;
-    case 'summary':
-      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
-      break;
-    case 'master_detail':
-      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
-      break;
+  if(fieldType === 'formula' || fieldType === 'summary'){
+    proColumnProps = getProColumnProps(proColumnProps, field.data_type, true, field);
+  }else{
+    proColumnProps = getProColumnProps(proColumnProps, fieldType, field.readonly || false, field);
   }
   return proColumnProps;
 }
@@ -152,6 +171,7 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
       proColumns.push(proColumn);
     }
   });
+  console.log('--other- proColumns-', proColumns);
   const request = async (params: U & {
     pageSize?: number;
     current?: number;
