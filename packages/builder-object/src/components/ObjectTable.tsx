@@ -129,8 +129,10 @@ export const getObjectTableProColumn = (field: any) => {
     proColumnProps.sorter = true;
   }
 
-  if(fieldType === 'formula' || fieldType === 'summary'){
+  if(fieldType === 'formula'){
     proColumnProps = getProColumnProps(proColumnProps, field.data_type, true, field);
+  }else if(fieldType === 'summary'){
+    proColumnProps = getProColumnProps(proColumnProps, field.summary_type, true, field);
   }else{
     proColumnProps = getProColumnProps(proColumnProps, fieldType, field.readonly || false, field);
   }

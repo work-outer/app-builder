@@ -125,9 +125,13 @@ export const ObjectField = observer((props: any) => {
   }
 
  
-  if(fieldType === 'formula' || fieldType === 'summary'){
+  if(fieldType === 'formula'){
 
     formFieldProps = getFormFieldProps(formFieldProps, field.data_type, true);
+
+  }else if (fieldType === 'summary'){
+
+    formFieldProps = getFormFieldProps(formFieldProps, field.summary_type, true);
 
   }else{
     formFieldProps = getFormFieldProps(formFieldProps, fieldType, formFieldProps.readonly);
