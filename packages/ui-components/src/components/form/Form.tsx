@@ -9,7 +9,6 @@ import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layou
 import { Button, Form as AntForm, Affix } from 'antd';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
 import { useIntl } from './FormProvider'
-import Field from '../field/Field';
 import { FormField, FormFieldProps } from './FormField';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
 

@@ -27,7 +27,6 @@
         "@steedos/builder-steedos": ["/packages/builder-steedos/src/index.tsx"],
         "@steedos/builder-object": ["/packages/builder-object/src/index.tsx"],
         "@steedos/ui-locale": ["/packages/ui-locale/src/index.ts"],
-        "@steedos/client": ["/packages/client/src/index.ts"]
       }
     },
     "include": ["packages", "scripts", "tooling"],

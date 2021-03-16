@@ -30,11 +30,11 @@
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {
+    "@steedos/builder-store": "1.0.0",
     "@ant-design/pro-form": "^1.16.3",
     "@emotion/core": ">=10",
     "@emotion/styled": "^11.1.5",
     "@jsx-lite/core": "^0.0.17",
-    "@steedos/builder-store": "1.0.0",
     "classnames": "^2.2.6",
     "fs-extra-promise": "^1.0.1",
     "js-yaml": "^4.0.0",

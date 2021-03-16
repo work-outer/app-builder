@@ -11,7 +11,10 @@ module.exports = {
   //   "@storybook/addon-toolbars",
   // ],
   typescript: {
-    reactDocgen: false,
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      tsconfigPath: path.resolve(__dirname, "../tsconfig.json"),
+    }
   },
   webpackFinal: async (config) => {
 

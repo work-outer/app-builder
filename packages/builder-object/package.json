@@ -45,6 +45,7 @@
     "webcomponents-in-react": "^1.0.1"
   },
   "devDependencies": {
+    "@steedos/builder-store": "1.0.0",
     "@builder.io/block-publish": "^1.1.2",
     "@builder.io/react": "^1.1.36",
     "@types/jest": "^26.0.19",
