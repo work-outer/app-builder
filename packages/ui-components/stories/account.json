@@ -11,6 +11,34 @@
             "name": "name",
             "sort_no": 10
         },
+        "auto_num__c": {
+            "_id": "6f9RHymNcDbZaDXcn",
+            "object": "accounts",
+            "label": "序号",
+            "_name": "auto_num",
+            "type": "autonumber",
+            "formula": "{YYYY}-{0000}",
+            "sort_no": 150,
+            "is_name": false,
+            "required": false,
+            "is_wide": false,
+            "readonly": false,
+            "hidden": false,
+            "omit": false,
+            "index": false,
+            "sortable": false,
+            "searchable": false,
+            "filterable": false,
+            "space": "wspdRw3z3gqkWBWWF",
+            "precision": 18,
+            "scale": 2,
+            "formula_blank_value": "zeroes",
+            "company_id": "3TyAbA3xYadmNgDtd",
+            "company_ids": [
+                "3TyAbA3xYadmNgDtd"
+            ],
+            "name": "auto_num__c"
+        },
         "owner": {
             "label": "所有者",
             "sortable": true,
@@ -26,8 +54,8 @@
         "is_supplier": {
             "type": "boolean",
             "label": "供应商",
-            "hidden": true,
-            "omit": true,
+            "hidden": false,
+            "omit": false,
             "sort_no": 30,
             "name": "is_supplier"
         },

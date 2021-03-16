@@ -219,6 +219,7 @@ export const ObjectTableSimple = () => {
         //fields: 要返回的字段
         const result: any = [{
           _id: "1",
+          auto_num__c: 1,
           name: "张三",
           is_customer: true,
           type: "Analyst",
@@ -227,7 +228,32 @@ export const ObjectTableSimple = () => {
           annual_revenue: 562.5,
           birthdate: '2001-02-25',
           created: '2021-02-25 05:34:14'
-        }];
+        },
+        {
+          _id: "2",
+          auto_num__c: 2,
+          name: "李四",
+          is_customer: false,
+          type: "Programmer",
+          description: "电视机柜kfisdbjkcbkush",
+          number_of_employees: 8,
+          annual_revenue: 5515462.5,
+          birthdate: '1991-02-25',
+          created: '2020-02-25 05:34:14'
+        },
+        {
+          _id: "3",
+          auto_num__c: 3,
+          name: "王五",
+          is_customer: true,
+          type: "Interviewer",
+          description: "asdbisbv技术部kvkashaiufvks kufgksfjbbaigf",
+          number_of_employees: 15,
+          annual_revenue: 5862.5,
+          birthdate: '2001-02-25',
+          created: '2021-02-25 05:34:14'
+        }
+      ];
         //console.log("===request===table===", result);
         return {
           data: result,
