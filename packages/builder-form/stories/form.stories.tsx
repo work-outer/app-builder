@@ -32,7 +32,7 @@ export const Editor = () => {
   const builderOptions = {
     // useDefaultStyles: true,
     // hideAnimateTab: true,
-    previewUrl: 'http://localhost:6006/iframe.html?id=pro-form--preview&viewMode=story',
+    previewUrl: 'http://localhost:6006/iframe.html?id=builder-form--preview&viewMode=story',
   };
 
   const initialContent = {
@@ -76,7 +76,7 @@ export const Fiddle = () => {
   const builderOptions = {
     // useDefaultStyles: true,
     // hideAnimateTab: true,
-    previewUrl: 'http://localhost:6006/iframe.html?id=pro-form--preview&viewMode=story',
+    previewUrl: 'http://localhost:6006/iframe.html?id=builder-form--preview&viewMode=story',
   };
   const builderData = {}
   return (
