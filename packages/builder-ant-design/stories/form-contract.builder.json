@@ -1,6 +1,5 @@
 {
   "data": {
-    "inputs": [],
     "blocks": [
       {
         "@type": "@builder.io/sdk:Element",
@@ -536,7 +535,8 @@
                 "flexDirection": "column",
                 "alignItems": "stretch",
                 "position": "relative",
-                "marginTop": "20px"
+                "marginTop": "20px",
+                "marginBottom": "20px"
               }
             }
           },
@@ -633,7 +633,8 @@
                 "flexDirection": "column",
                 "alignItems": "stretch",
                 "position": "relative",
-                "marginTop": "20px"
+                "marginTop": "20px",
+                "marginBottom": "20px"
               }
             }
           },
@@ -657,7 +658,8 @@
                 "flexDirection": "column",
                 "alignItems": "stretch",
                 "position": "relative",
-                "marginTop": "0"
+                "marginTop": "0",
+                "marginBottom": "20px"
               }
             }
           },
@@ -686,7 +688,8 @@
                 "flexDirection": "column",
                 "alignItems": "stretch",
                 "position": "relative",
-                "marginTop": "0"
+                "marginTop": "0",
+                "marginBottom": "20px"
               }
             }
           },
@@ -733,7 +736,8 @@
                 "flexDirection": "column",
                 "alignItems": "stretch",
                 "position": "relative",
-                "marginTop": "0"
+                "marginTop": "0",
+                "marginBottom": "20px"
               }
             }
           },
@@ -761,7 +765,8 @@
                 "flexDirection": "column",
                 "alignItems": "stretch",
                 "position": "relative",
-                "marginTop": "0"
+                "marginTop": "0",
+                "marginBottom": "20px"
               }
             }
           }
@@ -776,8 +781,8 @@
             "backgroundColor": "rgba(252, 252, 252, 1)",
             "marginLeft": "0px",
             "marginRight": "0px",
-            "paddingLeft": "10px",
-            "paddingRight": "10px",
+            "paddingLeft": "30px",
+            "paddingRight": "30px",
             "marginBottom": "80px",
             "paddingBottom": "30px"
           }
