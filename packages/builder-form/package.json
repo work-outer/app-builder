@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@builder.io/block-publish": "^1.1.2",
-    "@builder.io/react": "^1.1.36",
+    "@builder.io/react": "^1.1.41",
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.19",
     "@types/lodash-es": "^4.17.1",

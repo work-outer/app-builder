@@ -71,27 +71,7 @@
           "name": "div",
           "meta": {},
           "properties": {
-            "_text": "\n      Hello "
-          },
-          "bindings": {},
-          "children": []
-        },
-        {
-          "@type": "@jsx-lite/node",
-          "name": "div",
-          "meta": {},
-          "properties": {},
-          "bindings": {
-            "_text": "state.name"
-          },
-          "children": []
-        },
-        {
-          "@type": "@jsx-lite/node",
-          "name": "div",
-          "meta": {},
-          "properties": {
-            "_text": "! I can run in React, Vue, Solid, or Liquid!\n    "
+            "_text": "\n      Hello! I can run in React, Vue, Solid, or Liquid!\n    "
           },
           "bindings": {},
           "children": []
@@ -100,5 +80,5 @@
     }
   ],
   "hooks": {},
-  "name": "MyJsxComponent"
+  "name": "MyComponent"
 }

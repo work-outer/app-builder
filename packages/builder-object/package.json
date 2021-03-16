@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@builder.io/block-publish": "^1.1.2",
-    "@builder.io/react": "^1.1.36",
+    "@builder.io/react": "^1.1.41",
     "@steedos/builder-store": "1.0.0",
     "@types/jest": "^26.0.19",
     "@types/lodash-es": "^4.17.1",
