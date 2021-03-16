@@ -7,6 +7,7 @@ export default {
   title: "JSX Lite",
 }
 
+declare var window;
 
 export const WebComponentRender = () => {
 
