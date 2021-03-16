@@ -40,20 +40,29 @@ export const getObjectTableProColumn = (field: any) => {
   if (!field) {
     return null;
   }
+
   const fieldType: string = field.type;
   let proColumnProps: any = {
     title: field.label,
-    dataIndex: field.name
+    dataIndex: field.name,
+    formItemProps: {},
+    fieldProps: {}
   }
+  if(field.required){
+    proColumnProps.formItemProps.required = true;
+  }
+
   switch (fieldType) {
     case 'text':
       proColumnProps.valueType = 'text';
       break;
     case 'select':
       proColumnProps.valueType = 'select';
+      proColumnProps.fieldProps.options = field.options;
       break;
     case 'textarea':
       proColumnProps.valueType = 'textarea';
+      proColumnProps.search = false;
       break;
     case 'date':
       proColumnProps.valueType = 'date';
@@ -63,6 +72,7 @@ export const getObjectTableProColumn = (field: any) => {
       break;
     case 'boolean':
       proColumnProps.valueType = 'switch';
+      proColumnProps.search = false;
       break;
     case 'number':
       proColumnProps.valueType = 'digit';
@@ -75,6 +85,7 @@ export const getObjectTableProColumn = (field: any) => {
       break;
     case 'autonumber':
       proColumnProps.valueType = 'index';
+      proColumnProps.search = false;
       break;
     case 'lookup':
       proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
