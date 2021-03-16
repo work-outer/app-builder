@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Grid, GridItem, Flex, Box } from '@chakra-ui/layout'
+import { observer } from "mobx-react-lite"
 import {
   Accordion,
   AccordionItem,
@@ -9,7 +10,7 @@ import {
 } from "@chakra-ui/accordion";
 import _ from 'lodash';
 
-export function FieldSection(props: any) {
+export const FieldSection = observer((props: any) => {
   const { 
     attributes, // Builder.io 传过来的参数。
     title, 
@@ -51,4 +52,4 @@ export function FieldSection(props: any) {
       </AccordionItem>
     </Accordion>
   )
-}
+})
