@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
-import { Field } from '../components/Field'
+import React from 'react'
+import { Input } from 'antd';
 
 export const href = {
-  render: (props:any)=> {
-    const { value } = props
-    return (<a href='value'>value</a>)
+  render: (text: any, { fieldProps }: any)=> {
+    return (<a href='text'>text</a>)
   },
-  renderFormItem: (props:any)=> {
-    return (<Field {...props}/>)
-  }
+  renderFormItem: (_: any, props: any) => (
+    <Input placeholder="请输入链接" {...props?.fieldProps} />
+  ),
 }
 

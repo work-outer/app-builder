@@ -43,9 +43,8 @@ export const getFormFieldProps = (formFieldProps:any, fieldType: string, readonl
       formFieldProps.readonly = readonly;
       break;
     case 'url':
-      return (
-        <div>{`未实现字段类型${fieldType}的组件`}</div>
-      )
+      formFieldProps.valueType='href';
+      break;
     case 'lookup':
       return (
         <div>{`未实现字段类型${fieldType}的组件`}</div>

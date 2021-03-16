@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { FormContext } from './FormContext';
+import valueTypes from '../valueTypes';
 
 import ProContext, {createIntl, 
   zhCNIntl as pro_zhCN, 
@@ -34,7 +35,7 @@ export function FormProvider(props: FormProviderProps) {
     intl: {
       ...getProLocale(locale),
     },
-    valueTypeMap: {},
+    valueTypeMap: { ...valueTypes, ...valueTypeMap }
   }
 
   const antdContextValues = {

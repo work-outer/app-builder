@@ -6,6 +6,10 @@ import {
   ObjectProvider
 } from "../src/index"
 
+import {
+  FormProvider
+} from "@steedos/builder-form/src"
+
 export default {
   title: "Object Form",
 }
@@ -190,8 +194,10 @@ export const Preview = () => {
         return []
       }}
     >
-      <BuilderComponent {...bcProps}>
-      </BuilderComponent>
+      <FormProvider locale="zh_CN">
+        <BuilderComponent {...bcProps}>
+        </BuilderComponent>
+      </FormProvider>
       <br /><br /><br />
     </ObjectProvider>
   )
