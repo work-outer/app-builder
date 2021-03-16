@@ -5,6 +5,9 @@ import { Field } from '@steedos/builder-form/src/index'
 import _ from 'lodash';
 import { useQuery } from "react-query";
 import { ObjectContext } from "../";
+import { observer } from "mobx-react-lite"
+
+import { FormModel, store } from '@steedos/builder-store';
 
 export type ObjectFieldProps = {
   objectApiName?: string,
@@ -13,16 +16,19 @@ export type ObjectFieldProps = {
   readonly: boolean
 }
 
-export function ObjectField(props: ObjectFieldProps) {
-  const store = useContext(BuilderStoreContext);
+export const ObjectField = observer((props: any) => {
+// export function ObjectField(props: ObjectFieldProps) {
+  // const store = useContext(BuilderStoreContext);
+  console.log("=ObjectField==e==");
   const objectContext = useContext(ObjectContext);
-  const { currentObjectApiName } = store.context;
+  // const { currentObjectApiName } = store.context;
+  let { currentObjectApiName } = store;
   const { fieldName, required, readonly } = props
   let objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   if(!objectApiName){
     objectApiName = objectContext.currentObjectApiName as string;
   }
-  //console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
+  console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
   // 请注意所有的react use函数必须放在最前面，不可以放在if等判断逻辑后面
   const {
     isLoading,
@@ -143,4 +149,4 @@ export function ObjectField(props: ObjectFieldProps) {
   //     />
   //   )
   // }
-}
+});

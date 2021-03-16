@@ -13,10 +13,10 @@ export const FormModel = types.model({
   // fields: types.array(FormFieldModel),
   mode: types.string, // 'read' | 'edit'
 }).actions(self => ({
-    // note the `({`, we are returning an object literal
-    setMode(newMode: string) {
-      self.mode = newMode
-    }
+  // note the `({`, we are returning an object literal
+  setMode(newMode: string) {
+    self.mode = newMode
+  }
 }))
 
 export const ObjectModel = types.model({
@@ -27,11 +27,15 @@ export const ObjectModel = types.model({
 
 // Define a store just like a model
 export const RootStore = types.model({
-    forms: types.map(FormModel),
-    objects: types.map(ObjectModel)
+  currentObjectApiName: types.union(types.string, types.null), 
+  currentRecordId: types.union(types.string, types.null), 
+  forms: types.map(FormModel),
+  objects: types.map(ObjectModel)
 })
 
 export const store = RootStore.create({
+  currentObjectApiName: null, 
+  currentRecordId: null,
   forms: {},
   objects: {},
 })
