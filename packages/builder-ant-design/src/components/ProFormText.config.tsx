@@ -28,9 +28,9 @@ export const configProFormText = {
   noWrap: false,
   canHaveChildren: false,
   requiresParent: {
-    message: 'This block must be inside a "Form" or "Form Section" block',
+    message: 'This block must be inside a "Form" or "FormSection" or "FormList" or "Table" block',
     query: {
-      'component.name': { $in: ['@steedos/builder-form:Form', '@steedos/builder-form:FormSection'] }
+      'component.name': { $in: ['@steedos/builder-form:Form', '@steedos/builder-form:FormSection', '@steedos/builder-form:FormList', '@steedos/builder-form:Table'] }
     }
   }
 };

@@ -17,5 +17,11 @@ export const configProFormSwitch = {
     display: 'block',
     marginTop: '0',
   },
-  canHaveChildren: false
+  canHaveChildren: false,
+  requiresParent: {
+    message: 'This block must be inside a "Form" or "FormSection" or "FormList" or "Table" block',
+    query: {
+      'component.name': { $in: ['@steedos/builder-form:Form', '@steedos/builder-form:FormSection', '@steedos/builder-form:FormList', '@steedos/builder-form:Table'] }
+    }
+  }
 };

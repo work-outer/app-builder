@@ -71,7 +71,7 @@ export const configField = {
   noWrap: true,
   canHaveChildren: false,
   requiresParent: {
-    message: 'This block must be inside a "Field Section" block',
+    message: 'This block must be inside a "Form" or "FieldSection" or "FieldObject" block',
     query: {
       'component.name': { $in: ['Steedos:Form','Steedos:FieldSection', 'Steedos:FieldObject'] }
     }
