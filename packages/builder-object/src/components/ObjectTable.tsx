@@ -52,9 +52,22 @@ export const getObjectTableProColumn = (field: any) => {
     proColumnProps.formItemProps.required = true;
   }
 
+  if(field.sortable){
+    proColumnProps.sorter = true;
+  }
+
   switch (fieldType) {
     case 'text':
       proColumnProps.valueType = 'text';
+      break;
+    case 'password':
+      proColumnProps.valueType = 'password';
+      break;
+    case 'percent':
+      proColumnProps.valueType = 'percent';
+      break;
+    case 'avatar':
+      proColumnProps.valueType = 'avatar';
       break;
     case 'select':
       proColumnProps.valueType = 'select';
@@ -62,7 +75,9 @@ export const getObjectTableProColumn = (field: any) => {
       break;
     case 'textarea':
       proColumnProps.valueType = 'textarea';
-      proColumnProps.search = false;
+      proColumnProps.hideInSearch = true;
+      proColumnProps.copyable = true;
+      proColumnProps.ellipsis = true;
       break;
     case 'date':
       proColumnProps.valueType = 'date';
@@ -72,7 +87,7 @@ export const getObjectTableProColumn = (field: any) => {
       break;
     case 'boolean':
       proColumnProps.valueType = 'switch';
-      proColumnProps.search = false;
+      proColumnProps.hideInSearch = true;
       break;
     case 'number':
       proColumnProps.valueType = 'digit';
@@ -85,7 +100,7 @@ export const getObjectTableProColumn = (field: any) => {
       break;
     case 'autonumber':
       proColumnProps.valueType = 'index';
-      proColumnProps.search = false;
+      proColumnProps.hideInSearch = true;
       break;
     case 'lookup':
       proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
