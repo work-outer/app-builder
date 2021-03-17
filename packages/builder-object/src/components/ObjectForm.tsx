@@ -1,7 +1,7 @@
 
 import React, { useContext } from "react";
 import _ from 'lodash';
-import { BuilderStoreContext } from '@builder.io/react';
+// import { BuilderStoreContext } from '@builder.io/react';
 import { ObjectContext } from "../";
 import { useQuery } from "react-query";
 
@@ -35,7 +35,7 @@ export const ObjectForm = observer((props:ObjectFormProps) => {
   } = props;
   if (!store.forms[formId])
     store.forms[formId] = FormModel.create({id: formId, mode});
-  console.log("=ObjectForm===store===", store);
+  // console.log("=ObjectForm===store===", store);
   const objectContext = useContext(ObjectContext);
   let { currentObjectApiName, currentRecordId } = store;
   if(!currentObjectApiName){
@@ -47,7 +47,7 @@ export const ObjectForm = observer((props:ObjectFormProps) => {
 
   const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   const recordId = props.recordId ? props.recordId : currentRecordId;
-  console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
+  // console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
   const { 
     isLoading, 
     error, 

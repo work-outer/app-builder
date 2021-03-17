@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BuilderStoreContext } from '@builder.io/react';
+// import { BuilderStoreContext } from '@builder.io/react';
 
 import { Field } from '@steedos/builder-form/src/index'
 import _ from 'lodash';
@@ -60,7 +60,7 @@ export const getFormFieldProps = (formFieldProps:any, fieldType: string, readonl
 export const ObjectField = observer((props: any) => {
 // export function ObjectField(props: ObjectFieldProps) {
   // const store = useContext(BuilderStoreContext);
-  console.log("=ObjectField==e==");
+  // console.log("=ObjectField==e==");
   const objectContext = useContext(ObjectContext);
   // const { currentObjectApiName } = store.context;
   let { currentObjectApiName } = store;
@@ -69,7 +69,7 @@ export const ObjectField = observer((props: any) => {
   if(!objectApiName){
     objectApiName = objectContext.currentObjectApiName as string;
   }
-  console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
+  // console.log("=ObjectField===objectApiName, fieldName===", objectApiName, fieldName);
   // 请注意所有的react use函数必须放在最前面，不可以放在if等判断逻辑后面
   const {
     isLoading,

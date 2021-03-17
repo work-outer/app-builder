@@ -11,13 +11,13 @@ export type RecordDetailPageProps = {
 
 export function RecordDetailPage(props:RecordDetailPageProps) {
   const store = useContext(BuilderStoreContext);
-  console.log("=RecordDetailPage===store===", store);
+  // console.log("=RecordDetailPage===store===", store);
   const { children, ...rest } = props;
   let { currentObjectApiName, currentRecordId } = store.context;
 
   const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   const recordId = props.recordId ? props.recordId : currentRecordId;
-  console.log("=RecordDetailPage===objectApiName, recordId===", objectApiName, recordId);
+  // console.log("=RecordDetailPage===objectApiName, recordId===", objectApiName, recordId);
 
   return (
       <div>

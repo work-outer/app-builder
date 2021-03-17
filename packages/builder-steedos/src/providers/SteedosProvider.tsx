@@ -49,7 +49,7 @@ export function SteedosProvider(props:any) {
   }
 
   const requestObject = async(objectApiName:string) => {
-    console.log("===requestObject===objectApiName==", objectApiName);
+    // console.log("===requestObject===objectApiName==", objectApiName);
     //TODO 通过接口获取对象信息 /api/bootstrap/:spaceId/:objectName
     if(!objectApiName){
       return;
