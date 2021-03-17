@@ -9,6 +9,9 @@ import { Builder, BuilderComponent, builder, withChildren, BuilderStoreContext }
 
 import { Form } from '../src/components/Form'
 import { useContext } from "react";
+import {
+  FormProvider
+} from "../src/"
 
 export default {
   title: "Builder Form",
@@ -167,18 +170,25 @@ export const FormVertical= () => {
     onStateChange: (newData: any) => {
     }
   }
+
+  const initialValues = {
+    href: "http://www.baidu.com"
+  };
   
   return (
-    <Form layout='vertical' name='test' initialValues={{name: 'Hello World'}} onFinish={(values)=>{
-      console.log(values)
-      const store = useContext(BuilderStoreContext)
-      store.update((state:any) => {
-        state.formMode = 'read'
-      })
-    }}>
-      <BuilderComponent {...bcProps}>
-      </BuilderComponent> 
-    </Form>
+    <FormProvider locale="zh_CN">
+      <Form layout='vertical' name='test' initialValues={initialValues} onFinish={(values)=>{
+        console.log(values)
+        const store = useContext(BuilderStoreContext)
+        store.update((state:any) => {
+          state.formMode = 'read'
+        })
+      }}>
+        <BuilderComponent {...bcProps}>
+        </BuilderComponent> 
+      </Form>
+    </FormProvider>
+    
   )
 }
 
