@@ -116,8 +116,10 @@ export const Preview = () => {
     }
   }
   return (
+    <FormProvider locale="zh_CN">
       <BuilderComponent {...bcProps}>
       </BuilderComponent> 
+    </FormProvider>
   )
 }
 
