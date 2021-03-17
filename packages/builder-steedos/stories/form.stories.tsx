@@ -204,3 +204,35 @@ export const Preview = () => {
   )
 }
 
+export const SteedosObjectForm = () => {
+
+  builder.init(apiKey);
+
+  require('../src/builder-widgets');
+  require('@steedos/builder-object/src/builder-widgets');
+
+  store.setCurrentObjectApiName("accounts");
+  const data = {
+    initialValues: { name: 'Hello World!' },
+    columns: 3,
+  }
+  const content = require('./steedos.object.form.builder.json');
+  const bcProps = {
+    apiKey,
+    content,
+    // context,
+    data,
+    onStateChange: (newData: any) => {
+    }
+  }
+
+  return (
+    <SteedosProvider >
+      <BuilderComponent {...bcProps}>
+      </BuilderComponent>
+      <br /><br /><br />
+    </SteedosProvider>
+  )
+}
+
+

@@ -10,12 +10,12 @@ export const configObjectField: any = {
     { name: 'readonly', type: 'boolean', friendlyName: "只读" }
   ],
   canHaveChildren: false,
-  requiresParent: {
-    message: 'This block must be inside a "ObjectForm" block',
-    query: {
-      'component.name': { $in: ['Steedos:ObjectForm'] }
-    }
-  }
+  // requiresParent: {
+  //   message: 'This block must be inside a "ObjectForm" block',
+  //   query: {
+  //     'component.name': { $in: ['Steedos:ObjectForm'] }
+  //   }
+  // }
 };
 
 export const registerObjectFieldComponent = (fieldNames: string[]) => {

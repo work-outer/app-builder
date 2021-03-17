@@ -11,34 +11,6 @@
             "name": "name",
             "sort_no": 10
         },
-        "auto_num__c": {
-            "_id": "6f9RHymNcDbZaDXcn",
-            "object": "accounts",
-            "label": "序号",
-            "_name": "auto_num",
-            "type": "autonumber",
-            "formula": "{YYYY}-{0000}",
-            "sort_no": 150,
-            "is_name": false,
-            "required": false,
-            "is_wide": false,
-            "readonly": false,
-            "hidden": false,
-            "omit": false,
-            "index": false,
-            "sortable": false,
-            "searchable": false,
-            "filterable": false,
-            "space": "wspdRw3z3gqkWBWWF",
-            "precision": 18,
-            "scale": 2,
-            "formula_blank_value": "zeroes",
-            "company_id": "3TyAbA3xYadmNgDtd",
-            "company_ids": [
-                "3TyAbA3xYadmNgDtd"
-            ],
-            "name": "auto_num__c"
-        },
         "owner": {
             "label": "所有者",
             "sortable": true,
@@ -54,8 +26,8 @@
         "is_supplier": {
             "type": "boolean",
             "label": "供应商",
-            "hidden": false,
-            "omit": false,
+            "hidden": true,
+            "omit": true,
             "sort_no": 30,
             "name": "is_supplier"
         },
@@ -781,6 +753,41 @@
             "sort_no": 470,
             "name": "other_phone"
         },
+        "summary__c": {
+            "_id": "PmZPNLND5srL423nh",
+            "object": "accounts",
+            "label": "累计汇总",
+            "_name": "summary",
+            "type": "summary",
+            "precision": 18,
+            "scale": 2,
+            "summary_object": "contacts",
+            "summary_type": "count",
+            "sort_no": 480,
+            "is_name": false,
+            "required": false,
+            "is_wide": false,
+            "readonly": false,
+            "hidden": false,
+            "omit": false,
+            "index": false,
+            "sortable": false,
+            "searchable": false,
+            "filterable": false,
+            "space": "wspdRw3z3gqkWBWWF",
+            "formula_blank_value": "zeroes",
+            "owner": "5ff3fc3d521ab003d0293acf",
+            "created": "2021-03-02T09:14:07.193Z",
+            "modified": "2021-03-02T09:14:07.193Z",
+            "created_by": "5ff3fc3d521ab003d0293acf",
+            "modified_by": "5ff3fc3d521ab003d0293acf",
+            "company_id": "3TyAbA3xYadmNgDtd",
+            "company_ids": [
+                "3TyAbA3xYadmNgDtd"
+            ],
+            "name": "summary__c",
+            "data_type": "number"
+        },
         "space": {
             "type": "text",
             "label": "所属工作区",
@@ -1004,16 +1011,12 @@
             "hidden": true,
             "name": "_table._code"
         },
-        "summary__c": {
+        "startdate__c": {
             "object": "accounts",
-            "label": "累计汇总",
-            "_name": "summary",
-            "type": "summary",
-            "precision": 18,
-            "scale": 2,
-            "summary_object": "contacts",
-            "summary_type": "count",
-            "sort_no": 480,
+            "label": "开始日期",
+            "_name": "startdate",
+            "type": "date",
+            "sort_no": 490,
             "is_name": false,
             "required": false,
             "is_wide": false,
@@ -1025,19 +1028,52 @@
             "searchable": false,
             "filterable": false,
             "space": "wspdRw3z3gqkWBWWF",
+            "precision": 18,
+            "scale": 2,
             "formula_blank_value": "zeroes",
             "owner": "5ff3fc3d521ab003d0293acf",
-            "_id": "PmZPNLND5srL423nh",
-            "created": "2021-03-02T09:14:07.193Z",
-            "modified": "2021-03-02T09:14:07.193Z",
+            "_id": "GBkXQotzET2J6jgc7",
+            "created": "2021-03-17T03:50:23.704Z",
+            "modified": "2021-03-17T03:50:23.704Z",
             "created_by": "5ff3fc3d521ab003d0293acf",
             "modified_by": "5ff3fc3d521ab003d0293acf",
             "company_id": "3TyAbA3xYadmNgDtd",
             "company_ids": [
                 "3TyAbA3xYadmNgDtd"
             ],
-            "name": "summary__c",
-            "data_type": "number"
+            "name": "startdate__c"
+        },
+        "datetime__c": {
+            "object": "accounts",
+            "label": "开始具体日期",
+            "_name": "datetime",
+            "type": "datetime",
+            "sort_no": 500,
+            "is_name": false,
+            "required": false,
+            "is_wide": false,
+            "readonly": false,
+            "hidden": false,
+            "omit": false,
+            "index": false,
+            "sortable": false,
+            "searchable": false,
+            "filterable": false,
+            "space": "wspdRw3z3gqkWBWWF",
+            "precision": 18,
+            "scale": 2,
+            "formula_blank_value": "zeroes",
+            "owner": "5ff3fc3d521ab003d0293acf",
+            "_id": "KebKrBuzWwYkwj8fE",
+            "created": "2021-03-17T03:50:57.415Z",
+            "modified": "2021-03-17T03:50:57.415Z",
+            "created_by": "5ff3fc3d521ab003d0293acf",
+            "modified_by": "5ff3fc3d521ab003d0293acf",
+            "company_id": "3TyAbA3xYadmNgDtd",
+            "company_ids": [
+                "3TyAbA3xYadmNgDtd"
+            ],
+            "name": "datetime__c"
         }
     },
     "actions": {
@@ -1370,7 +1406,7 @@
             ]
         }
     },
-    "fields_serial_number": 490,
+    "fields_serial_number": 510,
     "permissions": {
         "allowCreate": true,
         "allowDelete": true,

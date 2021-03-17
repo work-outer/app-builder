@@ -1,0 +1,24 @@
+{
+    "data": {
+        "blocks": [
+            {
+                "@type": "@builder.io/sdk:Element",
+                "@version": 2,
+                "id": "builder-1317e840d1ee4e6fa0ff9506a6424536",
+                "component": {
+                    "name": "Steedos:ObjectForm",
+                    "options": {}
+                },
+                "responsiveStyles": {
+                    "large": {
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "alignItems": "stretch",
+                        "position": "relative",
+                        "marginTop": "20px"
+                    }
+                }
+            }
+        ]
+    }
+}
