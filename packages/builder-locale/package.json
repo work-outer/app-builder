@@ -1,5 +1,5 @@
 {
-  "name": "@steedos/ui-locale",
+  "name": "@steedos/builder-locale",
   "version": "1.0.0",
   "license": "MIT",
   "main": "dist/cjs/index.js",
@@ -35,5 +35,5 @@
   "dependencies": {
     "typescript": "^4.2.2"
   },
-  "repository": "https://github.com/steedos/app-builder/tree/master/packages/ui-locale"
+  "repository": "https://github.com/steedos/app-builder/tree/master/packages/builder-locale"
 }

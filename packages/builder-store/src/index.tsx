@@ -27,15 +27,13 @@ export const ObjectModel = types.model({
 
 // Define a store just like a model
 export const RootStore = types.model({
-  currentObjectApiName: types.union(types.string, types.null), 
-  currentRecordId: types.union(types.string, types.null), 
+  currentObjectApiName: types.union(types.string, types.undefined), 
+  currentRecordId: types.union(types.string, types.undefined), 
   forms: types.map(FormModel),
   objects: types.map(ObjectModel)
 })
 
 export const store = RootStore.create({
-  currentObjectApiName: null, 
-  currentRecordId: null,
   forms: {},
   objects: {},
 })

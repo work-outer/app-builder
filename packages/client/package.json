@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@steedos/filters": "^1.23.20",
+    "@steedos/filters": "^1.23.22",
     "node-fetch": "^2.6.1"
   },
   "repository": "https://github.com/steedos/app-builder/tree/master/packages/client"

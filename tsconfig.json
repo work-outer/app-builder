@@ -26,7 +26,7 @@
         "@steedos/builder-form": ["/packages/builder-form/src/index.tsx"],
         "@steedos/builder-steedos": ["/packages/builder-steedos/src/index.tsx"],
         "@steedos/builder-object": ["/packages/builder-object/src/index.tsx"],
-        "@steedos/ui-locale": ["/packages/ui-locale/src/index.ts"],
+        "@steedos/builder-locale": ["/packages/builder-locale/src/index.ts"],
       }
     },
     "include": ["packages", "scripts", "tooling"],
