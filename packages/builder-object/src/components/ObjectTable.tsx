@@ -1,13 +1,15 @@
 
 import React, { useContext } from "react";
 import _ from 'lodash';
-import { BuilderStoreContext } from '@builder.io/react';
+// import { BuilderStoreContext } from '@builder.io/react';
 import { ObjectContext } from "../";
 import { useQuery } from "react-query";
 import ProTable, { ProTableProps, RequestData } from "@ant-design/pro-table";
 import { SortOrder } from "antd/lib/table/interface";
 import { ParamsType } from "@ant-design/pro-provider";
+import { observer } from "mobx-react-lite"
 import { registerObjectTableComponent } from "..";
+import { TableModel, store } from '@steedos/builder-store';
 
 // export type TableProps<T extends Record<string, any>, U extends ParamsType, ValueType>  = {
 //   mode?: ProFieldFCMode,
@@ -29,6 +31,7 @@ export type ObjectTableColumnProps = {
 }
 
 export type ObjectTableProps<T extends Record<string, any>, U extends ParamsType, ValueType> = {
+  name: string,
   objectApiName?: string,
   columns: ObjectTableColumnProps[]
 } & Omit<ProTableProps<T, U, ValueType>, 'columns'> & {
@@ -139,15 +142,19 @@ export const getObjectTableProColumn = (field: any) => {
   return proColumnProps;
 }
 
-export const ObjectTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(props: ObjectTableProps<T, U, ValueType>) => {
-  const store = useContext(BuilderStoreContext);
+export const ObjectTable = observer(<T extends Record<string, any>, U extends ParamsType, ValueType>(props: ObjectTableProps<T, U, ValueType>) => {
+// export const ObjectTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(props: ObjectTableProps<T, U, ValueType>) => {
+  // const store = useContext(BuilderStoreContext);
   const objectContext = useContext(ObjectContext);
-  let { currentObjectApiName } = store.context;
+  let { currentObjectApiName } = store;
   if (!currentObjectApiName) {
     currentObjectApiName = objectContext.currentObjectApiName;
   }
 
-  const { columns, ...rest } = props
+  const { name: tableId = 'default', columns, ...rest } = props
+
+  if (!store.forms[tableId])
+    store.forms[tableId] = TableModel.create({id: tableId});
   const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   const {
     isLoading,
@@ -214,4 +221,4 @@ export const ObjectTable = <T extends Record<string, any>, U extends ParamsType,
       {...rest}
     />
   )
-}
+});

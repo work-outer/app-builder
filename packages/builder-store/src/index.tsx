@@ -19,6 +19,11 @@ export const FormModel = types.model({
   }
 }))
 
+export const TableModel = types.model({
+  id: types.identifier
+}).actions(self => ({
+}))
+
 export const ObjectModel = types.model({
   id: types.identifier,
   datasource: types.string,
@@ -30,10 +35,12 @@ export const RootStore = types.model({
   currentObjectApiName: types.union(types.string, types.undefined), 
   currentRecordId: types.union(types.string, types.undefined), 
   forms: types.map(FormModel),
+  tables: types.map(TableModel),
   objects: types.map(ObjectModel)
 })
 
 export const store = RootStore.create({
   forms: {},
+  tables: {},
   objects: {},
 })
