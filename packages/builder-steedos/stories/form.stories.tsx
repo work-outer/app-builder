@@ -3,6 +3,7 @@ import { adapt } from "webcomponents-in-react";
 import { BuilderComponent, builder } from '@builder.io/react';
 
 import { SteedosProvider } from "../src/index"
+import { store } from '@steedos/builder-store';
 
 export default {
   title: "Steedos Form",
@@ -175,10 +176,11 @@ export const Preview = () => {
 
   require('../src/builder-widgets');
   require('@steedos/builder-object/src/builder-widgets');
-  const context = {
-    currentObjectApiName: "accounts",
-    currentRecordId: ""
-  };
+  // const context = {
+  //   currentObjectApiName: "accounts",
+  //   currentRecordId: ""
+  // };
+  store.setCurrentObjectApiName("accounts");
   const data = {
     initialValues: { name: 'Hello World!' },
     columns: 3,
@@ -187,7 +189,7 @@ export const Preview = () => {
   const bcProps = {
     apiKey,
     // content,
-    context,
+    // context,
     data,
     onStateChange: (newData: any) => {
     }
