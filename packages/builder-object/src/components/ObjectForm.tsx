@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import _ from 'lodash';
 // import { BuilderStoreContext } from '@builder.io/react';
 import { ObjectContext } from "../";
-import { useQuery } from "react-query";
+import { useQueries } from 'react-query'
 
 import { Form } from '@steedos/builder-form/src/index';
 import { BaseFormProps } from "@ant-design/pro-form/lib/BaseForm";
@@ -23,19 +23,15 @@ export type ObjectFormProps = {
 } & FormProps
 
 export const ObjectForm = observer((props:ObjectFormProps) => {
-// export function ObjectForm(props:ObjectFormProps) {
-  // const store = useContext(BuilderStoreContext);
 
-  // const { editable, name: formId = 'default', ...rest} = props;
   const {
     name: formId = 'default',
     mode = 'edit', 
-    layout = 'horizontal',
+    layout = 'vertical',
     ...rest
   } = props;
   if (!store.forms[formId])
     store.forms[formId] = FormModel.create({id: formId, mode});
-  // console.log("=ObjectForm===store===", store);
   const objectContext = useContext(ObjectContext);
   let { currentObjectApiName, currentRecordId } = store;
   if(!currentObjectApiName){
@@ -47,38 +43,54 @@ export const ObjectForm = observer((props:ObjectFormProps) => {
 
   const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
   const recordId = props.recordId ? props.recordId : currentRecordId;
-  // console.log("=ObjectForm===objectApiName, recordId===", objectApiName, recordId);
+
+  //TODO fields的确定
+  const filter = ['_id', '=', recordId];
+  const fields = ['name', 'type', 'number_of_employees', 
+                  'description', 'email', 'industry', 
+                  'rating', 'salutation', 'startdate__c', 
+                  'datetime__c','state', 'summary__c', 'website'];
+  const results = useQueries([
+    { queryKey: objectApiName, queryFn: async () => {
+        return await objectContext.requestObject(objectApiName as string);
+      }
+    },
+    { queryKey: [objectApiName, filter, fields] , queryFn: async () => {
+      return await objectContext.requestRecords(objectApiName, filter, fields);
+      } 
+    }
+  ])
   const { 
-    isLoading, 
-    error, 
-    data, 
-    isFetching 
-  } = useQuery(objectApiName, async () => {
-    return await objectContext.requestObject(objectApiName as string);
-  });
-  const objectSchema:any = data
-  //console.log("==requestObject==data===", data);
+    isLoading: isLoadingObject, 
+    error: errorObject, 
+    data: data1, 
+    isFetching: isFetchingObject
+  } = results[0];
+  const { 
+    isLoading: isLoadingRecord, 
+    error: errorRecord, 
+    data: data2, 
+    isFetching: isFetchingRecord
+  } = results[1];
 
-  if (!objectSchema) 
-    return (<div>Object Loading...</div>)
+  const isLoadings = isLoadingObject || isLoadingRecord;
 
-  registerObjectFieldComponent(_.keys(objectSchema.fields));
+  if (isLoadings) return (<div>Object Loading...</div>)
+
+  const object:any = data1;
+  const records:any = data2;
+
+  registerObjectFieldComponent(_.keys(object.fields));
   
-  //TODO  fields['name', 'type']不为空
-  
-  // const fields:any = []
-  // _.forEach(objectSchema.fields, (field, fieldName)=>{
-  //   if(!field.hidden)
-  //     fields.push(field)
-  // })
-  // const formProps = {
-  //   fields: fields
-  // }
-
-  const initialValues = {} // 根据 recordId 抓数据，生成。
+  let initialValues = {};
+  const record = records[0];
+  fields.map((fieldName)=>{
+    initialValues[fieldName] = record[fieldName];
+  })
   return (
     <Form 
       // formFieldComponent = {ObjectField}
+      initialValues={initialValues}
       mode={mode}
       layout={layout}
       {...rest}

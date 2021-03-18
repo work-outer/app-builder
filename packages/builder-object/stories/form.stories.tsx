@@ -14,6 +14,15 @@ export default {
   title: "Object Form",
 }
 
+import { SteedosClient }  from '@steedos/client';
+const {
+  STEEDOS_ROOT_URL,
+  STEEDOS_TENANT_ID,
+  STEEDOS_USER_ID,
+  STEEDOS_AUTH_TOKEN,
+  STEEDOS_LOCALE = 'zh_CN'
+} = process.env
+
 
 declare var window;
 
@@ -168,7 +177,7 @@ export const Preview = () => {
     initialValues: { name: 'Hello World!' },
     columns: 3,
   }
-  const content = {}//require('./object-field-form.builder.json');
+  const content ={} //require('./object-field-form.builder.json');
   const bcProps = {
     apiKey,
     //content,
@@ -178,21 +187,38 @@ export const Preview = () => {
     }
   }
 
-  const accountsJson = require('../../ui-components/stories/account.json')
+  //const accountsJson = require('../../ui-components/stories/account.json')
+  const requestObject = async(objectApiName:string) => {
+    //TODO 通过接口获取对象信息 /api/bootstrap/:spaceId/:objectName
+    if(!objectApiName){
+      return;
+    }
+    const object = await client.sobject(objectApiName).getConfig();
+    return object;
+  }
+
+  const requestRecords = async( objectApiName:string, filters:any, fields:any , options:any) => {
+    const records = await client.sobject(objectApiName).find(filters, fields);
+    console.log('-----requestRecords-----', records);
+    return records;
+
+  }
   return (
     <ObjectProvider
-      currentObjectApiName="accounts"
-      requestObject={async (objectApiName) => {
-        //objectApiName:对象api名称
-        console.log("==in function==", objectApiName);
-        return accountsJson;
-      }}
-      requestRecords={async (objectApiName, filters, fields, options) => {
-        //objectApiName:对象api名称
-        //filters: 过滤条件
-        //fields: 要返回的字段
-        return []
-      }}
+      currentObjectApiName={context.currentObjectApiName}
+      requestObject={requestObject}
+      requestRecords={requestRecords}
+      // requestObject={async (objectApiName) => {
+      //   //objectApiName:对象api名称
+      //   console.log("==in function==", objectApiName);
+      //   return accountsJson;
+      // }}
+      // requestRecords={async (objectApiName, filters, fields, options) => {
+      //   //objectApiName:对象api名称
+      //   //filters: 过滤条件
+      //   //fields: 要返回的字段
+      //   return []
+      // }}
     >
       <FormProvider locale="zh_CN">
         <BuilderComponent {...bcProps}>
@@ -202,6 +228,13 @@ export const Preview = () => {
     </ObjectProvider>
   )
 }
+
+const client = new SteedosClient();
+  
+client.setUrl(STEEDOS_ROOT_URL)
+client.setUserId(STEEDOS_TENANT_ID)
+client.setToken(STEEDOS_AUTH_TOKEN);
+client.setSpaceId(STEEDOS_USER_ID);
 
 export const ObjectFormSimple = () => {
 
@@ -227,14 +260,28 @@ export const ObjectFormSimple = () => {
       currentObjectApiName="accounts"
       requestObject={async (objectApiName) => {
         //objectApiName:对象api名称
-        console.log("==in function==", objectApiName);
+        //console.log("==in function==", objectApiName);
         return accountsJson;
       }}
       requestRecords={async (objectApiName, filters, fields, options) => {
         //objectApiName:对象api名称
         //filters: 过滤条件
         //fields: 要返回的字段
-        return []
+        return [{
+          name:'test',
+          type:'Analyst',
+          number_of_employees: 10,
+          description: '这是描述信息',
+          email: '123@qq.com',
+          industry: 'Engineering',
+          rating : 'Warm',
+          salutation : 'Female',
+          startdate__c : '2021-03-15',
+          datetime__c: '2021-03-15 11:30:00',
+          state : 'SH',
+          summary__c : 3,
+          website : '123.com'
+        }]
       }}
     >
       <BuilderComponent {...bcProps}>
