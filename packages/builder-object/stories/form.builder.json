@@ -359,24 +359,6 @@
                     {
                         "@type": "@builder.io/sdk:Element",
                         "@version": 2,
-                        "id": "builder-a1d54df3fa2f4868a0711f4f7971d2de",
-                        "component": {
-                            "name": "Steedos:ObjectField",
-                            "options": {}
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "flex",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "20px"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "@builder.io/sdk:Element",
-                        "@version": 2,
                         "id": "builder-4ab301d4bde7444793d9394ab801fdcc",
                         "component": {
                             "name": "Steedos:ObjectField",
