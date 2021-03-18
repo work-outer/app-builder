@@ -14,6 +14,7 @@ export function ObjectProvider(props: ObjectProviderProps) {
     currentRecordId,
     requestObject,
     requestRecords,
+    updateRecord,
     queryClient = new QueryClient(),
     children,
   } = props;
@@ -25,6 +26,7 @@ export function ObjectProvider(props: ObjectProviderProps) {
       queryClient,
       requestObject,
       requestRecords,
+      updateRecord
     }}>
       <QueryClientProvider client={queryClient}>
         {children}

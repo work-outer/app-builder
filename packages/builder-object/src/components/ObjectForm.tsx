@@ -42,7 +42,7 @@ export const ObjectForm = observer((props:ObjectFormProps) => {
   }
 
   const objectApiName = props.objectApiName ? props.objectApiName : currentObjectApiName as string;
-  const recordId = props.recordId ? props.recordId : currentRecordId;
+  const recordId = props.recordId ? props.recordId : currentRecordId || '';
 
   //TODO fields的确定
   const filter = ['_id', '=', recordId];
@@ -87,12 +87,20 @@ export const ObjectForm = observer((props:ObjectFormProps) => {
   fields.map((fieldName)=>{
     initialValues[fieldName] = record[fieldName];
   })
+  const onFinish = async(values:any) =>{
+    const result = await objectContext.updateRecord(objectApiName, recordId, values);
+    console.log('----onFinish--result--', result);
+    if(result){
+      alert("表单修改成功！");
+    }
+  }
   return (
     <Form 
       // formFieldComponent = {ObjectField}
       initialValues={initialValues}
       mode={mode}
       layout={layout}
+      onFinish={onFinish}
       {...rest}
     />
   )

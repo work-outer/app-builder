@@ -63,11 +63,19 @@ export function SteedosProvider(props:any) {
 
   }
 
+  const updateRecord = async (objectApiName:string, objectRecordId:string, data:any) => {
+    const result = await client.sobject(objectApiName).update(objectRecordId, data);
+
+    return result
+  }
+
   const objectProviderProps = {
     
     requestObject: requestObject,
     
-    requestRecords: requestRecords
+    requestRecords: requestRecords,
+    
+    updateRecord: updateRecord
   }
 
   return (

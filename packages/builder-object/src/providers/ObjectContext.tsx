@@ -17,15 +17,21 @@ const defaultRequestRecords = async ( objectApiName:string, filters:any, fields:
   throw new Error(`requestRecords ${objectApiName} failed, you should impl this function in ObjectProvider.`)
 }
 
+const defaultUpdateRecord = async (objectApiName:string, objectRecordId:string, formData:any) =>{
+  throw new Error(`submitForm ${objectApiName} update id: ${objectRecordId} failed, you should impl this function in ObjectProvider.`)
+}
+
 export type ObjectContextValueType = {
   currentObjectApiName?: string,
   currentRecordId?: string,
   queryClient?: any,
   requestObject: ( objectApiName:string) => Promise<object | Error>
   requestRecords: <T extends Record<string, any>>( objectApiName:string, filters:any, fields:any, params?: RecordQueryRequestParams ) => Promise<Partial<RequestData<T>>>
+  updateRecord: (objectApiName:string, objectRecordId:string, formData:any ) => Promise<object | Error>
 }
 
 export const ObjectContext = React.createContext<ObjectContextValueType>({
   requestObject: defaultRequestObject,
-  requestRecords: defaultRequestRecords
+  requestRecords: defaultRequestRecords,
+  updateRecord: defaultUpdateRecord
 });

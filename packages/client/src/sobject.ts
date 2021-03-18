@@ -109,8 +109,10 @@ export default class SObject {
      * @param id 
      * @param doc 
      */
-    async update(id: string, doc: Record){
-
+    async update(id: string, data: Record){
+        let url = `${this.client.getBaseRoute()}/api/v4/${this.objectName}/${id}`;
+        let result = await this.client.doFetch(url, {method: 'put', body: JSON.stringify(data)});
+        return result.value;
     }
 
     /**

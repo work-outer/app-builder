@@ -15,6 +15,7 @@ export default {
 }
 
 import { SteedosClient }  from '@steedos/client';
+import { result } from "lodash";
 const {
   STEEDOS_ROOT_URL,
   STEEDOS_TENANT_ID,
@@ -219,6 +220,11 @@ export const Preview = () => {
       //   //fields: 要返回的字段
       //   return []
       // }}
+      updateRecord = {async (objectApiName, objectRecordId, data) => {
+        const result = await client.sobject(objectApiName).update(objectRecordId, data);
+
+        return result
+      }}
     >
       <FormProvider locale="zh_CN">
         <BuilderComponent {...bcProps}>
@@ -282,6 +288,12 @@ export const ObjectFormSimple = () => {
           summary__c : 3,
           website : '123.com'
         }]
+      }}
+      updateRecord = {async (objectApiName, objectRecordId, data) => {
+
+        const result = await client.sobject(objectApiName).update(objectRecordId, data);
+
+        return result
       }}
     >
       <BuilderComponent {...bcProps}>
