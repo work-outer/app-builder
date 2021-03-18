@@ -99,7 +99,7 @@ export const getProColumnProps = (proColumnProps:any, fieldType: string, readonl
       proColumnProps.readonly = readonly;
       break;
     case 'url':
-      proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
+      proColumnProps.valueType='href';
       break;
     case 'lookup':
       proColumnProps.render = () => <div>{`未实现字段类型${fieldType}的组件`}</div>
@@ -180,7 +180,7 @@ export const ObjectTable = observer(<T extends Record<string, any>, U extends Pa
       proColumns.push(proColumn);
     }
   });
-  console.log('--other- proColumns-', proColumns);
+
   const request = async (params: U & {
     pageSize?: number;
     current?: number;
