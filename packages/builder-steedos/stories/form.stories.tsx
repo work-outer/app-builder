@@ -212,6 +212,7 @@ export const SteedosObjectForm = () => {
   require('@steedos/builder-object/src/builder-widgets');
 
   store.setCurrentObjectApiName("accounts");
+  store.setCurrentRecordId("F5NXvdmHC5yaZ2qFv");
   const data = {
     initialValues: { name: 'Hello World!' },
     columns: 3,

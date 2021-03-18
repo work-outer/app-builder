@@ -53,7 +53,8 @@ export function SteedosProvider(props:any) {
     if(!objectApiName){
       return;
     }
-    return await client.sobject(objectApiName).getConfig();
+    const object = await client.sobject(objectApiName).getConfig();
+    return object;
   }
 
   const requestRecords = async( objectApiName:string, filters:any, fields:any , options:any) => {
