@@ -13,7 +13,8 @@ export const configField = {
             'timeRange','text','select','checkbox','rate',
             'radio','radioButton','index','indexBorder',
             'progress','percent','digit','second','avatar',
-            'code','switch', 'fromNow','image', 'jsonCode','href'
+            'code','switch', 'fromNow','image', 'jsonCode',
+            'href','email'
           ]
     },
     { name: 'options',  type: 'list', required: true, subFields: [
