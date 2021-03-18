@@ -34,9 +34,9 @@ export const ObjectModel = types.model({
 export const RootStore = types.model({
   currentObjectApiName: types.union(types.string, types.undefined, types.null), 
   currentRecordId: types.union(types.string, types.undefined, types.null), 
-  forms: types.map(FormModel),
-  tables: types.map(TableModel),
-  objects: types.map(ObjectModel)
+  forms: types.optional(types.map(FormModel), {}),
+  tables: types.optional(types.map(TableModel), {}),
+  objects: types.optional(types.map(ObjectModel), {}),
 }).actions(self => ({
   setCurrentObjectApiName(name: string) {
     self.currentObjectApiName = name;
@@ -47,9 +47,4 @@ export const RootStore = types.model({
 }))
 
 export const store = RootStore.create({
-  currentObjectApiName: null,
-  currentRecordId: null,
-  forms: {},
-  tables: {},
-  objects: {},
 })
