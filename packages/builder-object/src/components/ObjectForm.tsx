@@ -49,7 +49,8 @@ export const ObjectForm = observer((props:ObjectFormProps) => {
   const fields = ['name', 'type', 'number_of_employees', 
                   'description', 'email', 'industry', 
                   'rating', 'salutation', 'startdate__c', 
-                  'datetime__c','state', 'summary__c', 'website'];
+                  'datetime__c','state', 'summary__c', 
+                  'website', 'html__c', 'annual_revenue', 'fn__c'];
   const results = useQueries([
     { queryKey: objectApiName, queryFn: async () => {
         return await objectContext.requestObject(objectApiName as string);

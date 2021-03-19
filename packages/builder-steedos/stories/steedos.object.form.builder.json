@@ -359,24 +359,6 @@
                     {
                         "@type": "@builder.io/sdk:Element",
                         "@version": 2,
-                        "id": "builder-a1d54df3fa2f4868a0711f4f7971d2de",
-                        "component": {
-                            "name": "Steedos:ObjectField",
-                            "options": {}
-                        },
-                        "responsiveStyles": {
-                            "large": {
-                                "display": "flex",
-                                "flexDirection": "column",
-                                "alignItems": "stretch",
-                                "position": "relative",
-                                "marginTop": "20px"
-                            }
-                        }
-                    },
-                    {
-                        "@type": "@builder.io/sdk:Element",
-                        "@version": 2,
                         "id": "builder-4ab301d4bde7444793d9394ab801fdcc",
                         "component": {
                             "name": "Steedos:ObjectField",
@@ -523,6 +505,68 @@
                             "name": "Steedos:ObjectField",
                             "options": {
                                 "fieldName": "mobile"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-d3cc0996a1a84740b108bf3f25fcd852",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "html__c"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-ed51399647e54066ab841e9ab2a4b3ee",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "annual_revenue"
+                            }
+                        },
+                        "responsiveStyles": {
+                            "large": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "stretch",
+                                "position": "relative",
+                                "marginTop": "20px"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "@builder.io/sdk:Element",
+                        "@version": 2,
+                        "id": "builder-f54ec40493c24567b0249752ad8adcb6",
+                        "component": {
+                            "name": "Steedos:ObjectField",
+                            "options": {
+                                "fieldName": "fn__c",
+                                "required": false,
+                                "readonly": false
                             }
                         },
                         "responsiveStyles": {

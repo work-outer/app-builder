@@ -188,42 +188,67 @@ export const Preview = () => {
     }
   }
 
-  //const accountsJson = require('../../ui-components/stories/account.json')
-  const requestObject = async(objectApiName:string) => {
-    //TODO 通过接口获取对象信息 /api/bootstrap/:spaceId/:objectName
-    if(!objectApiName){
-      return;
-    }
-    const object = await client.sobject(objectApiName).getConfig();
-    return object;
-  }
+  const accountsJson = require('../../ui-components/stories/account.json')
+  // const requestObject = async(objectApiName:string) => {
+  //   //TODO 通过接口获取对象信息 /api/bootstrap/:spaceId/:objectName
+  //   if(!objectApiName){
+  //     return;
+  //   }
+  //   const object = await client.sobject(objectApiName).getConfig();
+  //   return object;
+  // }
 
-  const requestRecords = async( objectApiName:string, filters:any, fields:any , options:any) => {
-    const records = await client.sobject(objectApiName).find(filters, fields);
-    console.log('-----requestRecords-----', records);
-    return records;
+  // const requestRecords = async( objectApiName:string, filters:any, fields:any , options:any) => {
+  //   const records = await client.sobject(objectApiName).find(filters, fields);
+  //   console.log('-----requestRecords-----', records);
+  //   return records;
 
-  }
+  // }
+
+    // const updateRecord = {async (objectApiName, objectRecordId, data) => {
+    //   const result = await client.sobject(objectApiName).update(objectRecordId, data);
+
+    //   return result
+    // }
   return (
     <ObjectProvider
       currentObjectApiName={context.currentObjectApiName}
-      requestObject={requestObject}
-      requestRecords={requestRecords}
-      // requestObject={async (objectApiName) => {
-      //   //objectApiName:对象api名称
-      //   console.log("==in function==", objectApiName);
-      //   return accountsJson;
-      // }}
-      // requestRecords={async (objectApiName, filters, fields, options) => {
-      //   //objectApiName:对象api名称
-      //   //filters: 过滤条件
-      //   //fields: 要返回的字段
-      //   return []
-      // }}
+      // requestObject={requestObject}
+      // requestRecords={requestRecords}
+      // updateRecord={updateRecord}
+      requestObject={async (objectApiName) => {
+        //objectApiName:对象api名称
+        console.log("==in function==", objectApiName);
+        return accountsJson;
+      }}
+      requestRecords={async (objectApiName, filters, fields, options) => {
+        //objectApiName:对象api名称
+        //filters: 过滤条件
+        //fields: 要返回的字段
+        return [{
+          name:'test',
+          type:'Analyst',
+          number_of_employees: 10,
+          description: '这是描述信息',
+          email: '123@qq.com',
+          industry: 'Engineering',
+          rating : 'Warm',
+          salutation : 'Female',
+          startdate__c : '2021-03-15',
+          datetime__c: '2021-03-15 11:30:00',
+          state : 'SH',
+          summary__c : 3,
+          website : '123.com',
+          html__c: '这是HTML文本内容',
+          annual_revenue: 56123,
+          fn__c: 56123
+        }]
+      }}
       updateRecord = {async (objectApiName, objectRecordId, data) => {
-        const result = await client.sobject(objectApiName).update(objectRecordId, data);
-
-        return result
+        //objectApiName:对象api名称
+        //objectRecordId: recordId
+        //data:表单提交Data
+        return []
       }}
     >
       <FormProvider locale="zh_CN">
@@ -286,14 +311,17 @@ export const ObjectFormSimple = () => {
           datetime__c: '2021-03-15 11:30:00',
           state : 'SH',
           summary__c : 3,
-          website : '123.com'
+          website : '123.com',
+          html__c: '这是HTML文本内容',
+          annual_revenue: 56123,
+          fn__c: 56123
         }]
       }}
       updateRecord = {async (objectApiName, objectRecordId, data) => {
-
-        const result = await client.sobject(objectApiName).update(objectRecordId, data);
-
-        return result
+        //objectApiName:对象api名称
+        //objectRecordId: recordId
+        //data:表单提交Data
+        return []
       }}
     >
       <BuilderComponent {...bcProps}>

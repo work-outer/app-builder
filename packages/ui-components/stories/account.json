@@ -514,7 +514,7 @@
         "annual_revenue": {
             "label": "年收入",
             "type": "currency",
-            "hidden": true,
+            "hidden": false,
             "sort_no": 250,
             "name": "annual_revenue"
         },
@@ -1106,6 +1106,40 @@
                 "3TyAbA3xYadmNgDtd"
             ],
             "name": "html__c"
+        },
+        "fn__c": {
+            "object": "accounts",
+            "label": "小计",
+            "_name": "fn",
+            "type": "formula",
+            "precision": 18,
+            "scale": 2,
+            "formula": "ROUND((annual_revenue*0.02), 2)",
+            "data_type": "currency",
+            "formula_blank_value": "zeroes",
+            "sort_no": 520,
+            "is_name": false,
+            "required": false,
+            "is_wide": false,
+            "readonly": false,
+            "hidden": false,
+            "omit": false,
+            "index": false,
+            "sortable": false,
+            "searchable": false,
+            "filterable": false,
+            "space": "wspdRw3z3gqkWBWWF",
+            "owner": "5ff3fc3d521ab003d0293acf",
+            "_id": "LYtJRumQQiFi4rbSF",
+            "created": "2021-03-19T03:13:35.149Z",
+            "modified": "2021-03-19T03:13:35.149Z",
+            "created_by": "5ff3fc3d521ab003d0293acf",
+            "modified_by": "5ff3fc3d521ab003d0293acf",
+            "company_id": "3TyAbA3xYadmNgDtd",
+            "company_ids": [
+                "3TyAbA3xYadmNgDtd"
+            ],
+            "name": "fn__c"
         }
     },
     "actions": {
@@ -1438,7 +1472,8 @@
             ]
         }
     },
-    "fields_serial_number": 520,
+    "fields_serial_number": 530,
+    "relatedList": [],
     "permissions": {
         "allowCreate": true,
         "allowDelete": true,
